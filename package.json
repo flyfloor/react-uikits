@@ -21,8 +21,9 @@
   "license": "MIT",
   "homepage": "https://github.com/jerryshew/react-uikit",
   "dependencies": {
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-ui-component": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
