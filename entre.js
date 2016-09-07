@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import {CN} from './src/util';
 import dot from 'dot-css/src/dot.less'
 
-import {Basic} from './src/component/index';
+import {BasicPage, CalenderPage} from './src/page/index';
 import demoCss from './src/page/demo.less';
 
 const NavLink = (props) => {
@@ -36,6 +36,7 @@ export class App extends Component {
                         <div className={CN('grid')}>
                             <aside className={CN('column-3 main-aside')}>
                                 <NavLink to="/basic">basic</NavLink>
+                                <NavLink to="/calender">calender</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -70,6 +71,7 @@ class RootPage extends Component {
 ReactDOM.render(<Router history={hashHistory}>
                     <Route path="/" component={App}>
                         <IndexRoute component={RootPage}/>
-                        <Route path="/basic" component={Basic}></Route>
+                        <Route path="/basic" component={BasicPage}></Route>
+                        <Route path="/calender" component={CalenderPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
