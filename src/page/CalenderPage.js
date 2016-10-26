@@ -5,7 +5,7 @@ export default class CalenderPage extends Component {
     render() {
         return (
             <div>
-                <Calender/>
+                <Calender />
             </div>
         );
     }
