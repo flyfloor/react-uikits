@@ -1,0 +1,189 @@
+@import url('meta');
+@import url('color');
+@import url('media');
+
+@{NS}.input {
+    display: table;
+    position: relative;
+    vertical-align: middle;
+    .button, button {
+        margin: auto;
+        width: 100%;
+        border-radius: 0;
+        margin-right: 0;
+    }
+
+    >.action, input, select {
+        display: table-cell;
+        vertical-align: bottom;
+    }
+    >.action>.button, >.action>button {
+        margin: auto;
+        width: 100%;
+        display: block;
+        border-radius: inherit;
+    }
+    input, select, textarea {
+        width: 100%;
+    }
+
+    >:first-child {
+        border-top-left-radius: @radius;
+        border-bottom-left-radius: @radius;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    >:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: @radius;
+        border-bottom-right-radius: @radius;
+    }
+    &.fluid {
+        width: 100%;
+        >.action {
+            width: 5em;
+        }
+    }
+    &.icon>input {
+        border-radius: @radius;
+    }
+    .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        right: initial;
+    }
+    input+.icon{
+        left: initial;
+        right: 0;
+    }
+}
+
+.__input_size(@_lh, @_padding){
+    font-size: @_lh - 2px;
+    padding: @_padding;
+    line-height: @_lh;
+    height: @_lh + @_padding * 2 + 2px;
+}
+
+
+._INPUT_SIZE(@size, @_pd, @wrapper) when(@wrapper=true) {
+    @_padding: @padding * @_pd / 10;
+    @_lh: @line_height * @size / 15;
+    @_border_radius: @line_height * @size / 15 + @padding * @_pd / 10;
+    input, select, textarea, button, .button {
+        .__input_size(@_lh, @_padding);
+    }
+    &.round {
+        >:first-child {
+            border-top-left-radius: @_border_radius;
+            border-bottom-left-radius: @_border_radius;
+        }
+        >:last-child {
+            border-top-right-radius: @_border_radius;
+            border-bottom-right-radius: @_border_radius;
+        }
+    }
+    &.icon {
+        &.fluid {
+            display: block;
+        }
+        &.round {
+            input {
+                border-radius: @_border_radius;
+            }
+        }
+        input {
+            padding-left: @_padding;
+            padding-right: @_padding * 2 + @_lh + 4px;
+        }
+
+        .icon + input {
+            padding-left: @_padding * 2 + @_lh + 4px;
+            padding-right: @_padding;
+        }
+    }
+
+    .icon {
+        cursor: pointer;
+        width: @_padding * 2 + @_lh + 2px;
+        text-align: center;
+        line-height: @_padding * 2 + @_lh + 2px;
+        font-size: @_lh + 2px;
+    }
+}
+
+._INPUT_SIZE(@size, @_pd, @wrapper) when(@wrapper=false) {
+    @_padding: @padding * @_pd / 10;
+    @_lh: @line_height * @size / 15;
+    @_border_radius: @line_height * @size / 15 + @padding * @_pd / 10;
+    .__input_size(@_lh, @_padding);
+    &.round {
+        border-radius: @_border_radius;
+    }
+}
+
+
+@{NS}.input {
+    /*only wrapper style*/
+    ._INPUT_SIZE(16, 8, true);
+    overflow: hidden;
+    &.tiny {
+        ._INPUT_SIZE(10, 4, true);
+    }
+    &.small {
+        ._INPUT_SIZE(14, 7, true);
+    }
+    &.large {
+        ._INPUT_SIZE(20, 10, true);
+    }
+    &.huge {
+        ._INPUT_SIZE(24, 12, true);
+    }
+}
+
+@{NS} input, input@{NS}.input, @{NS} textarea, @{NS} select {
+    vertical-align: middle;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+
+    &:focus, &.focus {
+        border-color: @light_blue;
+    }
+
+    &.angled {
+        border-radius: 0;
+    }
+
+    &.fluid {
+        width: 100%;
+    }
+    ._INPUT_SIZE(16, 8, false);
+    &.tiny {
+        ._INPUT_SIZE(10, 4, false);
+    }
+    &.small {
+        ._INPUT_SIZE(14, 7, false);
+    }
+    &.large {
+        ._INPUT_SIZE(20, 10, false);
+    }
+    &.huge {
+        ._INPUT_SIZE(24, 12, false);
+    }
+    
+    &.disabled {
+        disabled: disabled;
+        cursor: not-allowed;
+        pointer-events: none;
+        border-color: @light_gray;
+        background-color: @mini_gray;
+        opacity: .85;
+    }
+    &.error {
+        border-color: @red;
+    }
+}

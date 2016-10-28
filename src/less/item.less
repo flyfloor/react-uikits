@@ -1,0 +1,31 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.item {
+    display: table;
+    margin-bottom: @padding;
+    >.image, >.content {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    >.content {
+        padding-left: @padding;
+        >.header {
+            color: @black;
+        }
+    }
+    &.top>.content {
+        vertical-align: top;
+    }
+    &.bottom>.content {
+        vertical-align: bottom;
+    }
+    >.image {
+        .clearfix;
+        >img {
+            float: left;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@import url('meta');
+
+.__defaultColumn() {
+    float: left;
+    padding: @padding;
+}
+
+.__defaultRow(){
+    .clearfix;
+    margin-bottom: @padding;
+}
+
+.__makeColumns(@n, @i: 1) when (@i =< @n) {
+    .row-@{i} {
+        .__defaultRow();
+        >.column {
+            width: 100% / @i;
+        }
+    }
+    .row>.column-@{i}, >.column-@{i} {
+        .__defaultColumn();
+        width: (@i / @column_count) * 100%;
+    }
+    .__makeColumns(@n, (@i + 1));
+}
+
+.__makeGrid(@n, @i: 1) when (@i =< @n) {
+    @{NS}.grid-@{i} {
+        .clearfix;
+        position: relative;
+        >.column {
+            width: 100% / @i;
+        }
+        >.row>.column {
+            width: 100% / @i;
+        }
+    }
+    .__makeGrid(@n, (@i + 1));
+}
+
+/* default column */
+@{NS} .column {
+    .__defaultColumn();
+}
+
+/* default row */
+@{NS} .row {
+    .__defaultRow();
+}
+
+/* grid */
+@{NS}.grid {
+    position: relative;
+    .clearfix;
+    .__makeColumns(@column_count);
+}
+
+/* grid- */
+.__makeGrid(@column_count);
+
+.__noPaddingColumns(@n, @i: 1) when (@i =< @n) {
+    >.column-@{i}, >.row>.column-@{i} {
+        padding: 0;
+    }
+    .__noPaddingColumns(@n, (@i + 1))
+}
+
+.__basicGrid(@n, @i: 1) when (@i =< @n) {
+    &.grid-@{i} {
+        >.row>.column, >.column {
+            padding: 0;
+        }
+    }
+    .__basicGrid(@n, (@i + 1));
+}
+
+/* basic grid */
+.basic {
+    &.grid {
+        >.column, >.row>.column {
+            padding: 0;
+        }
+        & {
+            .__noPaddingColumns(16);
+        }
+    }
+    .__basicGrid(16);
+}
+

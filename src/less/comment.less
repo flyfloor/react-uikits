@@ -1,0 +1,63 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.comment {
+    margin: @padding 0;
+    >.avatar {
+        float: left;
+        width: @padding * 3.5;
+        height: @padding * 3.5;
+        margin: @padding/2 0 0;
+        .clearfix;
+        img {
+            float: left;
+            width: 100%;
+            height: 100%;
+            background-color: @tiny_gray;
+            border-radius: @radius;
+        }
+        &.angled {
+            img {
+                border-radius: 0;
+            }
+        }
+        &.round {
+            img {
+                border-radius: @padding * 2;
+            }
+        }
+    }
+    >.content {
+        margin-left: @padding * 5;
+        >.nickname {
+            cursor: pointer;
+            display: inline-block;
+            color: @black;
+        }
+        >.text {
+            font-size: @line_height * 14/15;
+            margin-bottom: @padding /2;
+        }
+        >.extra {
+            font-size: @line_height * 12/15;
+            color: @gray;
+            display: inline-block;
+            margin-left: @padding /2;
+            &.right {
+                float: right;
+            }
+            >* {
+                margin-right: @padding * 3/10;
+            }
+        }
+        >.action {
+            font-size: @line_height * 13/15;
+            >a {
+                margin-right: @padding/2;
+            }
+        }
+    }
+    >.comments {
+        margin-left: @padding * 5;
+    }
+}

@@ -1,0 +1,78 @@
+@import url('meta');
+@import url('color');
+@import url('_color_pair');
+
+.__labelGroupSize(@group) when(@group = false) {
+    ._FONT_PADDING(14, 6);
+    &.tiny {
+        ._FONT_PADDING(10, 5);
+    }
+    &.small {
+        ._FONT_PADDING(12, 6);
+    }
+    &.large {
+        ._FONT_PADDING(18, 9);
+    }
+    &.huge {
+        ._FONT_PADDING(22, 11);
+    }
+}
+
+.__labelGroupSize(@group) when(@group = true) {
+    & .label {._FONT_PADDING(12, 6);}
+    &.tiny .label {
+        ._FONT_PADDING(8, 4);
+    }
+    &.small .label {
+        ._FONT_PADDING(10, 5);
+    }
+    &.large .label {
+        ._FONT_PADDING(16, 8);
+    }
+    &.huge .label {
+        ._FONT_PADDING(20, 10);
+    }
+}
+
+@{NS}.label, @{NS} .label {
+    display: inline-block;
+    position: relative;
+    color: @most_gray;
+    margin-right: @padding;
+    border: 0;
+    background-color: @tiny_gray;
+    vertical-align: middle;
+    border-radius: @radius;
+    cursor: pointer;
+    &.angled {
+        border-radius: 0;
+    }
+
+    &:hover {
+        background-color: @light_gray;
+        color: @black;
+    }
+
+    /*size*/
+    .__labelGroupSize(false);
+    /*color label*/
+    ._COLOR_PAIR();
+    /*floar right clear padding*/
+    ._F_RIGHT_EL();
+
+    &.basic {
+        border: 1px solid @gray;
+    }
+
+}
+
+
+@{NS}.label-group {
+    /*label group size*/
+    .__labelGroupSize(true);
+    >:last-child {
+        margin-right: 0;
+    }
+    /*floar right clear padding*/
+    ._F_RIGHT_EL();
+}

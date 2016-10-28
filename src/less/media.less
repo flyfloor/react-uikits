@@ -1,0 +1,11 @@
+@import url('meta');
+
+@__l1: (@large_desktop + 1px);
+@__s1: (@small_desktop + 1px);
+@__m1: (@tablet + 1px);
+
+@large_view: ~"only screen and (min-width: @{__l1})";
+@small_view: ~"only screen and (min-width: @{small_desktop}) and (max-width: @{large_desktop})";
+@tablet_view: ~"only screen and (min-width: @{__m1}) and (max-width: @{small_desktop})";
+@mobile_view: ~"only screen and (max-width: @{tablet})";
+@desktop_view: ~"only screen and (min-width: @{__s1})";

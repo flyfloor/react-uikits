@@ -1,0 +1,35 @@
+@import url('meta');
+@import url('color');
+@import url('_font_padding');
+
+@{NS}.crumb {
+    >.section {
+        display: inline-block;
+        position: relative;
+        font-size: inherit;
+        &+.section:before {
+            font-family: @icon_family;
+            content: 'chevron_right';
+            display: inline-block;
+            margin: 0 @padding * .3;
+            vertical-align: middle;
+            color: @gray;
+        }
+        &:last-child {
+            color: @deep_gray;
+        }
+    }
+    &.slash >.section {
+        &+.section:before {
+            font-family: inherit;
+            content: '/';
+        }
+    }
+
+    /*shape size*/
+    ._FONT_SIZE(14);
+    &.tiny { ._FONT_SIZE(10); }
+    &.small { ._FONT_SIZE(12); }
+    &.large { ._FONT_SIZE(18); }
+    &.huge { ._FONT_SIZE(22); } 
+}

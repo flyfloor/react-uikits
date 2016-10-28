@@ -1,0 +1,366 @@
+@import url('meta');
+/* reset css */
+
+* {
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &:before, &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,ul,blockquote,pre,img,a,abbr,acronym,address,big,cite,code,del,dfn,em,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  vertical-align: baseline;
+  -webkit-overflow-scrolling: touch;
+}
+
+page, article, picture, section, header, footer, nav, wrapper, pagination, comment, blockquote, aside {
+  display: block;
+}
+
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  color: @dark_gray;
+
+  line-height: 1.5;
+  font-size: @line_height;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0,0,0,.08);
+}
+
+i {
+  font-style: italic;
+}
+
+ul {
+  >li {
+      list-style-type: none;
+  }
+}
+
+body {
+  background-color: @white;
+  min-height: 100%;
+}
+
+a[href^="http"]:empty::before {
+  content: attr(href);
+}
+
+a {
+  text-decoration: none;
+  color: @deep_gray;
+  -webkit-transition: color .2s;
+  -o-transition: color .2s;
+  transition: color .2s;
+  &:active {
+    color: @black;
+    outline: none;
+  }
+  &:hover {
+    color: @black;
+  }
+}
+
+p {
+  font-size: 100%;
+}
+
+
+img {
+  width: auto;
+  height: auto;
+  border: none;
+}
+
+h1,h2,h3,h4,h5, h6 {
+  letter-spacing: 0px;
+  text-transform: none;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+abbr {
+    cursor: default;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+figure {
+    margin: 0;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+::-webkit-input-placeholder { 
+  /* Chrome/Opera/Safari */
+  color: #ccc;
+}
+::-moz-placeholder { 
+  /* Firefox 19+ */
+  color: #ccc;
+}
+:-ms-input-placeholder { 
+  /* IE 10+ */
+  color: #ccc;
+}
+:-moz-placeholder { 
+  /* Firefox 18- */
+  color: #ccc;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"], 
+input[type="radio"] {
+  margin: 0;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="url"], 
+input[type="tel"], 
+input[type="password"], 
+input[type="email"], 
+input[type="date"], 
+input[type="datetime-local"], 
+input[type="time"], 
+textarea, select {
+  margin: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  padding: @padding * 8/10 @padding;
+  border: 1px solid rgba(50,50,50,0.16);
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  line-height: @line_height;
+  font-size: @line_height;
+  border-radius: @radius;
+  color: @most_gray;
+  &:focus {
+    color: @deep_gray;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: @mini_gray;
+    opacity: .85;
+  }
+}
+
+select {
+  background-color: transparent;
+  -webkit-appearance: menulist;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+button,
+input, 
+select, 
+textarea, 
+input, 
+select, 
+textarea {
+    &[readonly], &[disabled] {
+        cursor: default;
+        opacity: .8;
+        background-color: @white;
+    }
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto; 
+    vertical-align: top; 
+}
+
+caption,th,td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle
+}
+
+/*caption, th, td.gutter{
+  display: none;
+}
+*/
+q,blockquote {
+  quotes: none
+}
+
+q:before,q:after,blockquote:before,blockquote:after {
+  content: "";
+  content: none
+}
+
+pre, code, tt {
+    font-family: Monaco,"Andale Mono","lucida console","Courier New",monospace;
+}
+
+pre {
+    font-size: @line_height * 13/15;
+    line-height: 1.5;
+    vertical-align: baseline;
+    box-shadow: none;
+    padding: @padding;
+    overflow: auto;
+    color: @blue;
+    background: @tiny_gray;
+    margin: @padding 0;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    word-wrap: normal; 
+}
+
+code {
+  white-space: pre;
+}

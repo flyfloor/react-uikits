@@ -1,0 +1,67 @@
+@import url('meta');
+@import url('color');
+@import url('_font_padding');
+
+
+@{NS}.message {
+    .__resetMsgPadding(){
+        padding-left: @padding;
+        padding-right: @padding;
+    }
+    .__messageSize() {
+        ._FONT_PADDING(15, 9);
+        .__resetMsgPadding();
+        &.tiny {
+            ._FONT_PADDING(10, 6);
+            .__resetMsgPadding();
+        }
+        &.small {
+            ._FONT_PADDING(12, 7);
+            .__resetMsgPadding();
+        }
+        &.large {
+            ._FONT_PADDING(20, 12);
+            .__resetMsgPadding();
+        }
+        &.huge {
+            ._FONT_PADDING(25, 15);
+            .__resetMsgPadding();
+        }
+    }
+    
+    margin: @padding 0;
+    color: @dark_gray;
+    border-radius: @radius;
+    background-color: @mini_gray;
+    border: 1px solid @light_gray;
+    &>.header {
+        line-height: initial;
+        color: @most_gray;
+    }
+    &.icon {
+        >.icon, >.content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        >.icon {
+            font-size: inherit;
+            padding-right: @padding * 1.5;
+        }
+    }
+    &.info {
+        background-color: @mini_cyan;
+        color: @most_cyan;
+    }
+    &.warning {
+        background-color: @mini_lime;
+        color: @most_lime;
+    }
+    &.success {
+        color: @dark_green;
+    }
+    &.error {
+        background-color: @mini_red;
+        color: @most_red;
+    }
+    .__messageSize();
+}

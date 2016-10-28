@@ -1,1 +1,55 @@
 @NS: .dot;
+@padding: 15px;
+@radius: 5px;
+@line_height: 15px;
+@column_count: 16;
+@icon_family: 'Material Icons';
+@normal_font_size: @line_height + 1px;
+@large_desktop: 1200px;
+@small_desktop: 991px;
+@tablet: 768px;
+@mobile: 568px;
+
+._NO_USER_SELECT() {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+._AB_CENTER() {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+._F_RIGHT_EL() {
+    &.float-right {
+        margin-right: 0;
+    }
+}
+
+._FLUID_EL() {
+    display: block;
+    width: 100%;
+}
+
+.clearfix {
+    &:after {
+        content: ".";
+        clear: both;
+        visibility: hidden;
+        display: block;
+        height: 0;
+    }
+}
+
+.iconFont {
+    font-family: @icon_family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: @normal_font_size + 8px;
+}

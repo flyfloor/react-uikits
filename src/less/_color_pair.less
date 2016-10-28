@@ -1,0 +1,85 @@
+@import url('color');
+
+.__color_pair(@color){
+    &.@{color}{
+        @_dark: 'dark_@{color}';
+        @_deep: 'deep_@{color}';
+        background-color: @@_dark;
+        color: @tiny_gray;
+        border-color: @@_dark;
+        &:hover {
+            color: @white;
+            background-color: @@color;
+            border-color: @@_deep;
+        }
+        &.active {
+            background-color: @@_deep;
+        }
+        &.basic {
+            background-color: @white;
+            color: @@_dark;
+            border-color: @@_dark;
+            &:hover {
+                background-color: @white;
+                color: @@_deep;
+                border-color: @@_deep;
+            }
+        }
+    }
+}
+
+._COLOR_PAIR() {
+    .__color_pair(red);
+    .__color_pair(pink);
+    .__color_pair(purple);
+    .__color_pair(indigo);
+    .__color_pair(blue);
+    .__color_pair(cyan);
+    .__color_pair(teal);
+    .__color_pair(green);
+    .__color_pair(lime);
+    .__color_pair(amber);
+    .__color_pair(orange);
+    .__color_pair(brown);
+    .__color_pair(gray);
+    .__color_pair(bluegray);
+    .__color_pair(yellow);
+    &.lime,
+    &.amber,
+    &.orange,
+    &.yellow {
+        color: @deep_gray;
+        &:hover {
+            color: @most_gray;
+        }
+    }
+    &.white {
+        &.basic {
+            border: 1px solid @mini_gray;
+            color: @mini_gray;
+            background-color: transparent;
+            &:hover {
+                background-color: transparent;
+                color: @white;
+                border-color: @white;
+            }
+        }
+    }
+    &.black {
+        border: 1px solid @most_gray;
+        color: @tiny_gray;
+        background-color: @black;
+        &:hover {
+            background-color: @most_gray;
+            color: @white;
+            border-color: @black;
+        }
+        &.basic {
+            color: @deep_gray;
+            background-color: @white;
+            &:hover {
+                color: @black;
+            }
+        }
+    }
+}

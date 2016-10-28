@@ -1,0 +1,58 @@
+@import url('meta');
+@import url('color');
+@import url('_font_padding');
+
+.table {
+    &@{NS} {
+        position: relative;
+        display: table;
+        margin: 0;
+        border: 1px solid @light_gray;
+        width: 100%;
+    }
+    &.fixed {
+        table-layout: fixed;
+    }
+
+    &.celled {
+        td+td, .cell+.cell {
+            border-left: 1px solid @light_gray;
+            border-top: 1px solid @light_gray;
+        }
+    }
+
+    /*shape size*/
+    ._FONT_SIZE(14);
+    &.small { ._FONT_SIZE(12);}
+    &.large { ._FONT_SIZE(18);}
+    .head, thead {
+        .cell, th {
+            font-weight: 500;
+            border-top: 0;
+            background-color: @tiny_gray;
+        }
+    }
+    .row, tr {
+        display: table-row;
+        &:nth-child(1) {
+            .cell, td {
+                border-top: 0;
+            }
+        }
+        .cell, td, th {
+            border-top: 1px solid @light_gray;
+            padding: @padding @padding * 2;
+            vertical-align: middle;
+            display: table-cell;
+        }
+    }
+    /*basic table layout*/
+    &.basic {
+        border: 0;
+        .cell, td, th {
+            background-color: initial;
+            padding: 0;
+            border: 0;
+        }
+    }
+}

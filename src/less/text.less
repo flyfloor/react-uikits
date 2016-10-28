@@ -1,0 +1,21 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.blockquote {
+    background: #f9f9f9;
+    border-left: 3px solid @light_gray;
+    margin: @padding 0;
+    padding: @padding @padding;
+    quotes: "\201C""\201D""\2018""\2019";
+    &:before {
+        color: @gray;
+        content: open-quote;
+        font-size: @line_height*2;
+        line-height: @line_height;
+        margin-right: @padding * .5;
+        vertical-align: -@padding * .8;
+    }
+    p {
+        display: inline;
+    }
+}

@@ -1,5 +1,71 @@
 @import url('meta');
+@import url('glue');
+@import url('color');
 
 @{NS}.calender {
-    
+    .bordered;
+    width: 300px;
+    background: @white;
+    ._label {
+        padding: @padding;
+        margin-bottom: @padding;
+        background-color: @blue;
+        color: @light_gray;
+        a {
+            .revert_link;
+        }
+        ._year {
+            font-size: @normal_font_size * 2.5;
+        }
+    }
+    ._picker-label {
+        overflow: hidden;
+        display: table;
+        width: 100%;
+        line-height: 30px;
+        ._nav, ._link {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        ._link {
+            .link;
+        }
+        ._nav {
+            width: 20px;
+            i {
+                .iconFont;
+            } 
+            &._pre i:before {
+                content: "\e5cb";
+            }
+            &._next i:before {
+                content: "\e5cc";
+            }
+        }
+    }
+    table {
+        width: 100%;
+        td {
+            text-align: center;
+            @_h: 32px;
+            line-height: @_h;
+            a {
+                display: block;
+                margin: auto;
+                width: @_h;
+                height: @_h;
+                overflow: hidden;
+                line-height: @_h;
+                &._active {
+                    font-weight: bold;
+                    background-color: @blue;
+                    border-radius: @_h;
+                    color: @white;
+                }
+            }
+        }
+    }
+    ._day-picker {
+    }
 }

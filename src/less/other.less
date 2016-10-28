@@ -1,0 +1,47 @@
+@import url('meta');
+@import url('color');
+
+.__paddingFigure(@w, @h){
+    &.figure\:@{w}x@{h} {
+        padding-bottom: @h/@w * 100%;
+    }
+}
+
+@{NS}.figure {
+    padding-bottom: 100%;
+    position: relative;
+    background-color: @light_gray;
+    overflow: hidden;
+    >img {
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        max-width: 100%;
+    }
+    
+    .__paddingFigure(1, 1);
+    .__paddingFigure(1, 2);
+    .__paddingFigure(1, 3);
+    .__paddingFigure(2, 1);
+    .__paddingFigure(2, 3);
+    .__paddingFigure(3, 2);
+    .__paddingFigure(3, 4);
+    .__paddingFigure(4, 3);
+    .__paddingFigure(5, 2);
+    .__paddingFigure(5, 3);
+    .__paddingFigure(6, 5);
+    .__paddingFigure(9, 16);
+    .__paddingFigure(16, 9);
+    .__paddingFigure(16, 10);
+}
+
+@{NS}.block {
+    display: block;
+    padding: @padding;
+    margin-bottom: @padding;
+    border: 0;
+    &.border {
+        border: 1px solid @light_gray;
+    }
+}

@@ -4,9 +4,9 @@ import Calender from '../component/Calender';
 export default class CalenderPage extends Component {
     render() {
         return (
-            <div>
+            <section>
                 <Calender />
-            </div>
+            </section>
         );
     }
 }

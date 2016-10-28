@@ -1,0 +1,210 @@
+@import url('meta');
+
+@red: #EF5350;
+@mini_red: #FFEBEE;
+@tiny_red: #FFCDD2;
+@light_red: #EF9A9A;
+@dark_red: #F44336;
+@deep_red: #D32F2F;
+@most_red: #B71C1C;
+
+@pink: #EC407A;
+@mini_pink: #FCE4EC;
+@tiny_pink: #F8BBD0;
+@light_pink: #F48FB1;
+@dark_pink: #E91E63;
+@deep_pink: #C2185B;
+@most_pink: #880E4F;
+
+@purple: #AB47BC;
+@mini_purple: #F3E5F5;
+@tiny_purple: #E1BEE7;
+@light_purple: #CE93D8;
+@dark_purple: #9C27B0;
+@deep_purple: #7B1FA2;
+@most_purple: #4A148C;
+
+@indigo: #5C6BC0;
+@mini_indigo: #E8EAF6;
+@tiny_indigo: #C5CAE9;
+@light_indigo: #9FA8DA;
+@dark_indigo: #3F51B5;
+@deep_indigo: #303F9F;
+@most_indigo: #1A237E;
+
+@blue: #42A5F5;
+@mini_blue: #E3F2FD;
+@tiny_blue: #BBDEFB;
+@light_blue: #64B5F6;
+@dark_blue: #2196F3;
+@deep_blue: #1976D2;
+@most_blue: #0D47A1;
+
+@cyan: #26C6DA;
+@mini_cyan: #E0F7FA;
+@tiny_cyan: #B2EBF2;
+@light_cyan: #80DEEA;
+@dark_cyan: #00BCD4;
+@deep_cyan: #0097A7;
+@most_cyan: #006064;
+
+@teal: #26A69A;
+@mini_teal: #E0F2F1;
+@tiny_teal: #B2DFDB;
+@light_teal: #80CBC4;
+@dark_teal: #009688;
+@deep_teal: #00796B;
+@most_teal: #004D40;
+
+@green: #66BB6A;
+@mini_green: #E8F5E9;
+@tiny_green: #C8E6C9;
+@light_green: #8BC34A;
+@dark_green: #4CAF50;
+@deep_green: #388E3C;
+@most_green: #1B5E20;
+
+@lime: #D4E157;
+@mini_lime: #F9FBE7;
+@tiny_lime: #F0F4C3;
+@light_lime: #E6EE9C;
+@dark_lime: #CDDC39;
+@deep_lime: #AFB42B;
+@most_lime: #827717;
+
+@yellow: #FFEE58;
+@mini_yellow: #FFFDE7;
+@tiny_yellow: #FFF9C4;
+@light_yellow: #FFF59D;
+@dark_yellow: #FFEB3B;
+@deep_yellow: #FBC02D;
+@most_yellow: #F57F17;
+
+@amber: #FFCA28;
+@mini_amber: #FFF8E1;
+@tiny_amber: #FFECB3;
+@light_amber: #FFE082;
+@dark_amber: #FFC107;
+@deep_amber: #FFA000;
+@most_amber: #FF6F00;
+
+@orange: #FFA726;
+@mini_orange: #FFF3E0;
+@tiny_orange: #FFE0B2;
+@light_orange: #FFCC80;
+@dark_orange: #FF9800;
+@deep_orange: #F57C00;
+@most_orange: #FF5722;
+
+@brown: #8D6E63;
+@mini_brown: #EFEBE9;
+@tiny_brown: #D7CCC8;
+@light_brown: #BCAAA4;
+@dark_brown: #795548;
+@deep_brown: #5D4037;
+@most_brown: #3E2723;
+
+@gray: #BDBDBD;
+@mini_gray: #FAFAFA;
+@tiny_gray: #F5F5F5;
+@light_gray: #EEEEEE;
+@soft_gray: #DDDDDD;
+@dull_gray: #999999;
+@dark_gray: #616161;
+@deep_gray: #383838;
+@most_gray: #212121;
+
+@bluegray: #78909C;
+@mini_bluegray: #ECEFF1;
+@tiny_bluegray: #CFD8DC;
+@light_bluegray: #B0BEC5;
+@dark_bluegray: #607D8B;
+@deep_bluegray: #455A64;
+@most_bluegray: #263238;
+
+@black: #000000;
+@white: #ffffff;
+
+.__setAttrColor(@color, @attr){
+    &-@{color} {
+        @_color: '@{color}';
+        @{attr}: @@_color;
+    }
+    &-light_@{color} {
+        @_color: 'light_@{color}';
+        @{attr}: @@_color;
+    }
+    &-dark_@{color} {
+        @_color: 'dark_@{color}';
+        @{attr}: @@_color;
+    }
+    &-deep_@{color}{
+        @_color: 'deep_@{color}';
+        @{attr}: @@_color;
+    }
+    &-tiny_@{color} {
+        @_color: 'tiny_@{color}';
+        @{attr}: @@_color;
+    }
+    &-mini_@{color}{
+        @_color: 'mini_@{color}';
+        @{attr}: @@_color;
+    }
+    &-most_@{color}{
+        @_color: 'most_@{color}';
+        @{attr}: @@_color;
+    }
+}
+
+.__setColor(@color) {
+    @__color: 'light_@{color}';
+    .__setAttrColor(@color, color);
+}
+
+.color {
+    .__setColor(red);
+    .__setColor(pink);
+    .__setColor(purple);
+    .__setColor(indigo);
+    .__setColor(blue);
+    .__setColor(cyan);
+    .__setColor(teal);
+    .__setColor(green);
+    .__setColor(lime);
+    .__setColor(amber);
+    .__setColor(orange);
+    .__setColor(brown);
+    .__setColor(gray);
+    .__setColor(bluegray);
+    .__setColor(yellow);
+    &-dull_gray {color: @dull_gray}
+    &-soft_gray {color: @soft_gray}
+    &-black { 
+        color: @black; 
+    }
+    &-white { 
+        color: @white;
+    }
+}
+
+.bg {
+    .__setAttrColor(red, background-color);
+    .__setAttrColor(pink, background-color);
+    .__setAttrColor(purple, background-color);
+    .__setAttrColor(indigo, background-color);
+    .__setAttrColor(blue, background-color);
+    .__setAttrColor(cyan, background-color);
+    .__setAttrColor(teal, background-color);
+    .__setAttrColor(green, background-color);
+    .__setAttrColor(lime, background-color);
+    .__setAttrColor(amber, background-color);
+    .__setAttrColor(orange, background-color);
+    .__setAttrColor(brown, background-color);
+    .__setAttrColor(gray, background-color);
+    .__setAttrColor(bluegray, background-color);
+    .__setAttrColor(yellow, background-color);
+    &-dull_gray { background-color: @dull_gray }
+    &-soft_gray { background-color: @soft_gray }
+    &-black { background-color: @black }
+    &-white { background-color: @white }
+}

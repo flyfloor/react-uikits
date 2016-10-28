@@ -1,0 +1,183 @@
+@import url('meta');
+@import url('media');
+
+@__form_label_width: 100px;
+
+.__makeFields(@n, @i: 1) when (@i =< @n) {
+    .fields-@{i} {
+        .clearfix;
+        font-size: 0;
+        position: relative;
+        &>.field:first-child {
+            padding-left: 0;
+        }
+        &>.field:last-child {
+            padding-right: 0;
+        }
+        .field {
+            font-size: @line_height;
+            width: 100% / @i;
+            display: inline-block;
+            float: left;
+            padding: 0 @padding/2;
+        }
+    }
+    .fields {
+        .field-@{i} {
+            font-size: @line_height;
+            padding: 0 @__inline_paadding;
+            display: inline-block;
+            float: left;
+            width: (@i / @column_count) * 100%;
+        }
+    }
+    .__makeFields(@n, (@i + 1));
+}
+
+.__inlineField(@n, @i: 1) when (@i =< @n) {
+    >.fields-@{i} {
+        margin-left: @__form_label_width;
+    }
+    .__inlineField(@n, (@i + 1));
+}
+
+.__mobileFields(@n, @i: 1) when (@i =< @n) {
+    .fields-@{i} {
+        .field {
+            width: 100%;
+            padding: 0;
+            margin-bottom: @__margin_bottom;
+        }
+        &>.field:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .fields {
+        .field-@{i} {
+            width: 100%;
+            padding: 0;
+            margin-bottom: @__margin_bottom;
+        }
+    }
+    .__mobileFields(@n, (@i + 1));
+}
+
+@{NS}.form {
+    @__margin_bottom: @padding * 1.6;
+    @__inline_paadding: @padding * .5;
+    padding: @padding * 2;
+    width: 100%;
+    .clearfix;
+    .field {
+        line-height: @__margin_bottom * 2 + 4;
+        margin-bottom: @__margin_bottom;
+        input[type="text"], 
+        input[type="number"], 
+        input[type="url"], 
+        input[type="tel"], 
+        input[type="password"], 
+        input[type="email"], 
+        input[type="date"], 
+        input[type="datetime-local"], 
+        input[type="time"], textarea {
+            width: 100%;
+        }
+        .field {
+            margin-bottom: 0;
+        }
+        .label:not(@{NS}) {
+            padding: 0 0 @padding * 4/10;
+            background: initial;
+            text-shadow: none;
+            border-radius: 0;
+            margin: 0;
+            line-height: @line_height;
+            font-size: @line_height;
+            color: @deep_gray;
+            word-wrap: break-word;
+            &:nth-child(1) {
+                display: block;
+            }
+        }
+        .__makeFields(16);
+        .fields {
+            .clearfix;
+            position: relative;
+            font-size: 0;
+            &>:first-child {
+                padding-left: 0;
+            }
+            &>:last-child {
+                padding-right: 0;
+            }
+            >.field {
+                margin-bottom: @__margin_bottom;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        input[type="text"], 
+        input[type="number"], 
+        input[type="url"], 
+        input[type="tel"], 
+        input[type="password"], 
+        input[type="email"], 
+        input[type="date"], 
+        input[type="datetime-local"], 
+        input[type="time"], textarea, select {
+            width: 100%;
+        }
+        &.inline {
+           input, textarea, select {
+               width: auto;
+               display: inline;
+               padding: 0 @__inline_paadding;
+           } 
+        }
+    }
+
+    &.inline {
+        &.trim>.field {
+            >.label:nth-child(1) {
+                text-align: right;
+            }
+        }
+        >.field {
+            position: relative;
+            >.field {
+                margin-left: @__form_label_width;
+            }
+            >.label:nth-child(1) {
+                width: @__form_label_width;
+                vertical-align: top;
+                width: @padding * 10;
+                padding: @padding 0;
+                padding-right: @padding;
+                float: left;
+            }
+            .__inlineField(16);
+            >.fields {
+                margin-left: @__form_label_width;
+            }
+        }
+
+        >.action {
+            margin-left: @padding * 10;
+        }
+    }
+    &.basic {
+        padding: 0;
+    }
+}
+
+@media @mobile_view {
+    @__margin_bottom: @padding * 1.6;
+    @__inline_paadding: @padding * .5;
+    @{NS}.inline.form>.field>.label:nth-child(1) {
+        width: auto;
+    }
+    @{NS}.form .field {
+        .__mobileFields(16);
+    }
+}

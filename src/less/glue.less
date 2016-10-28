@@ -1,0 +1,109 @@
+@import url('meta');
+@import url('color');
+
+.text {
+    &-center {
+        text-align: center;
+    }
+    &-left {
+        text-align: left;
+    }
+    &-right {
+        text-align: right;
+    }
+    &-major {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    &-content {
+        font-size: 16px;
+    }
+    &-extra {
+        font-size: 12px;
+    }
+}
+
+.float {
+    &-left {
+        float: left !important;
+    }
+    &-right {
+        float: right !important;
+    }
+    &-none {
+        float: none !important;
+    }
+}
+
+.field {
+    display: block;
+    margin-bottom: @line_height;
+    .clearfix;
+}
+
+@{NS}.module {
+    .clearfix;
+    display: block;
+    padding: @padding;
+    border: 1px solid @light_gray;
+    background-color: @white;
+    margin-bottom: @padding;
+    &.basic {
+        border: none;
+        background-color: initial;
+    }
+}
+
+.absolute-center {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    ._AB_CENTER();
+}
+
+.disabled {
+    ._NO_USER_SELECT();
+}
+
+.break-word {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.bordered {
+    border: 1px solid @light_gray;
+    box-shadow: 0 1px 1px rgba(0,0,0,.03);
+}
+
+.link {
+    color: @deep_gray;
+    cursor: pointer;
+    &:hover {
+        color: @dark_gray;
+    }
+}
+
+.revert_link {
+    cursor: pointer;
+    color: @tiny_gray;
+    &:hover {
+        color: @white;
+    }
+}

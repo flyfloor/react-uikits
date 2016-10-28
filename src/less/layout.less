@@ -1,0 +1,40 @@
+@import url('meta');
+@import url('media');
+
+@{NS}.container, @{NS}.text {
+    margin: 0 auto;
+    display: block;
+}
+
+@media @large_view {
+    @{NS}.container {
+        width: @large_desktop;
+    }
+    @{NS}.text {
+        width: @tablet;
+    }
+}
+
+@media @small_view {
+    @{NS}.container {
+        width: @small_desktop;
+    }
+    @{NS}.text {
+        width: @tablet;
+    }
+}
+
+@media @tablet_view {
+    @{NS}.container {
+        width: @tablet;
+    }
+    @{NS}.text {
+        width: @mobile;
+    }
+}
+
+@media @mobile_view {
+    @{NS}.container, @{NS}.text {
+        width: 100%;
+    }
+}

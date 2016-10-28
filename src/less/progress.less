@@ -1,0 +1,94 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.progress {
+    position: relative;
+    display: block;
+    @_h: @line_height * 5/15;
+    height: @_h;
+    font-size: @_h;
+    background-color: @tiny_gray;
+    border-radius: @_h/2;
+    overflow: hidden;
+    margin-bottom: @padding;
+    &>.bar {
+        width: 0;
+        font-size: inherit;
+        overflow: hidden;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        text-align: center;
+        line-height: 100%;
+        color: @white;
+        background-color: @blue;
+        line-height: 100%;
+        vertical-align: middle;
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
+    &.success {
+        >.bar {
+            background-color: @green;
+        }
+    }
+    &.error {
+        >.bar {
+            background-color: @red;
+        }
+    }
+    .__progressSize(@size){
+        & {
+            @_h: @size * @line_height/15;
+            height: @_h;
+            font-size: @_h;
+            >.bar {
+                height: @_h;
+            }
+        }
+    }
+    &.warning {
+        >.bar {
+            background-color: @orange;
+        }
+    }
+    &.small {
+       .__progressSize(2);
+    }
+    &.large {
+       .__progressSize(10);
+    }
+    &.active:before {
+        content: '';
+        position: absolute;
+        border-radius: inherit;
+        top: 0;
+        bottom: 0;
+        width: @padding * 5;
+        max-width: 25%;
+        z-index: 1;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        background: rgba(255,255,255, .2);
+        -webkit-animation: progress_bar 3s linear infinite;
+        -o-animation: progress_bar 3s linear infinite;
+        animation: progress_bar 3s linear infinite;
+    }
+}
+
+@-webkit-keyframes progress_bar {
+    0% { left: -25%;}
+    100% { left: 125%;}
+}
+@-o-keyframes progress_bar {
+    0% { left: -25%;}
+    100% { left: 125%;}
+}
+@keyframes progress_bar {
+    0% { left: -25%;}
+    100% { left: 125%;}
+}
