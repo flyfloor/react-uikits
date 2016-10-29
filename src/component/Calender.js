@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Calender} from 'react-ui-component'
 import {NS} from '../constant'
-import css from '../less/calender.less'
 import klassName from '../util/className'
 
 class UICalender extends Component {

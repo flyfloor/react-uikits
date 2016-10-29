@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import {CN} from './src/util';
-import dot from './src/less/dot.less'
+import dot from './src/page/demo.less'
 
 import {BasicPage, CalenderPage} from './src/page/index';
-import demoCss from './src/page/demo.less';
 
 const NavLink = (props) => {
     return (
@@ -26,13 +25,13 @@ export class App extends Component {
             <page className={CN('container')}>
                 {pathname !== '/' ? 
                     <div>
-                        {/*<header className={CN('basic block')}>
+                        <header className={CN('basic block')}>
                             <h1>
                                 <Link to="/basic" className={CN('color-deep_gray')}>
                                     React UIkit
                                 </Link>
                             </h1>
-                        </header>*/}
+                        </header>
                         <div className={CN('grid')}>
                             <aside className={CN('column-3 main-aside')}>
                                 <NavLink to="/basic">basic</NavLink>

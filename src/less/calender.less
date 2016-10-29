@@ -6,10 +6,14 @@
     .bordered;
     width: 250px;
     background: @white;
+    ._disabled {
+        .disabled;
+    }
     ._label {
         padding: @padding;
         background-color: @blue;
         color: @light_gray;
+        border-radius: @radius @radius 0 0;
         a {
             .revert_link;
         }
@@ -28,7 +32,10 @@
             text-align: center;
         }
         ._link {
-            .link;
+            ._year-link, ._month-link {
+                .link;
+                color: @blue;
+            }
         }
         ._nav {
             width: 20px;
@@ -58,6 +65,11 @@
                 height: @_h;
                 overflow: hidden;
                 line-height: @_h;
+                &._today {
+                    border-radius: @_h;
+                    color: @blue;
+                    border: 1px solid @blue;
+                }
                 &._active {
                     font-weight: bold;
                     background-color: @blue;

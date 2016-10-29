@@ -34,7 +34,6 @@ page, article, picture, section, header, footer, nav, wrapper, pagination, comme
 body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
   color: @dark_gray;
-
   line-height: 1.5;
   font-size: @line_height;
   width: 100%;
@@ -100,7 +99,7 @@ h1,h2,h3,h4,h5, h6 {
   text-transform: none;
   font-weight: 500;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 h1 {
@@ -153,10 +152,6 @@ pre,
 samp {
     font-family: monospace, serif;
     font-size: 1em;
-}
-
-pre {
-    white-space: pre-wrap;
 }
 
 q {
@@ -346,14 +341,14 @@ pre, code, tt {
 }
 
 pre {
-    font-size: @line_height * 13/15;
+    font-size: 12px;
+    white-space: pre-wrap;
     line-height: 1.5;
     vertical-align: baseline;
     box-shadow: none;
-    padding: @padding;
+    padding: 0;
     overflow: auto;
     color: @blue;
-    background: @tiny_gray;
     margin: @padding 0;
     overflow: scroll;
     overflow-x: auto;

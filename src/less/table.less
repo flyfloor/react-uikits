@@ -1,15 +1,18 @@
 @import url('meta');
 @import url('color');
+@import url('glue');
 @import url('_font_padding');
 
-.table {
-    &@{NS} {
-        position: relative;
-        display: table;
-        margin: 0;
-        border: 1px solid @light_gray;
-        width: 100%;
-    }
+@{NS}.table {
+    .bordered;
+    position: relative;
+    overflow: initial;
+    display: table;
+    margin: 0;
+    border: 1px solid @light_gray;
+    width: 100%;
+    border-collapse: separate;
+
     &.fixed {
         table-layout: fixed;
     }
@@ -26,19 +29,21 @@
     &.small { ._FONT_SIZE(12);}
     &.large { ._FONT_SIZE(18);}
     .head, thead {
+        tr:first-child {
+            >.cell:first-child, >th:first-child {
+                border-radius: @radius 0 0 0;
+            }
+            >.cell:last-child, >th:last-child {
+                border-radius: 0 @radius 0 0;
+            }
+        }
+        background: @tiny_gray;
         .cell, th {
             font-weight: 500;
-            border-top: 0;
-            background-color: @tiny_gray;
         }
     }
     .row, tr {
         display: table-row;
-        &:nth-child(1) {
-            .cell, td {
-                border-top: 0;
-            }
-        }
         .cell, td, th {
             border-top: 1px solid @light_gray;
             padding: @padding @padding * 2;
@@ -48,6 +53,7 @@
     }
     /*basic table layout*/
     &.basic {
+        border-radius: 0;
         border: 0;
         .cell, td, th {
             background-color: initial;

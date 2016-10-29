@@ -63,6 +63,8 @@
 
 .disabled {
     ._NO_USER_SELECT();
+    cursor: not-allowed;
+    color: @gray;
 }
 
 .break-word {
@@ -91,7 +93,9 @@
     border: 1px solid @light_gray;
     box-shadow: 0 1px 1px rgba(0,0,0,.03);
     border-radius: @radius;
-    overflow: hidden;
+    &:hover {
+        box-shadow: 1px 1px 1px rgba(0,0,0,.05);
+    }
 }
 
 .link {
@@ -99,6 +103,14 @@
     cursor: pointer;
     &:hover {
         color: @dark_gray;
+    }
+}
+
+.blue_link {
+    .link;
+    color: @blue;
+    &:hover {
+        color: @light_blue;
     }
 }
 
