@@ -4,11 +4,10 @@
 
 @{NS}.calender {
     .bordered;
-    width: 300px;
+    width: 250px;
     background: @white;
     ._label {
         padding: @padding;
-        margin-bottom: @padding;
         background-color: @blue;
         color: @light_gray;
         a {
@@ -46,9 +45,11 @@
     }
     table {
         width: 100%;
+        font-size: @normal_font_size - 2px;
+        background-color: @mini_gray;
         td {
+            @_h: 26px;
             text-align: center;
-            @_h: 32px;
             line-height: @_h;
             a {
                 display: block;
@@ -66,6 +67,16 @@
             }
         }
     }
-    ._day-picker {
+    ._month-picker, ._year-picker {
+        ul {
+            overflow: hidden;
+            background: @mini_gray;
+            li {
+                float: left;
+                width: 25%;
+                text-align: center;
+                line-height: 46px;
+            }
+        }
     }
 }
