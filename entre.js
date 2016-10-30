@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import {CN} from './src/util';
 import dot from './src/page/demo.less'
 
-import {BasicPage, CalenderPage} from './src/page/index';
+import {BasicPage, CalenderPage, CarouselPage} from './src/page/index';
 
 const NavLink = (props) => {
     return (
@@ -15,8 +15,7 @@ const NavLink = (props) => {
 export class App extends Component {
     constructor(props){
         super(props)
-        this.state = {
-        }
+        this.state = {}
     }
     render() {
         const {children} = this.props;
@@ -34,8 +33,9 @@ export class App extends Component {
                         </header>
                         <div className={CN('grid')}>
                             <aside className={CN('column-3 main-aside')}>
-                                <NavLink to="/basic">basic</NavLink>
-                                <NavLink to="/calender">calender</NavLink>
+                                <NavLink to="/basic">基本</NavLink>
+                                <NavLink to="/calender">日历</NavLink>
+                                <NavLink to="/carousel">跑马灯</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -72,5 +72,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <IndexRoute component={RootPage}/>
                         <Route path="/basic" component={BasicPage}></Route>
                         <Route path="/calender" component={CalenderPage}></Route>
+                        <Route path="/carousel" component={CarouselPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

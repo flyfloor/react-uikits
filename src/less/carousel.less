@@ -1,0 +1,58 @@
+@import url('meta');
+@import url('glue');
+@import url('color');
+
+@{NS}.carousel {
+    overflow: hidden;
+    position: relative;
+    ._content {
+        overflow: auto;
+        ._item {
+            overflow: hidden;
+            display: block;
+            float: left;
+            height: 100%;
+            text-align: center;
+            opacity: 0.9;
+            &._active {
+                opacity: 1;
+            }
+        }
+        &._slide {
+            -webkit-transition: transform .5s ease;
+            -o-transition: transform .5s ease;
+            transition: transform .5s ease;
+        }
+    }
+    
+    ._dot {
+        text-align: center;
+        ._item {
+            margin: @padding / 2;
+            font-size: @normal_font_size * 2;
+            color: @soft_gray;
+            &._active {
+                color: @black;
+            }
+        }
+    }
+    ._arrow {
+        font-size: @padding - 3px;
+        .__arrow {
+            .link;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            margin-top: -1 * @padding;
+            height: @padding * 2;
+        }
+        ._prev {
+            .__arrow;
+            left: @padding / 2;
+        }
+        ._next {
+            .__arrow;
+            right: @padding / 2;
+        }
+    }
+}
