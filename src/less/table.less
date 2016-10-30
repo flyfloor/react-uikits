@@ -18,9 +18,9 @@
     }
 
     &.celled {
+        border-collapse: collapse;
         td+td, .cell+.cell {
             border-left: 1px solid @light_gray;
-            border-top: 1px solid @light_gray;
         }
     }
 
@@ -45,16 +45,27 @@
     .row, tr {
         display: table-row;
         .cell, td, th {
-            border-top: 1px solid @light_gray;
             padding: @padding @padding * 2;
             vertical-align: middle;
             display: table-cell;
         }
     }
+    .row + .row, tr+tr {
+        .cell, td, th {
+            border-top: 1px solid @light_gray;
+        }
+    }
     /*basic table layout*/
     &.basic {
         border-radius: 0;
+        box-shadow: none;
+        &:hover {
+            box-shadow: none;
+        }
         border: 0;
+        thead, .head {
+            background: none;
+        }
         .cell, td, th {
             background-color: initial;
             padding: 0;

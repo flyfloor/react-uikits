@@ -1,11 +1,17 @@
 @import url('meta');
+@import url('glue');
 @import url('color');
 
 .__cardView() {
+    .bordered;
     display: block;
     background-color: @white;
     border: 1px solid @tiny_gray;
     margin-bottom: @padding;
+    &>.image:first-child {
+        border-radius: @radius @radius 0 0;
+        overflow: hidden;
+    }
     &>.content, &>.extra, &>.header {
         padding: @padding;
     }

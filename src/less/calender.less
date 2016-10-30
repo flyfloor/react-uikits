@@ -4,7 +4,7 @@
 
 @{NS}.calender {
     .bordered;
-    width: 250px;
+    width: 240px;
     background: @white;
     ._disabled {
         .disabled;
@@ -18,11 +18,12 @@
             .revert_link;
         }
         ._year {
-            font-size: @normal_font_size * 2.5;
+            font-size: @normal_font_size * 1.5;
         }
     }
     ._picker-label {
         overflow: hidden;
+        background: @white;
         display: table;
         width: 100%;
         line-height: 30px;
@@ -52,15 +53,16 @@
     }
     table {
         width: 100%;
-        font-size: @normal_font_size - 2px;
-        background-color: @mini_gray;
+        background: @mini_gray;
+        font-size: @normal_font_size - 3px;
         td {
-            @_h: 26px;
+            @_h: 24px;
             text-align: center;
             line-height: @_h;
             a {
                 display: block;
                 margin: auto;
+                margin-bottom: 8px;
                 width: @_h;
                 height: @_h;
                 overflow: hidden;
@@ -71,7 +73,6 @@
                     border: 1px solid @blue;
                 }
                 &._active {
-                    font-weight: bold;
                     background-color: @blue;
                     border-radius: @_h;
                     color: @white;
