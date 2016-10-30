@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
-import Calender from '../component/Calender';
+import {NS} from '../constant';
+import DatePicker from '../component/DatePicker';
 import CodeView from '../component/CodeView';
 
-export default class CalenderPage extends Component {
+export default class DatePickerPage extends Component {
     render() {
         return (
             <section>
-                <h2>日历</h2>
+                <h2>日期选择</h2>
                 <br/>
-                
-                <h4>默认日历</h4>
-                <CodeView component={<Calender />}>
-                    {`<Calender/>`}
-                </CodeView>
-                <br/>
-                
-                <h4>日历初始值</h4>
-                <CodeView component={<Calender value="2016-08-12"/>}>
-                    {`<Calender value="2016-08-12" />`}
+
+                <h4>默认日期选择</h4>
+                <CodeView component={<DatePicker/>}>
+                    {`<DatePicker/>`}             
                 </CodeView>
                 <br/>
 
-                <h4>日历日期 onChange </h4>
-                <CodeView component={<Calender onChange={value => alert('日期为：' + value)}/>}>
-                    {`<Calender onChange="(date) => onChangeFunction(date)" />`}
+                <h4>默认值</h4>
+                <CodeView component={<DatePicker value='2014-10-05'/>}>
+                    {`<DatePicker value='2014-10-05'/>`}             
                 </CodeView>
                 <br/>
                 
-                <h4>日历日期范围</h4>
-                <CodeView component={<Calender begin="2016-10-12" end="2016-11-20"/>}>
-                    {`<Calender begin="2016-10-12" end="2016-11-20"/>`}
+                <h4>onChange 事件</h4>
+                <CodeView component={<DatePicker onChange={date => alert(date)}/>}>
+                    {`<DatePicker onChange={date => alert(date)}/>`}             
                 </CodeView>
                 <br/>
-
+                
+                <h4>日期范围</h4>
+                <CodeView component={<DatePicker begin="2016-10-20" end="2016-11-23"/>}>
+                    {`<DatePicker begin="2016-10-20" end="2016-11-23"/>`}             
+                </CodeView>
+                <br/>
+                
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>

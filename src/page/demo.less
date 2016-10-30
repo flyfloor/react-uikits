@@ -18,51 +18,9 @@
     }
 }
 
-/* code view */
-
-.code-view {
-    .bordered;
-    padding: @padding;
-    .code-trigger {
-        .bordered;
-        cursor: pointer;
-        text-align: center;
-        display: block;
-        z-index: 10;
-        span {
-            .blue_link;
-            display: block;
-            width: 80px;
-            margin: auto;
-            font-size: 13px;
-            line-height: @padding * 2;
-        }
-        i {
-            line-height: @padding * 2;
-            float: left;
-        }
-        &:hover {
-            background: @mini_gray;
-        }
-    }
-    .code-detail {
-        opacity: 0;
-        height: 0;
-        visibility: hidden;
-        &.active {
-            visibility: visible;
-            opacity: 1;
-            height: initial;
-            -webkit-transition: opacity .3s, height .3s, visibility .3s;
-            -o-transition: opacity .3s, height .3s, visibility .3s;
-            transition: opacity .3s, height .3s, visibility .3s;
-        }
-    }
-}
-
 /* carousel page */
 
 .carousel {
-    width: 350px;
+    width: 300px;
     margin: auto;
 }

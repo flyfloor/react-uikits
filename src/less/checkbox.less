@@ -1,7 +1,7 @@
 @import url('meta');
 @import url('color');
 
-@{NS}.checkbox, @{NS}.radio {
+@{NS} .checkbox, @{NS}.checkbox, @{NS} .radio, @{NS}.radio {
     float: none;
     min-height: initial;
     padding: 0;
@@ -72,7 +72,7 @@
     }
 
 }
-@{NS}.checkbox {
+@{NS} .checkbox, @{NS}.checkbox {
     input[type=checkbox] {
         &:checked + *{
             &:before {
@@ -87,7 +87,7 @@
     }
 }
 
-@{NS}.radio {
+@{NS} .radio, @{NS}.radio {
     input[type=radio] {
         &:checked + *{
             &:before {

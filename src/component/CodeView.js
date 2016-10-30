@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hightlight from "react-highlight";
+import {NS} from '../constant';
 
 export default class CodeView extends Component {
     constructor(props){
@@ -19,8 +20,10 @@ export default class CodeView extends Component {
         const {children, component} = this.props
         const {display} = this.state
         return (
-            <section className="code-view">
-                {component}
+            <section className={`${NS} code-view`}>
+                <div>
+                    {component}
+                </div>
                 <br/>
                 <div className={display ? 'code-detail active' : 'code-detail'}>
                     <h5>使用:</h5>

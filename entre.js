@@ -4,7 +4,15 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 import {CN} from './src/util';
 import dot from './src/page/demo.less'
 
-import {BasicPage, CalenderPage, CarouselPage} from './src/page/index';
+import {
+    BasicPage, 
+    CalenderPage, 
+    CarouselPage, 
+    CheckBoxPage,
+    CheckBoxGroupPage,
+    ConfirmBoxPage,
+    DatePickerPage,
+} from './src/page/index';
 
 const NavLink = (props) => {
     return (
@@ -36,6 +44,10 @@ export class App extends Component {
                                 <NavLink to="/basic">基本</NavLink>
                                 <NavLink to="/calender">日历</NavLink>
                                 <NavLink to="/carousel">跑马灯</NavLink>
+                                <NavLink to="/checkbox">复选框</NavLink>
+                                <NavLink to="/checkboxgroup">复选框组</NavLink>
+                                <NavLink to="/confirmbox">确认框</NavLink>
+                                <NavLink to="/datepicker">日期选择</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -73,5 +85,9 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/basic" component={BasicPage}></Route>
                         <Route path="/calender" component={CalenderPage}></Route>
                         <Route path="/carousel" component={CarouselPage}></Route>
+                        <Route path="/checkbox" component={CheckBoxPage}></Route>
+                        <Route path="/checkboxgroup" component={CheckBoxGroupPage}></Route>
+                        <Route path="/confirmbox" component={ConfirmBoxPage}></Route>
+                        <Route path="/datepicker" component={DatePickerPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

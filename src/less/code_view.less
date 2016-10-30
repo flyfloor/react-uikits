@@ -1,0 +1,42 @@
+/* code view */
+@import url('meta');
+
+@{NS}.code-view {
+    .bordered;
+    padding: @gap;
+    .code-trigger {
+        .bordered;
+        cursor: pointer;
+        text-align: center;
+        display: block;
+        z-index: 10;
+        span {
+            .blue_link;
+            display: block;
+            width: 80px;
+            margin: auto;
+            font-size: 13px;
+            line-height: @gap * 2;
+        }
+        i {
+            line-height: @gap * 2;
+            float: left;
+        }
+        &:hover {
+            background: @mini_gray;
+        }
+    }
+    .code-detail {
+        opacity: 0;
+        height: 0;
+        visibility: hidden;
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            height: initial;
+            -webkit-transition: opacity .3s, height .3s, visibility .3s;
+            -o-transition: opacity .3s, height .3s, visibility .3s;
+            transition: opacity .3s, height .3s, visibility .3s;
+        }
+    }
+}

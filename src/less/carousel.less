@@ -28,7 +28,7 @@
     ._dot {
         text-align: center;
         ._item {
-            margin: @padding / 2;
+            margin: @gap / 2;
             font-size: @normal_font_size * 2;
             color: @soft_gray;
             &._active {
@@ -37,22 +37,22 @@
         }
     }
     ._arrow {
-        font-size: @padding - 3px;
+        font-size: @gap - 3px;
         .__arrow {
             .link;
             position: absolute;
             overflow: hidden;
             top: 50%;
-            margin-top: -1 * @padding;
-            height: @padding * 2;
+            margin-top: -1 * @gap;
+            height: @gap * 2;
         }
         ._prev {
             .__arrow;
-            left: @padding / 2;
+            left: @gap / 2;
         }
         ._next {
             .__arrow;
-            right: @padding / 2;
+            right: @gap / 2;
         }
     }
 }

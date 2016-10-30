@@ -1,0 +1,54 @@
+@import url('meta.less');
+@import url('calender.less');
+
+@{NS}.datepicker {
+    @basic_motion: all .3s;
+    ._transition {
+        -webkit-transition: @basic_motion;
+        -o-transition: @basic_motion;
+        transition: @basic_motion;
+    }
+    position: relative;
+    width: 240px;
+    .input {
+        input[type='text'] {
+            width: 100%;
+        }
+        i:after {
+            cursor: pointer;
+            .iconFont;
+            content: 'date_range';
+            position: absolute;
+            right: 5px;
+            top: 0;
+            font-size: 22px;
+        }
+    }
+    >._picker {
+        ._transition;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        top: @gap * 2.5;
+        &:after {
+            content: '';
+            position: absolute;
+            top: -1 * @gap + 2px;
+            left: @gap;
+            border: @gap/2 solid;
+            border-color: transparent transparent @blue transparent;
+        }
+    }
+    &._active {
+        >._picker {
+            ._transition;
+            opacity: 1;
+            max-height: auto;
+            visibility: visible;
+            overflow: initial;
+        }
+    }
+}
