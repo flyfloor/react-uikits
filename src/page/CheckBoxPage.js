@@ -50,6 +50,7 @@ export default class CheckBoxPage extends Component {
                             <th>描述</th>
                             <th>类型</th>
                             <th>默认值</th>
+                            <th>Required</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,7 @@ export default class CheckBoxPage extends Component {
                             <td>存储值</td>
                             <td></td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>onChange</td>
@@ -65,21 +67,23 @@ export default class CheckBoxPage extends Component {
                             <td>函数(事件对象, 存储值)</td>
                             <td>
                             {`onChange(e, value){
-                                
                             }`}
                             </td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>checked</td>
                             <td>选中状态</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>disabled</td>
                             <td>是否失效</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
                         </tr>
                     </tbody>
                 </table>

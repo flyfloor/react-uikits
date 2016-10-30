@@ -77,6 +77,7 @@ export default class CheckBoxGroupPage extends Component {
                             <th>描述</th>
                             <th>类型</th>
                             <th>默认值</th>
+                            <th>Required</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,40 +95,44 @@ export default class CheckBoxGroupPage extends Component {
 ]`}                                    
                                 </Hightlight>
                             </td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>value</td>
                             <td>复选框组的值</td>
                             <td></td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>labelName</td>
                             <td>options 对应的复选框显示名</td>
                             <td>字符串</td>
                             <td>"name"</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>valueName</td>
                             <td>options 对应的复选框值</td>
                             <td></td>
                             <td>"value"</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>value</td>
                             <td>复选框的值</td>
                             <td></td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>onChange</td>
                             <td>复选框组值变化事件</td>
                             <td>函数(复选框的值)</td>
                             <td>
-                            {`onChange(value){
-
-                            }`}
+                            {`onChange(value){}`}
                             </td>
+                            <td>否</td>
                         </tr>
                     </tbody>
                 </table>

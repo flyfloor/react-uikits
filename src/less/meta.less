@@ -56,3 +56,9 @@
     font-size: @normal_font_size + 8px;
     vertical-align: middle;
 }
+
+.css_transition {
+    -webkit-transition: opacity @motion .3s, background @motion .3s, visibility @motion .3s, max-height @motion .3s;
+    -o-transition: opacity @motion .3s, background @motion .3s, visibility @motion .3s, max-height @motion .3s;
+    transition: opacity @motion .3s, background @motion .3s, visibility @motion .3s, max-height @motion .3s;
+}

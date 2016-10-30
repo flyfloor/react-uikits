@@ -41,6 +41,7 @@ export default class CalenderPage extends Component {
                             <th>描述</th>
                             <th>类型</th>
                             <th>默认值</th>
+                            <th>required</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,7 @@ export default class CalenderPage extends Component {
                             <td>日历默认值</td>
                             <td>字符串(例如：2016-10-02)</td>
                             <td>今天的日期</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>onChange</td>
@@ -59,18 +61,21 @@ export default class CalenderPage extends Component {
 
                             }`}
                             </td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>begin</td>
                             <td>日期起始范围</td>
                             <td>字符串(例如：2016-10-02)</td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>end</td>
                             <td>日期结束范围</td>
                             <td>字符串(例如：2016-10-02)</td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                     </tbody>
                 </table>

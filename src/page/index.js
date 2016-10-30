@@ -5,6 +5,7 @@ import CheckBoxPage from './CheckBoxPage'
 import CheckBoxGroupPage from './CheckBoxGroupPage'
 import ConfirmBoxPage from './ConfirmBoxPage'
 import DatePickerPage from './DatePickerPage'
+import DropDownPage from './DropDownPage'
 
 export  {
     BasicPage,
@@ -14,4 +15,5 @@ export  {
     CheckBoxGroupPage,
     ConfirmBoxPage,
     DatePickerPage,
+    DropDownPage,
 }

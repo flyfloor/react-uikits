@@ -84,6 +84,7 @@ export default class CarouselPage extends Component {
                             <th>描述</th>
                             <th>类型</th>
                             <th>默认值</th>
+                            <th>Required</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,24 +93,28 @@ export default class CarouselPage extends Component {
                             <td>是否自动播放</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>showArrow</td>
                             <td>是否显示切换按钮</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>prev</td>
                             <td>左箭头</td>
                             <td>jsx</td>
                             <td>{`<span>prev</span>`}</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>next</td>
                             <td>右箭头</td>
                             <td>jsx</td>
                             <td>{`<span>next</span>`}</td>
+                            <td>否</td>
                         </tr>
                     </tbody>
                 </table>

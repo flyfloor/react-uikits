@@ -42,6 +42,7 @@ export default class DatePickerPage extends Component {
                             <th>描述</th>
                             <th>类型</th>
                             <th>默认值</th>
+                            <th>Required</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,29 +50,29 @@ export default class DatePickerPage extends Component {
                             <td>value</td>
                             <td>日历默认值</td>
                             <td>字符串(例如：2016-10-02)</td>
-                            <td>今天的日期</td>
+                            <td>今天日期</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>onChange</td>
                             <td>日历日期变化触发事件</td>
                             <td>函数(日期字符串)</td>
-                            <td>
-                            {`onChange(date){
-
-                            }`}
-                            </td>
+                            <td>{`onChange(date){}`}</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>begin</td>
                             <td>日期起始范围</td>
                             <td>字符串(例如：2016-10-02)</td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>end</td>
                             <td>日期结束范围</td>
                             <td>字符串(例如：2016-10-02)</td>
                             <td>无</td>
+                            <td>否</td>
                         </tr>
                     </tbody>
                 </table>

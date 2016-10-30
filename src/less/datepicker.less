@@ -3,11 +3,6 @@
 
 @{NS}.datepicker {
     @basic_motion: all .3s;
-    ._transition {
-        -webkit-transition: @basic_motion;
-        -o-transition: @basic_motion;
-        transition: @basic_motion;
-    }
     position: relative;
     width: 240px;
     .input {
@@ -25,7 +20,7 @@
         }
     }
     >._picker {
-        ._transition;
+        .css_transition;
         max-height: 0;
         opacity: 0;
         visibility: hidden;
@@ -44,7 +39,7 @@
     }
     &._active {
         >._picker {
-            ._transition;
+            .css_transition;
             opacity: 1;
             max-height: auto;
             visibility: visible;

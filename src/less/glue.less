@@ -61,7 +61,7 @@
     ._AB_CENTER();
 }
 
-.disabled {
+.disabled, ._disabled {
     ._NO_USER_SELECT();
     cursor: not-allowed;
     color: @gray;
@@ -120,4 +120,9 @@
     &:hover {
         color: @white;
     }
+}
+
+.fluid {
+    width: 100% !important;
+    display: block;
 }

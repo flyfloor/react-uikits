@@ -74,6 +74,74 @@ export default class ConfirmBoxPage extends Component {
 `}
                 </CodeView>
                 <br/>
+
+                <h4>属性</h4>
+                <table className="dot table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>content</td>
+                            <td>内容</td>
+                            <td>jsx</td>
+                            <td>无</td>
+                            <td>是</td>
+                        </tr>
+                        <tr>
+                            <td>onConfirm</td>
+                            <td>确认事件</td>
+                            <td>函数, 根据函数返回值(true || false) 判断是否关闭确认框</td>
+                            <td>
+                            {`onConfirm(){}`}
+                            </td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onCancel</td>
+                            <td>取消事件</td>
+                            <td>函数, 根据函数返回值(true || false) 判断是否关闭确认框</td>
+                            <td>
+                            {`onCancel(){}`}
+                            </td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>弹出方位</td>
+                            <td>(left, right, bottom, top)</td>
+                            <td>"top"</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>force</td>
+                            <td>强制确认关闭</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>confirmBtn</td>
+                            <td>自定义确认按钮</td>
+                            <td>jsx</td>
+                            <td>{"<div>ok</div>"}</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>cancelBtn</td>
+                            <td>自定义取消按钮</td>
+                            <td>jsx</td>
+                            <td>{"<div>cancel</div>"}</td>
+                            <td>否</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         );
     }

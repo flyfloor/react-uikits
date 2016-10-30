@@ -1,5 +1,6 @@
 /* code view */
 @import url('meta');
+@import url('color');
 
 @{NS}.code-view {
     .bordered;
@@ -31,12 +32,10 @@
         height: 0;
         visibility: hidden;
         &.active {
+            .css_transition;
             visibility: visible;
             opacity: 1;
             height: initial;
-            -webkit-transition: opacity .3s, height .3s, visibility .3s;
-            -o-transition: opacity .3s, height .3s, visibility .3s;
-            transition: opacity .3s, height .3s, visibility .3s;
         }
     }
 }
