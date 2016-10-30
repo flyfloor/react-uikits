@@ -84,8 +84,8 @@ export default class CheckBoxGroupPage extends Component {
                         <tr>
                             <td>options</td>
                             <td>组成复选框组内容的键值对</td>
-                            <td>数组</td>
                             <td>
+                                数组, 例如：
                                 <Hightlight className="javascript">
 {`[
     {'name': 'apple', 'value': 'a'},
@@ -94,6 +94,9 @@ export default class CheckBoxGroupPage extends Component {
     {'name': 'dog', 'value': 'd'},
 ]`}                                    
                                 </Hightlight>
+                            </td>
+                            <td>
+                                []
                             </td>
                             <td>否</td>
                         </tr>

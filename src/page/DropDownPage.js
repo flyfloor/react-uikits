@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
+import Highlight from 'react-highlight';
 import DropDown from '../component/DropDown';
 import Item from '../component/Item';
 import CodeView from '../component/CodeView';
@@ -100,7 +101,18 @@ export default class DropDownPage extends Component {
                         <tr>
                             <td>options</td>
                             <td>下拉数据来源</td>
-                            <td>数组</td>
+                            <td>
+                                数组, 例如:
+                                <Highlight>
+{`[
+    {name: 'apple', value: 'apple'},
+    {name: 'banana', value: 'banana'},
+    {name: 'cat', value: 'cat', disabled: true},
+    {name: 'dog', value: 'dog'},
+    {name: 'egg', value: 'egg'},
+]`}                                    
+                                </Highlight>
+                            </td>
                             <td>[]</td>
                             <td>否</td>
                         </tr>
