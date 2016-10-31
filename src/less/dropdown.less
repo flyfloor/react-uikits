@@ -3,7 +3,8 @@
 
 @{NS}.dropdown {
     position: relative;
-    width: 350px;
+    display: inline-block;
+    min-width: @min_input_size;
     ul {
         padding: 0;
         li {
@@ -143,7 +144,7 @@
             transition: none;
         }
         ._placeHolder {
-            color: @tiny_gray;
+            color: @soft_gray;
             margin-left: -6px;
         }
         ._tag {

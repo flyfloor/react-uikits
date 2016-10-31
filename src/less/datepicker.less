@@ -4,7 +4,8 @@
 @{NS}.datepicker {
     @basic_motion: all .3s;
     position: relative;
-    width: 240px;
+    min-width: @min_input_size;
+    display: inline-block;
     .input {
         input[type='text'] {
             width: 100%;
