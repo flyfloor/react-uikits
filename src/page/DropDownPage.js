@@ -11,6 +11,10 @@ const options = [
     {name: 'cat', value: 'cat', disabled: true},
     {name: 'dog', value: 'dog'},
     {name: 'egg', value: 'egg'},
+    {name: 'frog', value: 'frog'},
+    {name: 'god', value: 'god'},
+    {name: 'henrry', value: 'henrry'},
+    {name: 'ice', value: 'ice'},
 ];
 
 export default class DropDownPage extends Component {
@@ -57,6 +61,35 @@ export default class DropDownPage extends Component {
                 <br/>
 
                 <h4>Yield Children</h4>
+                <CodeView component={<DropDown value={2} onChange={value => console.log(value)}>
+                                        <Item value={1} name="apple">
+                                            <p>hate the show, love the animal</p>
+                                            <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
+                                        </Item>
+                                        <Item value={2} name="banana">
+                                            <h2>this is banana</h2>
+                                        </Item>
+                                        <Item value={3} name="cat">
+                                            <h4>this is cat</h4>
+                                        </Item>
+                                        <Item value={4} name="dog" disabled={true}>
+                                            blog site: <a href="http://braavos.me" target="_blank">lacuna</a>
+                                        </Item>
+                                        <Item value={5} name="egg">
+                                            <i style={{'fontStyle': 'italic'}}>egg's gooood</i>
+                                        </Item>
+                                    </DropDown>}>
+{`<DropDown value={value} onChange={displayChange}>
+    <Item value={1} name="apple">
+        <p>hate the show, love the animal</p>
+        <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
+    </Item>
+    ...
+</DropDown>  `}
+                </CodeView>
+                <br/>
+
+                <h4>Yield Children(multi)</h4>
                 <CodeView component={<DropDown multi={true} value={[2]} onChange={value => console.log(value)}>
                                         <Item value={1} name="apple">
                                             <p>hate the show, love the animal</p>
