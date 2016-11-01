@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = process.env.NODE_ENV === 'dev' ? '/dist/' : '';
 var ForceCaseSensitivityPlugin = require('force-case-sensitivity-webpack-plugin');
 
@@ -17,7 +17,12 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new ForceCaseSensitivityPlugin(),
-        // new ExtractTextPlugin("app.css"),
+        new webpack.DefinePlugin({
+          "process.env": { 
+             NODE_ENV: JSON.stringify("production") 
+           }
+        }),
+        new ExtractTextPlugin("app.css"),
         // new webpack.optimize.UglifyJsPlugin({
         //     sourceMap: false,
         //     mangle: false
@@ -27,10 +32,10 @@ module.exports = {
         loaders: [
             { 
                 test: /\.less$/,
-                loader: "style!css!less", // ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
             }, { 
                 test: /\.css$/,
-                loader: "style!css" // ExtractTextPlugin.extract("style-loader", "css-loader") 
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
             }, { 
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192&name=./image/[name].[ext]' 
