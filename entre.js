@@ -13,6 +13,7 @@ import {
     ConfirmBoxPage,
     DatePickerPage,
     DropDownPage,
+    MenuPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -50,6 +51,7 @@ export class App extends Component {
                                 <NavLink to="/confirmbox">确认框</NavLink>
                                 <NavLink to="/datepicker">日期选择</NavLink>
                                 <NavLink to="/dropdown">下拉框</NavLink>
+                                <NavLink to="/menu">菜单</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -92,5 +94,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/confirmbox" component={ConfirmBoxPage}></Route>
                         <Route path="/datepicker" component={DatePickerPage}></Route>
                         <Route path="/dropdown" component={DropDownPage}></Route>
+                        <Route path="/menu" component={MenuPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
