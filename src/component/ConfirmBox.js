@@ -18,8 +18,8 @@ class UIConfirmBox extends Component {
 }
 
 UIConfirmBox.defaultProps = {
-    confirmBtn: <button className={`${NS} tiny blue button`}>ok</button>,
-    cancelBtn: <button className={`${NS} tiny button`}>cancel</button>,
+    confirm: <button className={`${NS} tiny blue button`}>确认</button>,
+    cancel: <button className={`${NS} tiny button`}>取消</button>,
 }
 
 

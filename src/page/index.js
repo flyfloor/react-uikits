@@ -7,6 +7,8 @@ import ConfirmBoxPage from './ConfirmBoxPage'
 import DatePickerPage from './DatePickerPage'
 import DropDownPage from './DropDownPage'
 import MenuPage from './MenuPage'
+import ToastPage from './ToastPage'
+import ModalPage from './ModalPage'
 
 export  {
     BasicPage,
@@ -18,4 +20,6 @@ export  {
     DatePickerPage,
     DropDownPage,
     MenuPage,
+    ToastPage,
+    ModalPage,
 }

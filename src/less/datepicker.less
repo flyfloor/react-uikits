@@ -1,8 +1,8 @@
 @import url('meta.less');
 @import url('calender.less');
+@import url('transition.less');
 
 @{NS}.datepicker {
-    @basic_motion: all .3s;
     position: relative;
     min-width: @min_input_size;
     display: inline-block;
@@ -21,15 +21,11 @@
         }
     }
     >._picker {
-        .css_transition;
-        max-height: 0;
-        opacity: 0;
-        visibility: hidden;
         position: absolute;
         z-index: 1000;
         left: 0;
         top: @gap * 2.5;
-        &:after {
+        .calender:before {
             content: '';
             position: absolute;
             top: -1 * @gap + 2px;
@@ -38,13 +34,7 @@
             border-color: transparent transparent @blue transparent;
         }
     }
-    &._active {
-        >._picker {
-            .css_transition;
-            opacity: 1;
-            max-height: auto;
-            visibility: visible;
-            overflow: initial;
-        }
-    }
+}
+.datepicker {
+    .basic_transition;
 }

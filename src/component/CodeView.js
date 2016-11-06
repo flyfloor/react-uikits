@@ -11,7 +11,6 @@ export default class CodeView extends Component {
     }
     handleDisplay(){
         let {display} = this.state
-        console.log(display)
         this.setState({
             display: !display
         });
@@ -21,8 +20,8 @@ export default class CodeView extends Component {
         const {display} = this.state
         return (
             <section className={`${NS} code-view`}>
-                <div>
-                    {component}
+                <div className="code-component">
+                {component}
                 </div>
                 <br/>
                 <div className={display ? 'code-detail active' : 'code-detail'}>

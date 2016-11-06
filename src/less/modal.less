@@ -1,0 +1,90 @@
+@import url('meta');
+@import url('color');
+@import url('glue');
+
+@{NS}.modal {
+    ._body {
+        -webkit-transform: translateX(-50%) translateY(-70%);
+        -ms-transform: translateX(-50%) translateY(-70%);
+        -o-transform: translateX(-50%) translateY(-70%);
+        transform: translateX(-50%) translateY(-70%);
+        z-index: 1000;
+        min-width: 400px;
+        max-width: 600px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        visibility: hidden;
+        >._wrap {
+            .css_transition;
+            .bordered;
+            background-color: @white;
+            opacity: 0;
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+
+        ._title {
+            padding: @gap / 2 @gap 0;
+            &+ ._content {
+                padding-top: 0;
+            }
+        }
+
+        ._content {
+            overflow: hidden;
+            padding: @gap @gap;
+            ._actions {
+                text-align: center;
+                ._action-btn {
+                    display: inline-block;
+                }
+            }
+        }
+        ._close {
+            .link;
+            cursor: pointer;
+            position: absolute;
+            right: @gap / 2;
+            top: @gap / 2;
+            i {
+                font-size: @normal_font_size;
+            }
+        }
+    }
+    ._overlay {
+        .css_transition;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        opacity: 0;
+        background-color: rgba(0,0,0,.7);
+    }
+    &._show {
+        ._body {
+            visibility: visible;
+            >._wrap {
+                -webkit-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        ._overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &._force {
+        ._overlay {
+            background-color: rgba(255,255,255,.9);
+        }
+    }
+}

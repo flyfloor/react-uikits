@@ -14,6 +14,8 @@ import {
     DatePickerPage,
     DropDownPage,
     MenuPage,
+    ToastPage,
+    ModalPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -52,6 +54,8 @@ export class App extends Component {
                                 <NavLink to="/datepicker">日期选择</NavLink>
                                 <NavLink to="/dropdown">下拉框</NavLink>
                                 <NavLink to="/menu">菜单</NavLink>
+                                <NavLink to="/toast">消息</NavLink>
+                                <NavLink to="/modal">弹出层</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -95,5 +99,7 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/datepicker" component={DatePickerPage}></Route>
                         <Route path="/dropdown" component={DropDownPage}></Route>
                         <Route path="/menu" component={MenuPage}></Route>
+                        <Route path="/toast" component={ToastPage}></Route>
+                        <Route path="/modal" component={ModalPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

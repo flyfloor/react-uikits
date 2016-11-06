@@ -23,8 +23,8 @@ export default class ConfirmBoxPage extends Component {
 
                 <h4>自定义事件</h4>
                 <CodeView component={<ConfirmBox content={<p>确认删除用户?</p>}
-                                        onConfirm={() => confirm('再次确认删除？')}
-                                        onCancel={() => alert('取消')}>
+                                        onConfirm={() => confirm('再次确认删除？') }
+                                        onCancel={() => !alert('取消') }>
                                         <button className={`${NS} small button`}>删除用户</button>
                                     </ConfirmBox>}>
 {`<ConfirmBox content={<p>确认删除用户?</p>}
@@ -127,14 +127,14 @@ export default class ConfirmBoxPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
-                            <td>confirmBtn</td>
+                            <td>confirm</td>
                             <td>自定义确认按钮</td>
                             <td>jsx</td>
                             <td>{"<div>ok</div>"}</td>
                             <td>否</td>
                         </tr>
                         <tr>
-                            <td>cancelBtn</td>
+                            <td>cancel</td>
                             <td>自定义取消按钮</td>
                             <td>jsx</td>
                             <td>{"<div>cancel</div>"}</td>

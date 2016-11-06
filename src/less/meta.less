@@ -11,7 +11,6 @@
 @tablet: 768px;
 @mobile: 568px;
 @min_input_size: 260px;
-@motion: cubic-bezier(0.64, -0.01, 0.24, 0.89);
 
 ._NO_USER_SELECT() {
     -webkit-user-select: none;
@@ -59,7 +58,7 @@
 }
 
 .css_transition {
-    -webkit-transition: opacity @motion .5s, background @motion .3s, visibility @motion .3s, max-height @motion .5s;
-    -o-transition: opacity @motion .5s, background @motion .3s, visibility @motion .3s, max-height @motion .5s;
-    transition: opacity @motion .5s, background @motion .3s, visibility @motion .3s, max-height @motion .5s;
+    -webkit-transition: opacity .3s, background .3s, visibility .3s, max-height .3s, transform .3s;
+    -o-transition: opacity .3s, background .3s, visibility .3s, max-height .3s, transform .3s;
+    transition: opacity .3s, background .3s, visibility .3s, max-height .3s, transform .3s;
 }
