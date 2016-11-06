@@ -1,222 +1,143 @@
-@import url('meta');
-@import url('color');
+@import url('meta.less');
+@import url('glue.less');
 
 @{NS}.menu {
-    .clearfix;
-    margin: 0 @padding * -0.5 @padding;
-    padding: 0;
+    .bordered;
+    .css_transition;
     position: relative;
-    line-height: @line_height * 4;
-    &.angled {
-        .item {
-            border-radius: 0 !important;
-        }
-    }
-    .item {
-        vertical-align: middle;
-        display: inline-block;
-        font-size: @line_height;
-        line-height: @line_height * 2;
-        padding: 0 @padding * 12/10;
-    }
-    >.item, @{NS}.item {
-        color: @deep_gray;
-        border-radius: @radius;
-        margin: 0 @padding / 2;
-        -webkit-transition: background .3s, opacity .3s, color .3s, border-color .3s;
-        -o-transition: background .3s, opacity .3s, color .3s, border-color .3s;
-        transition: background .3s, opacity .3s, color .3s, border-color .3s;
+    border: 1px solid @light_gray;
+    background: @white;
+    width: @min_input_size;
+
+    ._item {
+        padding: 3px 16px;
         cursor: pointer;
-        &:hover, &.active {
-            color: @black;
+        &:not(.sub-menu):not(.menu):hover {
+            background: @mini_gray;
+        }
+    }
+
+    ._child {
+        &._active {
+            color: @most_gray;
             background: @tiny_gray;
-        } 
-    }
-
-    &.red {
-        >.item, @{NS}.item {
-            &:hover, &.active {
-                background: @red;
-                color: @white;
-            }
         }
     }
-    &.black{
-        >.item, @{NS}.item {
-            &:hover, &.active {
-                background: @black;
-                color: @white;
-            }
-        }
-    }
-    &.green{
-        >.item, @{NS}.item {
-            &:hover, &.active {
-                background: @green;
-                color: @white;
-            }
-        }
-    }
-    &.yellow{
-        >.item, @{NS}.item {
-            &:hover, &.active {
-                background: @yellow;
-            }
-        }
-    }
-    &.blue{
-        >.item, @{NS}.item {
-            &:hover, &.active {
-                background: @blue;
-                color: @white;
-            }
-        }
-    }   
 
     .menu {
-        &.right {
-            display: inline;
-            float: right;
-        }
+        .css_transition;
+        border: none;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
     }
-}
 
-@{NS}.menu.lined {
-    margin: 0 0 @padding;
-    line-height: @line_height * 3;
-    >.item, @{NS}.item {
-        color: @deep_gray;
-        background: transparent !important;
-        border-radius: 0;
-        line-height: @line_height * 2.4;
-        border-bottom: 2px solid transparent;
-        padding: 0 @padding * 1.2;
-        margin: 0;
-        &.active{
-            border-color: @black;
-            color: @black;
-        }
-        &:hover {
-            color: initial;
-            background: initial;
-        }
-    }
-    &.red{
-        >.item, @{NS}.item {
-            &.active {
-                border-color: @red;
+    .sub-menu {
+        padding: 0;
+        &._active {
+            >._title {
+                color: @most_gray;
+            }
+            >.menu {
+                opacity: 1;
+                max-height: 500px;
+                overflow: hidden;
             }
         }
     }
-    &.black{
-        >.item, @{NS}.item {
-            &.active {
-                border-color: @black;
-            }
-        }
-    }
-    &.green{
-        >.item, @{NS}.item {
-            &.active {
-                border-color: @green;
-            }
-        }
-    }
-    &.yellow{
-        >.item, @{NS}.item {
-            &.active {
-                border-color: @yellow;
-            }
-        }
-    }
-    &.blue{
-        >.item, @{NS}.item {
-            &.active {
-                border-color: @blue;
-            }
-        }
-    }   
-}
 
-@{NS}.menu.bar {
-    margin: 0 0 @padding;
-    padding: 0;
-    border-radius: @radius;
-    @__lh: @line_height * 2.4;
-    height: @__lh;
-    line-height: @__lh;
-    border: 1px solid @light_gray;
-    &>.item, @{NS}.item {
-        +.item {
-            border-left: 1px solid @light_gray;
+    &._default {
+        ._menu-2 {
+            @__width: 20px;
+            ._child {
+                padding-left: @__width;
+            }
+            >.sub-menu>._title {
+                padding-left: @__width;
+            }
         }
-        &:first-child {
-            border-top-left-radius: @radius;
-            border-bottom-left-radius: @radius;
+        ._menu-3 {
+            @__width: 40px;
+            ._child {
+                padding-left: @__width;
+            }
+            >.sub-menu>._title {
+                padding-left: @__width;
+            }
         }
-        &:last-child {
-            border-top-right-radius: @radius;
-            border-bottom-right-radius: @radius;
-        }
     }
-    >.item, @{NS}.item {
-        margin: 0;
-        vertical-align: middle;
-        border-radius: 0;
-        line-height: @__lh - 2px;
-        height: 100%;
-    }
-    >.item {
-        float: left;
-    }
-    .menu {
-        height: 100%;
-        line-height: 100%;
-    }
-}
 
-@{NS}.vertical.menu {
-    margin: 0;
-    width: 200px;
-    border: 1px solid @light_gray;
-    border-radius: @radius;
-    .item {
-        display: block;
-        margin: 0;
-        border-radius: 0;
-        line-height: @line_height * 2.4;
-        &+.item {
-            border-top: 1px solid @light_gray;
-        }
-        &:first-child {
-            border-top-left-radius: @radius;
-            border-top-right-radius: @radius;
-        }
-        &:last-child {
-            border-bottom-left-radius: @radius;
-            border-bottom-right-radius: @radius;
-        }
-    }
-    &.angled {
-        border-radius: 0;
-        .item {
-            border-radius: 0;
-        }
-    }
-}
 
-@{NS}.vertical.lined.menu {
-    border: 0;
-    margin: 0;
-    border-radius: 0;
-    border-right: 2px solid @light_gray;
-    .item {
-        border: 0;
-        margin-right: -2px;
-        border-right: 2px solid transparent;
-        border-radius: 0;
-        &.active {
-            border-color: @deep_gray;
+    &._popped {
+        .sub-menu {
+            position: relative;
+            .menu {
+                .bordered;
+                height: 0;
+                visibility: hidden;
+                background: @white;
+                top: -1px;
+                width: 0;
+                left: 100%;
+                position: absolute;
+            }
+            &._active {
+                >.menu {
+                    z-index: 100;
+                    width: 100%;
+                    height: auto;
+                    visibility: visible;
+                    overflow: initial;
+                    border-color: @light_gray;
+                }
+            }
+        }
+    }
+
+    &._horizontal {
+        .fluid;
+        .sub-menu {
+            position: relative;
+            .menu {
+                .bordered;
+                visibility: hidden;
+                overflow: hidden;
+                background: @white;
+                width: 0;
+                top: 0;
+                left: 100%;
+                position: absolute;
+                border: 1px solid transparent;
+            }
+            &._active {
+                >.menu {
+                    z-index: 100;
+                    min-width: 150px;
+                    height: auto;
+                    visibility: visible;
+                    overflow: initial;
+                    border-color: @light_gray;
+                }
+            }
+        }
+        &._menu-1 {
+            height: 34px;
+            line-height: 30px;
+            >._item {
+                height: 100%;
+                line-height: 30px;
+                float: left;
+            }
+            >.sub-menu {
+                >.menu {
+                    left: -1px;
+                    top: 32px;
+                }
+                >._title {
+                    padding: 3px 20px;
+                    line-height: 40px;
+                }
+            }
         }
     }
 }

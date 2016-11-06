@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Carousel} from 'react-ui-component'
+import {Menu} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UICarousel extends Component {
+class UIMenu extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,10 @@ class UICarousel extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Carousel {...props} className={className} />
+            <Menu {...props} className={className} />
         )
     }
 }
 
 
-export default UICarousel
+export default UIMenu

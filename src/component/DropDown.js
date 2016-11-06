@@ -4,6 +4,9 @@ import {NS} from '../constant'
 import klassName from '../util/className'
 
 class UIDropDown extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         const {props} = this
         let className = klassName(NS, props.className)

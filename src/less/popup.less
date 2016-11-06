@@ -1,13 +1,14 @@
 @import url('meta.less');
 @import url('glue.less');
 @import url('button.less');
+@import url('transition.less');
 
 .popup {
     @short: 6px;
     @long: 8px;
     @base: -17px;
 
-    .border_base {
+    .__border_base {
         border-width: inherit;
         border-color: inherit;
     }
@@ -18,13 +19,8 @@
     }
 
     ._wrap {
-        .css_transition;
-        opacity: 0;
-        height: 0;
-        max-height: 0;
-        visibility: hidden;
+        display: block;
         position: relative;
-        overflow: hidden;
         ._content {
             .bordered;
             position: absolute;
@@ -59,7 +55,7 @@
             margin-left: -@short;
             bottom: @base;
             &:before {
-                .border_base;
+                .__border_base;
                 left: inherit;
                 margin-left: -@short;
                 bottom: -@short;
@@ -74,7 +70,7 @@
             margin-top: -@long;
             border-color: transparent transparent transparent @light_gray;
             &:before {
-                .border_base;
+                .__border_base;
                 top: inherit;
                 margin-top: -@short;
                 right: -@short;
@@ -89,7 +85,7 @@
             border-width: @short @long;
             border-color: transparent @light_gray transparent transparent;
             &:before {
-                .border_base;
+                .__border_base;
                 top: inherit;
                 margin-top: -@short;
                 left: -@short;
@@ -103,7 +99,7 @@
             margin-left: -@short;
             border-color: transparent transparent @light_gray transparent;
             &:before {
-                .border_base;
+                .__border_base;
                 left: inherit;
                 top: -@short;
                 margin-left: -@short;
@@ -111,17 +107,7 @@
             }
         }
     }
-
-    &._active {
-        ._wrap {
-            .css_transition;
-            overflow: visible;
-            opacity: 1;
-            height: auto;
-            visibility: visible;
-            max-height: 500px;
-        }
-    }
+    .basic_transition;
 }
 
 .confirm-box {

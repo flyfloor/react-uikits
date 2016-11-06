@@ -1,26 +1,23 @@
 @import url('meta');
 @import url('color');
+@import url('transition');
 
 @{NS}.dropdown {
     position: relative;
     display: inline-block;
     min-width: @min_input_size;
-    ul {
-        padding: 0;
-        li {
+    ._list {
+        >._item {
             cursor: pointer;
-            list-style-type: none;
-            ._item {
-                padding: 3px 16px;
-                border-top: 1px solid transparent;
-                border-bottom: 1px solid transparent;
-                &._active {
-                    background: @tiny_gray;
-                    border-color: @light_gray;
-                }
-                &:hover {
-                    background: @mini_gray;
-                }
+            padding: 3px 16px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            &._active {
+                background: @tiny_gray;
+                border-color: @light_gray;
+            }
+            &:hover {
+                background: @mini_gray;
             }
         }
     }
@@ -68,31 +65,21 @@
 
     ._list {
         .bordered;
-        .css_transition;
         margin-top: -1px;
-        opacity: 0;
-        max-height: 0;
-        visibility: hidden;
         position: absolute;
         width: 100%;
         z-index: 100;
         background: @white;
         border: 1px solid @light_gray;
+        &:empty {
+            border: 0;
+        }
     }
 
     &._active {
         ._label, ._multi {
             &:after {
                 content: 'arrow_drop_up';
-            }
-        }
-        ._list {
-            .css_transition;
-            max-height: 500px;
-            opacity: 1;
-            visibility: visible;
-            &:empty {
-                border: none;
             }
         }
         ._search ._text {
@@ -172,4 +159,8 @@
             }
         }
     }
+}
+
+.dropdown {
+    .basic_transition;
 }
