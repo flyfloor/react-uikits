@@ -1,0 +1,60 @@
+@import url('meta');
+@import url('glue');
+@import url('color');
+
+.notice {
+    &-center {
+        position:fixed;
+        width: @min_input_width;
+        overflow: hidden;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        >.notice {
+            .bordered;
+            position: relative;
+            display: block;
+            width: @min_input_width;
+            background: @tiny_gray;
+            border: 1px solid @light_gray;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            ._title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            ._close {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                cursor: pointer;
+                i {
+                    font-style: normal;
+                    font-size: @normal_font_size;
+                }
+            }
+        }
+    }
+
+    &-enter {
+        transform: translate3d(@min_input_width,0,0);
+        opacity: 0.01;
+    }
+
+    &-enter&-enter-active {
+        opacity: 1;
+        transform: translate3d(0,0,0);
+        transition: all .3s;
+    }
+
+    &-leave {
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+
+    &-leave&-leave-active {
+        opacity: 0.01;
+        transform: translate3d(@min_input_width,0,0);
+        transition: all .3s;
+    }
+}

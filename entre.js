@@ -16,6 +16,7 @@ import {
     MenuPage,
     ToastPage,
     ModalPage,
+    NoticePage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -56,6 +57,7 @@ export class App extends Component {
                                 <NavLink to="/menu">菜单</NavLink>
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
+                                <NavLink to="/notice">通知</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -101,5 +103,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/menu" component={MenuPage}></Route>
                         <Route path="/toast" component={ToastPage}></Route>
                         <Route path="/modal" component={ModalPage}></Route>
+                        <Route path="/notice" component={NoticePage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
