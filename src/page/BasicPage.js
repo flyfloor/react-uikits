@@ -65,6 +65,13 @@ export default class BasicPage extends Component {
                     </li>
                     <li>
                         <h3>Colors</h3>
+                        <pre>
+                            <code>
+                                {`<span className="dot color-red"></span>/*颜色*/`}
+                                <br/>
+                                {`<span className="dot bg-red"></span>/*背景色*/`}
+                            </code>
+                        </pre>
                         <ul className={CN('grid basic-page text-extra text-center')}>
                             {nodes}
                         </ul>
@@ -74,8 +81,11 @@ export default class BasicPage extends Component {
                         <ul>
                             <li>
                                 <h4>Container is center block content</h4>
-                                <p>adjust to screen width</p>
+                                <p>居中块级容器</p>
                                 <br/>
+                                <pre>
+                                    <code>{`<div class="${NS} container"></div>`}</code>
+                                </pre>
                                 <div className={CN('fluid table')}>
                                     <div className="row">
                                         <div className="cell">mobile({MOBILE_VIEW})</div>
@@ -87,7 +97,10 @@ export default class BasicPage extends Component {
                             </li>
                             <li>
                                 <h4>Text Container</h4>
-                                <p>center text block</p>
+                                <p>居中文字块级容器</p>
+                                <pre>
+                                    <code>{`<div class="${NS} text container"></div>`}</code>
+                                </pre>
                                 <div className={CN('fluid table')}>
                                     <div className="row head">
                                         <div className="cell">{MOBILE_VIEW}</div>

@@ -9,6 +9,7 @@ import DropDownPage from './DropDownPage'
 import MenuPage from './MenuPage'
 import ToastPage from './ToastPage'
 import ModalPage from './ModalPage'
+import NoticePage from './NoticePage'
 
 export  {
     BasicPage,
@@ -22,4 +23,5 @@ export  {
     MenuPage,
     ToastPage,
     ModalPage,
+    NoticePage,
 }
