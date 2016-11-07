@@ -43,7 +43,7 @@ export default class NoticePage extends Component {
                 <br/>
 
                 <h4>默认通知</h4>
-                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('normal')}>click</button>}>
+                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('normal')}>点击</button>}>
 {`this.refs.notice_center.addNotice({
     title,
     content,
@@ -53,7 +53,7 @@ export default class NoticePage extends Component {
                 <br/>
 
                 <h4>延迟时间</h4>
-                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('delay')}>click</button>}>
+                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('delay')}>点击</button>}>
 {`this.refs.notice_center.addNotice({
     ...
     delay: 2000,
@@ -62,7 +62,7 @@ export default class NoticePage extends Component {
                 <br/>
                 
                 <h4>手动关闭</h4>
-                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('manually')}>click</button>}>
+                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('manually')}>点击</button>}>
 {`this.refs.notice_center.addNotice({
     ...
     delay: 0,
@@ -71,7 +71,7 @@ export default class NoticePage extends Component {
                 <br/>
 
                 <h4>onClick 事件</h4>
-                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('onClick')}>click</button>}>
+                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('onClick')}>点击</button>}>
 {`this.refs.notice_center.addNotice({
     ...
     link: 'http://braavos.me',
