@@ -10,6 +10,8 @@ import MenuPage from './MenuPage'
 import ToastPage from './ToastPage'
 import ModalPage from './ModalPage'
 import NoticePage from './NoticePage'
+import PaginationPage from './PaginationPage'
+import PinPage from './PinPage'
 
 export  {
     BasicPage,
@@ -24,4 +26,6 @@ export  {
     ToastPage,
     ModalPage,
     NoticePage,
+    PaginationPage,
+    PinPage,
 }
