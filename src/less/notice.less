@@ -3,9 +3,10 @@
 @import url('color');
 
 .notice {
+    @__width: @min_input_width * 1.2;
     &-center {
         position:fixed;
-        width: @min_input_width;
+        width: @__width;
         overflow: hidden;
         top: 10px;
         right: 10px;
@@ -14,7 +15,7 @@
             .bordered;
             position: relative;
             display: block;
-            width: @min_input_width;
+            width: @__width;
             background: @tiny_gray;
             border: 1px solid @light_gray;
             padding: 5px 10px;
@@ -37,7 +38,7 @@
     }
 
     &-enter {
-        transform: translate3d(@min_input_width,0,0);
+        transform: translate3d(@__width,0,0);
         opacity: 0.01;
     }
 
@@ -54,7 +55,7 @@
 
     &-leave&-leave-active {
         opacity: 0.01;
-        transform: translate3d(@min_input_width,0,0);
+        transform: translate3d(@__width,0,0);
         transition: all .3s;
     }
 }

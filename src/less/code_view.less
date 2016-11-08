@@ -11,17 +11,16 @@
         text-align: center;
         display: block;
         z-index: 10;
-        span {
+        >span {
             .blue_link;
             display: block;
-            width: 80px;
             margin: auto;
+            text-align: center;
             font-size: 13px;
+            width: 100px;
+            overflow: hidden;
             line-height: @gap * 2;
-        }
-        i {
-            line-height: @gap * 2;
-            float: left;
+            height: @gap * 2;
         }
         &:hover {
             background: @mini_gray;

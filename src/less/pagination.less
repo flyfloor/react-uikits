@@ -1,0 +1,33 @@
+@import url('meta');
+@import url('color');
+@import url('glue');
+
+@{NS}.pagination {
+    margin: 0;
+    padding: 10px 0 0;
+    overflow: hidden;
+    >._item {
+        .blue_link;
+        display: inline-block;
+        margin: 2px;
+        overflow: hidden;
+        cursor: pointer;
+        line-height: @line_height * 1.8;
+        height: @line_height * 1.8;
+        min-width: @line_height * 2.6;
+        border-radius: @radius;
+        border: 1px solid @blue;
+        float: left;
+        font-size: @normal_font_size - 2px;
+        text-align: center;
+        &._active {
+            cursor: default;
+            background: @blue;
+            color: @white;
+        }
+    }
+    ._range, ._nav {
+        width: auto;
+        padding: 0 @padding;
+    }
+}

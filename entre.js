@@ -17,6 +17,8 @@ import {
     ToastPage,
     ModalPage,
     NoticePage,
+    PaginationPage,
+    PinPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -58,6 +60,8 @@ export class App extends Component {
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
                                 <NavLink to="/notice">通知</NavLink>
+                                <NavLink to="/pagination">分页</NavLink>
+                                <NavLink to="/pin">大头针</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -104,5 +108,7 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/toast" component={ToastPage}></Route>
                         <Route path="/modal" component={ModalPage}></Route>
                         <Route path="/notice" component={NoticePage}></Route>
+                        <Route path="/pagination" component={PaginationPage}></Route>
+                        <Route path="/pin" component={PinPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

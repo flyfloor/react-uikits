@@ -29,10 +29,12 @@ export default class CodeView extends Component {
                     <Hightlight className="javascript">{children}</Hightlight>
                 </div>
                 <a className="code-trigger" href="javascript:;" onClick={this.handleDisplay.bind(this)}>
-                    {display ?
-                        <span><i className="dot icon">expand_less</i>隐藏代码</span>
-                        : <span><i className="dot icon">expand_more</i>显示代码</span>
-                    }
+                    <span className={`${NS} basic center table`}>
+                        <span className="row">
+                            <i className={`${NS} icon cell`}>{display ? 'expand_less' : 'expand_more'}</i>
+                            <span className="cell">{display ? '隐藏代码' : '显示代码'}</span>
+                        </span>
+                    </span>
                 </a>
             </section>
         );
