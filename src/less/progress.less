@@ -11,7 +11,7 @@
     border-radius: @_h/2;
     overflow: hidden;
     margin-bottom: @padding;
-    &>.bar {
+    &>.bar, &>._progress {
         width: 0;
         font-size: inherit;
         overflow: hidden;
@@ -30,15 +30,14 @@
         top: 0;
         height: 100%;
     }
-    &.success {
-        >.bar {
-            background-color: @green;
-        }
+    &.success>.bar, &._completed>._progress, &._success>._progress {
+        background-color: @green;
     }
-    &.error {
-        >.bar {
-            background-color: @red;
-        }
+    &.error>.bar, &._failed>._progress {
+        background-color: @red;
+    }
+    &._disabled>._progress {
+        background-color: @gray;
     }
     .__progressSize(@size){
         & {
@@ -50,10 +49,8 @@
             }
         }
     }
-    &.warning {
-        >.bar {
-            background-color: @orange;
-        }
+    &.warning >.bar, &._warning>._progress {
+        background-color: @orange;
     }
     &.small {
        .__progressSize(2);
