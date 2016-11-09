@@ -12,6 +12,7 @@ import ModalPage from './ModalPage'
 import NoticePage from './NoticePage'
 import PaginationPage from './PaginationPage'
 import PinPage from './PinPage'
+import ProgressPage from './ProgressPage'
 
 export  {
     BasicPage,
@@ -28,4 +29,5 @@ export  {
     NoticePage,
     PaginationPage,
     PinPage,
+    ProgressPage,
 }
