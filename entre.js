@@ -22,6 +22,7 @@ import {
     ProgressPage,
     RadioPage,
     RadioGroupPage,
+    SlideMenuPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -68,6 +69,7 @@ export class App extends Component {
                                 <NavLink to="/progress">进度条</NavLink>
                                 <NavLink to="/radio">单选框</NavLink>
                                 <NavLink to="/radiogroup">单选框组</NavLink>
+                                <NavLink to="/slidemenu">切换菜单</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -119,5 +121,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/progress" component={ProgressPage}></Route>
                         <Route path="/radio" component={RadioPage}></Route>
                         <Route path="/radiogroup" component={RadioGroupPage}></Route>
+                        <Route path="/slidemenu" component={SlideMenuPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

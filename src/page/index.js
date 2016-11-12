@@ -15,6 +15,7 @@ import PinPage from './PinPage'
 import ProgressPage from './ProgressPage'
 import RadioPage from './RadioPage'
 import RadioGroupPage from './RadioGroupPage'
+import SlideMenuPage from './SlideMenuPage'
 
 export  {
     BasicPage,
@@ -34,4 +35,5 @@ export  {
     ProgressPage,
     RadioPage,
     RadioGroupPage,
+    SlideMenuPage,
 }
