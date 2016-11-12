@@ -2,8 +2,34 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var publicPath = process.env.NODE_ENV === 'dev' ? '/dist/' : '';
+var NODE_ENV = process.env.NODE_ENV
+var publicPath = NODE_ENV === 'dev' ? '/dist/' : '';
 var ForceCaseSensitivityPlugin = require('force-case-sensitivity-webpack-plugin');
+
+var plugins = [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new ForceCaseSensitivityPlugin(),
+    new webpack.DefinePlugin({
+        "process.env": {
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        }
+    }),
+    new ExtractTextPlugin("app.css"),
+    new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendors", /* filename= */ "vendor.js"),
+]
+
+if (NODE_ENV !== 'dev') {
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        },
+        output: {
+            comments: false, // remove all comments
+        },
+    }))
+}
 
 module.exports = {
     entry: {
@@ -15,27 +41,7 @@ module.exports = {
         filename: 'app.js',
         publicPath: publicPath
     },
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new ForceCaseSensitivityPlugin(),
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-            }
-        }),
-        new ExtractTextPlugin("app.css"),
-        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendors", /* filename= */ "vendor.js"),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false, // remove all comments
-            },
-        })
-    ],
+    plugins: plugins,
     module: {
         loaders: [{
             test: /\.less$/,
