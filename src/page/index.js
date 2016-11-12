@@ -14,6 +14,7 @@ import PaginationPage from './PaginationPage'
 import PinPage from './PinPage'
 import ProgressPage from './ProgressPage'
 import RadioPage from './RadioPage'
+import RadioGroupPage from './RadioGroupPage'
 
 export  {
     BasicPage,
@@ -32,4 +33,5 @@ export  {
     PinPage,
     ProgressPage,
     RadioPage,
+    RadioGroupPage,
 }

@@ -150,6 +150,20 @@ export default class DropDownPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
+                            <td>labelName</td>
+                            <td>数据源显示的key</td>
+                            <td>字符串</td>
+                            <td>'name'</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>valueName</td>
+                            <td>数据源值的key</td>
+                            <td>字符串</td>
+                            <td>'value'</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
                             <td>onChange</td>
                             <td>下拉值变化事件</td>
                             <td>函数(值)</td>
