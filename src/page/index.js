@@ -16,6 +16,7 @@ import ProgressPage from './ProgressPage'
 import RadioPage from './RadioPage'
 import RadioGroupPage from './RadioGroupPage'
 import SlideMenuPage from './SlideMenuPage'
+import TabPage from './TabPage'
 
 export  {
     BasicPage,
@@ -36,4 +37,5 @@ export  {
     RadioPage,
     RadioGroupPage,
     SlideMenuPage,
+    TabPage,
 }
