@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {CheckBox as _CheckBox} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _CheckBox = require('react-ui-component').CheckBox
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class CheckBox extends Component {
-    constructor(props) {
-        super(props);
-    }
+const CheckBox = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class CheckBox extends Component {
             <_CheckBox {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    CheckBox
 }

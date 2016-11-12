@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
-import {FlashMessage as _FlashMessage} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _FlashMessage = require('react-ui-component').FlashMessage
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class Toast extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Toast = React.createClass({
+    getDefaultProps() {
+        return {
+            close: <i className="dot icon">close</i>
+        }
+    },
     open(){
         this.refs.fm.open()
-    }
+    },
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -17,8 +19,8 @@ export class Toast extends Component {
             <_FlashMessage ref="fm" {...props} className={className} />
         )
     }
-}
+});
 
-Toast.defaultProps = {
-    close: <i className="dot icon">close</i>
+module.exports = {
+    Toast
 }

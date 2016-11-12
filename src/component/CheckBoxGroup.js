@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {CheckBoxGroup as _CheckBoxGroup} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _CheckBoxGroup = require('react-ui-component').CheckBoxGroup
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class CheckBoxGroup extends Component {
-    constructor(props) {
-        super(props);
-    }
+const CheckBoxGroup = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class CheckBoxGroup extends Component {
             <_CheckBoxGroup {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    CheckBoxGroup
 }

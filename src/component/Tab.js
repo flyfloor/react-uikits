@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {Tab as _Tab} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _Tab = require('react-ui-component').Tab
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class Tab extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Tab = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class Tab extends Component {
             <_Tab {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    Tab
 }

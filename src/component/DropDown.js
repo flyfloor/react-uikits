@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
-import {DropDown as _DropDown} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _DropDown = require('react-ui-component').DropDown
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class DropDown extends Component {
-    constructor(props) {
-        super(props);
-    }
+const DropDown = React.createClass({
+    getDefaultProps() {
+        return {
+            placeHolder: '下拉选择...'
+        }
+    },
     render() {
         const {props} = this
-        let className = klassName(NS, props.className)
+        let className = klassName(props.className, NS)
         return (
             <_DropDown {...props} className={className} />
         )
     }
-}
+});
 
-DropDown.defaultProps = {
-    placeHolder: '下拉选择...'
+module.exports = {
+    DropDown
 }

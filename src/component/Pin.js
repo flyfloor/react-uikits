@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {Pin as _Pin} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _Pin = require('react-ui-component').Pin
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class Pin extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Pin = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class Pin extends Component {
             <_Pin {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    Pin
 }

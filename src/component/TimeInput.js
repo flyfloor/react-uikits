@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {TimeInput as _TimeInput} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _TimeInput = require('react-ui-component').TimeInput
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class TimeInput extends Component {
-    constructor(props) {
-        super(props);
-    }
+const TimeInput = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class TimeInput extends Component {
             <_TimeInput {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    TimeInput
 }

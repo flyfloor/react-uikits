@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {DatePicker as _DatePicker} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _DatePicker = require('react-ui-component').DatePicker
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class DatePicker extends Component {
-    constructor(props) {
-        super(props);
-    }
+const DatePicker = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class DatePicker extends Component {
             <_DatePicker {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    DatePicker
 }
