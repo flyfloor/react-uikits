@@ -68,8 +68,8 @@ export class CardPage extends Component {
                                 {makeCard()}
                             </div>
                         }>
-{`<div class="${CN('cards')}">
-    <div class="card">
+{`<div className="${CN('cards')}">
+    <div className="card">
         ...
     </div>
 </div>
@@ -88,8 +88,8 @@ export class CardPage extends Component {
                                 {makeCard()}
                             </div>
                         }>
-{`<div class="${CN('cards cards-5')}">
-    <div class="card">
+{`<div className="${CN('cards cards-5')}">
+    <div className="card">
         ...
     </div>
 </div>

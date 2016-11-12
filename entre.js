@@ -29,6 +29,8 @@ import {
     TooltipPage,
     CardPage,
     CommentPage,
+    CrumbPage,
+    GridPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -67,8 +69,10 @@ export class App extends Component {
                                 <NavLink to="/checkboxgroup">复选框组</NavLink>
                                 <NavLink to="/comment">评论</NavLink>
                                 <NavLink to="/confirmbox">确认框</NavLink>
+                                <NavLink to="/crumb">面包屑</NavLink>
                                 <NavLink to="/datepicker">日期选择</NavLink>
                                 <NavLink to="/dropdown">下拉框</NavLink>
+                                <NavLink to="/grid">栅格</NavLink>
                                 <NavLink to="/menu">菜单</NavLink>
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
@@ -126,6 +130,7 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/confirmbox" component={ConfirmBoxPage}></Route>
                         <Route path="/datepicker" component={DatePickerPage}></Route>
                         <Route path="/dropdown" component={DropDownPage}></Route>
+                        <Route path="/grid" component={GridPage}></Route>
                         <Route path="/menu" component={MenuPage}></Route>
                         <Route path="/toast" component={ToastPage}></Route>
                         <Route path="/modal" component={ModalPage}></Route>
@@ -140,5 +145,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/timeinput" component={TimeInputPage}></Route>
                         <Route path="/tooltip" component={TooltipPage}></Route>
                         <Route path="/card" component={CardPage}></Route>
+                        <Route path="/crumb" component={CrumbPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

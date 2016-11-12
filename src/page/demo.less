@@ -1,5 +1,15 @@
 @import url('../less/dot.less');
 @import url('./highlight.less');
+
+.__column(@n, @i: 1) when (@i =< @n) {
+    .column-@{i} {
+      position: relative;
+      background: @tiny_gray;
+      border: 1px solid @light_gray;  
+    }
+ .__column(@n, (@i + 1));
+}
+
 .main-aside {
     >a {
         display: block;
@@ -48,5 +58,18 @@
 .button-example {
     .button {
         margin-bottom: @padding;
+    }
+}
+
+/*grid page*/
+.grid-example {
+    .__column(16);
+    .column {
+        background: @tiny_gray;
+        border: 1px solid @light_gray;
+    }
+    .basic .column {
+        background: initial;
+        border: initial;
     }
 }

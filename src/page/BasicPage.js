@@ -89,7 +89,7 @@ export class BasicPage extends Component {
                                 <h4>居中块级容器</h4>
                                 <br/>
                                 <Hightlight>
-                                    {`<div class="${NS} container"></div>`}
+                                    {`<div className="${NS} container"></div>`}
                                 </Hightlight>
                                 <div className={CN('fluid table')}>
                                     <div className="row">
@@ -104,7 +104,7 @@ export class BasicPage extends Component {
                             <li>
                                 <h4>居中文字块级容器</h4>
                                 <Hightlight>
-                                    {`<div class="${NS} text container"></div>`}
+                                    {`<div className="${NS} text container"></div>`}
                                 </Hightlight>
 
                                 <div className={CN('fluid table')}>

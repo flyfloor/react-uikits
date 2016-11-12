@@ -4,6 +4,7 @@
 
 @{NS}.crumb {
     >.section {
+        .blue_link;
         display: inline-block;
         position: relative;
         font-size: inherit;
@@ -15,8 +16,8 @@
             vertical-align: middle;
             color: @gray;
         }
-        &:last-child {
-            color: @deep_gray;
+        &.active {
+            color: @dark_gray;
         }
     }
     &.slash >.section {

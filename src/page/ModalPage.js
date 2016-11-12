@@ -157,14 +157,14 @@ openModal = function(){
                             <td>confirm</td>
                             <td>确认按钮</td>
                             <td>jsx</td>
-                            <td>{'<button class="dot blue button">确认</button>'}</td>
+                            <td>{'<button className="dot blue button">确认</button>'}</td>
                             <td>否</td>
                         </tr>
                         <tr>
                             <td>cancel</td>
                             <td>取消按钮</td>
                             <td>jsx</td>
-                            <td>{'<button class="dot button">取消</button>'}</td>
+                            <td>{'<button className="dot button">取消</button>'}</td>
                             <td>否</td>
                         </tr>
                         <tr>

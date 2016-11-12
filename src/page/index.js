@@ -23,6 +23,8 @@ import {TimeInputPage} from './TimeInputPage'
 import {TooltipPage} from './TooltipPage'
 import {InputPage} from './InputPage'
 import {CardPage} from './CardPage'
+import {CrumbPage} from './CrumbPage'
+import {GridPage} from './GridPage'
 
 export  {
     BasicPage,
@@ -50,4 +52,6 @@ export  {
     TooltipPage,
     InputPage,
     CardPage,
+    CrumbPage,
+    GridPage,
 }
