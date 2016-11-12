@@ -29,7 +29,7 @@ export class InputPage extends Component {
     render() {
         return (
             <div>
-                {TitleBlock('Input')}
+                {TitleBlock('输入框')}
                 <ul>
                     <li>
                         <h4>默认输入框</h4>

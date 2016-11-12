@@ -7,7 +7,7 @@ export class GridPage extends Component {
     render() {
         return (
             <div className='grid-example'>
-                {TitleBlock('Grid')}
+                {TitleBlock('栅格')}
                 <ul>
                     <li>
                         <h4>等距列</h4>

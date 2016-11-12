@@ -32,7 +32,7 @@ export class IconPage extends Component {
     render() {
         return (
             <div className="icon-example">
-                {TitleBlock('Icon', <span>
+                {TitleBlock('图标', <span>
                                         图标集, 
                                         <span className={CN('color-brown')}>来自 Google's material icons, 所有图标在此 ==>
                                         <a href="https://material.io/icons/" target="_blank"> Google icons</a>

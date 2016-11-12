@@ -17,7 +17,7 @@ export class ImagePage extends Component {
     render() {
         return (
             <div>
-                {TitleBlock('Image')}
+                {TitleBlock('图片')}
                 <Hightlight>
                     <p>两种使用方式</p>
                     <ol>

@@ -27,6 +27,7 @@ import {CrumbPage} from './CrumbPage'
 import {GridPage} from './GridPage'
 import {IconPage} from './IconPage'
 import {ImagePage} from './ImagePage'
+import {ItemPage} from './ItemPage'
 
 export  {
     BasicPage,
@@ -58,4 +59,5 @@ export  {
     GridPage,
     IconPage,
     ImagePage,
+    ItemPage,
 }
