@@ -30,7 +30,7 @@ export class OtherPage extends Component {
                                 </li>
                             </ul>
                         }>
-{`<div class="${NS} figure">
+{`<div className="${NS} figure">
     <img src="" alt="" />
 </div>`}                                
                         </CodeView>
@@ -57,7 +57,7 @@ export class OtherPage extends Component {
                                 </li>
                             </ul>
                         }>
-{`<div class="${NS} figure figure:2x1">
+{`<div className="${NS} figure figure:2x1">
     <img src="" alt="" />
 </div>`}                                
                         </CodeView>
