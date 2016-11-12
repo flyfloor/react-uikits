@@ -32,6 +32,7 @@ import {LabelPage} from './LabelPage'
 import {LoaderPage} from './LoaderPage'
 import {OtherPage} from './OtherPage'
 import {TablePage} from './TablePage'
+import {TextPage} from './TextPage'
 
 export  {
     BasicPage,
@@ -68,4 +69,5 @@ export  {
     LoaderPage,
     OtherPage,
     TablePage,
+    TextPage,
 }

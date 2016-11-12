@@ -39,6 +39,7 @@ import {
     LoaderPage,
     OtherPage,
     TablePage,
+    TextPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -100,6 +101,7 @@ export class App extends Component {
                                 <NavLink to="/radiogroup">单选框组</NavLink>
                                 <NavLink to="/slidemenu">切换菜单</NavLink>
                                 <NavLink to="/tab">选项卡</NavLink>
+                                <NavLink to="/text">文字</NavLink>
                                 <NavLink to="/timeinput">时间输入</NavLink>
                                 <NavLink to="/tooltip">提示框</NavLink>
                             </aside>
@@ -170,5 +172,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/loader" component={LoaderPage}></Route>
                         <Route path="/other" component={OtherPage}></Route>
                         <Route path="/table" component={TablePage}></Route>
+                        <Route path="/text" component={TextPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
