@@ -33,6 +33,7 @@ import {
     GridPage,
     IconPage,
     ImagePage,
+    InputPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -77,6 +78,7 @@ export class App extends Component {
                                 <NavLink to="/grid">栅格</NavLink>
                                 <NavLink to="/icon">图标</NavLink>
                                 <NavLink to="/image">图片</NavLink>
+                                <NavLink to="/input">输入框</NavLink>
                                 <NavLink to="/menu">菜单</NavLink>
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
@@ -152,5 +154,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/crumb" component={CrumbPage}></Route>
                         <Route path="/icon" component={IconPage}></Route>
                         <Route path="/image" component={ImagePage}></Route>
+                        <Route path="/input" component={InputPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
