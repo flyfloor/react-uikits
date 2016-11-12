@@ -1,0 +1,20 @@
+import React, { Component } from 'react'
+import {TimeInput} from 'react-ui-component'
+import {NS} from '../constant'
+import klassName from '../util/className'
+
+class UITimeInput extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        const {props} = this
+        let className = klassName(props.className, NS)
+        return (
+            <TimeInput {...props} className={className} />
+        )
+    }
+}
+
+
+export default UITimeInput

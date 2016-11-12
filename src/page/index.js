@@ -17,6 +17,7 @@ import RadioPage from './RadioPage'
 import RadioGroupPage from './RadioGroupPage'
 import SlideMenuPage from './SlideMenuPage'
 import TabPage from './TabPage'
+import TimeInputPage from './TimeInputPage'
 
 export  {
     BasicPage,
@@ -38,4 +39,5 @@ export  {
     RadioGroupPage,
     SlideMenuPage,
     TabPage,
+    TimeInputPage,
 }

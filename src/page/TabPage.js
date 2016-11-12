@@ -174,7 +174,49 @@ export default class TabPage extends Component {
 </Tab>`}                    
                 </CodeView>
                 <br/>
-
+                
+                <h4>属性</h4>
+                <table className="dot table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>current</td>
+                            <td>默认选中值</td>
+                            <td>index</td>
+                            <td>null</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>bottom</td>
+                            <td>是否在下方显示 tab</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>section</td>
+                            <td>section 类型选项卡</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>vertical</td>
+                            <td>垂直选项卡</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         );
     }
