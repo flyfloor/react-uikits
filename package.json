@@ -9,6 +9,9 @@
     "build-dev": "NODE_ENV=dev webpack",
     "lint": "eslint lib/"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com"
