@@ -25,6 +25,7 @@ import {
     SlideMenuPage,
     TabPage,
     TimeInputPage,
+    TooltipPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -74,6 +75,7 @@ export class App extends Component {
                                 <NavLink to="/slidemenu">切换菜单</NavLink>
                                 <NavLink to="/tab">选项卡</NavLink>
                                 <NavLink to="/timeinput">时间输入</NavLink>
+                                <NavLink to="/tooltip">提示框</NavLink>
                             </aside>
                             <artical className="column column-13 main-content">
                                 {children}
@@ -128,5 +130,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/slidemenu" component={SlideMenuPage}></Route>
                         <Route path="/tab" component={TabPage}></Route>
                         <Route path="/timeinput" component={TimeInputPage}></Route>
+                        <Route path="/tooltip" component={TooltipPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))
