@@ -5,6 +5,7 @@ import {CarouselPage} from './CarouselPage'
 import {CheckBoxPage} from './CheckBoxPage'
 import {CheckBoxGroupPage} from './CheckBoxGroupPage'
 import {ConfirmBoxPage} from './ConfirmBoxPage'
+import {CommentPage} from './CommentPage'
 import {DatePickerPage} from './DatePickerPage'
 import {DropDownPage} from './DropDownPage'
 import {MenuPage} from './MenuPage'
@@ -30,6 +31,7 @@ export  {
     CarouselPage,
     CheckBoxPage,
     CheckBoxGroupPage,
+    CommentPage,
     ConfirmBoxPage,
     DatePickerPage,
     DropDownPage,

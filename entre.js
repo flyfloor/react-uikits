@@ -28,6 +28,7 @@ import {
     TimeInputPage,
     TooltipPage,
     CardPage,
+    CommentPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -64,6 +65,7 @@ export class App extends Component {
                                 <NavLink to="/carousel">跑马灯</NavLink>
                                 <NavLink to="/checkbox">复选框</NavLink>
                                 <NavLink to="/checkboxgroup">复选框组</NavLink>
+                                <NavLink to="/comment">评论</NavLink>
                                 <NavLink to="/confirmbox">确认框</NavLink>
                                 <NavLink to="/datepicker">日期选择</NavLink>
                                 <NavLink to="/dropdown">下拉框</NavLink>
@@ -120,6 +122,7 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/carousel" component={CarouselPage}></Route>
                         <Route path="/checkbox" component={CheckBoxPage}></Route>
                         <Route path="/checkboxgroup" component={CheckBoxGroupPage}></Route>
+                        <Route path="/comment" component={CommentPage}></Route>
                         <Route path="/confirmbox" component={ConfirmBoxPage}></Route>
                         <Route path="/datepicker" component={DatePickerPage}></Route>
                         <Route path="/dropdown" component={DropDownPage}></Route>
