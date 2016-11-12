@@ -1,18 +1,15 @@
-import React, { Component } from 'react'
-import {SlideMenu as _SlideMenu} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _SlideMenu = require('react-ui-component').SlideMenu
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class SlideMenu extends Component {
-    constructor(props) {
-        super(props);
-    }
+const SlideMenu = React.createClass({
     open(){
         this.refs.slide.open()
-    }
+    },
     close(){
         this.refs.slide.close()
-    }
+    },
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -20,4 +17,8 @@ export class SlideMenu extends Component {
             <_SlideMenu {...props} ref="slide" className={className} />
         )
     }
+});
+
+module.exports = {
+    SlideMenu
 }

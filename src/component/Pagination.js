@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import {Pagination as _Pagination} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _Pagination = require('react-ui-component').Pagination
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class Pagination extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Pagination = React.createClass({
+    getDefaultProps() {
+        return {
+            prev: <span>上一页</span>,
+            next: <span>下一页</span>,
+        }
+    },
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,9 +17,8 @@ export class Pagination extends Component {
             <_Pagination {...props} className={className} />
         )
     }
-}
+});
 
-Pagination.defaultProps = {
-    prev: <span>上一页</span>,
-    next: <span>下一页</span>,
+module.exports = {
+    Pagination
 }

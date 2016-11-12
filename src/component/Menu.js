@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import {Menu as _Menu} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _Menu = require('react-ui-component').Menu
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class Menu extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Menu = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -14,4 +11,8 @@ export class Menu extends Component {
             <_Menu {...props} className={className} />
         )
     }
+});
+
+module.exports = {
+    Menu
 }

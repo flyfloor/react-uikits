@@ -1,18 +1,15 @@
-import React, { Component } from 'react'
-import {NoticeCenter as _NoticeCenter} from 'react-ui-component'
-import {NS} from '../constant'
-import klassName from '../util/className'
+const React = require('react')
+const _NoticeCenter = require('react-ui-component').NoticeCenter
+const NS = require('./base/constant').NS
+const klassName = require('./base/util').klassName
 
-export class NoticeCenter extends Component {
-    constructor(props) {
-        super(props);
-    }
+const NoticeCenter = React.createClass({
     addNotice(notice){
         if (!notice.close) {
             notice.close = <i className={`${NS} icon`}>close</i>
         }
         this.refs.notice.addNotice(notice)
-    }
+    },
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -20,4 +17,8 @@ export class NoticeCenter extends Component {
             <_NoticeCenter {...props} className={className} ref="notice"/>
         )
     }
+});
+
+module.exports = {
+    NoticeCenter
 }

@@ -22,8 +22,8 @@ export class RadioPage extends Component {
                 <br/>
 
                 <h4>存储值</h4>
-                <CodeView component={<Radio value={2}>单选框</Radio>}>
-                    {`<Radio value={2}>单选框</Radio>`}
+                <CodeView component={<Radio value="2">单选框</Radio>}>
+                    {`<Radio value="2">单选框</Radio>`}
                 </CodeView>
                 <br/>
 
@@ -34,8 +34,8 @@ export class RadioPage extends Component {
                 <br/>
 
                 <h4>onChange 事件</h4>
-                <CodeView component={<Radio value={2} onChange={(e, value) => alert(`选中状态: ${e.target.checked}, 值为: ${value}`)}>单选框</Radio>}>
-                    {`<Radio value={2} onChange={(e, value) => alert(\`选中状态: \${e.target.checked}, 值为: \${value}\`)}>单选框</Radio>`}
+                <CodeView component={<Radio value="2" onChange={(e, value) => alert(`选中状态: ${e.target.checked}, 值为: ${value}`)}>单选框</Radio>}>
+                    {`<Radio value="2" onChange={(e, value) => alert(\`选中状态: \${e.target.checked}, 值为: \${value}\`)}>单选框</Radio>`}
                 </CodeView>
                 <br/>
                 
