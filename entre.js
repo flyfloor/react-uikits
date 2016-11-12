@@ -36,6 +36,7 @@ import {
     InputPage,
     ItemPage,
     LabelPage,
+    LoaderPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -83,6 +84,7 @@ export class App extends Component {
                                 <NavLink to="/input">输入框</NavLink>
                                 <NavLink to="/item">条目</NavLink>
                                 <NavLink to="/label">标签</NavLink>
+                                <NavLink to="/loader">加载器</NavLink>
                                 <NavLink to="/menu">菜单</NavLink>
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
@@ -161,5 +163,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/input" component={InputPage}></Route>
                         <Route path="/item" component={ItemPage}></Route>
                         <Route path="/label" component={LabelPage}></Route>
+                        <Route path="/loader" component={LoaderPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

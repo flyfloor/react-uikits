@@ -29,6 +29,7 @@ import {IconPage} from './IconPage'
 import {ImagePage} from './ImagePage'
 import {ItemPage} from './ItemPage'
 import {LabelPage} from './LabelPage'
+import {LoaderPage} from './LoaderPage'
 
 export  {
     BasicPage,
@@ -62,4 +63,5 @@ export  {
     ImagePage,
     ItemPage,
     LabelPage,
+    LoaderPage,
 }
