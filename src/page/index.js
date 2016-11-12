@@ -25,6 +25,7 @@ import {InputPage} from './InputPage'
 import {CardPage} from './CardPage'
 import {CrumbPage} from './CrumbPage'
 import {GridPage} from './GridPage'
+import {IconPage} from './IconPage'
 
 export  {
     BasicPage,
@@ -54,4 +55,5 @@ export  {
     CardPage,
     CrumbPage,
     GridPage,
+    IconPage,
 }
