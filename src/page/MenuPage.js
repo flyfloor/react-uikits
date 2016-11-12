@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {Menu} from '../component/Menu';
 import {Item} from '../component/Item';
 import {CodeView} from '../component/CodeView';
@@ -67,8 +68,7 @@ export class MenuPage extends Component {
     render() {
         return (
             <section>
-                <h2>菜单</h2>
-                <br/>
+                {TitleBlock('菜单')}
 
                 <h4>默认菜单</h4>
                 <CodeView component={ formatChild({}) }>

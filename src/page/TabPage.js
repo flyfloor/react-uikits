@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {Tab} from '../component/Tab';
 import {Item} from '../component/Item';
 import {CodeView} from '../component/CodeView';
@@ -28,8 +29,7 @@ export class TabPage extends Component {
     render() {
         return (
             <section>
-                <h2>选项卡</h2>
-                <br/>
+                {TitleBlock('选项卡')}
 
                 <h4>默认选项卡</h4>
                 <CodeView component={

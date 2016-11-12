@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {NoticeCenter} from '../component/NoticeCenter';
 import {CodeView} from '../component/CodeView';
@@ -33,7 +34,7 @@ export class NoticePage extends Component {
     render() {
         return (
             <section>
-                <h2>通知中心</h2>
+                {TitleBlock('通知')}
                 <h4>首先引入：</h4>
                 <pre>
                     <code>

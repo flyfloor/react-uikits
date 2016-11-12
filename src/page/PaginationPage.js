@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Pagination} from '../component/Pagination';
 import {CodeView} from '../component/CodeView';
@@ -7,8 +8,7 @@ export class PaginationPage extends Component {
     render() {
         return (
             <section>
-                <h2>分页</h2>
-                <br/>
+                {TitleBlock('分页')}
 
                 <h4>默认分页</h4>
                 <CodeView component={<Pagination/>}>

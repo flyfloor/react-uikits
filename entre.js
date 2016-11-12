@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
-import {CN} from './src/util';
+import {CN} from './src/util/tools';
 import dot from './src/page/demo.less'
 
 import {
     BasicPage, 
+    ButtonPage,
     CalenderPage, 
     CarouselPage, 
     CheckBoxPage,
@@ -26,6 +27,19 @@ import {
     TabPage,
     TimeInputPage,
     TooltipPage,
+    CardPage,
+    CommentPage,
+    CrumbPage,
+    GridPage,
+    IconPage,
+    ImagePage,
+    InputPage,
+    ItemPage,
+    LabelPage,
+    LoaderPage,
+    OtherPage,
+    TablePage,
+    TextPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -56,17 +70,30 @@ export class App extends Component {
                         <div className={CN('grid')}>
                             <aside className={CN('column-3 main-aside')}>
                                 <NavLink to="/basic">基本</NavLink>
+                                <NavLink to="/button">按钮</NavLink>
                                 <NavLink to="/calender">日历</NavLink>
+                                <NavLink to="/card">卡片</NavLink>
                                 <NavLink to="/carousel">跑马灯</NavLink>
                                 <NavLink to="/checkbox">复选框</NavLink>
                                 <NavLink to="/checkboxgroup">复选框组</NavLink>
+                                <NavLink to="/comment">评论</NavLink>
                                 <NavLink to="/confirmbox">确认框</NavLink>
+                                <NavLink to="/crumb">面包屑</NavLink>
                                 <NavLink to="/datepicker">日期选择</NavLink>
                                 <NavLink to="/dropdown">下拉框</NavLink>
+                                <NavLink to="/grid">栅格</NavLink>
+                                <NavLink to="/icon">图标</NavLink>
+                                <NavLink to="/image">图片</NavLink>
+                                <NavLink to="/input">输入框</NavLink>
+                                <NavLink to="/item">条目</NavLink>
+                                <NavLink to="/label">标签</NavLink>
+                                <NavLink to="/loader">加载器</NavLink>
                                 <NavLink to="/menu">菜单</NavLink>
+                                <NavLink to="/table">表格</NavLink>
                                 <NavLink to="/toast">消息</NavLink>
                                 <NavLink to="/modal">弹出层</NavLink>
                                 <NavLink to="/notice">通知</NavLink>
+                                <NavLink to="/other">其他</NavLink>
                                 <NavLink to="/pagination">分页</NavLink>
                                 <NavLink to="/pin">大头针</NavLink>
                                 <NavLink to="/progress">进度条</NavLink>
@@ -74,6 +101,7 @@ export class App extends Component {
                                 <NavLink to="/radiogroup">单选框组</NavLink>
                                 <NavLink to="/slidemenu">切换菜单</NavLink>
                                 <NavLink to="/tab">选项卡</NavLink>
+                                <NavLink to="/text">文字</NavLink>
                                 <NavLink to="/timeinput">时间输入</NavLink>
                                 <NavLink to="/tooltip">提示框</NavLink>
                             </aside>
@@ -111,13 +139,16 @@ ReactDOM.render(<Router history={hashHistory}>
                     <Route path="/" component={App}>
                         <IndexRoute component={RootPage}/>
                         <Route path="/basic" component={BasicPage}></Route>
+                        <Route path="/button" component={ButtonPage}></Route>
                         <Route path="/calender" component={CalenderPage}></Route>
                         <Route path="/carousel" component={CarouselPage}></Route>
                         <Route path="/checkbox" component={CheckBoxPage}></Route>
                         <Route path="/checkboxgroup" component={CheckBoxGroupPage}></Route>
+                        <Route path="/comment" component={CommentPage}></Route>
                         <Route path="/confirmbox" component={ConfirmBoxPage}></Route>
                         <Route path="/datepicker" component={DatePickerPage}></Route>
                         <Route path="/dropdown" component={DropDownPage}></Route>
+                        <Route path="/grid" component={GridPage}></Route>
                         <Route path="/menu" component={MenuPage}></Route>
                         <Route path="/toast" component={ToastPage}></Route>
                         <Route path="/modal" component={ModalPage}></Route>
@@ -131,5 +162,16 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/tab" component={TabPage}></Route>
                         <Route path="/timeinput" component={TimeInputPage}></Route>
                         <Route path="/tooltip" component={TooltipPage}></Route>
+                        <Route path="/card" component={CardPage}></Route>
+                        <Route path="/crumb" component={CrumbPage}></Route>
+                        <Route path="/icon" component={IconPage}></Route>
+                        <Route path="/image" component={ImagePage}></Route>
+                        <Route path="/input" component={InputPage}></Route>
+                        <Route path="/item" component={ItemPage}></Route>
+                        <Route path="/label" component={LabelPage}></Route>
+                        <Route path="/loader" component={LoaderPage}></Route>
+                        <Route path="/other" component={OtherPage}></Route>
+                        <Route path="/table" component={TablePage}></Route>
+                        <Route path="/text" component={TextPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

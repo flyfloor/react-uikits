@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import Highlight from 'react-highlight';
 import {DropDown} from '../component/DropDown';
@@ -21,8 +22,7 @@ export class DropDownPage extends Component {
     render() {
         return (
             <section>
-                <h2>下拉框</h2>
-                <br/>
+                {TitleBlock('下拉框')}
 
                 <h4>默认下拉框</h4>
                 <CodeView component={<DropDown options={options} onChange={(value) => console.log(value)}/>}>

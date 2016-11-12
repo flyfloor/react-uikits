@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {DatePicker} from '../component/DatePicker';
 import {CodeView} from '../component/CodeView';
@@ -7,9 +8,7 @@ export class DatePickerPage extends Component {
     render() {
         return (
             <section>
-                <h2>日期选择</h2>
-                <br/>
-
+                {TitleBlock('日期选择')}
                 <h4>默认日期选择</h4>
                 <CodeView component={<DatePicker/>}>
                     {`<DatePicker/>`}             

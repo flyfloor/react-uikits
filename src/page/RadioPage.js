@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {Radio} from '../component/Radio';
 import {CodeView} from '../component/CodeView';
 
@@ -6,8 +7,7 @@ export class RadioPage extends Component {
     render() {
         return (
             <section>
-                <h2>单选框</h2>
-                <br/>
+                {TitleBlock('单选框')}
 
                 <h4>默认单选框</h4>
                 <CodeView component={<Radio>单选框</Radio>}>

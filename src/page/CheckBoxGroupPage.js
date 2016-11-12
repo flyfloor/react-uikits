@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hightlight from 'react-highlight';
+import {CN, TitleBlock} from '../util/tools';
 import {CheckBoxGroup} from '../component/CheckBoxGroup';
 import {CheckBox} from '../component/CheckBox';
 import {CodeView} from '../component/CodeView';
@@ -15,8 +16,7 @@ export class CheckBoxGroupPage extends Component {
     render() {
         return (
             <section>
-                <h2>复选框组</h2>
-                <br/>
+                {TitleBlock('复选框组')}
 
                 <h4>默认复选框组</h4>
                 <CodeView component={<CheckBoxGroup options={options} labelName='name' 

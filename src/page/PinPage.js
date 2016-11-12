@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Pin} from '../component/Pin';
 import {CodeView} from '../component/CodeView';
@@ -16,8 +17,7 @@ export class PinPage extends Component {
     render() {
         return (
             <section className="pin-page">
-                <h2>大头针</h2>
-                <br/>
+                {TitleBlock('大头针')}
 
                 <h4>默认大头针</h4>
                 <CodeView component={<Pin>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Tooltip} from '../component/Tooltip';
 import {CodeView} from '../component/CodeView';
@@ -7,8 +8,7 @@ export class TooltipPage extends Component {
     render() {
         return (
             <section>
-                <h2>提示框</h2>
-                <br/>
+                {TitleBlock('提示框')}
 
                 <h4>默认提示框</h4>
                 <CodeView component={<Tooltip content={<div>

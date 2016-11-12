@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {ConfirmBox} from '../component/ConfirmBox';
 import {CodeView} from '../component/CodeView';
@@ -7,8 +8,7 @@ export class ConfirmBoxPage extends Component {
     render() {
         return (
             <section>
-                <h2>确认框</h2>
-                <br/>
+                {TitleBlock('确认框')}
 
                 <h4>默认确认框</h4>
                 <CodeView component={<ConfirmBox content={<p>确认删除用户?</p>}>
