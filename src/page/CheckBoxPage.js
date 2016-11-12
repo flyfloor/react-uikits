@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CheckBox from '../component/CheckBox';
-import CodeView from '../component/CodeView';
+import {CheckBox} from '../component/CheckBox';
+import {CodeView} from '../component/CodeView';
 
-export default class CheckBoxPage extends Component {
+export class CheckBoxPage extends Component {
     render() {
         return (
             <section>

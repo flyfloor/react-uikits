@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Progress from '../component/Progress';
 import {NS} from '../constant';
-import CodeView from '../component/CodeView';
+import {Progress} from '../component/Progress';
+import {CodeView} from '../component/CodeView';
 
-export default class ProgressPage extends Component {
+export class ProgressPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -68,6 +68,12 @@ export default class ProgressPage extends Component {
                 <h4>警告进度条</h4>
                 <CodeView component={<Progress value={30} status="warning"/>}>
                     {`<Progress value={30} status="warning" />`}
+                </CodeView>
+                <br/>
+
+                <h4>激活状态</h4>
+                <CodeView component={<Progress value={30} className="active"/>}>
+                    {`<Progress value={30} className="active" />`}
                 </CodeView>
                 <br/>
 

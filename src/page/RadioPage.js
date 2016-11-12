@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Radio from '../component/Radio';
-import CodeView from '../component/CodeView';
+import {Radio} from '../component/Radio';
+import {CodeView} from '../component/CodeView';
 
-export default class RadioPage extends Component {
+export class RadioPage extends Component {
     render() {
         return (
             <section>

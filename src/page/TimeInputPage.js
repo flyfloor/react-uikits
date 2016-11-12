@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TimeInput from '../component/TimeInput';
-import CodeView from '../component/CodeView';
+import {TimeInput} from '../component/TimeInput';
+import {CodeView} from '../component/CodeView';
 
-export default class TimeInputPage extends Component {
+export class TimeInputPage extends Component {
     render() {
         return (
             <section>

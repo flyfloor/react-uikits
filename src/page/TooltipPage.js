@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Tooltip from '../component/Tooltip';
 import {NS} from '../constant';
-import CodeView from '../component/CodeView';
+import {Tooltip} from '../component/Tooltip';
+import {CodeView} from '../component/CodeView';
 
-export default class TooltipPage extends Component {
+export class TooltipPage extends Component {
     render() {
         return (
             <section>
@@ -62,7 +62,35 @@ export default class TooltipPage extends Component {
                     
                 </CodeView>
                 <br/>
-
+                
+                <h4>属性</h4>
+                <table className="dot table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>position</td>
+                            <td>弹出位置</td>
+                            <td>left, right, top, bottom</td>
+                            <td>top</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>弹出模式</td>
+                            <td>click, hover</td>
+                            <td>hover</td>
+                            <td>否</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         );
     }

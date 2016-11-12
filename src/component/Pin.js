@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Pin} from 'react-ui-component'
+import {Pin as _Pin} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIPin extends Component {
+export class Pin extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,9 +11,7 @@ class UIPin extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Pin {...props} className={className} />
+            <_Pin {...props} className={className} />
         )
     }
 }
-
-export default UIPin

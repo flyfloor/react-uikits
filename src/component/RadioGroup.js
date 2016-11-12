@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {RadioGroup} from 'react-ui-component'
+import {RadioGroup as _RadioGroup} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIRadioGroup extends Component {
+export class RadioGroup extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UIRadioGroup extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <RadioGroup {...props} className={className} />
+            <_RadioGroup {...props} className={className} />
         )
     }
 }
-
-
-export default UIRadioGroup

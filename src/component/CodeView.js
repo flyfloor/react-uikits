@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Hightlight from "react-highlight";
 import {NS} from '../constant';
 
-export default class CodeView extends Component {
+export class CodeView extends Component {
     constructor(props){
         super(props)
         this.state = {

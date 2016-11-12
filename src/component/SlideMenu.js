@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {SlideMenu} from 'react-ui-component'
+import {SlideMenu as _SlideMenu} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UISlideMenu extends Component {
+export class SlideMenu extends Component {
     constructor(props) {
         super(props);
     }
@@ -17,10 +17,7 @@ class UISlideMenu extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <SlideMenu {...props} ref="slide" className={className} />
+            <_SlideMenu {...props} ref="slide" className={className} />
         )
     }
 }
-
-
-export default UISlideMenu

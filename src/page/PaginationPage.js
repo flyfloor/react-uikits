@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import Pagination from '../component/Pagination';
-import CodeView from '../component/CodeView';
+import {Pagination} from '../component/Pagination';
+import {CodeView} from '../component/CodeView';
 
-export default class PaginationPage extends Component {
+export class PaginationPage extends Component {
     render() {
         return (
             <section>

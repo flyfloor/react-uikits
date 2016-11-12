@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Tab} from 'react-ui-component'
+import {Tab as _Tab} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UITab extends Component {
+export class Tab extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UITab extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Tab {...props} className={className} />
+            <_Tab {...props} className={className} />
         )
     }
 }
-
-
-export default UITab

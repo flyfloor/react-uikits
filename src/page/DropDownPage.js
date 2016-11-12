@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
 import Highlight from 'react-highlight';
-import DropDown from '../component/DropDown';
-import Item from '../component/Item';
-import CodeView from '../component/CodeView';
+import {DropDown} from '../component/DropDown';
+import {Item} from '../component/Item';
+import {CodeView} from '../component/CodeView';
 
 const options = [
     {name: 'apple', value: 'apple'},
@@ -17,7 +17,7 @@ const options = [
     {name: 'ice', value: 'ice'},
 ];
 
-export default class DropDownPage extends Component {
+export class DropDownPage extends Component {
     render() {
         return (
             <section>

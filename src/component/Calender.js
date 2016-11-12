@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Calender} from 'react-ui-component'
+import {Calender as _Calender} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UICalender extends Component {
+export class Calender extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UICalender extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Calender {...props} className={className} />
+            <_Calender {...props} className={className} />
         )
     }
 }
-
-
-export default UICalender

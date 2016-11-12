@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {TimeInput} from 'react-ui-component'
+import {TimeInput as _TimeInput} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UITimeInput extends Component {
+export class TimeInput extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UITimeInput extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <TimeInput {...props} className={className} />
+            <_TimeInput {...props} className={className} />
         )
     }
 }
-
-
-export default UITimeInput

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import ConfirmBox from '../component/ConfirmBox';
-import CodeView from '../component/CodeView';
+import {ConfirmBox} from '../component/ConfirmBox';
+import {CodeView} from '../component/CodeView';
 
-export default class ConfirmBoxPage extends Component {
+export class ConfirmBoxPage extends Component {
     render() {
         return (
             <section>

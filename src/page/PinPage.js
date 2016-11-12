@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import Pin from '../component/Pin';
-import CodeView from '../component/CodeView';
+import {Pin} from '../component/Pin';
+import {CodeView} from '../component/CodeView';
 
 const cardDOM = (name) => {
     return (
@@ -12,7 +12,7 @@ const cardDOM = (name) => {
     )
 }
 
-export default class PinPage extends Component {
+export class PinPage extends Component {
     render() {
         return (
             <section className="pin-page">

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {CheckBoxGroup} from 'react-ui-component'
+import {CheckBoxGroup as _CheckBoxGroup} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UICheckBoxGroup extends Component {
+export class CheckBoxGroup extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UICheckBoxGroup extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <CheckBoxGroup {...props} className={className} />
+            <_CheckBoxGroup {...props} className={className} />
         )
     }
 }
-
-
-export default UICheckBoxGroup

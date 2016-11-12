@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Hightlight from 'react-highlight';
-import CheckBoxGroup from '../component/CheckBoxGroup';
-import CheckBox from '../component/CheckBox';
-import CodeView from '../component/CodeView';
+import {CheckBoxGroup} from '../component/CheckBoxGroup';
+import {CheckBox} from '../component/CheckBox';
+import {CodeView} from '../component/CodeView';
 
 const options = [
     {'name': 'apple', 'value': 'a'},
@@ -11,7 +11,7 @@ const options = [
     {'name': 'dog', 'value': 'd'},
 ];
 
-export default class CheckBoxGroupPage extends Component {
+export class CheckBoxGroupPage extends Component {
     render() {
         return (
             <section>

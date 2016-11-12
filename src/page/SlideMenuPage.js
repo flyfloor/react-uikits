@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import SlideMenu from '../component/SlideMenu';
+import {SlideMenu} from '../component/SlideMenu';
 import {NS} from '../constant';
-import CodeView from '../component/CodeView';
+import {CodeView} from '../component/CodeView';
 
 let content = <div className="slide-content">
                 <h3>标题</h3> 
                 <p>内容</p>
             </div>
 
-export default class SlideMenuPage extends Component {
+export class SlideMenuPage extends Component {
     handleOpenSlide(ref){
         this.refs[ref].open()
     }

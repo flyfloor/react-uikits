@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Menu from '../component/Menu';
-import Item from '../component/Item';
-import CodeView from '../component/CodeView';
+import {Menu} from '../component/Menu';
+import {Item} from '../component/Item';
+import {CodeView} from '../component/CodeView';
 
 const formatChild = ({current=null, accordion=false, onChange=null, style, popped=false, mode='click', horizontal=false, activeFirst=false}) => {
     return (
@@ -63,7 +63,7 @@ const formatChild = ({current=null, accordion=false, onChange=null, style, poppe
     )
 }
 
-export default class MenuPage extends Component {
+export class MenuPage extends Component {
     render() {
         return (
             <section>

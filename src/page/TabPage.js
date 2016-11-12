@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Tab from '../component/Tab';
-import Item from '../component/Item';
-import CodeView from '../component/CodeView';
+import {Tab} from '../component/Tab';
+import {Item} from '../component/Item';
+import {CodeView} from '../component/CodeView';
 
 const makeContent = (options={}) => {
     options = options || {}
@@ -24,7 +24,7 @@ const makeContent = (options={}) => {
     )
 }
 
-export default class TabPage extends Component {
+export class TabPage extends Component {
     render() {
         return (
             <section>

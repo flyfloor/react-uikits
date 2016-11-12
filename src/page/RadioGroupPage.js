@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RadioGroup from '../component/RadioGroup';
-import Radio from '../component/Radio';
-import CodeView from '../component/CodeView';
+import {RadioGroup} from '../component/RadioGroup';
+import {Radio} from '../component/Radio';
+import {CodeView} from '../component/CodeView';
 
 const options = [
     {name: 'apple', value: 'apple'},
@@ -15,7 +15,7 @@ const options = [
     {name: 'ice', value: 'ice'},
 ];
 
-export default class RadioGroupPage extends Component {
+export class RadioGroupPage extends Component {
     render() {
         return (
             <section>

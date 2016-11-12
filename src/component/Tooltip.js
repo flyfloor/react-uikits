@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Tooltip} from 'react-ui-component'
+import {Tooltip as _Tooltip} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UITooltip extends Component {
+export class Tooltip extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UITooltip extends Component {
         const {props} = this
         let className = klassName(props.className, 'tooltip', NS)
         return (
-            <Tooltip {...props} className={className} />
+            <_Tooltip {...props} className={className} />
         )
     }
 }
-
-
-export default UITooltip
