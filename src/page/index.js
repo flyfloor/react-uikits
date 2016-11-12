@@ -30,6 +30,7 @@ import {ImagePage} from './ImagePage'
 import {ItemPage} from './ItemPage'
 import {LabelPage} from './LabelPage'
 import {LoaderPage} from './LoaderPage'
+import {OtherPage} from './OtherPage'
 
 export  {
     BasicPage,
@@ -64,4 +65,5 @@ export  {
     ItemPage,
     LabelPage,
     LoaderPage,
+    OtherPage,
 }
