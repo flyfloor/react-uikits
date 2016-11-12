@@ -44,7 +44,7 @@
             @_h: @size * @line_height/15;
             height: @_h;
             font-size: @_h;
-            >.bar {
+            >.bar, >._progress {
                 height: @_h;
             }
         }
@@ -52,10 +52,10 @@
     &.warning >.bar, &._warning>._progress {
         background-color: @orange;
     }
-    &.small {
+    &._small, &.small {
        .__progressSize(2);
     }
-    &.large {
+    &._large, &.large {
        .__progressSize(10);
     }
     &.active:before {

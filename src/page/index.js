@@ -13,6 +13,7 @@ import NoticePage from './NoticePage'
 import PaginationPage from './PaginationPage'
 import PinPage from './PinPage'
 import ProgressPage from './ProgressPage'
+import RadioPage from './RadioPage'
 
 export  {
     BasicPage,
@@ -30,4 +31,5 @@ export  {
     PaginationPage,
     PinPage,
     ProgressPage,
+    RadioPage,
 }

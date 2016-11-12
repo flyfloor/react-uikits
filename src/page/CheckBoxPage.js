@@ -64,7 +64,7 @@ export default class CheckBoxPage extends Component {
                         <tr>
                             <td>onChange</td>
                             <td>选中状态切换事件</td>
-                            <td>函数(事件对象, 存储值)</td>
+                            <td>函数(事件对象 event, 存储值 value)</td>
                             <td>
                             {`onChange(e, value){
                             }`}
