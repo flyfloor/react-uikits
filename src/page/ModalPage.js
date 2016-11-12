@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Hightlight from "react-highlight";
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Modal} from '../component/Modal';
 import {CodeView} from '../component/CodeView';
@@ -37,8 +38,7 @@ export class ModalPage extends Component {
     render() {
         return (
             <section>
-                <h2>弹出层</h2>
-                <br/>
+                {TitleBlock('弹出层')}
 
                 <h4>默认弹出层</h4>
                 <CodeView component={<div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Hightlight from "react-highlight";
 import {NS, COLORS, LARGE_VIEW, SMALL_VIEW, MOBILE_VIEW, TABLET_VIEW} from '../constant';
-import {CN, TitleBlock} from '../util';
+import {CN, TitleBlock} from '../util/tools';
 
 
 const makeColor = (color) => {
@@ -45,7 +46,7 @@ export class BasicPage extends Component {
         });
         return (
             <div>
-                {TitleBlock('Basic', 'This part contains basic stuff, colors, fonts, H1 ~ H6')}
+                {TitleBlock('基础', '基本内容，包括字体、颜色、H1 ~ H6、容器等')}
                 <ul>
                     <li>
                         <h3>The titles</h3>
@@ -60,18 +61,23 @@ export class BasicPage extends Component {
                     <li>
                         <h3>Paragragh</h3>
                         <p>This is a content of Paragragh, Paragragh has 120% line height</p>
-                        <p>This is another content of Paragragh</p>
+                        <p>中文段落</p>
                         <br/>
                     </li>
                     <li>
+                        <h3>Blockquote</h3>
+                        <blockqoute className={`${NS} blockqoute`}>
+                            内容详情
+                        </blockqoute>
+                    </li>
+                    <li>
                         <h3>Colors</h3>
-                        <pre>
-                            <code>
-                                {`<span className="dot color-red"></span>/*颜色*/`}
-                                <br/>
-                                {`<span className="dot bg-red"></span>/*背景色*/`}
-                            </code>
-                        </pre>
+                        <Hightlight>
+                            {`<span className="dot color-red"></span>/*颜色*/`}
+                        </Hightlight>
+                        <Hightlight>
+                            {`<span className="dot bg-red"></span>/*背景色*/`}
+                        </Hightlight>
                         <ul className={CN('grid basic-page text-extra text-center')}>
                             {nodes}
                         </ul>
@@ -80,12 +86,11 @@ export class BasicPage extends Component {
                         <h3>Container</h3>
                         <ul>
                             <li>
-                                <h4>Container is center block content</h4>
-                                <p>居中块级容器</p>
+                                <h4>居中块级容器</h4>
                                 <br/>
-                                <pre>
-                                    <code>{`<div class="${NS} container"></div>`}</code>
-                                </pre>
+                                <Hightlight>
+                                    {`<div class="${NS} container"></div>`}
+                                </Hightlight>
                                 <div className={CN('fluid table')}>
                                     <div className="row">
                                         <div className="cell">mobile({MOBILE_VIEW})</div>
@@ -94,13 +99,14 @@ export class BasicPage extends Component {
                                         <div className="cell">large desktop({LARGE_VIEW})</div>
                                     </div>
                                 </div>
+                                <br/>
                             </li>
                             <li>
-                                <h4>Text Container</h4>
-                                <p>居中文字块级容器</p>
-                                <pre>
-                                    <code>{`<div class="${NS} text container"></div>`}</code>
-                                </pre>
+                                <h4>居中文字块级容器</h4>
+                                <Hightlight>
+                                    {`<div class="${NS} text container"></div>`}
+                                </Hightlight>
+
                                 <div className={CN('fluid table')}>
                                     <div className="row head">
                                         <div className="cell">{MOBILE_VIEW}</div>

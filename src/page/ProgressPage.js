@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Progress} from '../component/Progress';
 import {CodeView} from '../component/CodeView';
@@ -30,8 +31,7 @@ export class ProgressPage extends Component {
     render() {
         return (
             <section>
-                <h2>进度条</h2>
-                <br/>
+                {TitleBlock('进度条')}
                 
                 <h4>默认进度条</h4>
                 <CodeView component={<div>

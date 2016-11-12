@@ -1,14 +1,14 @@
 import React from 'react';
-import {NS} from './constant';
+import {NS} from '../constant';
 export const CN = (className='') => {
     return className ? `${NS} ${className}` : NS
 }
 
 export const TitleBlock = (name, content) => {
-    content = content || `Content about ${name}`
+    content = content || <span>文档内容关于 <span className={`${NS} color-red`}>{name}</span></span>
     return (
         <div>
-            <h3>{name}</h3>
+            <h2>{name}</h2>
             <blockquote className={CN('blockquote')}>
                 <p>{content}</p>
             </blockquote>

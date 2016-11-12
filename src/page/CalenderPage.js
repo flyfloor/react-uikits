@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {Calender} from '../component/Calender';
+import {CN, TitleBlock} from '../util/tools';
 import {CodeView} from '../component/CodeView';
 
 export class CalenderPage extends Component {
     render() {
         return (
             <section>
-                <h2>日历</h2>
-                <br/>
+                {TitleBlock('日历')}
                 
                 <h4>默认日历</h4>
                 <CodeView component={<Calender />}>

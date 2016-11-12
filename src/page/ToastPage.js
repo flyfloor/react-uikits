@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Toast} from '../component/Toast';
 import {CodeView} from '../component/CodeView';
@@ -10,8 +11,7 @@ export class ToastPage extends Component {
     render() {
         return (
             <section>
-                <h2>消息</h2>
-                <br/>
+                {TitleBlock('消息')}
 
                 <h4>默认消息</h4>
                 <CodeView component={

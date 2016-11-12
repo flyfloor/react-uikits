@@ -1,4 +1,5 @@
 import {BasicPage} from './BasicPage'
+import {ButtonPage} from './ButtonPage'
 import {CalenderPage} from './CalenderPage'
 import {CarouselPage} from './CarouselPage'
 import {CheckBoxPage} from './CheckBoxPage'
@@ -19,9 +20,12 @@ import {SlideMenuPage} from './SlideMenuPage'
 import {TabPage} from './TabPage'
 import {TimeInputPage} from './TimeInputPage'
 import {TooltipPage} from './TooltipPage'
+import {InputPage} from './InputPage'
+import {CardPage} from './CardPage'
 
 export  {
     BasicPage,
+    ButtonPage,
     CalenderPage,
     CarouselPage,
     CheckBoxPage,
@@ -42,4 +46,6 @@ export  {
     TabPage,
     TimeInputPage,
     TooltipPage,
+    InputPage,
+    CardPage,
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {RadioGroup} from '../component/RadioGroup';
 import {Radio} from '../component/Radio';
 import {CodeView} from '../component/CodeView';
@@ -19,8 +20,7 @@ export class RadioGroupPage extends Component {
     render() {
         return (
             <section>
-                <h2>单选框组</h2>
-                <br/>
+                {TitleBlock('单选框组')}
 
                 <h4>默认单选框组</h4>
                 <CodeView component={<RadioGroup options={options}>

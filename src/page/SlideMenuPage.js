@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {SlideMenu} from '../component/SlideMenu';
 import {NS} from '../constant';
 import {CodeView} from '../component/CodeView';
@@ -21,8 +22,7 @@ export class SlideMenuPage extends Component {
     render() {
         return (
             <section>
-                <h2>切换菜单</h2>
-                <br/>
+                {TitleBlock('切换菜单')}
 
                 <h4>默认切换菜单</h4>
                 <CodeView component={<div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
-import {CN} from './src/util';
+import {CN} from './src/util/tools';
 import dot from './src/page/demo.less'
 
 import {
     BasicPage, 
+    ButtonPage,
     CalenderPage, 
     CarouselPage, 
     CheckBoxPage,
@@ -26,6 +27,7 @@ import {
     TabPage,
     TimeInputPage,
     TooltipPage,
+    CardPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -56,7 +58,9 @@ export class App extends Component {
                         <div className={CN('grid')}>
                             <aside className={CN('column-3 main-aside')}>
                                 <NavLink to="/basic">基本</NavLink>
+                                <NavLink to="/button">按钮</NavLink>
                                 <NavLink to="/calender">日历</NavLink>
+                                <NavLink to="/card">卡片</NavLink>
                                 <NavLink to="/carousel">跑马灯</NavLink>
                                 <NavLink to="/checkbox">复选框</NavLink>
                                 <NavLink to="/checkboxgroup">复选框组</NavLink>
@@ -111,6 +115,7 @@ ReactDOM.render(<Router history={hashHistory}>
                     <Route path="/" component={App}>
                         <IndexRoute component={RootPage}/>
                         <Route path="/basic" component={BasicPage}></Route>
+                        <Route path="/button" component={ButtonPage}></Route>
                         <Route path="/calender" component={CalenderPage}></Route>
                         <Route path="/carousel" component={CarouselPage}></Route>
                         <Route path="/checkbox" component={CheckBoxPage}></Route>
@@ -131,5 +136,6 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/tab" component={TabPage}></Route>
                         <Route path="/timeinput" component={TimeInputPage}></Route>
                         <Route path="/tooltip" component={TooltipPage}></Route>
+                        <Route path="/card" component={CardPage}></Route>
                     </Route>
                 </Router>, document.getElementById('root'))

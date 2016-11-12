@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {Carousel} from '../component/Carousel';
 import {CodeView} from '../component/CodeView';
 
@@ -18,7 +19,7 @@ export class CarouselPage extends Component {
     render() {
         return (
             <section>
-                <h2>跑马灯</h2>
+                {TitleBlock('跑马灯')}
                 <br/>
 
                 <h4>默认跑马灯</h4>

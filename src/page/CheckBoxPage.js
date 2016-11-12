@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {CheckBox} from '../component/CheckBox';
 import {CodeView} from '../component/CodeView';
 
@@ -6,8 +7,7 @@ export class CheckBoxPage extends Component {
     render() {
         return (
             <section>
-                <h2>复选框</h2>
-                <br/>
+                {TitleBlock('复选框')}
 
                 <h4>复选框</h4>
                 <CodeView component={<CheckBox>复选框</CheckBox>}>

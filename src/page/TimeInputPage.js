@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CN, TitleBlock} from '../util/tools';
 import {TimeInput} from '../component/TimeInput';
 import {CodeView} from '../component/CodeView';
 
@@ -6,8 +7,7 @@ export class TimeInputPage extends Component {
     render() {
         return (
             <section>
-                <h2>时间输入</h2>
-                <br/>
+                {TitleBlock('时间输入')}
 
                 <h4>默认时间输入</h4>
                 <CodeView component={<TimeInput/>}>
