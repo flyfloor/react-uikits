@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Menu} from 'react-ui-component'
+import {Menu as _Menu} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIMenu extends Component {
+export class Menu extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UIMenu extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Menu {...props} className={className} />
+            <_Menu {...props} className={className} />
         )
     }
 }
-
-
-export default UIMenu

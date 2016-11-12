@@ -1,17 +1,23 @@
 import React, { Component } from 'react'
-import {CheckBoxGroup as _CheckBoxGroup} from 'react-ui-component'
+import {SlideMenu as _SlideMenu} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-export class CheckBoxGroup extends Component {
+export class SlideMenu extends Component {
     constructor(props) {
         super(props);
+    }
+    open(){
+        this.refs.slide.open()
+    }
+    close(){
+        this.refs.slide.close()
     }
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <_CheckBoxGroup {...props} className={className} />
+            <_SlideMenu {...props} ref="slide" className={className} />
         )
     }
 }

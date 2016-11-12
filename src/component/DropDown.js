@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {DropDown} from 'react-ui-component'
+import {DropDown as _DropDown} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIDropDown extends Component {
+export class DropDown extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,14 +11,11 @@ class UIDropDown extends Component {
         const {props} = this
         let className = klassName(NS, props.className)
         return (
-            <DropDown {...props} className={className} />
+            <_DropDown {...props} className={className} />
         )
     }
 }
 
-UIDropDown.defaultProps = {
+DropDown.defaultProps = {
     placeHolder: '下拉选择...'
 }
-
-
-export default UIDropDown

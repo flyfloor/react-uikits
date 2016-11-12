@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import NoticeCenter from '../component/NoticeCenter';
-import CodeView from '../component/CodeView';
+import {NoticeCenter} from '../component/NoticeCenter';
+import {CodeView} from '../component/CodeView';
 
 const handleNoticeClick = (props) => {
     if (props.link) {
@@ -9,7 +9,7 @@ const handleNoticeClick = (props) => {
     }
 }
 
-export default class NoticePage extends Component {
+export class NoticePage extends Component {
     showNotice(type = ''){
         let notice = {
             title: '通知: ' + type,

@@ -35,7 +35,7 @@ const makeColor = (color) => {
     }
 };
 
-export default class BasicPage extends Component {
+export class BasicPage extends Component {
     render() {
         const nodes = COLORS.map(item => {
             return <li className={CN('column')} key={`color-${item}`}>

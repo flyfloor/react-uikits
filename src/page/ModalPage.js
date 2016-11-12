@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {NS} from '../constant';
-import Modal from '../component/Modal';
 import Hightlight from "react-highlight";
-import CodeView from '../component/CodeView';
+import {NS} from '../constant';
+import {Modal} from '../component/Modal';
+import {CodeView} from '../component/CodeView';
 
 const content = <div>
                     <h4>this is content</h4>
@@ -17,7 +17,7 @@ const content = <div>
                     </ul>
                 </div>
 
-export default class ModalPage extends Component {
+export class ModalPage extends Component {
     constructor(props) {
         super(props);
     }

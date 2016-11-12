@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
 import Highlight from 'react-highlight';
-import DropDown from '../component/DropDown';
-import Item from '../component/Item';
-import CodeView from '../component/CodeView';
+import {DropDown} from '../component/DropDown';
+import {Item} from '../component/Item';
+import {CodeView} from '../component/CodeView';
 
 const options = [
     {name: 'apple', value: 'apple'},
@@ -17,7 +17,7 @@ const options = [
     {name: 'ice', value: 'ice'},
 ];
 
-export default class DropDownPage extends Component {
+export class DropDownPage extends Component {
     render() {
         return (
             <section>
@@ -148,6 +148,20 @@ export default class DropDownPage extends Component {
                             </td>
                             <td>[]</td>
                             <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>labelName</td>
+                            <td>数据源显示的key</td>
+                            <td>字符串</td>
+                            <td>'name'</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>valueName</td>
+                            <td>数据源值的key</td>
+                            <td>字符串</td>
+                            <td>'value'</td>
+                            <td>false</td>
                         </tr>
                         <tr>
                             <td>onChange</td>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import Toast from '../component/Toast';
-import CodeView from '../component/CodeView';
+import {Toast} from '../component/Toast';
+import {CodeView} from '../component/CodeView';
 
-export default class ToastPage extends Component {
+export class ToastPage extends Component {
     handleToast(ref){
         this.refs[ref].open()
     }

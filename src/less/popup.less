@@ -16,6 +16,9 @@
     ._trigger {
         display: inline-block;
         cursor: pointer;
+        .button {
+            margin-right: 0;
+        }
     }
 
     ._wrap {
@@ -110,7 +113,7 @@
     .basic_transition;
 }
 
-.confirm-box {
+@{NS}.confirm-box {
     ._action {
         margin-top: 10px;
         font-size: 80%;
@@ -124,6 +127,14 @@
         }
         ._confirm {
             margin-right: 5px;
+        }
+    }
+}
+
+@{NS}.tooltip {
+    ._wrap {
+        ._content {
+            padding: @padding/2;
         }
     }
 }

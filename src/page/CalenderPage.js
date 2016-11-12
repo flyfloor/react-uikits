@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Calender from '../component/Calender';
-import CodeView from '../component/CodeView';
+import {Calender} from '../component/Calender';
+import {CodeView} from '../component/CodeView';
 
-export default class CalenderPage extends Component {
+export class CalenderPage extends Component {
     render() {
         return (
             <section>

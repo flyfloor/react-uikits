@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {NoticeCenter} from 'react-ui-component'
+import {NoticeCenter as _NoticeCenter} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UINoticeCenter extends Component {
+export class NoticeCenter extends Component {
     constructor(props) {
         super(props);
     }
@@ -17,10 +17,7 @@ class UINoticeCenter extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <NoticeCenter {...props} className={className} ref="notice"/>
+            <_NoticeCenter {...props} className={className} ref="notice"/>
         )
     }
 }
-
-
-export default UINoticeCenter

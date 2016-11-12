@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {NS} from '../constant';
-import DatePicker from '../component/DatePicker';
-import CodeView from '../component/CodeView';
+import {DatePicker} from '../component/DatePicker';
+import {CodeView} from '../component/CodeView';
 
-export default class DatePickerPage extends Component {
+export class DatePickerPage extends Component {
     render() {
         return (
             <section>

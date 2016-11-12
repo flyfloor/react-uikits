@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {FlashMessage} from 'react-ui-component'
+import {FlashMessage as _FlashMessage} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIToast extends Component {
+export class Toast extends Component {
     constructor(props) {
         super(props);
     }
@@ -14,14 +14,11 @@ class UIToast extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <FlashMessage ref="fm" {...props} className={className} />
+            <_FlashMessage ref="fm" {...props} className={className} />
         )
     }
 }
 
-UIToast.defaultProps = {
+Toast.defaultProps = {
     close: <i className="dot icon">close</i>
 }
-
-
-export default UIToast

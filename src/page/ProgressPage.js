@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Progress from '../component/Progress';
 import {NS} from '../constant';
-import CodeView from '../component/CodeView';
+import {Progress} from '../component/Progress';
+import {CodeView} from '../component/CodeView';
 
-export default class ProgressPage extends Component {
+export class ProgressPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -71,18 +71,24 @@ export default class ProgressPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>激活状态</h4>
+                <CodeView component={<Progress value={30} className="active"/>}>
+                    {`<Progress value={30} className="active" />`}
+                </CodeView>
+                <br/>
+
                 <h4>尺寸</h4>
                 <CodeView component={<div>
                                         <h5>小号</h5>
-                                        <Progress value={30} className="small"/>
+                                        <Progress value={30} size="small"/>
                                         <h5>默认</h5>
                                         <Progress value={30}/>
                                         <h5>大号</h5>
-                                        <Progress value={30} className="large"/>
+                                        <Progress value={30} size="large"/>
                                     </div>}>
-{`<Progress value={30} className="small"/>
+{`<Progress value={30} size="small"/>
 <Progress value={30}/>
-<Progress value={30} className="large"/>
+<Progress value={30} size="large"/>
 `}
                 </CodeView>
                 <br/>
@@ -114,10 +120,10 @@ export default class ProgressPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
-                            <td>className</td>
-                            <td>如果是 large/small, 则显示不同尺寸</td>
-                            <td>字符串</td>
-                            <td>无</td>
+                            <td>size</td>
+                            <td>显示不同尺寸</td>
+                            <td>small, normal, large</td>
+                            <td>'normal'</td>
                             <td>否</td>
                         </tr>
                     </tbody>

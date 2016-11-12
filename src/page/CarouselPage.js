@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Carousel from '../component/Carousel';
-import CodeView from '../component/CodeView';
+import {Carousel} from '../component/Carousel';
+import {CodeView} from '../component/CodeView';
 
 const src = ['ambition-morty', 'awkward-morty', 'despise', 'pride-morty', 'surprise-morty'];
 const prefix = 'https://raw.githubusercontent.com/jerryshew/design/master/png';
@@ -14,7 +14,7 @@ const getImgs = function(){
 
 const imgNodes = getImgs();
 
-export default class CarouselPage extends Component {
+export class CarouselPage extends Component {
     render() {
         return (
             <section>

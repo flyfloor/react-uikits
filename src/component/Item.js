@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Item} from 'react-ui-component'
+import {Item as _Item} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIItem extends Component {
+export class Item extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UIItem extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Item {...props} className={className} />
+            <_Item {...props} className={className} />
         )
     }
 }
-
-
-export default UIItem

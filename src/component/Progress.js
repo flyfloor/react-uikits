@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {Progress} from 'react-ui-component'
+import {Progress as _Progress} from 'react-ui-component'
 import {NS} from '../constant'
 import klassName from '../util/className'
 
-class UIProgress extends Component {
+export class Progress extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,10 +11,7 @@ class UIProgress extends Component {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <Progress {...props} className={className} />
+            <_Progress {...props} className={className} />
         )
     }
 }
-
-
-export default UIProgress
