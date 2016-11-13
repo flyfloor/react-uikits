@@ -8,17 +8,17 @@ export class StartPage extends Component {
     render() {
         return (
             <section>
-                {TitleBlock('快速上手', '本节内容主要讲如何快速使用 React UIKit')}
+                {TitleBlock('快速上手', '本节内容主要讲如何快速使用 React UIKits')}
 
                 <h4>引入组件</h4>
                 <Hightlight>
-                    {`import {DropDown, Pagination} from 'react-uikit'`}
+                    {`import {DropDown, Pagination} from 'react-uikits'`}
                 </Hightlight>
                 <br/>
 
                 <h4>引入样式</h4>
                 <Hightlight>
-                    {`import styles from 'react-uikit/less/main.less'`}
+                    {`import styles from 'react-uikits/less/main.less'`}
                 </Hightlight>
                 <br/>
 
@@ -37,6 +37,14 @@ export class StartPage extends Component {
 </RadioGroup>
 `}
                 </Hightlight>
+                <br/>
+
+                <p>
+                    <span>Github 地址: </span> 
+                    <a href="https://github.com/jerryshew/react-uikits" target="_blank">
+                        https://github.com/jerryshew/react-uikits
+                    </a>
+                </p>
             </section>
 
         );

@@ -117,7 +117,7 @@ export class App extends Component {
                                         <div className="text-right cell">
                                             <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
                                             <a href="http://braavos.me" target="_blank">Blog</a>
-                                            <a href="https://github.com/wecatch" target="_blank">team</a>
+                                            <a href="https://github.com/wecatch" target="_blank">Team</a>
                                         </div>
                                     </div>
                                 </div>
