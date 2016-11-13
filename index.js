@@ -4,7 +4,6 @@ var Calender = require('./lib/Calender').Calender;
 var Carousel = require('./lib/Carousel').Carousel;
 var CheckBox = require('./lib/CheckBox').CheckBox;
 var CheckBoxGroup = require('./lib/CheckBoxGroup').CheckBoxGroup;
-var CodeView = require('./lib/CodeView').CodeView;
 var ConfirmBox = require('./lib/ConfirmBox').ConfirmBox;
 var DatePicker = require('./lib/DatePicker').DatePicker;
 var DropDown = require('./lib/DropDown').DropDown;
@@ -29,7 +28,6 @@ module.exports = {
     Carousel: Carousel,
     CheckBox: CheckBox,
     CheckBoxGroup: CheckBoxGroup,
-    CodeView: CodeView,
     ConfirmBox: ConfirmBox,
     DatePicker: DatePicker,
     DropDown: DropDown,
