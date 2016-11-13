@@ -87,7 +87,7 @@ export class App extends Component {
                         <div className={CN('basic table')}>
                             <div className="row">
                                 <div className="cell">
-                                    <h2><Link to="/">React UIKit</Link></h2>
+                                    <h2><Link to="/">React UIKits</Link></h2>
                                 </div>
                                 <div className="text-right cell">
                                     <IndexLink className="link" activeClassName="active" to="/">首页</IndexLink>
@@ -112,10 +112,10 @@ export class App extends Component {
                                 <div className={CN('basic table')}>
                                     <div className="row">
                                         <div className="cell">
-                                            <h4>React UIKit@beta</h4>
+                                            <h4>React UIKits@beta</h4>
                                         </div>
                                         <div className="text-right cell">
-                                            <a href="https://github.com/jerryshew/react-uikit" target="_blank">Github</a>
+                                            <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
                                             <a href="http://braavos.me" target="_blank">Blog</a>
                                             <a href="https://github.com/wecatch" target="_blank">team</a>
                                         </div>
@@ -138,7 +138,7 @@ class RootPage extends Component {
                 <div className="row">
                     <div className="cell">
                         <h1 className={CN('field')}>
-                            React UIkit
+                            React UIkits
                         </h1>
                         <p className={CN('field')}>基于 React.js 快速搭建企业平台的组件化方案</p>
                         <Link to="/component" className={CN('red button')}>更多...</Link>

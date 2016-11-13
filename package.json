@@ -1,7 +1,7 @@
 {
-  "name": "react-uikit",
+  "name": "react-uikits",
   "version": "0.0.1",
-  "description": "react uikit",
+  "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
     "start": "babel --presets es2015,react --watch src/component/ --out-dir lib/ & cross-env NODE_ENV=dev node server.js",
@@ -21,7 +21,7 @@
   ],
   "author": "jerryshew",
   "license": "MIT",
-  "homepage": "https://github.com/jerryshew/react-uikit",
+  "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
     "dot-css": "0.0.3",
     "react": "^15.0.0",
