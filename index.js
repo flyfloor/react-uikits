@@ -41,7 +41,7 @@ module.exports = {
     Progress: Progress,
     Radio: Radio,
     RadioGroup: RadioGroup,
-    slideMenu: slideMenu,
+    SlideMenu: SlideMenu,
     Tab: Tab,
     TimeInput: TimeInput,
     Toast: Toast,
