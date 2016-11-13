@@ -31,19 +31,19 @@
 ## 安装: 
 
 ```
-npm install react-uikit --save
+npm install react-uikits --save
 ```
 
 ## 引入:
 
 ```
-import {DropDown, Pagination} from 'react-uikit
+import {DropDown, Pagination} from 'react-uikits
 ```
 
 ## 样式:
 
 ```
-import styles from 'react-uikit/less/main.less
+import styles from 'react-uikits/less/main.less
 ```
 
 ## 使用:

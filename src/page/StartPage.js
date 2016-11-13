@@ -12,13 +12,13 @@ export class StartPage extends Component {
 
                 <h4>引入组件</h4>
                 <Hightlight>
-                    {`import {DropDown, Pagination} from 'react-uikit'`}
+                    {`import {DropDown, Pagination} from 'react-uikits'`}
                 </Hightlight>
                 <br/>
 
                 <h4>引入样式</h4>
                 <Hightlight>
-                    {`import styles from 'react-uikit/less/main.less'`}
+                    {`import styles from 'react-uikits/less/main.less'`}
                 </Hightlight>
                 <br/>
 

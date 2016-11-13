@@ -11,7 +11,7 @@ export class InstallPage extends Component {
 
                 <h4>使用 npm 安装</h4>
                 <Hightlight>
-                    {`npm install react-uikit --save`}
+                    {`npm install react-uikits --save`}
                 </Hightlight>
                 <p>安装开发版</p>
                 <Hightlight>
