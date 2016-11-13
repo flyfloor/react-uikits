@@ -5,7 +5,7 @@ export const CN = (className='') => {
 }
 
 export const TitleBlock = (name, content) => {
-    content = content || <span>文档内容关于 <span className={`${NS} color-red`}>{name}</span></span>
+    content = content || <span>本文档内容主要关于 <span className={`${NS} color-red`}>{name}</span></span>
     return (
         <div>
             <h2>{name}</h2>

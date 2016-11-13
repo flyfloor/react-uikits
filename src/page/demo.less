@@ -1,4 +1,4 @@
-@import url('../../less/dot.less');
+@import url('../../less/main.less');
 @import url('./highlight.less');
 
 .__column(@n, @i: 1) when (@i =< @n) {
@@ -10,14 +10,62 @@
  .__column(@n, (@i + 1));
 }
 
+body, page, #root {
+    height: 100%;
+}
+
+.main-nav {
+    color: @white;
+    border-bottom: 1px solid @light_gray;
+    margin-bottom: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: @white;
+    a {
+        font-weight: 400;
+    }
+    .link {
+        .css_transition;
+        padding: 24px;
+        border-bottom: 2px solid transparent;
+        &.active {
+            border-color: @blue;
+        }
+    }
+}
+
+.main-page {
+    padding-top: @gap * 4;
+}
+
 .main-aside {
-    >a {
+    padding: @gap * 2 @gap * 2 @gap * 2 0 !important;
+    h4 {
+        color: @deep_gray;
+    }
+    a {
+        color: @dark_gray;
         display: block;
         padding: 5px;
+        font-size: 13px;
         &.active {
             .blue_link;
         }
     }
+}
+
+.main-content {
+    border-left: 1px solid @light_gray;
+    padding: @gap * 2 !important;
+    min-height: @gap * 50;
+}
+
+/*root page*/
+.root-page {
+    background-color: @mini_gray;
 }
 
 /*basic page*/
@@ -25,6 +73,30 @@
 .basic-page {
     .color-item {
         padding: 10px;
+    }
+}
+
+/*footer*/
+
+.main-footer {
+    height: @gap * 4;
+    background-color: @blue;
+    color: @white;
+    margin-top: @gap * 5;
+    .container {
+        height: 100%;
+    }
+    .table {
+        height: 100%;
+    }
+    h4 {
+        font-weight: 400;
+        color: inherit;
+    }
+    a {
+        font-size: 14px;
+        color: inherit;
+        padding: @gap;
     }
 }
 

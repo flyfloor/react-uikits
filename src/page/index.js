@@ -33,6 +33,8 @@ import {LoaderPage} from './LoaderPage'
 import {OtherPage} from './OtherPage'
 import {TablePage} from './TablePage'
 import {TextPage} from './TextPage'
+import {StartPage} from './StartPage'
+import {InstallPage} from './InstallPage'
 
 export  {
     BasicPage,
@@ -70,4 +72,6 @@ export  {
     OtherPage,
     TablePage,
     TextPage,
+    StartPage,
+    InstallPage,
 }
