@@ -4,6 +4,30 @@
 
 ## 主页: [http://braavos.me/react-uikits](http://braavos.me/react-uikits)
 
+## 组件
+ 
+* CheckBox
+* Radio
+* CheckBoxGroup
+* RadioGroup
+* DropDown
+* Menu
+* ConfirmBox
+* Tooltip
+* Modal
+* Tab
+* Pin
+* Carousel
+* Pagination
+* SlideMenu
+* DatePicker  
+* TimeInput  
+* Calender
+* Progress
+* Toast
+* NoticeCenter  
+* ...
+
 ## 安装: 
 
 ```
