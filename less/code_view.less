@@ -27,12 +27,14 @@
         }
     }
     .code-detail {
-        height: 0;
+        max-height: 0;
+        opacity: 0;
         visibility: hidden;
         &.active {
             .css_transition;
+            opacity: 1;
             visibility: visible;
-            height: initial;
+            max-height: initial;
         }
     }
 }
