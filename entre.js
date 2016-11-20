@@ -43,6 +43,7 @@ import {
     TextPage,
     StartPage,
     InstallPage,
+    ListPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -190,6 +191,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/other" component={OtherPage}></Route>
                             <Route path="/component/table" component={TablePage}></Route>
                             <Route path="/component/text" component={TextPage}></Route>
+                            <Route path="/component/list" component={ListPage}></Route>
                         </Route>
                     </Route>
                 </Router>, document.getElementById('root'))
