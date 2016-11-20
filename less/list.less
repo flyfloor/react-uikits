@@ -1,0 +1,42 @@
+@import url('meta');
+@import url('color');
+@import url('glue');
+
+@{NS}.list {
+    .clearfix;
+    &.horizontal {
+        margin: @padding * -1;
+        >.item {
+            &:before {
+                vertical-align: middle;
+            }
+            display: inline-block;
+            padding: @padding;
+            >.image img, >.content {
+                vertical-align: middle;
+            }
+        }
+    }
+    .ordered.list {
+        margin-left: @padding;
+        padding: @padding 0;
+        counter-reset: ordered;
+    }
+}
+
+.list.ordered {
+    counter-reset: ordered;
+    >.item {
+        &:before {
+            display: table-cell;
+            padding-right: @padding;
+            color: @deep_gray;
+            font-size: @normal_font_size - 2px;
+            counter-increment: ordered;
+            content: counters(ordered,".") " ";
+        }
+        >.content {
+            display: table-cell;
+        }
+    }    
+}

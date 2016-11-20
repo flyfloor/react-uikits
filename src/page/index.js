@@ -35,6 +35,7 @@ import {TablePage} from './TablePage'
 import {TextPage} from './TextPage'
 import {StartPage} from './StartPage'
 import {InstallPage} from './InstallPage'
+import {ListPage} from './ListPage'
 
 export  {
     BasicPage,
@@ -74,4 +75,5 @@ export  {
     TextPage,
     StartPage,
     InstallPage,
+    ListPage,
 }
