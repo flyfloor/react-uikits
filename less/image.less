@@ -37,7 +37,7 @@
 }
 
 .__imgSize(@group) when(@group = false) {
-    & { .__calcImgSize(300); }
+    &.middle { .__calcImgSize(300); }
     &.mini { .__calcImgSize(22); }
     &.tiny { .__calcImgSize(35); }
     &.small { .__calcImgSize(60); }
@@ -48,7 +48,7 @@
 }
 
 .__imgSize(@group) when(@group = true) {
-    & {
+    &.middle {
         @_width: 300;
         .__circleImg(@_width);
         &>img {
