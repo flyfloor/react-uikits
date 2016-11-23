@@ -55,12 +55,12 @@ export class CheckBoxGroupPage extends Component {
                 <br/>
 
                 <h4>Yield Children</h4>
-                <CodeView component={<CheckBoxGroup value="banana">
+                <CodeView component={<CheckBoxGroup value={['banana']}>
                             <CheckBox value="apple">apple</CheckBox>
                             <CheckBox value="banana">banana</CheckBox>
                             <CheckBox value="cat" disabled={true}>cat</CheckBox>
                         </CheckBoxGroup>}>
-{`<CheckBoxGroup value="banana">
+{`<CheckBoxGroup value={['banana']}>
     <CheckBox value="apple">apple</CheckBox>
     <CheckBox value="banana">banana</CheckBox>
     <CheckBox value="cat" disabled={true}>cat</CheckBox>
