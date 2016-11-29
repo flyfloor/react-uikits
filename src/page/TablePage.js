@@ -107,6 +107,18 @@ export class TablePage extends Component {
                         <br/>
                     </li>
                     <li>
+                        <h4>居中表格</h4>
+                        <CodeView component={
+                            makeTable('center')
+                        }>
+{`<table className="${NS} center table">
+    ...
+</table>
+`}                                
+                        </CodeView>
+                        <br/>
+                    </li>
+                    <li>
                         <h4>表格布局</h4>
                         <CodeView component={
                             makeTable('basic')

@@ -1,31 +1,26 @@
 @import url('meta');
 @import url('media');
 
-@__form_label_width: 100px;
+@__form_label_width: 130px;
 
 .__makeFields(@n, @i: 1) when (@i =< @n) {
     .fields-@{i} {
         .clearfix;
         font-size: 0;
         position: relative;
-        &>.field:first-child {
-            padding-left: 0;
-        }
-        &>.field:last-child {
-            padding-right: 0;
-        }
-        .field {
+        margin: 0 @padding * -1 0;
+        >.field {
+            padding: 0 @padding;
             font-size: @line_height;
             width: 100% / @i;
             display: inline-block;
             float: left;
-            padding: 0 @padding/2;
         }
     }
     .fields {
-        .field-@{i} {
+        >.field-@{i} {
             font-size: @line_height;
-            padding: 0 @__inline_paadding;
+            padding: 0 @padding;
             display: inline-block;
             float: left;
             width: (@i / @column_count) * 100%;
@@ -36,27 +31,29 @@
 
 .__inlineField(@n, @i: 1) when (@i =< @n) {
     >.fields-@{i} {
-        margin-left: @__form_label_width;
+        margin-left: @__form_label_width - @padding;
     }
     .__inlineField(@n, (@i + 1));
 }
 
 .__mobileFields(@n, @i: 1) when (@i =< @n) {
     .fields-@{i} {
-        .field {
+        margin: @__margin_bottom * -0.5 0 !important;
+        >.field {
             width: 100%;
-            padding: 0;
-            margin-bottom: @__margin_bottom;
-        }
-        &>.field:last-child {
-            margin-bottom: 0;
+            padding: @__margin_bottom * 0.5 0;
+            &:last-child {
+                padding-bottom: 0;
+            }
         }
     }
     .fields {
-        .field-@{i} {
+        >.field-@{i} {
             width: 100%;
-            padding: 0;
-            margin-bottom: @__margin_bottom;
+            padding: @__margin_bottom * 0.5 0;
+            &:last-child {
+                padding-bottom: 0;
+            }
         }
     }
     .__mobileFields(@n, (@i + 1));
@@ -64,7 +61,6 @@
 
 @{NS}.form {
     @__margin_bottom: @padding * 1.6;
-    @__inline_paadding: @padding * .5;
     padding: @padding * 2;
     width: 100%;
     .clearfix;
@@ -85,7 +81,7 @@
         .field {
             margin-bottom: 0;
         }
-        .label:not(@{NS}) {
+        label:not(@{NS}) {
             padding: 0 0 @padding * 4/10;
             background: initial;
             text-shadow: none;
@@ -104,13 +100,9 @@
             .clearfix;
             position: relative;
             font-size: 0;
-            &>:first-child {
-                padding-left: 0;
-            }
-            &>:last-child {
-                padding-right: 0;
-            }
+            margin: 0 -1 * @padding 0;
             >.field {
+                padding: 0 @padding;
                 margin-bottom: @__margin_bottom;
                 &:last-child {
                     margin-bottom: 0;
@@ -129,17 +121,27 @@
             width: 100%;
         }
         &.inline {
-           input, textarea, select {
-               width: auto;
-               display: inline;
-               padding: 0 @__inline_paadding;
-           } 
+            input, select {
+                width: @__form_label_width - @padding * 3;
+                display: inline;
+                margin: 0 @padding;
+                &.mini {
+                    width: @padding * 4;
+                    text-align: center;
+                }
+            }
+            >:first-child {
+                margin-left: 0;
+            }
+            >:last-child {
+                margin-right: 0;
+            }
         }
     }
 
     &.inline {
         &.trim>.field {
-            >.label:nth-child(1) {
+            >label:nth-child(1) {
                 text-align: right;
             }
         }
@@ -148,22 +150,21 @@
             >.field {
                 margin-left: @__form_label_width;
             }
-            >.label:nth-child(1) {
-                width: @__form_label_width;
+            >label:nth-child(1) {
+                width: @__form_label_width - @padding;
                 vertical-align: top;
-                width: @padding * 10;
                 padding: @padding 0;
                 padding-right: @padding;
                 float: left;
             }
             .__inlineField(16);
             >.fields {
-                margin-left: @__form_label_width;
+                margin-left: @__form_label_width - @padding;
             }
         }
 
         >.action {
-            margin-left: @padding * 10;
+            margin-left: @__form_label_width;
         }
     }
     &.basic {
@@ -173,11 +174,31 @@
 
 @media @mobile_view {
     @__margin_bottom: @padding * 1.6;
-    @__inline_paadding: @padding * .5;
-    @{NS}.inline.form>.field>.label:nth-child(1) {
-        width: auto;
+    @{NS}.form {
+        padding: @padding * .5;
+        .field {
+            line-height: @padding;
+        }
     }
-    @{NS}.form .field {
+    @{NS}.inline.form>.field>label:nth-child(1) {
+        width: auto;
+        float: none;
+        text-align: initial !important;
+    }
+    @{NS}.form>.field {
+        margin-bottom: @__margin_bottom * .5;
+        >.fields {
+            margin: @__margin_bottom * -0.5 0 !important;
+        }
+        >.field, >.fields {
+            margin-left: 0 !important;
+        }
+        .inline.field {
+            input, select {
+                width: @padding * 3;
+            }
+        }
         .__mobileFields(16);
     }
+
 }
