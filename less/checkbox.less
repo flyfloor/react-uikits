@@ -11,7 +11,6 @@
     line-height: 1em;
     font-size: @line_height;
     margin-right: @padding;
-    vertical-align: middle;
     input {
         &[type=checkbox], &[type=radio] {
             ._AB_CENTER();
@@ -100,4 +99,8 @@
             }
         }
     }
+}
+
+@{NS}.checkbox-group, @{NS} .checkbox-group, @{NS}.radio-group, @{NS} .radio-group {
+    display: inline-block;
 }

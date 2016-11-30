@@ -81,20 +81,7 @@
         .field {
             margin-bottom: 0;
         }
-        label:not(@{NS}) {
-            padding: 0 0 @padding * 4/10;
-            background: initial;
-            text-shadow: none;
-            border-radius: 0;
-            margin: 0;
-            line-height: @line_height;
-            font-size: @line_height;
-            color: @deep_gray;
-            word-wrap: break-word;
-            &:nth-child(1) {
-                display: block;
-            }
-        }
+        
         .__makeFields(16);
         .fields {
             .clearfix;
@@ -121,10 +108,16 @@
             width: 100%;
         }
         &.inline {
+            >* {
+                display: inline-block;
+                margin: 0 @padding;
+            }
             input, select {
                 width: @__form_label_width - @padding * 3;
                 display: inline;
-                margin: 0 @padding;
+                &.max {
+                    width: @__form_label_width - @padding;
+                }
                 &.mini {
                     width: @padding * 4;
                     text-align: center;
@@ -135,6 +128,23 @@
             }
             >:last-child {
                 margin-right: 0;
+            }
+        }
+    }
+
+    >.field {
+        >label:not(@{NS}) {
+            padding: 0 0 @padding * 4/10;
+            background: initial;
+            text-shadow: none;
+            border-radius: 0;
+            margin: 0;
+            line-height: @line_height;
+            font-size: @line_height;
+            color: @deep_gray;
+            word-wrap: break-word;
+            &:nth-child(1) {
+                display: block;
             }
         }
     }
