@@ -14,6 +14,9 @@ const Modal = React.createClass({
     open(){
         this.refs.modal.open()
     },
+    close(){
+        this.refs.modal.close()
+    },
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
