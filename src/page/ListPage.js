@@ -249,6 +249,17 @@ export class ListPage extends Component {
     ...
 </ul>`}                      
                 </CodeView>
+                <br/>
+
+                <h4>加载中的列表</h4>
+                <CodeView component={makeList('loading')}>
+{`<ul className="${CN('loading list')}">
+    ...
+    ...
+</ul>
+`}                    
+                </CodeView>
+                <br/>
             </section>
         );
     }

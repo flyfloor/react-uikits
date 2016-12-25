@@ -15,6 +15,7 @@ import {ModalPage} from './ModalPage'
 import {NoticePage} from './NoticePage'
 import {PaginationPage} from './PaginationPage'
 import {PinPage} from './PinPage'
+import {PanelPage} from './PanelPage'
 import {ProgressPage} from './ProgressPage'
 import {RadioPage} from './RadioPage'
 import {RadioGroupPage} from './RadioGroupPage'
@@ -57,6 +58,7 @@ export  {
     NoticePage,
     PaginationPage,
     PinPage,
+    PanelPage,
     ProgressPage,
     RadioPage,
     RadioGroupPage,

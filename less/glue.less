@@ -122,3 +122,41 @@
     width: 100% !important;
     display: block;
 }
+
+._LOADING {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255,255,255,.3);
+        visibility: visible;
+        z-index: 100;
+    }
+    &:before {
+        @_border_width: @padding * 0.2;
+        content: '';
+        position: absolute;
+        border-radius: @padding * 1.5;
+        border-width: @_border_width;
+        width: @padding * 3;
+        height: @padding * 3;
+        left: 50%;
+        top: 50%;
+        margin-left: @padding * -1.5;
+        margin-top: @padding * -1.5;
+        z-index: 1000;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: @dull_gray;
+        -webkit-animation: .7s linear infinite spin_loader;
+        -moz-animation: .7s linear infinite spin_loader;
+        -o-animation: .7s linear infinite spin_loader;
+        animation: .7s linear infinite spin_loader;
+    }
+}

@@ -6,46 +6,19 @@ import {NAV_MAP} from './src/constant';
 import dot from './src/page/demo.less'
 
 import {
-    BasicPage, 
-    ButtonPage,
-    CalenderPage, 
-    CarouselPage, 
-    CheckBoxPage,
-    CheckBoxGroupPage,
-    ConfirmBoxPage,
-    DatePickerPage,
-    DateTimePickerPage,
-    DropDownPage,
-    MenuPage,
-    ToastPage,
-    ModalPage,
-    NoticePage,
-    PaginationPage,
-    PinPage,
-    ProgressPage,
-    RadioPage,
-    RadioGroupPage,
-    SlideMenuPage,
-    TabPage,
-    TimeInputPage,
-    TimePickerPage,
-    TooltipPage,
-    CardPage,
-    CommentPage,
-    CrumbPage,
+    BasicPage, ButtonPage,
+    CalenderPage, CarouselPage, CheckBoxPage, CheckBoxGroupPage, ConfirmBoxPage, CardPage, CommentPage, CrumbPage,
+    DatePickerPage, DateTimePickerPage, DropDownPage,
     GridPage,
-    IconPage,
-    ImagePage,
-    InputPage,
-    ItemPage,
-    LabelPage,
-    LoaderPage,
+    IconPage, ImagePage, InputPage, ItemPage, InstallPage,
+    LabelPage, LoaderPage, ListPage,
+    MenuPage, ModalPage,
+    NoticePage,
     OtherPage,
-    TablePage,
-    TextPage,
-    StartPage,
-    InstallPage,
-    ListPage,
+    PaginationPage, PinPage, PanelPage, ProgressPage,
+    RadioPage, RadioGroupPage,
+    SlideMenuPage, StartPage,
+    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -176,6 +149,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/notice" component={NoticePage}></Route>
                             <Route path="/component/pagination" component={PaginationPage}></Route>
                             <Route path="/component/pin" component={PinPage}></Route>
+                            <Route path="/component/panel" component={PanelPage}></Route>
                             <Route path="/component/progress" component={ProgressPage}></Route>
                             <Route path="/component/radio" component={RadioPage}></Route>
                             <Route path="/component/radiogroup" component={RadioGroupPage}></Route>

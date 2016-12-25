@@ -202,6 +202,36 @@ export class CommentPage extends Component {
                         </CodeView>
                         <br/>
                     </li>
+
+                    <li>
+                        <CodeView component={
+                            <div className={CN('comments')}>
+                                <div className={CN('loading comment')}>
+                                    <div className="avatar">
+                                        <img src="http://braavos.me/dot-css/dist/img/avatar.png"/>
+                                    </div>
+                                    <div className="content">
+                                        <div className="nickname">lacuna fario</div>
+                                        <div className="extra">
+                                            <span>2016-05-32 8:20 pm</span>
+                                        </div>
+                                        <div className="text">
+                                            Lacuna is a company name from a movie named <i>"Eternal sunshine of the spotless mind"</i>
+                                        </div>
+                                        <div className="action">
+                                            <a href="javascript:;">reply</a>
+                                            <a href="javascript:;">delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }>
+{`<div className="${CN('loading comment')}">
+...
+</div>`}                                
+                        </CodeView>
+                        <br/>
+                    </li>
                 </ul>
             </div>
         );

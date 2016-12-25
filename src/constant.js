@@ -50,6 +50,7 @@ export const NAV_MAP = {
         {route: "/component/card", name: "Card 卡片"},
         {route: "/component/grid", name: "Grid 栅格"},
         {route: "/component/list", name: "List 列表"},
+        {route: "/component/panel", name: "Panel 面板"},
         {route: "/component/item", name: "Item 条目"},
         {route: "/component/pin", name: "Pin 大头针"},
         {route: "/component/table", name: "Table 表格"},

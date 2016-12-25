@@ -119,6 +119,18 @@ export class TablePage extends Component {
                         <br/>
                     </li>
                     <li>
+                        <h4>加载中的表格</h4>
+                        <CodeView component={
+                            makeTable('loading')
+                        }>
+{`<table className="${NS} loading table">
+    ...
+</table>
+`}                                
+                        </CodeView>
+                        <br/>
+                    </li>
+                    <li>
                         <h4>表格布局</h4>
                         <CodeView component={
                             makeTable('basic')
