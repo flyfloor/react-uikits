@@ -6,44 +6,19 @@ import {NAV_MAP} from './src/constant';
 import dot from './src/page/demo.less'
 
 import {
-    BasicPage, 
-    ButtonPage,
-    CalenderPage, 
-    CarouselPage, 
-    CheckBoxPage,
-    CheckBoxGroupPage,
-    ConfirmBoxPage,
-    DatePickerPage,
-    DropDownPage,
-    MenuPage,
-    ToastPage,
-    ModalPage,
-    NoticePage,
-    PaginationPage,
-    PinPage,
-    ProgressPage,
-    RadioPage,
-    RadioGroupPage,
-    SlideMenuPage,
-    TabPage,
-    TimeInputPage,
-    TooltipPage,
-    CardPage,
-    CommentPage,
-    CrumbPage,
+    BasicPage, ButtonPage,
+    CalenderPage, CarouselPage, CheckBoxPage, CheckBoxGroupPage, ConfirmBoxPage, CardPage, CommentPage, CrumbPage,
+    DatePickerPage, DateTimePickerPage, DropDownPage,
     GridPage,
-    IconPage,
-    ImagePage,
-    InputPage,
-    ItemPage,
-    LabelPage,
-    LoaderPage,
+    IconPage, ImagePage, InputPage, ItemPage, InstallPage,
+    LabelPage, LoaderPage, ListPage,
+    MenuPage, ModalPage,
+    NoticePage,
     OtherPage,
-    TablePage,
-    TextPage,
-    StartPage,
-    InstallPage,
-    ListPage,
+    PaginationPage, PinPage, PanelPage, ProgressPage,
+    RadioPage, RadioGroupPage,
+    SlideMenuPage, StartPage,
+    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage,
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -165,6 +140,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/comment" component={CommentPage}></Route>
                             <Route path="/component/confirmbox" component={ConfirmBoxPage}></Route>
                             <Route path="/component/datepicker" component={DatePickerPage}></Route>
+                            <Route path="/component/datetimepicker" component={DateTimePickerPage}></Route>
                             <Route path="/component/dropdown" component={DropDownPage}></Route>
                             <Route path="/component/grid" component={GridPage}></Route>
                             <Route path="/component/menu" component={MenuPage}></Route>
@@ -173,12 +149,14 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/notice" component={NoticePage}></Route>
                             <Route path="/component/pagination" component={PaginationPage}></Route>
                             <Route path="/component/pin" component={PinPage}></Route>
+                            <Route path="/component/panel" component={PanelPage}></Route>
                             <Route path="/component/progress" component={ProgressPage}></Route>
                             <Route path="/component/radio" component={RadioPage}></Route>
                             <Route path="/component/radiogroup" component={RadioGroupPage}></Route>
                             <Route path="/component/slidemenu" component={SlideMenuPage}></Route>
                             <Route path="/component/tab" component={TabPage}></Route>
                             <Route path="/component/timeinput" component={TimeInputPage}></Route>
+                            <Route path="/component/timepicker" component={TimePickerPage}></Route>
                             <Route path="/component/tooltip" component={TooltipPage}></Route>
                             <Route path="/component/card" component={CardPage}></Route>
                             <Route path="/component/crumb" component={CrumbPage}></Route>

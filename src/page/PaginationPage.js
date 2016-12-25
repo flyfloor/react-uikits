@@ -46,6 +46,18 @@ export class PaginationPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>显示跳页</h4>
+                <CodeView component={<Pagination showJump={true} />}>
+                    {`<Pagination showJump={true} />`}
+                </CodeView>
+                <br/>
+
+                <h4>自定义首末页</h4>
+                <CodeView component={<Pagination showRange={true} start={<span>首页</span>} end={<span>末页</span>} />}>
+                    {`<Pagination showRange={true} start={<span>首页</span>} end={<span>末页</span>} />`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -94,6 +106,27 @@ export class PaginationPage extends Component {
                             <td>showNav</td>
                             <td>显示分页导航</td>
                             <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>showJump</td>
+                            <td>显示调页</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>start</td>
+                            <td>首页显示, 需要设置 showRange 为 true</td>
+                            <td>jsx</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>end</td>
+                            <td>末页显示, 需要设置 showRange 为 true</td>
+                            <td>jsx</td>
                             <td>false</td>
                             <td>否</td>
                         </tr>

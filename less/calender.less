@@ -40,12 +40,19 @@
             width: 20px;
             i {
                 .iconFont;
+                color: @dark_gray;
             } 
-            &._pre i:before {
+            &._prev i:before {
                 content: "\e5cb";
+            }
+            &._prev._year i:before {
+                content: "\e5dc";
             }
             &._next i:before {
                 content: "\e5cc";
+            }
+            &._next._year i:before {
+                content: "\e5dd";
             }
         }
     }

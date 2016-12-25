@@ -7,6 +7,7 @@ import {CheckBoxGroupPage} from './CheckBoxGroupPage'
 import {ConfirmBoxPage} from './ConfirmBoxPage'
 import {CommentPage} from './CommentPage'
 import {DatePickerPage} from './DatePickerPage'
+import {DateTimePickerPage} from './DateTimePickerPage'
 import {DropDownPage} from './DropDownPage'
 import {MenuPage} from './MenuPage'
 import {ToastPage} from './ToastPage'
@@ -14,12 +15,14 @@ import {ModalPage} from './ModalPage'
 import {NoticePage} from './NoticePage'
 import {PaginationPage} from './PaginationPage'
 import {PinPage} from './PinPage'
+import {PanelPage} from './PanelPage'
 import {ProgressPage} from './ProgressPage'
 import {RadioPage} from './RadioPage'
 import {RadioGroupPage} from './RadioGroupPage'
 import {SlideMenuPage} from './SlideMenuPage'
 import {TabPage} from './TabPage'
 import {TimeInputPage} from './TimeInputPage'
+import {TimePickerPage} from './TimePickerPage'
 import {TooltipPage} from './TooltipPage'
 import {InputPage} from './InputPage'
 import {CardPage} from './CardPage'
@@ -47,6 +50,7 @@ export  {
     CommentPage,
     ConfirmBoxPage,
     DatePickerPage,
+    DateTimePickerPage,
     DropDownPage,
     MenuPage,
     ToastPage,
@@ -54,12 +58,14 @@ export  {
     NoticePage,
     PaginationPage,
     PinPage,
+    PanelPage,
     ProgressPage,
     RadioPage,
     RadioGroupPage,
     SlideMenuPage,
     TabPage,
     TimeInputPage,
+    TimePickerPage,
     TooltipPage,
     InputPage,
     CardPage,

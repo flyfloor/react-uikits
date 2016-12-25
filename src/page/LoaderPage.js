@@ -12,8 +12,7 @@ export class LoaderPage extends Component {
                     <li>
                         <h4>默认加载器</h4>
                         <CodeView component={
-                            <div className={CN('small loader')}>
-                            </div>
+                            <div className={CN('small loader')}></div>
                         }>
                             {`<div class="${CN('small loader')}"></div>`}
                         </CodeView>
@@ -73,6 +72,7 @@ export class LoaderPage extends Component {
     <div class="bounce"></div>
     <div class="bounce"></div>
 </div>
+size: small, large
 `}                                
                         </CodeView>
                         <br/>
@@ -89,6 +89,32 @@ export class LoaderPage extends Component {
                             </div>
                         }>
                             {`<div class="${CN('google spinner')}"></div>`}
+                        </CodeView>
+                        <br/>
+                    </li>
+                    <li>
+                        <h4>居中加载器</h4>
+                        <CodeView component={
+                            <div>
+                                <div className={CN('center loader')}></div>
+                                <br/>
+                                <div className={CN('center bounce loader')}>
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                </div>
+                                <br/>
+                                <div className={CN('center google spinner')}></div>
+                            </div>
+                        }>
+{`<div class="${CN('center loader')}"></div>
+<div class="${CN('center bounce loader')}">
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+</div>
+size: small, large
+<div class="${CN('google spinner')}"></div>`}
                         </CodeView>
                         <br/>
                     </li>

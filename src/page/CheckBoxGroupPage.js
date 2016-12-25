@@ -32,8 +32,8 @@ export class CheckBoxGroupPage extends Component {
                 <br/>
 
                 <h4>默认值</h4>
-                <CodeView component={<CheckBoxGroup value="c" options={options} />}>
-{`<CheckBoxGroup value="c" options={[
+                <CodeView component={<CheckBoxGroup value={['c', 'd']} options={options} />}>
+{`<CheckBoxGroup value={['c', 'd']} options={[
         {'name': 'apple', 'value': 'a'},
         {'name': 'banana', 'value': 'b', disabled: true},
         ...
@@ -44,7 +44,7 @@ export class CheckBoxGroupPage extends Component {
 
                 <h4>onChange 事件</h4>
                 <CodeView component={<CheckBoxGroup options={options} onChange={value => alert(value)} />}>
-{`<CheckBoxGroup value="c" onChange={value => alert(value)} 
+{`<CheckBoxGroup value={['c']} onChange={value => alert(value)} 
     options={[
         {'name': 'apple', 'value': 'a'},
         {'name': 'banana', 'value': 'b', disabled: true},
@@ -103,8 +103,8 @@ export class CheckBoxGroupPage extends Component {
                         <tr>
                             <td>value</td>
                             <td>复选框组的值</td>
-                            <td></td>
-                            <td>无</td>
+                            <td>数组</td>
+                            <td>[]</td>
                             <td>否</td>
                         </tr>
                         <tr>

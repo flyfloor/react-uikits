@@ -1,0 +1,17 @@
+@import url('meta');
+@import url('glue');
+
+@{NS}.panel {
+    .bordered;
+    >._content, >._title {
+        padding: @padding;
+    }
+    >._title {
+        color: @most_gray;
+        font-weight: 400;
+        font-size: @normal_font_size;
+    }
+    &.loading {
+        ._LOADING;
+    }
+}

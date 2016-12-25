@@ -4,7 +4,7 @@
 
 @{NS}.pagination {
     margin: 0;
-    padding: 10px 0 0;
+    padding: @padding 0 0;
     overflow: hidden;
     >._item {
         .blue_link;
@@ -29,5 +29,20 @@
     ._range, ._nav {
         width: auto;
         padding: 0 @padding;
+    }
+    ._jump {
+        color: initial;
+        padding: 0 @padding / 2;
+        cursor: default;
+        border: 0;
+        &:hover {
+            color: initial;
+        }
+        >input {
+            width: @padding * 5;
+            overflow: hidden;
+            height: @padding * 2.6;
+            text-align: center;
+        }
     }
 }

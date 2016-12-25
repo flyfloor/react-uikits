@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock, formatDate} from '../util/tools';
 import {NS} from '../constant';
-import {DatePicker} from '../component/DatePicker';
+import {DateTimePicker} from '../component/DateTimePicker';
 import {CodeView} from '../component/CodeView';
 
-export class DatePickerPage extends Component {
+export class DateTimePickerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: new Date()
+            value: new Date('2016-11-08 12:02:45')
         }
     }
-    handleDateChange(value){
+    handleTimeChange(value){
         this.setState({
             value
         });
@@ -19,45 +19,45 @@ export class DatePickerPage extends Component {
     render() {
         return (
             <section>
-                {TitleBlock('日期选择')}
-                <h4>默认日期选择</h4>
-                <CodeView component={<DatePicker onChange={value => {}}/>}>
-                    {`<DatePicker onChange={onChangeFunction}/>`}  
-                </CodeView>
-                <br/>
-
-                <h4>默认值</h4>
-                <CodeView component={<DatePicker value={new Date('2015-10-05')} onChange={value => {}} />}>
-                    {`<DatePicker value={new Date('2015-10-05')} onChange={onChangeFunction} />`}             
-                </CodeView>
-                <br/>
-
-                <h4>自定义格式化</h4>
-                <CodeView component={<DatePicker value={new Date('2015-10-05')} 
-                    format={'yyyy/MM/dd'} onChange={value => {}}/>}>
-                    {`<DatePicker value={new Date('2015-10-05')} format={'yyyy/MM/dd'} onChange={onChangeFunction}/>`}  
-                </CodeView>
-                <br/>
+                {TitleBlock('日期时间选择')}
                 
+                <h4>默认日期时间选择</h4>
+                <CodeView component={<DateTimePicker onChange={value => {}}/>}>
+                    {`<DateTimePicker onChange={onChangeFunction}/>`}  
+                </CodeView>
+                <br/>
+
+                <h4>带默认值的默认日期时间选择</h4>
+                <CodeView component={<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
+                </CodeView>
+                <br/>
+
+                <h4>自定义格式化日期时间选择</h4>
+                <CodeView component={<DateTimePicker format="yyyy/MM/dd" 
+                    value={new Date('2016-11-08 12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker format="yyyy/MM/dd" value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
+                </CodeView>
+                <br/>
+
                 <h4>onChange 事件</h4>
                 <CodeView component={
                     <div>
-                        <p>选择的日期是 {formatDate(this.state.value)}</p>
-                        <br/>
-                        <DatePicker value={this.state.value} onChange={this.handleDateChange.bind(this)}/>
+                        <p>选择的时间是 {formatDate(this.state.value, 'yyyy-MM-dd hh:mm:ss')}</p>
+                        <DateTimePicker value={this.state.value} onChange={this.handleTimeChange.bind(this)}/>
                     </div>
                 }>
-                    {`<DatePicker onChange={date => onChangeFunction}/>`}             
+                    {`<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
-                
-                <h4>日期范围</h4>
-                <CodeView component={<DatePicker begin={new Date("2016-10-20")} 
-                    end={new Date("2016-11-23")} onChange={value => {}}/>}>
-                    {`<DatePicker begin={new Date("2016-10-20")} end={new Date("2016-11-23")} onChange={onChangeFunction}/>`}
+
+                <h4>开始、结束日期范围</h4>
+                <CodeView component={<DateTimePicker begin={new Date('2016-11-08')}
+                     end={new Date('2016-12-20')} onChange={value => {}}/>}>
+                    {`<DateTimePicker begin={new Date('2016-11-08')} end={new Date('2016-12-20')}  onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
-                
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -73,7 +73,7 @@ export class DatePickerPage extends Component {
                         <tr>
                             <td>value</td>
                             <td>日历默认值</td>
-                            <td>Date 类型(例如：new Date('2016-10-02'))</td>
+                            <td>Date 类型(例如：new Date('2016-10-02 12:00:08'))</td>
                             <td>今天日期</td>
                             <td>否</td>
                         </tr>
@@ -107,6 +107,7 @@ export class DatePickerPage extends Component {
                         </tr>
                     </tbody>
                 </table>
+
             </section>
         );
     }

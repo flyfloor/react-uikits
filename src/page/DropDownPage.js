@@ -25,37 +25,43 @@ export class DropDownPage extends Component {
                 {TitleBlock('下拉框')}
 
                 <h4>默认下拉框</h4>
-                <CodeView component={<DropDown options={options} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} 
+                        onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认选中</h4>
-                <CodeView component={<DropDown options={options} defaultSelected={true} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} 
+                            defaultSelected={true} onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} defaultSelected={true} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认值</h4>
-                <CodeView component={<DropDown options={options} value={'banana'} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} 
+                        value={'banana'} onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} value={'banana'} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>搜索框</h4>
-                <CodeView component={<DropDown options={options} searchable={true} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} 
+                        searchable={true} onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} searchable={true} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认多选下拉</h4>
-                <CodeView component={<DropDown options={options} multi={true} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} multi={true} 
+                    onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} multi={true} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>带默认值的多选下拉</h4>
-                <CodeView component={<DropDown options={options} value={['banana', 'egg']} multi={true} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options} 
+                        value={['banana', 'egg']} multi={true} onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} multi={true} value={['banana', 'egg']} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
@@ -79,7 +85,7 @@ export class DropDownPage extends Component {
                                             <i style={{'fontStyle': 'italic'}}>egg's gooood</i>
                                         </Item>
                                     </DropDown>}>
-{`<DropDown value={value} onChange={displayChange}>
+{`<DropDown value={2} onChange={displayChange}>
     <Item value={1} name="apple">
         <p>hate the show, love the animal</p>
         <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
@@ -90,7 +96,7 @@ export class DropDownPage extends Component {
                 <br/>
 
                 <h4>Yield Children(multi)</h4>
-                <CodeView component={<DropDown multi={true} value={[2]} onChange={value => console.log(value)}>
+                <CodeView component={<DropDown multi={true} value={[2, 3]} onChange={value => console.log(value)}>
                                         <Item value={1} name="apple">
                                             <p>hate the show, love the animal</p>
                                             <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
@@ -109,7 +115,7 @@ export class DropDownPage extends Component {
                                         </Item>
                                     </DropDown>}>
 {`<DropDown multi={true}
-    value={value} onChange={displayChange}>
+    value={[2, 3]} onChange={displayChange}>
     <Item value={1} name="apple">
         <p>hate the show, love the animal</p>
         <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
@@ -174,7 +180,10 @@ export class DropDownPage extends Component {
                             <td>value</td>
                             <td>值</td>
                             <td>多选为数组类型，单选字符串或数字</td>
-                            <td>[] 或 ""</td>
+                            <td>
+                                <p>多选为 []</p>
+                                <p>单选为 ""</p>
+                            </td>
                             <td>否</td>
                         </tr>
                         <tr>

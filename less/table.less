@@ -1,7 +1,6 @@
 @import url('meta');
 @import url('color');
 @import url('glue');
-@import url('_font_padding');
 
 @{NS}.table {
     .bordered;
@@ -77,5 +76,9 @@
             padding: 0;
             border: 0;
         }
+    }
+
+    &.loading {
+        ._LOADING;
     }
 }

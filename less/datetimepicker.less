@@ -1,0 +1,48 @@
+@import url('meta');
+@import url('glue');
+@import url('button');
+@import url('transition.less');
+
+@{NS}.datetime-picker {
+    display: inline-block;
+    width: @min_input_width;
+    position: relative;
+    >._input {
+        width: 100%;
+    }
+    ._timepicker ._list {
+        width: @min_input_width / 3 - 1px;
+    }
+    >._wrap {
+        .bordered;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: @white;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+        top: @padding * 3.3;
+        .calender, ._timepicker ._section {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            margin-bottom: @padding;
+            border-radius: 0;
+        }
+        ._action {
+            overflow: hidden;
+            padding: 0 @padding @padding;
+            font-size: @padding * 1.2;
+            ._selector {
+                .blue_link;
+                line-height: @padding * 3;
+            }
+            ._button {
+                .__btn;
+                ._FONT_PADDING(14, 7);
+                float: right;
+                margin-right: 0;
+            }
+        }
+    }
+}
