@@ -46,6 +46,12 @@ export class PaginationPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>显示跳页</h4>
+                <CodeView component={<Pagination showJump={true} />}>
+                    {`<Pagination showJump={true} />`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -93,6 +99,13 @@ export class PaginationPage extends Component {
                         <tr>
                             <td>showNav</td>
                             <td>显示分页导航</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>showJump</td>
+                            <td>显示调页</td>
                             <td>Boolean</td>
                             <td>false</td>
                             <td>否</td>
