@@ -21,7 +21,8 @@ export class IconPage extends Component {
         return (
             <ul className={CN('grid grid-5 text-center text-extra')}>
                 {ICONS.map(icon => {
-                    return <li key={icon} onClick={() => this.handleClick(icon)} className={CN('column block truncate field icon-item')}>
+                    return <li key={icon} onClick={() => this.handleClick(icon)} 
+                                className={CN('column block truncate field icon-item')}>
                                 <i className={CN('icon')}>{icon}</i>
                                 <p>{icon}</p>
                             </li>
@@ -35,7 +36,7 @@ export class IconPage extends Component {
                 {TitleBlock('图标', <span>
                                         图标集, 
                                         <span className={CN('color-brown')}>来自 Google's material icons, 所有图标在此 ==>
-                                        <a href="https://material.io/icons/" target="_blank"> Google icons</a>
+                                        <a href="https://github.com/google/material-design-icons" target="_blank"> Google icons</a>
                                         </span>
                                     </span>)}
                 <CodeView component={
