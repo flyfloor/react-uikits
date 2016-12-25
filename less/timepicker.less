@@ -1,0 +1,69 @@
+@import url('meta');
+@import url('glue');
+@import url('transition.less');
+
+@__timeInputWidth: 150px;
+
+.timeinput {
+    position: relative;
+    width: @__timeInputWidth;
+    ._input {
+        width: 100%;
+    }
+}
+
+.timepicker, .datetime-picker {
+    width: @__timeInputWidth;
+    position: relative;
+    .timeinput {
+        width: 100%;
+    }
+    ._wrap {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: @padding * 3.3;
+        width: 100%;
+        z-index: 100;
+        background-color: @white;
+    }
+    ._section {
+        .bordered;
+        overflow: hidden;
+    }
+    ._list {
+        position: relative;
+        width: @__timeInputWidth / 3 - 1px;
+        float: left;
+        max-height: 140px;
+        margin: 0;
+        overflow-y: scroll;
+        &+._list {
+            border-left: 1px solid @light_gray;
+        }
+        > ul {
+            padding: 0 0 120px 0;
+            display: block;
+        }
+        ._item {
+            text-align: center;
+            cursor: pointer;
+            padding: 2px 0;
+            color: @dark_gray;
+            font-size: 13px;
+            line-height: 26px;
+            &._active {
+                color: @white;
+                background-color: @blue;
+            }
+        }
+    }
+    &._simple {
+        width: @__timeInputWidth * 2 / 3;
+        ._list {
+            width: 50%;
+        }
+    }
+    
+    .basic_transition;
+}

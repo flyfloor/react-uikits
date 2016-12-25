@@ -27,6 +27,7 @@ import {
     SlideMenuPage,
     TabPage,
     TimeInputPage,
+    TimePickerPage,
     TooltipPage,
     CardPage,
     CommentPage,
@@ -179,6 +180,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/slidemenu" component={SlideMenuPage}></Route>
                             <Route path="/component/tab" component={TabPage}></Route>
                             <Route path="/component/timeinput" component={TimeInputPage}></Route>
+                            <Route path="/component/timepicker" component={TimePickerPage}></Route>
                             <Route path="/component/tooltip" component={TooltipPage}></Route>
                             <Route path="/component/card" component={CardPage}></Route>
                             <Route path="/component/crumb" component={CrumbPage}></Route>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {TimeInput} from '../component/TimeInput';
+import {TimePicker} from '../component/TimePicker';
 import {CodeView} from '../component/CodeView';
 
-export class TimeInputPage extends Component {
+export class TimePickerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: '01:23:01'
         }
     }
     handleTimeChange(value){
@@ -18,35 +18,34 @@ export class TimeInputPage extends Component {
     render() {
         return (
             <section>
-                {TitleBlock('时间输入')}
+                {TitleBlock('时间选择')}
 
-                <h4>默认时间输入</h4>
-                <CodeView component={<TimeInput onChange={value => {}} />}>
-                    {`<TimeInput onChange={onChangeFunction} />`}
+                <h4>默认时间选择</h4>
+                <CodeView component={<TimePicker onChange={value => {}} />}>
+                    {`<TimePicker onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
-
-                <h4>带默认值的时间输入</h4>
-                <CodeView component={<TimeInput value={'12:32:21'} onChange={value => {}} />}>
-                    {`<TimeInput value={'12:32:23'} onChange={onChangeFunction} />`}
+                
+                <h4>带默认值的时间选择</h4>
+                <CodeView component={<TimePicker value="03:23:37" onChange={value => {}} />}>
+                    {`<TimePicker value="03:23:37" onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
-
+                
                 <h4>onChange 事件</h4>
                 <CodeView component={
                     <div>
-                        <p>输入的时间是 {this.state.value}</p>
-                        <br/>
-                        <TimeInput onChange={this.handleTimeChange.bind(this)} />
+                        <p>选择的时间是 {this.state.value}</p>
+                        <TimePicker value={this.state.value} onChange={this.handleTimeChange.bind(this)} />
                     </div>
                 }>
-                    {`<TimeInput onChange={onChangeFunction}/>`}
+                    {`<TimePicker value="03:23:37" onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
-
-                <h4>简洁版</h4>
-                <CodeView component={<TimeInput simple={true} onChange={value => {}} />}>
-                    {`<TimeInput simple={true} onChange={onChangeFunction} />`}
+                
+                <h4>简单的时间选择</h4>
+                <CodeView component={<TimePicker simple={true} onChange={value => {}} />}>
+                    {`<TimePicker simple={true} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 

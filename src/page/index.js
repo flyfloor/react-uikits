@@ -20,6 +20,7 @@ import {RadioGroupPage} from './RadioGroupPage'
 import {SlideMenuPage} from './SlideMenuPage'
 import {TabPage} from './TabPage'
 import {TimeInputPage} from './TimeInputPage'
+import {TimePickerPage} from './TimePickerPage'
 import {TooltipPage} from './TooltipPage'
 import {InputPage} from './InputPage'
 import {CardPage} from './CardPage'
@@ -60,6 +61,7 @@ export  {
     SlideMenuPage,
     TabPage,
     TimeInputPage,
+    TimePickerPage,
     TooltipPage,
     InputPage,
     CardPage,

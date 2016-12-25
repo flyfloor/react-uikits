@@ -27,15 +27,22 @@ export class DatePickerPage extends Component {
                 <br/>
 
                 <h4>默认值</h4>
-                <CodeView component={<DatePicker value={new Date('2014-10-05')} onChange={value => {}} />}>
-                    {`<DatePicker value={new Date('2014-10-05')} onChange={onChangeFunction} />`}             
+                <CodeView component={<DatePicker value={new Date('2015-10-05')} onChange={value => {}} />}>
+                    {`<DatePicker value={new Date('2015-10-05')} onChange={onChangeFunction} />`}             
+                </CodeView>
+                <br/>
+
+                <h4>自定义格式化</h4>
+                <CodeView component={<DatePicker value={new Date('2015-10-05')} 
+                    format={'yyyy/MM/dd'} onChange={value => {}}/>}>
+                    {`<DatePicker value={new Date('2015-10-05')} format={'yyyy/MM/dd'} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
                 
                 <h4>onChange 事件</h4>
                 <CodeView component={
                     <div>
-                        <p>your selected date is {formatDate(this.state.value)}</p>
+                        <p>选择的日期是 {formatDate(this.state.value)}</p>
                         <br/>
                         <DatePicker value={this.state.value} onChange={this.handleDateChange.bind(this)}/>
                     </div>
@@ -68,6 +75,13 @@ export class DatePickerPage extends Component {
                             <td>日历默认值</td>
                             <td>Date 类型(例如：new Date('2016-10-02'))</td>
                             <td>今天日期</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>format</td>
+                            <td>日期格式化</td>
+                            <td>字符串, 例如: yyyy年MM月dd日</td>
+                            <td>yyyy-MM-dd</td>
                             <td>否</td>
                         </tr>
                         <tr>
