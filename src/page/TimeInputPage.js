@@ -4,32 +4,49 @@ import {TimeInput} from '../component/TimeInput';
 import {CodeView} from '../component/CodeView';
 
 export class TimeInputPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: ''
+        }
+    }
+    handleTimeChange(value){
+        this.setState({
+            value
+        });
+    }
     render() {
         return (
             <section>
                 {TitleBlock('时间输入')}
 
                 <h4>默认时间输入</h4>
-                <CodeView component={<TimeInput/>}>
-                    {`<TimeInput/>`}
+                <CodeView component={<TimeInput onChange={value => {}} />}>
+                    {`<TimeInput onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
                 <h4>带默认值的时间输入</h4>
-                <CodeView component={<TimeInput value={'12:32:21'}/>}>
-                    {`<TimeInput value={'12:32:23'}/>`}
+                <CodeView component={<TimeInput value={'12:32:21'} onChange={value => {}} />}>
+                    {`<TimeInput value={'12:32:23'} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
                 <h4>onChange 事件</h4>
-                <CodeView component={<TimeInput onChange={value => alert(value)} />}>
-                    {`<TimeInput onChange={value => alert(value)}/>`}
+                <CodeView component={
+                    <div>
+                        <p>your selected time is {this.state.value}</p>
+                        <br/>
+                        <TimeInput onChange={this.handleTimeChange.bind(this)} />
+                    </div>
+                }>
+                    {`<TimeInput onChange={onChangeFunction}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>简洁版</h4>
-                <CodeView component={<TimeInput simple={true} />}>
-                    {`<TimeInput simple={true}/>`}
+                <CodeView component={<TimeInput simple={true} onChange={value => {}} />}>
+                    {`<TimeInput simple={true} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
@@ -68,7 +85,7 @@ export class TimeInputPage extends Component {
 
                             }`}
                             </td>
-                            <td>否</td>
+                            <td>是</td>
                         </tr>
                     </tbody>
                 </table>
