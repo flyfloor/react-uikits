@@ -7,6 +7,7 @@ import {CheckBoxGroupPage} from './CheckBoxGroupPage'
 import {ConfirmBoxPage} from './ConfirmBoxPage'
 import {CommentPage} from './CommentPage'
 import {DatePickerPage} from './DatePickerPage'
+import {DateTimePickerPage} from './DateTimePickerPage'
 import {DropDownPage} from './DropDownPage'
 import {MenuPage} from './MenuPage'
 import {ToastPage} from './ToastPage'
@@ -48,6 +49,7 @@ export  {
     CommentPage,
     ConfirmBoxPage,
     DatePickerPage,
+    DateTimePickerPage,
     DropDownPage,
     MenuPage,
     ToastPage,

@@ -39,6 +39,9 @@
         -o-animation: .7s linear infinite spin_loader;
         animation: .7s linear infinite spin_loader;
     }
+    &.center {
+        margin: auto;
+    }
     &.inverted {
         border-color: rgba(200,200,200,.2);
         &:before {
@@ -54,6 +57,9 @@
     border: 0;
     &:before, &:after {
         content: none;
+    }
+    &.center {
+        text-align: center;
     }
     /*shape size*/
     &.small>.bounce {
@@ -115,15 +121,18 @@
 }
 
 @{NS}.google.spinner {
-    position: relative;
     .__spinnerSize(@padding * 2.4);
+    position: relative;
+    background-color: @white;
     &.small {
         .__spinnerSize(@padding * 1.2);
     }
     &.large {
         .__spinnerSize(@padding * 4.8);
     }
-    background-color: @white;
+    &.center {
+        margin: auto;
+    }
     &:before, &:after {
         content: "";
         position: absolute;

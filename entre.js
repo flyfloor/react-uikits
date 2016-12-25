@@ -14,6 +14,7 @@ import {
     CheckBoxGroupPage,
     ConfirmBoxPage,
     DatePickerPage,
+    DateTimePickerPage,
     DropDownPage,
     MenuPage,
     ToastPage,
@@ -166,6 +167,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/comment" component={CommentPage}></Route>
                             <Route path="/component/confirmbox" component={ConfirmBoxPage}></Route>
                             <Route path="/component/datepicker" component={DatePickerPage}></Route>
+                            <Route path="/component/datetimepicker" component={DateTimePickerPage}></Route>
                             <Route path="/component/dropdown" component={DropDownPage}></Route>
                             <Route path="/component/grid" component={GridPage}></Route>
                             <Route path="/component/menu" component={MenuPage}></Route>

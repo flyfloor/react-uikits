@@ -7,13 +7,16 @@
 .timeinput {
     position: relative;
     width: @__timeInputWidth;
-    ._input {
+    >._input {
         width: 100%;
     }
 }
 
-.timepicker, .datetime-picker {
+@{NS}.timepicker {
     width: @__timeInputWidth;
+}
+
+@{NS}.timepicker, ._timepicker {
     position: relative;
     .timeinput {
         width: 100%;
