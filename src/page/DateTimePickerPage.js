@@ -8,7 +8,7 @@ export class DateTimePickerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: new Date('2016-11-08 12:02:45')
+            value: new Date('2016-11-08T12:02:45')
         }
     }
     handleTimeChange(value){
@@ -19,7 +19,10 @@ export class DateTimePickerPage extends Component {
     render() {
         return (
             <section>
-                {TitleBlock('日期时间选择')}
+                {TitleBlock('日期时间选择', <span>
+                                            <span>本章关于日期时间选择，</span>
+                                            <span className={`${NS} color-red`}>注意：safari下 new Date() 的使用</span>
+                                        </span>)}
                 
                 <h4>默认日期时间选择</h4>
                 <CodeView component={<DateTimePicker onChange={value => {}}/>}>
@@ -28,15 +31,15 @@ export class DateTimePickerPage extends Component {
                 <br/>
 
                 <h4>带默认值的默认日期时间选择</h4>
-                <CodeView component={<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={value => {}}/>}>
-                    {`<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
+                <CodeView component={<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
                 <h4>自定义格式化日期时间选择</h4>
                 <CodeView component={<DateTimePicker format="yyyy/MM/dd" 
-                    value={new Date('2016-11-08 12:02:45')} onChange={value => {}}/>}>
-                    {`<DateTimePicker format="yyyy/MM/dd" value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
+                    value={new Date('2016-11-08T12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker format="yyyy/MM/dd" value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
@@ -47,7 +50,7 @@ export class DateTimePickerPage extends Component {
                         <DateTimePicker value={this.state.value} onChange={this.handleTimeChange.bind(this)}/>
                     </div>
                 }>
-                    {`<DateTimePicker value={new Date('2016-11-08 12:02:45')} onChange={onChangeFunction}/>`}  
+                    {`<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
