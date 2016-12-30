@@ -27,14 +27,19 @@
         }
     }
     .code-detail {
-        max-height: 0;
-        opacity: 0;
-        visibility: hidden;
-        &.active {
+        >pre {
             .css_transition;
-            opacity: 1;
-            visibility: visible;
-            max-height: initial;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+        &.active {
+            >pre {
+                opacity: 1;
+                visibility: visible;
+                max-height: 400px;
+                overflow: scroll;
+            }
         }
     }
 }
