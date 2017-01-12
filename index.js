@@ -6,6 +6,7 @@ var CheckBox = require('./lib/CheckBox').CheckBox;
 var CheckBoxGroup = require('./lib/CheckBoxGroup').CheckBoxGroup;
 var ConfirmBox = require('./lib/ConfirmBox').ConfirmBox;
 var DatePicker = require('./lib/DatePicker').DatePicker;
+var DateTimePicker = require('./lib/DateTimePicker').DateTimePicker;
 var DropDown = require('./lib/DropDown').DropDown;
 var Item = require('./lib/Item').Item;
 var Menu = require('./lib/Menu').Menu;
@@ -20,6 +21,7 @@ var RadioGroup = require('./lib/RadioGroup').RadioGroup;
 var SlideMenu = require('./lib/SlideMenu').SlideMenu;
 var Tab = require('./lib/Tab').Tab;
 var TimeInput = require('./lib/TimeInput').TimeInput;
+var TimePicker = require('./lib/TimePicker').TimePicker;
 var Toast = require('./lib/Toast').Toast;
 var Tooltip = require('./lib/Tooltip').Tooltip;
 
@@ -30,6 +32,7 @@ module.exports = {
     CheckBoxGroup: CheckBoxGroup,
     ConfirmBox: ConfirmBox,
     DatePicker: DatePicker,
+    DateTimePicker: DateTimePicker,
     DropDown: DropDown,
     Item: Item,
     Menu: Menu,
@@ -44,6 +47,7 @@ module.exports = {
     SlideMenu: SlideMenu,
     Tab: Tab,
     TimeInput: TimeInput,
+    TimePicker: TimePicker,
     Toast: Toast,
     Tooltip: Tooltip,
 }
