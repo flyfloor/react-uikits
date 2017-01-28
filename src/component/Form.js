@@ -6,7 +6,7 @@ const klassName = require('./base/util').klassName
 // form
 const Form = React.createClass({
     propTypes: {
-        type: PropTypes.oneOf(['inline', ''])
+        type: PropTypes.oneOf(['inline', 'trim', ''])
     },
     render() {
         let _props = Object.assign({}, this.props)
@@ -15,6 +15,9 @@ const Form = React.createClass({
         delete _props.className 
         if (type) {
             className = `${type} ${className}`
+            if (type === 'trim') {
+                className = `inline ${className}`
+            }
             delete _props.type
         }
         return (
@@ -82,11 +85,14 @@ const Fields = React.createClass({
 
 // group
 const Group = React.createClass({
-
     render() {
         let _props = Object.assign({}, this.props)
-        let {className, label} = _props
+        let {className, label, type} = _props
         className = klassName(NS, className, 'group')
+        if (type) {
+            delete _props.type
+            className = `${className} ${type}`
+        }
         if (label) {
             delete _props.label
             return (
