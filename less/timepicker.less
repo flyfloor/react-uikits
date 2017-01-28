@@ -8,7 +8,14 @@
     position: relative;
     width: @__timeInputWidth;
     >._input {
-        width: 100%;
+        position: relative;
+        input {
+            width: 100%;
+        }
+        i:after {
+            content: 'timer';
+            .input_icon;
+        }
     }
 }
 
@@ -64,7 +71,6 @@
         }
     }
     &._simple {
-        width: 50%;
         ._list {
             width: 50%;
         }
