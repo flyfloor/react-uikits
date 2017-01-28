@@ -5,6 +5,10 @@ import {Form, Fields, Field, Group} from '../component/Form';
 import {DropDown} from '../component/DropDown';
 import {CheckBox} from '../component/CheckBox';
 import {Radio} from '../component/Radio';
+import {DatePicker} from '../component/DatePicker';
+import {TimePicker} from '../component/TimePicker';
+import {TimeInput} from '../component/TimeInput';
+import {DateTimePicker} from '../component/DateTimePicker';
 import {Item} from '../component/Item';
 import {CodeView} from '../component/CodeView';
 import {PROVINCES, CITIES} from '../constant';
@@ -36,7 +40,7 @@ export class FormPage extends Component {
                                         <input type="text"/>
                                     </Field>
                                 </Group>
-                                <Group label="radio:">
+                                <Group label="fields-4:">
                                     <Fields size={4}>
                                         <Field>
                                             <label className={CN('checkbox')}>
@@ -58,7 +62,7 @@ export class FormPage extends Component {
                                         </Field>
                                     </Fields>
                                 </Group>
-                                <Group label="inline:">
+                                <Group label="inline field:">
                                     <Field type="inline">
                                         <label className={CN('checkbox')}>
                                             <input type="checkbox" className="original"/>
@@ -72,19 +76,19 @@ export class FormPage extends Component {
                                         <Radio value={true}>radio</Radio>
                                         <div className="dot icon input">
                                             <input type="text"/>
-                                            <i className="icon">send</i>
+                                            <i className="icon">email</i>
                                         </div>
                                     </Field>
                                 </Group>
-                                <Group>
+                                <Group label="fields-2:">
                                     <Fields size={2}>
-                                        <Field label="first name:">
+                                        <Field label="nickname:">
                                             <input type="text"/>
                                         </Field>
-                                        <Field label="last name:">
+                                        <Field label="password:">
                                             <div className="dot fluid icon input">
-                                                <input type="email"/>
-                                                <i className="icon">email</i>
+                                                <input type="password"/>
+                                                <i className="icon">lock</i>
                                             </div>
                                         </Field>
                                     </Fields>
@@ -98,32 +102,38 @@ export class FormPage extends Component {
                                             </DropDown>
                                         </Field>
                                         <Field>
-                                            <DropDown name="provinceId" options={PROVINCES}
+                                            <DropDown searchable={true} name="provinceId" 
+                                                placeHolder="搜索省份或编号" options={PROVINCES}
                                                 labelName="name" valueName="id" onChange={this.handleProvinceChange.bind(this)}>
                                             </DropDown>
                                         </Field>
                                         <Field>
-                                            <DropDown options={this.state.cities} onChange={() => console.log('s')} valueName="id" name="cityId">
+                                            <DropDown options={this.state.cities}
+                                                onChange={() => console.log('s')} valueName="id" name="cityId">
                                             </DropDown>
                                         </Field>
                                     </Fields>
                                 </Group>
-                                <Group label="mix:">
+                                <Group label="fields:">
                                     <Fields>
-                                        <Field size={3}>
-                                            <DropDown name="sex" onChange={() => console.log('s')}>
-                                                <Item name="male" value="m"></Item>
-                                                <Item name="famale" value="f"></Item>
+                                        <Field size={3} label="f-3">
+                                            <DropDown name="国家" onChange={() => console.log('s')}>
+                                                <Item name="中国" value="china"></Item>
+                                                <Item name="美国" value="america"></Item>
+                                                <Item name="英国" value="england"></Item>
+                                                <Item name="法国" value="france"></Item>
+                                                <Item name="德国" value="germany"></Item>
+                                                <Item name="日本" value="japan"></Item>
                                             </DropDown>
                                         </Field>
-                                        <Field size={6}>
+                                        <Field size={6} label="f-6:">
                                             <input type="date"/>
                                         </Field>
-                                        <Field size={1} className="text-center">
+                                        <Field size={1} className="text-center" label="f-1:">
                                             to
                                         </Field>
-                                        <Field size={6}>
-                                            <input type="datetime-local"/>
+                                        <Field size={6} label="f-6:">
+                                            <DatePicker onChange={val => console.log(val)}/>
                                         </Field>
                                     </Fields>
                                     <Field type="inline" label="inline:">
@@ -145,6 +155,40 @@ export class FormPage extends Component {
                                         <textarea></textarea>
                                     </div>
                                 </Group>
+                                <Group label="contry:">
+                                    <Field>
+                                        <DropDown multi={true} name="国家" onChange={() => console.log('s')}>
+                                            <Item name="中国" value="china"></Item>
+                                            <Item name="美国" value="america"></Item>
+                                            <Item name="英国" value="england"></Item>
+                                            <Item name="法国" value="france"></Item>
+                                            <Item name="德国" value="germany"></Item>
+                                            <Item name="澳大利亚" value="australia"></Item>
+                                            <Item name="日本" value="japan"></Item>
+                                            <Item name="韩国" value="korea"></Item>
+                                        </DropDown>
+                                    </Field>
+                                </Group>
+                                <Group label="fields-3 time:">
+                                    <Fields size={3}>
+                                        <Field>
+                                            <DateTimePicker onChange={val => console.log(val)}/>
+                                        </Field>
+                                        <Field>
+                                            <TimePicker onChange={val => console.log(val)}/>
+                                        </Field>
+                                        <Field>
+                                            <TimeInput onChange={val => console.log(val)}/>
+                                        </Field>
+                                    </Fields>
+                                </Group>
+                                <Group label="inline time:">
+                                    <Field type="inline">
+                                        <DateTimePicker onChange={val => console.log(val)}/>
+                                        <TimePicker onChange={val => console.log(val)}/>
+                                        <TimeInput onChange={val => console.log(val)}/>
+                                    </Field>
+                                </Group>
                                 <Group label="search:">
                                     <Fields size={2}>
                                         <Field>
@@ -165,12 +209,8 @@ export class FormPage extends Component {
                                         </Field>
                                     </Fields>
                                 </Group>
-                                <Group label="label:">
+                                <Group label="button group:">
                                     <Field>
-                                        <div className="dot icon label">
-                                            <span>close</span>
-                                            <i className="icon">close</i>
-                                        </div>
                                         <div className="dot button-group">
                                             <input type="button" className="yellow button" value="button"/>
                                             <div className="dot labeled green button">

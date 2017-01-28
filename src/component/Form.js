@@ -32,7 +32,7 @@ const Field = React.createClass({
     },
     render() {
         let _props = Object.assign({}, this.props)
-        let {className, type, size} = _props
+        let {className, type, size, label} = _props
         if (size) {
             className = klassName(NS, className, `field-${size}`)
             delete _props.size 
@@ -43,6 +43,15 @@ const Field = React.createClass({
         if (type) {
             className = `${type} ${className}`
             delete _props.type
+        }
+        if (label) {
+            delete _props.label
+            return (
+                <div {..._props} className={className}>
+                    <label htmlFor="">{label}</label>
+                    {_props.children}
+                </div>
+            )
         }
         return (
             <div {..._props} className={className}></div>
@@ -76,8 +85,17 @@ const Group = React.createClass({
 
     render() {
         let _props = Object.assign({}, this.props)
-        let {className} = _props
+        let {className, label} = _props
         className = klassName(NS, className, 'group')
+        if (label) {
+            delete _props.label
+            return (
+                <div {..._props} className={className}>
+                    <label htmlFor="">{label}</label>
+                    {_props.children}
+                </div>
+            )
+        }
         return (
             <div {..._props} className={className}></div>
         )

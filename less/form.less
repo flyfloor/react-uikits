@@ -32,12 +32,19 @@
     }
     .fields {
         >.field-@{i} {
+            >label:not(@{NS}) {
+                .__displayLabel();
+            }
             font-size: @line_height;
             padding: 0 @padding;
             line-height: @padding * 3 + 4px;
             float: left;
             width: (@i / @column_count) * 100%;
             margin-bottom: @padding;
+            .dropdown, .datepicker, .datetime-picker, .timepicker, .timeinput {
+                min-width: initial;
+                width: 100%;
+            }
         }
     }
     .__makeFields(@n, (@i + 1));
@@ -104,14 +111,41 @@
             >label:not(@{NS}) {
                 .__displayLabel();
             }
+            /*非内联*/
+            &:not(.inline) {
+                .dropdown, .datepicker, .datetime-picker, .timepicker, .timeinput {
+                    min-width: initial;
+                    width: 100%;
+                }
+            }
             /*内联*/
             &.inline {
                 >* {
                     display: inline-block !important;
                     margin: 0 @padding;
                 }
-                input[type="text"], 
-                input[type="number"], select {
+                >input {
+                    &[type="text"], 
+                    &[type="number"], 
+                    &[type="url"], 
+                    &[type="tel"], 
+                    &[type="password"], 
+                    &[type="email"], 
+                    &[type="date"], 
+                    &[type="datetime-local"], 
+                    &[type="time"]{
+                        width: @__form_label_width - @padding * 3;
+                        display: inline;
+                        &.max {
+                            width: @__form_label_width + @padding * 3;
+                        }
+                        &.mini {
+                            width: @padding * 4;
+                            text-align: center;
+                        }
+                    }
+                }
+                >select {
                     width: @__form_label_width - @padding * 3;
                     display: inline;
                     &.max {
