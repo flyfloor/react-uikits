@@ -25,13 +25,14 @@
         display: block;
         position: absolute;
         left: 0;
-        top: @padding * 3.3;
+        top: @padding * 4.3;
         width: 100%;
         z-index: 100;
         background-color: @white;
     }
     ._section {
         .bordered;
+        .top_angle;
         overflow: hidden;
     }
     ._list {
@@ -40,6 +41,7 @@
         float: left;
         max-height: 140px;
         margin: 0;
+        z-index: 1;
         overflow-y: scroll;
         &+._list {
             border-left: 1px solid @light_gray;
