@@ -8,6 +8,11 @@ var ConfirmBox = require('./lib/ConfirmBox').ConfirmBox;
 var DatePicker = require('./lib/DatePicker').DatePicker;
 var DateTimePicker = require('./lib/DateTimePicker').DateTimePicker;
 var DropDown = require('./lib/DropDown').DropDown;
+var _fm = require('./lib/Form');
+var Form = _fm.Form;
+var Group = _fm.Group;
+var Fields = _fm.Fields;
+var Field = _fm.Field;
 var Item = require('./lib/Item').Item;
 var Menu = require('./lib/Menu').Menu;
 var Modal = require('./lib/Modal').Modal;
@@ -34,6 +39,10 @@ module.exports = {
     DatePicker: DatePicker,
     DateTimePicker: DateTimePicker,
     DropDown: DropDown,
+    Form: Form,
+    Fields: Fields,
+    Field: Field,
+    Group: Group,
     Item: Item,
     Menu: Menu,
     Modal: Modal,

@@ -24,7 +24,7 @@ const CodeView = React.createClass({
                 </div>
                 <br/>
                 <div className={display ? 'code-detail active' : 'code-detail'}>
-                    <h5>使用:</h5>
+                    <h5>代码:</h5>
                     <Hightlight className="javascript">{children}</Hightlight>
                 </div>
                 <a className="code-trigger" href="javascript:;" onClick={this.handleDisplay}>

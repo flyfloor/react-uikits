@@ -11,13 +11,8 @@
             width: 100% !important;
         }
         i:after {
-            cursor: pointer;
-            .iconFont;
             content: 'date_range';
-            position: absolute;
-            right: 5px;
-            top: 0;
-            font-size: 22px;
+            .input_icon;
         }
     }
     >._picker {
@@ -25,13 +20,18 @@
         z-index: 1000;
         left: 0;
         top: @gap * 2.5;
-        .calender:before {
-            content: '';
-            position: absolute;
-            top: -1 * @gap + 2px;
-            left: @gap;
-            border: @gap/2 solid;
-            border-color: transparent transparent @blue transparent;
+        .calender {
+            &:before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: 14px;
+                border: 6px solid;
+                border-color: transparent transparent @blue transparent;
+            }
+            ._label {
+                border-radius: 0;
+            } 
         }
     }
 }

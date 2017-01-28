@@ -8,7 +8,14 @@
     position: relative;
     width: @__timeInputWidth;
     >._input {
-        width: 100%;
+        position: relative;
+        input {
+            width: 100%;
+        }
+        i:after {
+            content: 'timer';
+            .input_icon;
+        }
     }
 }
 
@@ -25,21 +32,23 @@
         display: block;
         position: absolute;
         left: 0;
-        top: @padding * 3.3;
+        top: @padding * 4.3;
         width: 100%;
         z-index: 100;
         background-color: @white;
     }
     ._section {
         .bordered;
+        .top_angle;
         overflow: hidden;
     }
     ._list {
         position: relative;
-        width: @__timeInputWidth / 3 - 1px;
+        width: 33.33%;
         float: left;
         max-height: 140px;
         margin: 0;
+        z-index: 1;
         overflow-y: scroll;
         &+._list {
             border-left: 1px solid @light_gray;
@@ -62,7 +71,6 @@
         }
     }
     &._simple {
-        width: @__timeInputWidth * 2 / 3;
         ._list {
             width: 50%;
         }

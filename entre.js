@@ -9,6 +9,7 @@ import {
     BasicPage, ButtonPage,
     CalenderPage, CarouselPage, CheckBoxPage, CheckBoxGroupPage, ConfirmBoxPage, CardPage, CommentPage, CrumbPage,
     DatePickerPage, DateTimePickerPage, DropDownPage,
+    FormPage,
     GridPage,
     IconPage, ImagePage, InputPage, ItemPage, InstallPage,
     LabelPage, LoaderPage, ListPage,
@@ -142,6 +143,7 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/datepicker" component={DatePickerPage}></Route>
                             <Route path="/component/datetimepicker" component={DateTimePickerPage}></Route>
                             <Route path="/component/dropdown" component={DropDownPage}></Route>
+                            <Route path="/component/form" component={FormPage}></Route>
                             <Route path="/component/grid" component={GridPage}></Route>
                             <Route path="/component/menu" component={MenuPage}></Route>
                             <Route path="/component/toast" component={ToastPage}></Route>

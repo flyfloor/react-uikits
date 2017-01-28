@@ -160,3 +160,18 @@
         animation: .7s linear infinite spin_loader;
     }
 }
+
+.top_angle {
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: -14px;
+        left: 16px;
+        border: 7px solid;
+        border-color: transparent transparent @light_gray transparent;
+    }
+    &:after {
+        top: -12px;
+        border-color: transparent transparent @white transparent;
+    }
+}

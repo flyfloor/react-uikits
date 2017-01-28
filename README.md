@@ -1,5 +1,9 @@
 ## React uikit
 
+[![Downloads](https://img.shields.io/npm/dt/react-uikits.svg)](https://www.npmjs.com/package/react-uikits)
+[![Version](https://img.shields.io/npm/v/react-uikits.svg)](https://www.npmjs.com/package/react-uikits)
+
+
 基于 React.js 的企业平台组件解决方案
 
 ## 主页: [http://braavos.me/react-uikits](http://braavos.me/react-uikits)

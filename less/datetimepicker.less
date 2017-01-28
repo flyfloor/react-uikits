@@ -8,7 +8,14 @@
     width: @min_input_width;
     position: relative;
     >._input {
-        width: 100%;
+        position: relative;
+        input {
+            width: 100%;
+        }
+        i:after {
+            content: 'date_range';
+            .input_icon;
+        }
     }
     ._timepicker ._list {
         width: @min_input_width / 3 - 1px;
@@ -21,7 +28,10 @@
         position: absolute;
         z-index: 999;
         left: 0;
-        top: @padding * 3.3;
+        top: @padding * 4.2;
+        ._timepicker, ._datepicker {
+            .top_angle;
+        }
         .calender, ._timepicker ._section {
             border-top: 0;
             border-left: 0;
