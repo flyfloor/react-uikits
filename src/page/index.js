@@ -9,6 +9,7 @@ import {CommentPage} from './CommentPage'
 import {DatePickerPage} from './DatePickerPage'
 import {DateTimePickerPage} from './DateTimePickerPage'
 import {DropDownPage} from './DropDownPage'
+import {FormPage} from './FormPage'
 import {MenuPage} from './MenuPage'
 import {ToastPage} from './ToastPage'
 import {ModalPage} from './ModalPage'
@@ -52,6 +53,7 @@ export  {
     DatePickerPage,
     DateTimePickerPage,
     DropDownPage,
+    FormPage,
     MenuPage,
     ToastPage,
     ModalPage,
