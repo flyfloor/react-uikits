@@ -92,7 +92,7 @@ const FormDemo = React.createClass({
                 <Group label="fields-3:">
                     <Fields size={3}>
                         <Field>
-                            <DropDown name="sex" onChange={() => console.log('s')}>
+                            <DropDown name="sex" onChange={val => console.log(val)}>
                                 <Item name="male" value="m"></Item>
                                 <Item name="famale" value="f"></Item>
                             </DropDown>
@@ -105,7 +105,7 @@ const FormDemo = React.createClass({
                         </Field>
                         <Field>
                             <DropDown options={this.state.cities}
-                                onChange={() => console.log('s')} valueName="id" name="cityId">
+                                onChange={val => console.log(val)} valueName="id" name="cityId">
                             </DropDown>
                         </Field>
                     </Fields>
@@ -113,7 +113,7 @@ const FormDemo = React.createClass({
                 <Group label="fields:">
                     <Fields>
                         <Field size={3} label="f-3">
-                            <DropDown name="国家" onChange={() => console.log('s')}>
+                            <DropDown name="国家" onChange={val => console.log(val)}>
                                 <Item name="中国" value="china"></Item>
                                 <Item name="美国" value="america"></Item>
                                 <Item name="英国" value="england"></Item>
@@ -153,7 +153,7 @@ const FormDemo = React.createClass({
                 </Group>
                 <Group label="contry:">
                     <Field>
-                        <DropDown multi={true} name="国家" onChange={() => console.log('s')}>
+                        <DropDown multi={true} name="国家" onChange={val => console.log(val)}>
                             <Item name="中国" value="china"></Item>
                             <Item name="美国" value="america"></Item>
                             <Item name="英国" value="england"></Item>
@@ -310,7 +310,7 @@ export class FormPage extends Component {
     <Group label="fields-3:">
         <Fields size={3}>
             <Field>
-                <DropDown name="sex" onChange={() => console.log('s')}>
+                <DropDown name="sex" onChange={val => console.log(val)}>
                     <Item name="male" value="m"></Item>
                     <Item name="famale" value="f"></Item>
                 </DropDown>
@@ -323,7 +323,7 @@ export class FormPage extends Component {
             </Field>
             <Field>
                 <DropDown options={this.state.cities}
-                    onChange={() => console.log('s')} valueName="id" name="cityId">
+                    onChange={val => console.log(val)} valueName="id" name="cityId">
                 </DropDown>
             </Field>
         </Fields>
@@ -331,7 +331,7 @@ export class FormPage extends Component {
     <Group label="fields:">
         <Fields>
             <Field size={3} label="f-3">
-                <DropDown name="国家" onChange={() => console.log('s')}>
+                <DropDown name="国家" onChange={val => console.log(val)}>
                     <Item name="中国" value="china"></Item>
                     <Item name="美国" value="america"></Item>
                     <Item name="英国" value="england"></Item>
@@ -371,7 +371,7 @@ export class FormPage extends Component {
     </Group>
     <Group label="contry:">
         <Field>
-            <DropDown multi={true} name="国家" onChange={() => console.log('s')}>
+            <DropDown multi={true} name="国家" onChange={val => console.log(val)}>
                 <Item name="中国" value="china"></Item>
                 <Item name="美国" value="america"></Item>
                 <Item name="英国" value="england"></Item>
