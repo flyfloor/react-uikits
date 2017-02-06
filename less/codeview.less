@@ -32,10 +32,15 @@
         visibility: hidden;
         overflow: hidden;
         &.active {
-            .css_transition;
+            max-height: initial;
             opacity: 1;
             visibility: visible;
-            max-height: initial;
+            >pre {
+                opacity: 1;
+                visibility: visible;
+                max-height: 400px;
+                overflow: scroll;
+            }
         }
     }
 }
