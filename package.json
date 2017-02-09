@@ -23,7 +23,6 @@
   "license": "MIT",
   "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
-    "dot-css": "0.0.3",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-highlight": "^0.9.0",
