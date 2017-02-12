@@ -8,10 +8,10 @@
     display: inline-block;
     background: @white;
     ._label {
+        border-radius: @radius @radius 0 0;
         padding: @gap;
         background-color: @blue;
         color: @light_gray;
-        border-radius: @radius @radius 0 0;
         a {
             .revert_link;
         }
@@ -88,9 +88,13 @@
             }
         }
     }
+    ._day-picker>table {
+        border-radius: 0 0 @radius @radius;
+    }
     ._month-picker, ._year-picker {
         ul {
             overflow: hidden;
+            border-radius: 0 0 @radius @radius;
             background: @mini_gray;
             li {
                 float: left;

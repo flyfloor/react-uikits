@@ -1,6 +1,5 @@
 @import url('meta.less');
 @import url('calender.less');
-@import url('transition.less');
 
 @{NS}.datepicker {
     position: relative;
@@ -19,14 +18,18 @@
         position: absolute;
         z-index: 1000;
         left: 0;
-        top: @gap * 2.5;
+        top: @padding * 4.2;
         .calender {
-            &:before {
+            .top_angle;
+            position: relative;
+            border-radius: 0 0 @radius @radius;
+            >._label:before {
                 content: '';
                 position: absolute;
-                top: -10px;
-                left: 14px;
-                border: 6px solid;
+                top: -14px;
+                left: 15px;
+                border: 8px solid;
+                z-index: 10;
                 border-color: transparent transparent @blue transparent;
             }
             ._label {
@@ -34,7 +37,4 @@
             } 
         }
     }
-}
-.datepicker {
-    .basic_transition;
 }
