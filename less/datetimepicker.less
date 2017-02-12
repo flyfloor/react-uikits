@@ -16,8 +16,11 @@
             .input_icon;
         }
     }
-    ._timepicker ._list {
-        width: @min_input_width / 3 - 1px;
+    ._timepicker {
+        width: @min_input_width + 1px;
+        ._list {
+            width: @min_input_width / 3;
+        }
     }
     >._wrap {
         .bordered;
