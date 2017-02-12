@@ -39,6 +39,31 @@ export class CalenderPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>日历类型</h4>
+                <CodeView component={<div>
+                    <h5>日:</h5>
+                    <Calender type="day" />
+                </div>}>
+                    {`<Calender type="day" />`}
+                </CodeView>
+
+                <CodeView component={<div>
+                    <h5>月:</h5>    
+                    <Calender type="month" />
+                </div>
+                }>
+                    {`<Calender type="month" />`}
+                </CodeView>
+                
+                <CodeView component={<div>
+                    <h5>年:</h5>
+                    <Calender type="year" />
+                </div>
+                }>
+                    {`<Calender type="year" />`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -88,6 +113,13 @@ export class CalenderPage extends Component {
                             <td>是否显示预览</td>
                             <td>Boolean</td>
                             <td>true</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>日历类型</td>
+                            <td>['day', 'month', 'year']</td>
+                            <td>day</td>
                             <td>否</td>
                         </tr>
                     </tbody>
