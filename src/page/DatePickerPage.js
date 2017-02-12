@@ -57,7 +57,32 @@ export class DatePickerPage extends Component {
                     {`<DatePicker begin={new Date("2016-10-20")} end={new Date("2016-11-23")} onChange={onChangeFunction}/>`}
                 </CodeView>
                 <br/>
-                
+
+                <h4>日期选择类型</h4>
+                <CodeView component={<div>
+                    <h5>日:</h5>
+                    <DatePicker type="day" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker type="day" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <h5>月:</h5>
+                    <DatePicker type="month" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker type="month" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <h5>年:</h5>
+                    <DatePicker type="year" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker type="year" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -82,6 +107,13 @@ export class DatePickerPage extends Component {
                             <td>日期格式化</td>
                             <td>字符串, 例如: yyyy年MM月dd日</td>
                             <td>yyyy-MM-dd</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td>日期选择类型</td>
+                            <td>['day', 'month', 'year']</td>
+                            <td>day</td>
                             <td>否</td>
                         </tr>
                         <tr>

@@ -19,6 +19,7 @@ var Modal = require('./lib/Modal').Modal;
 var Notice = require('./lib/Notice').Notice;
 var NoticeCenter = require('./lib/NoticeCenter').NoticeCenter;
 var Pagination = require('./lib/Pagination').Pagination;
+var Panel = require('./lib/Panel').Panel;
 var Pin = require('./lib/Pin').Pin;
 var Progress = require('./lib/Progress').Progress;
 var Radio = require('./lib/Radio').Radio;
@@ -49,6 +50,7 @@ module.exports = {
     Notice: Notice,
     NoticeCenter: NoticeCenter,
     Pagination: Pagination,
+    Panel: Panel,
     Pin: Pin,
     Progress: Progress,
     Radio: Radio,

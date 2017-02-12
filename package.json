@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "react-dom": "^15.0.0",
     "react-highlight": "^0.9.0",
     "react-router": "^2.7.0",
-    "react-ui-component": "^1.0.11"
+    "react-ui-component": "^1.0.12"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

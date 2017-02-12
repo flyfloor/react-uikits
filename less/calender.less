@@ -8,10 +8,10 @@
     display: inline-block;
     background: @white;
     ._label {
+        border-radius: @radius @radius 0 0;
         padding: @gap;
         background-color: @blue;
         color: @light_gray;
-        border-radius: @radius @radius 0 0;
         a {
             .revert_link;
         }
@@ -35,6 +35,9 @@
                 .link;
                 color: @blue;
             }
+        }
+        a {
+            .blue_link;
         }
         ._nav {
             width: 20px;
@@ -85,15 +88,22 @@
             }
         }
     }
+    ._day-picker>table {
+        border-radius: 0 0 @radius @radius;
+    }
     ._month-picker, ._year-picker {
         ul {
             overflow: hidden;
+            border-radius: 0 0 @radius @radius;
             background: @mini_gray;
             li {
                 float: left;
                 width: 25%;
                 text-align: center;
                 line-height: 46px;
+                ._active {
+                    .blue_link;
+                }
             }
         }
     }
