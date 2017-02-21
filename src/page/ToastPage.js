@@ -13,8 +13,8 @@ export class ToastPage extends Component {
         props.content = <p>this is the message</p>
         Toast.show(props)
     }
-    handleToast1(type){
-        Toast[type]('this is the message')
+    handleToast1(type, opt){
+        Toast[type]('this is the message', opt)
     }
     render() {
         return (
@@ -94,14 +94,17 @@ Toast.show({
                 <h4>不同级别 Toast</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'success')}>success</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'info')}>info</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'warning')}>warning</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'error')}>error</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'success', {})}>success</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'info', {})}>info</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'warning', {})}>warning</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'error', { delay: 1000, onClick: () => alert('click') })}>error</button>
                     </div>}>
-{`Toast.show({
-    content: <p>content</p>,
-    onClick: clickFunction,
+{`Toast.success('this is message', options)
+Toast.info('this is message', options)
+Toast.warning('this is message', options)
+Toast.error('this is message', {
+    delay: 1000,
+    onClick: () => alert('click')
 })
 `}
                 </CodeView>
