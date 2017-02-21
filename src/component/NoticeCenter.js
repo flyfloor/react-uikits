@@ -4,20 +4,19 @@ const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
 
 const NoticeCenter = React.createClass({
-    addNotice(notice){
-        if (!notice.close) {
-            notice.close = <i className={`${NS} icon`}>close</i>
-        }
-        this.refs.notice.addNotice(notice)
-    },
     render() {
         const {props} = this
-        let className = klassName(props.className, NS)
         return (
-            <_NoticeCenter {...props} className={className} ref="notice"/>
+            <_NoticeCenter {...props}/>
         )
     }
 });
+
+NoticeCenter.init = function(props= {}){
+    props.className = klassName(props.className, NS, 'notice-center')
+    props.prefix = 'notice'
+    return _NoticeCenter.init(props)
+}
 
 module.exports = {
     NoticeCenter

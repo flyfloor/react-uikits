@@ -10,6 +10,8 @@ const handleNoticeClick = (props) => {
     }
 }
 
+let nc = NoticeCenter.init()
+
 export class NoticePage extends Component {
     showNotice(type = ''){
         let notice = {
@@ -26,9 +28,7 @@ export class NoticePage extends Component {
         if (type === 'manually') {
             notice.delay = 0;
         }
-
-        let node = this.refs.noticeCenter
-        node.addNotice(notice)
+        nc.addNotice(notice)
     }
 
     render() {
@@ -38,34 +38,32 @@ export class NoticePage extends Component {
                 <h4>首先引入：</h4>
                 <pre>
                     <code>
-                        {`<NoticeCenter ref="notice_center"/>`}                    
+{`import {NoticeCenter} from 'react-uikits'
+let nc = NoticeCenter.init()`}
                     </code>
                 </pre>
                 <br/>
 
                 <h4>默认通知</h4>
                 <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('normal')}>点击</button>}>
-{`this.refs.notice_center.addNotice({
-    title,
-    content,
-    ...
+{`nc.addNotice({
+    content: <p>content</p>,
 })`}
                 </CodeView>
                 <br/>
 
                 <h4>延迟时间</h4>
                 <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('delay')}>点击</button>}>
-{`this.refs.notice_center.addNotice({
-    ...
-    delay: 2000,
+{`nc.addNotice({
+    content: <p>content</p>,
+    delay: 1000,
 })`}
                 </CodeView>
                 <br/>
                 
                 <h4>手动关闭</h4>
                 <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('manually')}>点击</button>}>
-{`this.refs.notice_center.addNotice({
-    ...
+{`nc.addNotice({
     delay: 0,
 })`}
                 </CodeView>
@@ -73,8 +71,8 @@ export class NoticePage extends Component {
 
                 <h4>onClick 事件</h4>
                 <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('onClick')}>点击</button>}>
-{`this.refs.notice_center.addNotice({
-    ...
+{`nc.addNotice({
+    content: <p>content</p>,
     link: 'http://braavos.me',
     onClick: function(notice){
         window.open(notice.link)
@@ -82,8 +80,6 @@ export class NoticePage extends Component {
 })`}
                 </CodeView>
                 <br/>
-
-                <NoticeCenter ref="noticeCenter"/>
 
                 <h4>notice 对象属性</h4>
                 <table className="dot table">
