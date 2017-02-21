@@ -4,57 +4,63 @@ import {NS} from '../constant';
 import {Toast} from '../component/Toast';
 import {CodeView} from '../component/CodeView';
 
+const onClick = () => {
+    alert('消息点击')
+    window.open('http://braavos.me')
+}
 export class ToastPage extends Component {
-    handleToast(ref){
-        this.refs[ref].open()
+    handleToast(props){
+        props.content = <p>this is the message</p>
+        Toast.show(props)
+    }
+    handleToast1(type, opt){
+        Toast[type]('this is the message', opt)
     }
     render() {
         return (
             <section>
                 {TitleBlock('消息')}
 
+                <h4>首先引入：</h4>
+                <pre>
+                    <code>
+                        {`import {Toast} from 'react-uikits'`}
+                    </code>
+                </pre>
+                <br/>
+
                 <h4>默认消息</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast0')}>点击</button>
-                        <Toast ref="toast0">
-                            <p>this is the toast</p>
-                        </Toast>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, {})}>点击</button>
                     </div>}>
-{`<button className="${NS} button" onClick={openToast}>点击</button>
-<Toast ref="toast">
-    ...
-</Toast>
-openToast(){
-    this.refs.toast.open()
-}
-`}
+{`Toast.show({
+    content: <p>content</p>,
+})`}
                 </CodeView>
                 <br/>
 
                 <h4>消息位置</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast1')}>上</button>
-                        <Toast ref="toast1" position="top">
-                            <p>this is the toast</p>
-                        </Toast>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast2')}>中</button>
-                        <Toast ref="toast2" position="center">
-                            <p>this is the toast</p>
-                        </Toast>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast3')}>下</button>
-                        <Toast ref="toast3" position="bottom">
-                            <p>this is the toast</p>
-                        </Toast>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'top' })}>上</button>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'center' })}>中</button>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'bottom' })}>下</button>
                     </div>}>
-{`<button className="${NS} button" onClick={openToast}>点击</button>
-<Toast ref="toast" position="center">
-    ...
-</Toast>
-openToast(){
-    this.refs.toast.open()
-}
+{`Toast.show({
+    content: <p>content</p>,
+    position: 'top',
+})
+
+Toast.show({
+    content: <p>content</p>,
+    position: 'center',
+})
+
+Toast.show({
+    content: <p>content</p>,
+    position: 'bottom',
+})
 `}
                 </CodeView>
                 <br/>
@@ -62,60 +68,48 @@ openToast(){
                 <h4>持续时间</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast4')}>点击</button>
-                        <Toast ref="toast4" delay={1000}>
-                            <p>this is the toast</p>
-                        </Toast>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { delay: 1000 })}>点击</button>
                     </div>}>
-{`<button className="${NS} button" onClick={openToast}>点击</button>
-<Toast ref="toast" delay={1000}>
-    ...
-</Toast>
-openToast(){
-    this.refs.toast.open()
-}
+{`Toast.show({
+    content: <p>content</p>,
+    delay: 1000,
+})
 `}
                 </CodeView>
                 <br/>
 
-                <h4>带关闭选项的Toast</h4>
+                <h4>onClick 事件</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast5')}>点击</button>
-                        <Toast ref="toast5" onClose={() => alert('关闭')}>
-                            <p>this is the toast</p>
-                        </Toast>
+                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { onClick })}>点击</button>
                     </div>}>
-{`<button className="${NS} button" onClick={openToast}>点击</button>
-<Toast ref="toast" onClose={handleClose}>
-    ...
-</Toast>
-openToast(){
-    this.refs.toast.open()
-}
-`}
-                </CodeView>
-                <br/>
-
-                <h4>自定义关闭按钮</h4>
-                <CodeView component={
-                    <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, 'toast6')}>点击</button>
-                        <Toast ref="toast6" close={<p>关闭</p>} onClose={() => alert('关闭')}>
-                            <p>this is the toast</p>
-                        </Toast>
-                    </div>}>
-{`<button className="${NS} button" onClick={openToast}>点击</button>
-<Toast ref="toast" close={<p>关闭</p>} onClose={handleClose}>
-    ...
-</Toast>
-openToast(){
-    this.refs.toast.open()
-}
+{`Toast.show({
+    content: <p>content</p>,
+    onClick: clickFunction,
+})
 `}
                 </CodeView>
                 <br/>
                 
+                <h4>不同级别 Toast</h4>
+                <CodeView component={
+                    <div>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'success', {})}>success</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'info', {})}>info</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'warning', {})}>warning</button>
+                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'error', { delay: 1000, onClick: () => alert('click') })}>error</button>
+                    </div>}>
+{`Toast.success('this is message', options)
+Toast.info('this is message', options)
+Toast.warning('this is message', options)
+Toast.error('this is message', {
+    delay: 1000,
+    onClick: () => alert('click')
+})
+`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -136,19 +130,12 @@ openToast(){
                             <td>否</td>
                         </tr>
                         <tr>
-                            <td>onClose</td>
-                            <td>关闭事件</td>
+                            <td>onClick</td>
+                            <td>消息体点击事件</td>
                             <td>函数</td>
                             <td>
-                            {`onClose(){}`}
+                            {`onClick(){}`}
                             </td>
-                            <td>否</td>
-                        </tr>
-                        <tr>
-                            <td>close</td>
-                            <td>关闭按钮</td>
-                            <td>jsx</td>
-                            <td>无</td>
                             <td>否</td>
                         </tr>
                         <tr>
