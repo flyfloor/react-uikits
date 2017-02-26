@@ -27,6 +27,11 @@ export class PaginationPage extends Component {
                     {`<Pagination total={10}/>`}
                 </CodeView>
                 <br/>
+                <h4>指定区间</h4>
+                <CodeView component={<Pagination range={5}/>}>
+                    {`<Pagination range={5}/>`}
+                </CodeView>
+                <br/>
 
                 <h4>显示分页范围</h4>
                 <CodeView component={<Pagination showRange={true}/>}>
@@ -93,6 +98,13 @@ export class PaginationPage extends Component {
                             <td>总页数</td>
                             <td>整形</td>
                             <td>30</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>range</td>
+                            <td>总区间</td>
+                            <td>整形</td>
+                            <td>7</td>
                             <td>否</td>
                         </tr>
                         <tr>
