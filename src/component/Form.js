@@ -26,12 +26,18 @@ const Form = React.createClass({
         rules: PropTypes.object,
         errorFields: PropTypes.object,
     },
-    validate(succFunc, errFunc){
+    validateAll(succFunc, errFunc){
         let {rules, store} = this.props
         if (rules && store) {
             validator = validator || new Schema(rules)
             validator.validate(store, errors => {
                 if (errors) {
+                    let errorFields = errors.reduce((prev, err)=> {
+                        prev[err.field] = err.message
+                        return prev
+                    }, {})
+                    this.setState({ errorFields })
+
                     return errFunc && errFunc(errors)
                 }
                 this.setState({
@@ -43,16 +49,10 @@ const Form = React.createClass({
     handleSubmit(e){
         e.preventDefault()
         let {onSubmit, rules, store, onError} = this.props
-        // need validate
         if (rules && store) {
-            this.validate(onSubmit, errors =>{
-                // error fields
-                let errorFields = errors.reduce((prev, err)=> {
-                    prev[err.field] = err.message
-                    return prev
-                }, {})
+            this.validateAll(onSubmit, errors =>{
                 // on error handler
-                this.setState({ errorFields }, () => onError && onError(errors))
+                onError && onError(errors)
             })
         } else {
             // submit value
