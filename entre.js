@@ -19,7 +19,7 @@ import {
     PaginationPage, PinPage, PanelPage, ProgressPage,
     RadioPage, RadioGroupPage,
     SlideMenuPage, StartPage,
-    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage,
+    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage, TempPage
 } from './src/page/index';
 
 const NavLink = (props) => {
@@ -173,5 +173,6 @@ ReactDOM.render(<Router history={hashHistory}>
                             <Route path="/component/text" component={TextPage}></Route>
                             <Route path="/component/list" component={ListPage}></Route>
                         </Route>
+                        <Router path="/temp" component={TempPage}></Router>
                     </Route>
                 </Router>, document.getElementById('root'))

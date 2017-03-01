@@ -37,6 +37,7 @@ import {LoaderPage} from './LoaderPage'
 import {OtherPage} from './OtherPage'
 import {TablePage} from './TablePage'
 import {TextPage} from './TextPage'
+import {TempPage} from './TempPage'
 import {StartPage} from './StartPage'
 import {InstallPage} from './InstallPage'
 import {ListPage} from './ListPage'
@@ -68,6 +69,7 @@ export  {
     TabPage,
     TimeInputPage,
     TimePickerPage,
+    TempPage,
     TooltipPage,
     InputPage,
     CardPage,

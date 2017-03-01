@@ -2,17 +2,72 @@ const React = require('react')
 const PropTypes = React.PropTypes
 const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
+const Schema = require('async-validator');
+let validator = null
 
 // form
 const Form = React.createClass({
     propTypes: {
-        type: PropTypes.oneOf(['inline', 'trim', ''])
+        type: PropTypes.oneOf(['inline', 'trim', '']),
+        onSubmit: PropTypes.func.isRequired,
+    },
+    getInitialState() {
+        return {
+            errorFields: {},
+        };
+    },
+    getChildContext(){
+        return {
+            rules: this.props.rules,
+            errorFields: this.state.errorFields
+        }
+    },
+    childContextTypes: {
+        rules: PropTypes.object,
+        errorFields: PropTypes.object,
+    },
+    validate(succFunc, errFunc){
+        let {rules, store} = this.props
+        if (rules && store) {
+            validator = validator || new Schema(rules)
+            validator.validate(store, errors => {
+                if (errors) {
+                    return errFunc && errFunc(errors)
+                }
+                this.setState({
+                    errorFields: {}
+                }, () => succFunc(store))
+            })
+        }
+    },
+    handleSubmit(e){
+        e.preventDefault()
+        let {onSubmit, rules, store, onError} = this.props
+        // need validate
+        if (rules && store) {
+            this.validate(onSubmit, errors =>{
+                // error fields
+                let errorFields = errors.reduce((prev, err)=> {
+                    prev[err.field] = err.message
+                    return prev
+                }, {})
+                // on error handler
+                this.setState({ errorFields }, () => onError && onError(errors))
+            })
+        } else {
+            // submit value
+            onSubmit(store)
+        }
+        return false
     },
     render() {
         let _props = Object.assign({}, this.props)
         let {className, type} = _props
         className = klassName(NS, className, 'form')
         delete _props.className 
+        delete _props.rules 
+        delete _props.store 
+
         if (type) {
             className = `${type} ${className}`
             if (type === 'trim') {
@@ -21,7 +76,7 @@ const Form = React.createClass({
             delete _props.type
         }
         return (
-            <form {..._props} className={className}>
+            <form {..._props} className={className} onSubmit={this.handleSubmit}>
             </form>
         )
     }
@@ -33,9 +88,23 @@ const Field = React.createClass({
         type: PropTypes.oneOf(['inline', '']),
         size: PropTypes.number,
     },
+    contextTypes: {
+        rules: PropTypes.object,
+        errorFields: PropTypes.object,
+    },
     render() {
         let _props = Object.assign({}, this.props)
-        let {className, type, size, label} = _props
+        let {className, type, size, label, validate} = _props
+        let {errorFields} = this.context
+        delete _props.validate
+        
+        // validate node
+        let errorNode = null
+        if (errorFields && errorFields[validate]) {
+            className = `${className} error`
+            errorNode = <span className="text-extra color-red">{errorFields[validate]}</span>
+        }
+
         if (size) {
             className = klassName(NS, className, `field-${size}`)
             delete _props.size 
@@ -53,11 +122,15 @@ const Field = React.createClass({
                 <div {..._props} className={className}>
                     <label htmlFor="">{label}</label>
                     {_props.children}
+                    {errorNode}
                 </div>
             )
         }
         return (
-            <div {..._props} className={className}></div>
+            <div {..._props} className={className}>
+                {_props.children}
+                {errorNode}
+            </div>
         )
     }
 })
