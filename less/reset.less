@@ -33,13 +33,11 @@ page, article, picture, section, header, footer, nav, wrapper, pagination, comme
 
 body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
-  color: @dark_gray;
+  color: @deep_gray;
   line-height: 1.5;
   font-size: @line_height;
   width: 100%;
   height: 100%;
-  background-color: @white;
-  min-height: 100%;
   overflow: auto;
   font-weight: normal;
   padding: 0;
@@ -229,6 +227,7 @@ input[type="date"],
 input[type="datetime-local"], 
 input[type="time"], 
 textarea, select {
+  font-family: inherit;
   margin: 0;
   box-shadow: none;
   -webkit-appearance: none;
@@ -336,14 +335,14 @@ q:before,q:after,blockquote:before,blockquote:after {
 }
 
 pre, code, tt {
-    font-family: Monaco,"Andale Mono","lucida console","Courier New",monospace;
+    font-family: Monaco,"Andale Mono","lucida console","Courier New",monospace,'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
 }
 
 pre {
-    font-size: 12px;
-    white-space: pre-wrap;
+    font-size: @line_height * 13/15;
     line-height: 1.5;
     vertical-align: baseline;
+    white-space: pre-wrap;
     box-shadow: none;
     padding: 0;
     overflow: auto;
