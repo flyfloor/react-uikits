@@ -1,18 +1,18 @@
 const React = require('react')
-const _Calender = require('react-ui-component').Calender
+const _Calendar = require('react-ui-component').Calendar
 const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
 
-const Calender = React.createClass({
+const Calendar = React.createClass({
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <_Calender {...props} className={className} />
+            <_Calendar {...props} className={className} />
         )
     }
 });
 
 module.exports = {
-    Calender
+    Calendar
 }

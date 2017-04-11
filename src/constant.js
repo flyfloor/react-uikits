@@ -58,7 +58,7 @@ export const NAV_MAP = {
     'Component': [
         {route: '/component', name: 'Basic 基本'}, 
         {route: '/component/button', name: 'Button 按钮'}, 
-        {route: '/component/calender', name: 'Calender 日历'}, 
+        {route: '/component/calendar', name: 'Calendar 日历'}, 
         {route: '/component/label', name: 'Label 标签'},
         {route: '/component/icon', name: 'Icon 图标'},
         {route: '/component/text', name: 'Text 文字'},

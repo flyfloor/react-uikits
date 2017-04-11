@@ -1,66 +1,66 @@
 import React, { Component } from 'react';
-import {Calender} from '../component/Calender';
+import {Calendar} from '../component/Calendar';
 import {CN, TitleBlock} from '../util/tools';
 import {CodeView} from '../component/CodeView';
 
-export class CalenderPage extends Component {
+export class CalendarPage extends Component {
     render() {
         return (
             <section>
                 {TitleBlock('日历')}
                 
                 <h4>默认日历</h4>
-                <CodeView component={<Calender />}>
-                    {`<Calender/>`}
+                <CodeView component={<Calendar />}>
+                    {`<Calendar/>`}
                 </CodeView>
                 <br/>
                 
                 <h4>日历初始值</h4>
-                <CodeView component={<Calender value={new Date("2016-08-12")}/>}>
-                    {`<Calender value={new Date("2016-08-12")} />`}
+                <CodeView component={<Calendar value={new Date("2016-08-12")}/>}>
+                    {`<Calendar value={new Date("2016-08-12")} />`}
                 </CodeView>
                 <br/>
 
                 <h4>日历日期 onChange </h4>
-                <CodeView component={<Calender onChange={value => alert('日期为：' + value)}/>}>
-                    {`<Calender onChange="(date) => onChangeFunction(date)" />`}
+                <CodeView component={<Calendar onChange={value => alert('日期为：' + value)}/>}>
+                    {`<Calendar onChange="(date) => onChangeFunction(date)" />`}
                 </CodeView>
                 <br/>
                 
                 <h4>日历日期范围</h4>
-                <CodeView component={<Calender begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>}>
-                    {`<Calender begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>`}
+                <CodeView component={<Calendar begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>}>
+                    {`<Calendar begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>不显示预览</h4>
-                <CodeView component={<Calender showPreview={false} />}>
-                    {`<Calender showPreview={false} />`}
+                <CodeView component={<Calendar showPreview={false} />}>
+                    {`<Calendar showPreview={false} />`}
                 </CodeView>
                 <br/>
 
                 <h4>日历类型</h4>
                 <CodeView component={<div>
                     <h5>日:</h5>
-                    <Calender type="day" />
+                    <Calendar type="day" />
                 </div>}>
-                    {`<Calender type="day" />`}
+                    {`<Calendar type="day" />`}
                 </CodeView>
 
                 <CodeView component={<div>
                     <h5>月:</h5>    
-                    <Calender type="month" />
+                    <Calendar type="month" />
                 </div>
                 }>
-                    {`<Calender type="month" />`}
+                    {`<Calendar type="month" />`}
                 </CodeView>
                 
                 <CodeView component={<div>
                     <h5>年:</h5>
-                    <Calender type="year" />
+                    <Calendar type="year" />
                 </div>
                 }>
-                    {`<Calender type="year" />`}
+                    {`<Calendar type="year" />`}
                 </CodeView>
                 <br/>
 

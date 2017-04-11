@@ -1,6 +1,6 @@
 'use strict'
 
-var Calender = require('./lib/Calender').Calender;
+var Calendar = require('./lib/Calendar').Calendar;
 var Carousel = require('./lib/Carousel').Carousel;
 var CheckBox = require('./lib/CheckBox').CheckBox;
 var CheckBoxGroup = require('./lib/CheckBoxGroup').CheckBoxGroup;
@@ -32,7 +32,7 @@ var Toast = require('./lib/Toast').Toast;
 var Tooltip = require('./lib/Tooltip').Tooltip;
 
 module.exports = {
-    Calender: Calender,
+    Calendar: Calendar,
     Carousel: Carousel,
     CheckBox: CheckBox,
     CheckBoxGroup: CheckBoxGroup,
