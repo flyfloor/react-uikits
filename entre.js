@@ -7,7 +7,7 @@ import dot from './src/page/demo.less'
 
 import {
     BasicPage, ButtonPage,
-    CalenderPage, CarouselPage, CheckBoxPage, CheckBoxGroupPage, ConfirmBoxPage, CardPage, CommentPage, CrumbPage,
+    CalendarPage, CarouselPage, CheckBoxPage, CheckBoxGroupPage, ConfirmBoxPage, CardPage, CommentPage, CrumbPage,
     DatePickerPage, DateTimePickerPage, DropDownPage,
     FormPage,
     GridPage,
@@ -134,7 +134,7 @@ ReactDOM.render(<Router history={hashHistory}>
                         <Route path="/component">
                             <IndexRoute component={BasicPage}/>
                             <Route path="/component/button" component={ButtonPage}></Route>
-                            <Route path="/component/calender" component={CalenderPage}></Route>
+                            <Route path="/component/calendar" component={CalendarPage}></Route>
                             <Route path="/component/carousel" component={CarouselPage}></Route>
                             <Route path="/component/checkbox" component={CheckBoxPage}></Route>
                             <Route path="/component/checkboxgroup" component={CheckBoxGroupPage}></Route>

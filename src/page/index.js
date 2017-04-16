@@ -1,6 +1,6 @@
 import {BasicPage} from './BasicPage'
 import {ButtonPage} from './ButtonPage'
-import {CalenderPage} from './CalenderPage'
+import {CalendarPage} from './CalendarPage'
 import {CarouselPage} from './CarouselPage'
 import {CheckBoxPage} from './CheckBoxPage'
 import {CheckBoxGroupPage} from './CheckBoxGroupPage'
@@ -44,7 +44,7 @@ import {ListPage} from './ListPage'
 export  {
     BasicPage,
     ButtonPage,
-    CalenderPage,
+    CalendarPage,
     CarouselPage,
     CheckBoxPage,
     CheckBoxGroupPage,

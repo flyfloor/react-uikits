@@ -65,7 +65,7 @@
     font-size: @_lh - 2px;
     padding: @_padding;
     line-height: @_lh;
-    height: @_lh + @_padding * 2 + 2px;
+    height: @_lh + @_padding * 2 + 4px;
 }
 
 
@@ -73,7 +73,7 @@
     @_padding: @padding * @_pd / 10;
     @_lh: @line_height * @size / 15;
     @_border_radius: @line_height * @size / 15 + @padding * @_pd / 10;
-    input, select, textarea, button, .button {
+    input:not(.button), select, textarea, button, .button {
         .__input_size(@_lh, @_padding);
     }
     &.round {
@@ -144,7 +144,7 @@
     }
 }
 
-@{NS} input, input@{NS}.input, @{NS} textarea, @{NS} select {
+@{NS} input:not(.button), input@{NS}.input, @{NS} textarea, @{NS} select {
     vertical-align: middle;
     -webkit-transition: all .3s;
     -o-transition: all .3s;

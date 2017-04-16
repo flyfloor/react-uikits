@@ -4,34 +4,34 @@
 @import url('_color_pair');
 
 .__btnGroupSize(@group) when(@group = false) {
-    ._FONT_PADDING(16, 8);
+    ._FONT_PADDING(16, 7);
     &.tiny {
-        ._FONT_PADDING(10, 5);
+        ._FONT_PADDING(10, 4);
     }
     &.small {
-        ._FONT_PADDING(14, 7);
+        ._FONT_PADDING(14, 6);
     }
     &.large {
-        ._FONT_PADDING(20, 10);
+        ._FONT_PADDING(20, 9);
     }
     &.huge {
-        ._FONT_PADDING(24, 12);
+        ._FONT_PADDING(24, 11);
     }
 }
 
 .__btnGroupSize(@group) when(@group = true) {
-    &>.button {._FONT_PADDING(16, 8);}
+    &>.button {._FONT_PADDING(16, 7);}
     &.tiny > .button {
-        ._FONT_PADDING(10, 5);
+        ._FONT_PADDING(10, 4);
     }
     &.small > .button {
-        ._FONT_PADDING(14, 7);
+        ._FONT_PADDING(14, 6);
     }
     &.large > .button {
-        ._FONT_PADDING(20, 10);
+        ._FONT_PADDING(20, 9);
     }
     &.huge > .button {
-        ._FONT_PADDING(24, 12);
+        ._FONT_PADDING(24, 11);
     }
 }
 
