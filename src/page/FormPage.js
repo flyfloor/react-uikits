@@ -13,21 +13,21 @@ import {Item} from '../component/Item';
 import {CodeView} from '../component/CodeView';
 import {PROVINCES, CITIES} from '../constant';
 
-const FormDemo = React.createClass({
+class FormDemo extends Component {
     getInitialState() {
         return {
             cities: [],
         }
-    },
+    }
     handleProvinceChange(pid){
         this.setState({
             cities: CITIES[pid]
         })
-    },
+    }
     handleSubmit(e){
         e.preventDefault()
         alert('submit form')
-    },
+    }
     render() {
         return (
             <Form {...this.props} onSubmit={this.handleSubmit}>
@@ -225,6 +225,11 @@ const FormDemo = React.createClass({
             </Form>
         );
     }
+}
+
+
+const FormDemo = React.createClass({
+    
 });
 
 
