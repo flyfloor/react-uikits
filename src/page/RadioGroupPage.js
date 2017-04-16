@@ -35,7 +35,7 @@ export class RadioGroupPage extends Component {
 
                 <h4>默认选中第一个</h4>
                 <br/>
-                <CodeView component={<RadioGroup options={options} defaultChecked={true}></RadioGroup>}>
+                <CodeView component={<RadioGroup options={options} defaultChecked={true} onChange={val => console.log(val)}></RadioGroup>}>
                         {`<RadioGroup options={options} defaultChecked={true}></RadioGroup>`}
                 </CodeView>
                 <br/>
