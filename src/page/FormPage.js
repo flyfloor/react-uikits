@@ -14,11 +14,13 @@ import {CodeView} from '../component/CodeView';
 import {PROVINCES, CITIES} from '../constant';
 
 class FormDemo extends Component {
-    getInitialState() {
-        return {
+    constructor(props) {
+        super(props);
+        this.state = {
             cities: [],
         }
     }
+
     handleProvinceChange(pid){
         this.setState({
             cities: CITIES[pid]
@@ -226,11 +228,6 @@ class FormDemo extends Component {
         );
     }
 }
-
-
-const FormDemo = React.createClass({
-    
-});
 
 
 export class FormPage extends Component {

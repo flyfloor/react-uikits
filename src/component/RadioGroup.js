@@ -3,15 +3,11 @@ const _RadioGroup = require('react-ui-component').RadioGroup
 const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
 
-const RadioGroup = React.createClass({
-    render() {
-        const {props} = this
-        let className = klassName(props.className, NS)
-        return (
-            <_RadioGroup {...props} className={className} />
-        )
-    }
-});
+const RadioGroup = props => {
+    return (
+        <_RadioGroup {...props} className={klassName(props.className, NS)} />
+    )
+}
 
 module.exports = {
     RadioGroup

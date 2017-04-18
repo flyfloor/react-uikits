@@ -1,15 +1,10 @@
 const React = require('react')
+const Component = React.Component
 const _Pagination = require('react-ui-component').Pagination
 const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
 
-const Pagination = React.createClass({
-    getDefaultProps() {
-        return {
-            prev: <span>上一页</span>,
-            next: <span>下一页</span>,
-        }
-    },
+class Pagination extends Component {
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
@@ -17,7 +12,12 @@ const Pagination = React.createClass({
             <_Pagination {...props} className={className} />
         )
     }
-});
+}
+
+Pagination.defaultProps = {
+    prev: <span>上一页</span>,
+    next: <span>下一页</span>,
+}
 
 module.exports = {
     Pagination

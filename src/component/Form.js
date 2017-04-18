@@ -1,13 +1,11 @@
 const React = require('react')
-const PropTypes = React.PropTypes
+const Component = React.Component
+const PropTypes = require('prop-types')
 const NS = require('./base/constant').NS
 const klassName = require('./base/util').klassName
 
 // form
-const Form = React.createClass({
-    propTypes: {
-        type: PropTypes.oneOf(['inline', 'trim', ''])
-    },
+class Form extends Component {
     render() {
         let _props = Object.assign({}, this.props)
         let {className, type} = _props
@@ -25,14 +23,14 @@ const Form = React.createClass({
             </form>
         )
     }
-})
+}
+
+Form.propTypes = {
+    type: PropTypes.oneOf(['inline', 'trim', ''])
+}
 
 // field
-const Field = React.createClass({
-    propTypes: {
-        type: PropTypes.oneOf(['inline', '']),
-        size: PropTypes.number,
-    },
+class Field extends Component {
     render() {
         let _props = Object.assign({}, this.props)
         let {className, type, size, label} = _props
@@ -60,13 +58,15 @@ const Field = React.createClass({
             <div {..._props} className={className}></div>
         )
     }
-})
+}
+
+Field.propTypes = {
+    type: PropTypes.oneOf(['inline', '']),
+    size: PropTypes.number,
+}
 
 // fields
-const Fields = React.createClass({
-    propTypes: {
-        size: PropTypes.number,
-    },
+class Fields extends Component {
     render() {
         let _props = Object.assign({}, this.props)
         let {className, size} = _props
@@ -81,10 +81,14 @@ const Fields = React.createClass({
             <div {..._props} className={className}></div>
         )
     }
-})
+}
+
+Fields.propTypes = {
+    size: PropTypes.number,
+}
 
 // group
-const Group = React.createClass({
+class Group extends Component {
     render() {
         let _props = Object.assign({}, this.props)
         let {className, label, type} = _props
@@ -106,7 +110,7 @@ const Group = React.createClass({
             <div {..._props} className={className}></div>
         )
     }
-})
+}
 
 module.exports = {
     Form,
