@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from 'react-router';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import {CN} from './src/util/tools';
 import {NAV_MAP} from './src/constant';
 import dot from './src/page/demo.less'
@@ -22,12 +22,6 @@ import {
     ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage,
 } from './src/page/index';
 
-const NavLink = (props) => {
-    return (
-        <Link {...props} activeClassName="active"></Link>
-    );
-}
-
 const NAV_MAP_KEYS = Object.keys(NAV_MAP)
 
 const assembleNavLinks = () => {
@@ -39,7 +33,7 @@ const assembleNavLinks = () => {
                     return (
                         <span key={item.route}>
                             {item.route === '/component' ? 
-                                <IndexLink to="/component" activeClassName="active">{item.name}</IndexLink>
+                                <NavLink exact to="/component">{item.name}</NavLink>
                                 : <NavLink to={item.route}>{item.name}</NavLink>}
                         </span>
                     )
@@ -50,63 +44,74 @@ const assembleNavLinks = () => {
 }
 
 export class App extends Component {
-    constructor(props){
-        super(props)
-        this.state = {}
-    }
     render() {
         const {children} = this.props;
         const {pathname} = this.props.location;
         return (
             <page>
-                <header className={CN('basic block main-nav')}>
-                    <div className={CN('container')}>
-                        <div className={CN('basic table')}>
-                            <div className="row">
-                                <div className="cell">
-                                    <h2><Link to="/">React UIKits</Link></h2>
-                                </div>
-                                <div className="text-right cell">
-                                    <IndexLink className="link" activeClassName="active" to="/">首页</IndexLink>
-                                    <NavLink className="link" to="/component">组件</NavLink>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-                {pathname !== '/' ? 
-                    <div>
-                        <div className={CN('container grid main-page')}>
-                            <aside className={CN('column-3 main-aside')}>
-                                {assembleNavLinks()}
-                            </aside>
-                            <artical className="column column-13 main-content">
-                                {children}
-                            </artical>
-                        </div>
-                        <footer className="main-footer">
-                            <div className={CN('container')}>
-                                <div className={CN('basic table')}>
-                                    <div className="row">
-                                        <div className="cell">
-                                            <h4>React UIKits@beta</h4>
-                                        </div>
-                                        <div className="text-right cell">
-                                            <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
-                                            <a href="http://braavos.me" target="_blank">Blog</a>
-                                            <a href="https://github.com/wecatch" target="_blank">team</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
-                    : <RootPage/>
-                }
+                <Header/>
+                { pathname === '/'
+                    ? <RootPage/>
+                    : <div className={CN('container grid main-page')}>
+                         <aside className={CN('column-3 main-aside')}>
+                             {assembleNavLinks()}
+                         </aside>
+                         <artical className="column column-13 main-content">
+                             {children}
+                         </artical>
+                    </div> }
+                <Footer/>
             </page>
         );
     }
 }
+
+class Header extends Component {
+    render() {
+        return (
+            <header className={CN('basic block main-nav')}>
+                <div className={CN('container')}>
+                    <div className={CN('basic table')}>
+                        <div className="row">
+                            <div className="cell">
+                                <h2><NavLink to="/">React UIKits</NavLink></h2>
+                            </div>
+                            <div className="text-right cell">
+                                <NavLink exact className="link" to="/">首页</NavLink>
+                                <NavLink className="link" to="/component">组件</NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        );
+    }
+}
+
+class Footer extends Component {
+    render() {
+        return (
+            <footer className="main-footer">
+                <div className={CN('container')}>
+                    <div className={CN('basic table')}>
+                        <div className="row">
+                            <div className="cell">
+                                <h4>React UIKits@beta</h4>
+                            </div>
+                            <div className="text-right cell">
+                                <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
+                                <a href="http://braavos.me" target="_blank">Blog</a>
+                                <a href="https://github.com/wecatch" target="_blank">team</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        );
+    }
+}
+
+
 
 class RootPage extends Component {
     render() {
@@ -118,7 +123,7 @@ class RootPage extends Component {
                             React UIkits
                         </h1>
                         <p className={CN('field')}>基于 React.js 快速搭建企业平台的组件化方案</p>
-                        <Link to="/component" className={CN('red button')}>更多...</Link>
+                        <NavLink to="/component" className={CN('red button')}>更多...</NavLink>
                     </div>
                 </div>
             </div>
@@ -126,13 +131,13 @@ class RootPage extends Component {
     }
 }
 
-ReactDOM.render(<Router history={hashHistory}>
+ReactDOM.render(<Router>
                     <Route path="/" component={App}>
-                        <IndexRoute component={RootPage}/>
+                        <Route exact path="/" component={RootPage}></Route>
                         <Route path="/start" component={StartPage}></Route>
                         <Route path="/install" component={InstallPage}></Route>
-                        <Route path="/component">
-                            <IndexRoute component={BasicPage}/>
+                        <Route>
+                            <Route exec path="/component" component={BasicPage}></Route>
                             <Route path="/component/button" component={ButtonPage}></Route>
                             <Route path="/component/calendar" component={CalendarPage}></Route>
                             <Route path="/component/carousel" component={CarouselPage}></Route>
