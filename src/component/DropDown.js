@@ -1,19 +1,7 @@
-const React = require('react')
-const Component = React.Component
-const _DropDown = require('react-ui-component').DropDown
-const NS = require('./base/constant').NS
-const klassName = require('./base/util').klassName
+const wrapComponent = require('./base/util').wrapComponent
+const Cmp = require('react-ui-component').DropDown
 
-
-class DropDown extends Component {
-    render() {
-        const {props} = this
-        let className = klassName(props.className, NS)
-        return (
-            <_DropDown {...props} className={className} />
-        )
-    }
-}
+let DropDown = wrapComponent(Cmp)
 
 DropDown.defaultProps = {
     placeHolder: '下拉选择...'

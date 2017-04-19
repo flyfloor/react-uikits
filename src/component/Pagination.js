@@ -1,18 +1,8 @@
 const React = require('react')
-const Component = React.Component
-const _Pagination = require('react-ui-component').Pagination
-const NS = require('./base/constant').NS
-const klassName = require('./base/util').klassName
+const wrapComponent = require('./base/util').wrapComponent
+const Cmp = require('react-ui-component').Pagination
 
-class Pagination extends Component {
-    render() {
-        const {props} = this
-        let className = klassName(props.className, NS)
-        return (
-            <_Pagination {...props} className={className} />
-        )
-    }
-}
+let Pagination = wrapComponent(Cmp)
 
 Pagination.defaultProps = {
     prev: <span>上一页</span>,
