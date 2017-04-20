@@ -16,6 +16,7 @@ import {PROVINCES, CITIES} from '../constant';
 class FormDemo extends Component {
     constructor(props) {
         super(props);
+        this.handleProvinceChange = this.handleProvinceChange.bind(this)
         this.state = {
             cities: [],
         }
@@ -100,7 +101,7 @@ class FormDemo extends Component {
                             </DropDown>
                         </Field>
                         <Field>
-                            <DropDown searchable={true} name="provinceId" 
+                            <DropDown searchable={true} name="provinceId" defaultSelected={true}
                                 placeHolder="搜索省份或编号" options={PROVINCES}
                                 labelName="name" valueName="id" onChange={this.handleProvinceChange}>
                             </DropDown>
@@ -318,7 +319,7 @@ export class FormPage extends Component {
                 </DropDown>
             </Field>
             <Field>
-                <DropDown searchable={true} name="provinceId" 
+                <DropDown searchable={true} name="provinceId" defaultSelected={true}
                     placeHolder="搜索省份或编号" options={PROVINCES}
                     labelName="name" valueName="id" onChange={this.handleProvinceChange.bind(this)}>
                 </DropDown>
