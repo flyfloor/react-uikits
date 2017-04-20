@@ -4,6 +4,17 @@ import {NS, COLORS} from '../constant';
 import {CodeView} from '../component/CodeView';
 
 export class LoaderPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loader: false,
+            loader1: false,
+            loader2: false,
+            invertLoader: false,
+            invertLoader1: false,
+            invertLoader2: false,
+        }
+    }
     render() {
         return (
             <div>
@@ -42,7 +53,6 @@ export class LoaderPage extends Component {
                         </CodeView>
                         <br/>
 
-
                     </li>
                     <li>
                         <h4>反弹加载器</h4>
@@ -67,12 +77,23 @@ export class LoaderPage extends Component {
                                 </div>
                             </div>
                         }>
-{`<div class="${CN('bounce loader')}">
+{`<div class="${CN('small bounce loader')}">
     <div class="bounce"></div>
     <div class="bounce"></div>
     <div class="bounce"></div>
 </div>
-size: small, large
+
+<div class="${CN('bounce loader')}">
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+</div>
+
+<div class="${CN('large bounce loader')}">
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+    <div class="bounce"></div>
+</div>
 `}                                
                         </CodeView>
                         <br/>
@@ -117,6 +138,234 @@ size: small, large
 <div class="${CN('google spinner')}"></div>`}
                         </CodeView>
                         <br/>
+                    </li>
+
+                    <h4 className={CN('warning large message')}>不同尺寸(small, large)同样适用于局部及全局加载器</h4>
+                    <br/>
+
+                    <li>
+                        <h4>局部加载器</h4>
+                        <CodeView component={
+                            <div className={`${CN('loader-wrap')}`}>
+                                <div className="loader"></div>
+                            </div>
+                            }>
+{`<div className="${CN('loader-wrap')}">
+    <div className="loader"></div>
+</div>`}                            
+                        </CodeView>
+                        <br/>
+
+                        <CodeView component={
+                            <div className={`${CN('loader-wrap')}`}>
+                                <div className="google spinner"></div>
+                            </div>
+                            }>
+{`<div className="${CN('loader-wrap')}">
+    <div className="google spinner"></div>
+</div>`}                            
+                        </CodeView>
+
+                        <br/>
+
+                        <CodeView component={
+                            <div className={`${CN('loader-wrap')}`}>
+                                <div className="bounce loader">
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                </div>
+                            </div>
+                            }>
+{`<div className="${CN('loader-wrap')}">
+    <div className="bounce loader">
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+    </div>
+</div>`}                            
+                        </CodeView>
+                        <br/>
+                        
+                        <h4>反色局部加载器</h4>
+                        <CodeView component={
+                            <div className={`${CN('inverted loader-wrap')}`}>
+                                <div className="google spinner"></div>
+                            </div>
+                            }>
+{`<div className="${CN('inverted loader-wrap')}">
+    <div className="google spinner"></div>
+</div>`}                            
+                        </CodeView>
+                        <br/>
+
+                        <CodeView component={
+                            <div className={`${CN('inverted loader-wrap')}`}>
+                                <div className="loader"></div>
+                            </div>
+                            }>
+{`<div className="${CN('inverted loader-wrap')}">
+    <div className="loader"></div>
+</div>`}                            
+                        </CodeView>
+                        <br/>
+
+                        <CodeView component={
+                            <div className={`${CN('inverted loader-wrap')}`}>
+                                <div className="bounce loader">
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                    <div className="bounce"></div>
+                                </div>
+                            </div>
+                            }>
+{`<div className="${CN('inverted loader-wrap')}">
+    <div className="bounce loader">
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+    </div>
+</div>`}                            
+                        </CodeView>
+                        <br/>
+
+                        <h4>全局加载器</h4>
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   loader: true
+                                })}>显示</button>
+                                {this.state.loader ? 
+                                    <div className={`${CN('full loader-wrap')}`} onClick={() => this.setState({
+                                        loader: false
+                                        })}>
+                                        <div className="loader"></div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full loader-wrap">
+    <div className="loader"></div>
+</div>`}                    
+                        </CodeView>
+                        <br/>  
+
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   loader1: true
+                                })}>显示</button>
+                                {this.state.loader1 ? 
+                                    <div className={`${CN('full loader-wrap')}`} onClick={() => this.setState({
+                                        loader1: false
+                                        })}>
+                                        <div className="google spinner"></div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full loader-wrap">
+    <div className="google spinner"></div>
+</div>`}                    
+                        </CodeView>
+                        <br/> 
+
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   loader2: true
+                                })}>显示</button>
+                                {this.state.loader2 ? 
+                                    <div className={`${CN('full loader-wrap')}`} onClick={() => this.setState({
+                                        loader2: false
+                                        })}>
+                                        <div className="bounce loader">
+                                            <div className="bounce"></div>
+                                            <div className="bounce"></div>
+                                            <div className="bounce"></div>
+                                        </div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full loader-wrap">
+    <div className="bounce loader">
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+    </div>
+</div>`}                    
+                        </CodeView>
+                        <br/>  
+
+                        <h4>反色全局加载器</h4>
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   invertLoader: true
+                                })}>显示</button>
+                                {this.state.invertLoader ? 
+                                    <div className={`${CN('full inverted loader-wrap')}`} onClick={() => this.setState({
+                                        invertLoader: false
+                                        })}>
+                                        <div className="loader"></div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full inverted loader-wrap">
+    <div className="loader"></div>
+</div>`}                    
+                        </CodeView>
+                        <br/>   
+
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   invertLoader1: true
+                                })}>显示</button>
+                                {this.state.invertLoader1 ? 
+                                    <div className={`${CN('full inverted loader-wrap')}`} onClick={() => this.setState({
+                                        invertLoader1: false
+                                        })}>
+                                        <div className="google spinner"></div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full inverted loader-wrap">
+    <div className="google spinner"></div>
+</div>`}                    
+                        </CodeView>
+                        <br/>      
+                        
+                        <CodeView component={
+                            <div>
+                                <button onClick={() => this.setState({
+                                   invertLoader2: true
+                                })}>显示</button>
+                                {this.state.invertLoader2 ? 
+                                    <div className={`${CN('full inverted loader-wrap')}`} onClick={() => this.setState({
+                                        invertLoader2: false
+                                        })}>
+                                        <div className="bounce loader">
+                                            <div className="bounce"></div>
+                                            <div className="bounce"></div>
+                                            <div className="bounce"></div>
+                                        </div>
+                                    </div>
+                                    : null}
+                            </div>
+                            }>
+{`<div className="full inverted loader-wrap">
+    <div className="bounce loader">
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+        <div className="bounce"></div>
+    </div>
+</div>`}                    
+                        </CodeView>
+                        <br/>        
                     </li>
                 </ul>
             </div>
