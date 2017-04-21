@@ -13,21 +13,24 @@ import {Item} from '../component/Item';
 import {CodeView} from '../component/CodeView';
 import {PROVINCES, CITIES} from '../constant';
 
-const FormDemo = React.createClass({
-    getInitialState() {
-        return {
+class FormDemo extends Component {
+    constructor(props) {
+        super(props);
+        this.handleProvinceChange = this.handleProvinceChange.bind(this)
+        this.state = {
             cities: [],
         }
-    },
+    }
+
     handleProvinceChange(pid){
         this.setState({
             cities: CITIES[pid]
         })
-    },
+    }
     handleSubmit(e){
         e.preventDefault()
         alert('submit form')
-    },
+    }
     render() {
         return (
             <Form {...this.props} onSubmit={this.handleSubmit}>
@@ -98,7 +101,7 @@ const FormDemo = React.createClass({
                             </DropDown>
                         </Field>
                         <Field>
-                            <DropDown searchable={true} name="provinceId" 
+                            <DropDown searchable={true} name="provinceId" defaultSelected={true}
                                 placeHolder="搜索省份或编号" options={PROVINCES}
                                 labelName="name" valueName="id" onChange={this.handleProvinceChange}>
                             </DropDown>
@@ -225,7 +228,7 @@ const FormDemo = React.createClass({
             </Form>
         );
     }
-});
+}
 
 
 export class FormPage extends Component {
@@ -316,7 +319,7 @@ export class FormPage extends Component {
                 </DropDown>
             </Field>
             <Field>
-                <DropDown searchable={true} name="provinceId" 
+                <DropDown searchable={true} name="provinceId" defaultSelected={true}
                     placeHolder="搜索省份或编号" options={PROVINCES}
                     labelName="name" valueName="id" onChange={this.handleProvinceChange.bind(this)}>
                 </DropDown>

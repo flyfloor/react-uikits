@@ -83,24 +83,32 @@ openModal = function(){
 `}
                 </CodeView>
                 <br/>
-
-                <h4>带确认、取消及自定义事件的弹出层</h4>
+                <br/>
+                <h3 className={`${NS} color-red`}>确认或取消按钮，取决于是否有 onConfirm 或者 onCancel 事件</h3>
+                <blockquote className={`${NS} blockquote`}>
+                    onConfirm 或 onCancel 事件接收boolean返回值判断是否要关闭弹出层
+                </blockquote>
+                <h4>带确认弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal2')}>显示</button>
                                         <Modal ref="modal2"
-                                            onConfirm={this.handleConfirm.bind(this)} 
-                                            onClose={this.handleClose.bind(this)} 
-                                            onCancel={this.handleCancel.bind(this)}>
+                                            onConfirm={() => {
+                                                alert('confirm')
+                                                // 返回值 true 或 false 决定是否关闭
+                                                return true
+                                            }}>
                                             {content}
                                         </Modal>
                                     </div>}>
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal" 
-        onConfirm={onConfirm} 
-        onCancel={onCancel} 
-        onCancel={onCancel}>
+    <Modal ref="modal"
+        onConfirm={() => {
+            alert('confirm')
+            // 返回值 true 或 false 决定是否关闭
+            return true
+        }}>
         {content}
     </Modal>
 </div>
@@ -112,10 +120,139 @@ openModal = function(){
                 </CodeView>
                 <br/>
 
-                <h4>强制确认的弹出层</h4>
+                <h4>带取消弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal3')}>显示</button>
-                                        <Modal ref="modal3" force={true} onConfirm={() => true }>
+                                        <Modal ref="modal3"
+                                            onCancel={() => {
+                                                alert('cancel')
+                                                return true
+                                            }}>
+                                            {content}
+                                        </Modal>
+                                    </div>}>
+{`<div>
+    <button className="${NS} button" onClick={this.openModal}>显示</button>
+    ...
+    <Modal ref="modal"
+        onCancel={() => {
+            alert('cancel')
+            // 返回值 true 或 false 决定是否关闭
+            return true
+        }}>
+        {content}
+    </Modal>
+</div>
+
+openModal = function(){
+    this.refs.modal.open()
+}
+`}
+                </CodeView>
+                <br/>
+
+
+                <h4>确认及取消弹出层</h4>
+                <CodeView component={<div>
+                                        <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal4')}>显示</button>
+                                        <Modal ref="modal4"
+                                            onConfirm={() => {
+                                                return confirm('confirm')
+                                            }}
+                                            onCancel={() => {
+                                                alert('cancel')
+                                                return true
+                                            }}>
+                                            {content}
+                                        </Modal>
+                                    </div>}>
+{`<div>
+    <button className="${NS} button" onClick={this.openModal}>显示</button>
+    ...
+    <Modal ref="modal"
+        onConfirm={() => {
+            return confirm('confirm')
+        }}
+        onCancel={() => {
+            alert('cancel')
+            return true
+        }}>
+        {content}
+    </Modal>
+</div>
+
+openModal = function(){
+    this.refs.modal.open()
+}
+`}
+                </CodeView>
+                <br/>
+
+                <h4>自定义关闭事件</h4>
+                <CodeView component={<div>
+                                        <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal4')}>显示</button>
+                                        <Modal ref="modal4"
+                                            onClose={() => {
+                                                return confirm('close')
+                                            }}>
+                                            {content}
+                                        </Modal>
+                                    </div>}>
+{`<div>
+    <button className="${NS} button" onClick={this.openModal}>显示</button>
+    ...
+    <Modal ref="modal"
+        onClose={() => {
+            // 根据返回值判断是否关闭
+            return confirm('confirm')
+        }}>
+        {content}
+    </Modal>
+</div>
+
+openModal = function(){
+    this.refs.modal.open()
+}
+`}
+                </CodeView>
+                <br/>
+
+                <h4>自定义内容触发弹出层关闭</h4>
+                <p className={`${NS} info message`}>自定义dom内容，手动触发关闭弹窗事件</p>
+                <CodeView component={<div>
+                                        <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal5')}>显示</button>
+                                        <Modal ref="modal5">
+                                            {content}
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <button className={`${NS} red button`} onClick={() => this.refs.modal5.close()}>点击关闭当前弹窗</button>
+                                        </Modal>
+                                    </div>}>
+{`<div>
+    <button className="${NS} button" onClick={this.openModal}>显示</button>
+    ...
+    <Modal ref="modal">
+        ...
+        <br/>
+        <br/>
+        <br/>
+        <button className="${NS} red button" onClick={() => this.refs.modal.close()}>点击关闭当前弹窗</button>
+    </Modal>
+</div>
+
+openModal = function(){
+    this.refs.modal.open()
+}
+`}
+                </CodeView>
+                <br/>
+
+                <h4>强制确认的弹出层</h4>
+                <p className={`${NS} info message`}>点击遮罩将无法关闭弹出层，应用于强制限制用户操作，要求提供 onConfirm 事件或者提供手动触发关闭方式</p>
+                <CodeView component={<div>
+                                        <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal6')}>显示</button>
+                                        <Modal ref="modal6" force={true} onConfirm={() => true }>
                                             {content}
                                         </Modal>
                                     </div>}>

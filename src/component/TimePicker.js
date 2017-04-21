@@ -1,18 +1,6 @@
-const React = require('react')
-const _TimePicker = require('react-ui-component').TimePicker
-const NS = require('./base/constant').NS
-const klassName = require('./base/util').klassName
-
-const TimePicker = React.createClass({
-    render() {
-        const {props} = this
-        let className = klassName(props.className, NS)
-        return (
-            <_TimePicker {...props} className={className} />
-        )
-    }
-});
+const wrapComponent = require('./base/util').wrapComponent
+const Cmp = require('react-ui-component').TimePicker
 
 module.exports = {
-    TimePicker
+    TimePicker: wrapComponent(Cmp)
 }

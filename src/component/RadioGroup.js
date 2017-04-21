@@ -1,18 +1,6 @@
-const React = require('react')
-const _RadioGroup = require('react-ui-component').RadioGroup
-const NS = require('./base/constant').NS
-const klassName = require('./base/util').klassName
-
-const RadioGroup = React.createClass({
-    render() {
-        const {props} = this
-        let className = klassName(props.className, NS)
-        return (
-            <_RadioGroup {...props} className={className} />
-        )
-    }
-});
+const wrapComponent = require('./base/util').wrapComponent
+const Cmp = require('react-ui-component').RadioGroup
 
 module.exports = {
-    RadioGroup
+    RadioGroup: wrapComponent(Cmp)
 }
