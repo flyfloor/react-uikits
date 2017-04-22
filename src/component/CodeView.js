@@ -1,19 +1,24 @@
 const React = require('react')
+const Component = React.Component
 const Hightlight = require("react-highlight")
 const NS = require('./base/constant').NS
 
-const CodeView = React.createClass({
-    getInitialState() {
-        return {
-            display: false
+class CodeView extends Component {
+    constructor(props) {
+        super(props);
+        this.handleDisplay = this.handleDisplay.bind(this)
+        this.state = {
+            display: false,
         }
-    },
+    }
+
     handleDisplay(){
         let {display} = this.state
         this.setState({
             display: !display
         });
-    },
+    }
+
     render() {
         const {children, component} = this.props
         const {display} = this.state
@@ -38,7 +43,7 @@ const CodeView = React.createClass({
             </section>
         )
     }
-});
+}
 
 module.exports = {
     CodeView

@@ -157,14 +157,14 @@ export class DropDownPage extends Component {
                         </tr>
                         <tr>
                             <td>labelName</td>
-                            <td>数据源显示的key</td>
+                            <td>数据源显示的key, dropdown 展示 options[labelName]</td>
                             <td>字符串</td>
                             <td>'name'</td>
                             <td>false</td>
                         </tr>
                         <tr>
                             <td>valueName</td>
-                            <td>数据源值的key</td>
+                            <td>数据源值的key, dropdown 提交 options[valueName]</td>
                             <td>字符串</td>
                             <td>'value'</td>
                             <td>false</td>
@@ -205,6 +205,13 @@ export class DropDownPage extends Component {
                             <td>是否多选</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>children</td>
+                            <td>yield children 方式</td>
+                            <td>jsx, 多个Item组件</td>
+                            <td>无</td>
                             <td>否</td>
                         </tr>
                     </tbody>

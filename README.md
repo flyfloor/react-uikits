@@ -26,7 +26,7 @@
 * SlideMenu
 * DatePicker  
 * TimeInput  
-* Calender
+* Calendar
 * Progress
 * Toast
 * NoticeCenter  

@@ -22,7 +22,7 @@
         .clearfix;
         font-size: 0;
         position: relative;
-        margin: 0 @padding * -1 @padding * -1;
+        margin: 0 @padding * -1 @__margin_bottom * -1;
         >.field {
             padding: 0 @padding;
             font-size: @line_height;
@@ -40,7 +40,7 @@
             line-height: @padding * 3 + 4px;
             float: left;
             width: (@i / @column_count) * 100%;
-            margin-bottom: @padding;
+            margin-bottom: @__margin_bottom;
             .dropdown, .datepicker, .datetime-picker, .timepicker, .timeinput {
                 min-width: initial;
                 width: 100%;
@@ -83,7 +83,7 @@
 }
 
 @{NS}.form {
-    @__margin_bottom: @padding;
+    @__margin_bottom: @padding * 2;
     padding: @padding * 2;
     width: 100%;
     .clearfix;
