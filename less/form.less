@@ -106,6 +106,7 @@
         .__makeFields(16);
         /*列*/
         .field {
+            position: relative;
             margin-bottom: @__margin_bottom;
             line-height: @padding * 3 + 4px;
             >label:not(@{NS}) {
@@ -164,6 +165,11 @@
                 }
             }
             &.error {
+                .error-hint {
+                    position: absolute;
+                    left: 0;
+                    bottom: @__margin_bottom * -1.2;
+                }
                 input, select, textarea {
                     border-color: @red;
                 }
