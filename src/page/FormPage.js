@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {CN, TitleBlock, formatDate} from '../util/tools';
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Form, Fields, Field, Group} from '../component/Form';
 import {DropDown} from '../component/DropDown';
