@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import ReactDOM from 'react-dom';
-import {Form, Group, Field, Fields, Validator}  from '../component/Form';
+import {Form, Group, Field, Fields, Validator, RULE}  from '../component/Form';
 import {DropDown} from '../component/DropDown';
 import {CheckBox} from '../component/CheckBox';
 import {Radio} from '../component/Radio';
+import {RadioGroup} from '../component/RadioGroup';
 import {DatePicker} from '../component/DatePicker';
 import {TimePicker} from '../component/TimePicker';
 import {TimeInput} from '../component/TimeInput';
@@ -12,18 +13,34 @@ import {DateTimePicker} from '../component/DateTimePicker';
 import {Item} from '../component/Item';
 import {PROVINCES, CITIES} from '../constant';
 
+const COUNTRIES = [
+    { name: '中国', value: 'cn' },
+    { name: '美国', value: 'us' },
+    { name: '英国', value: 'uk' },
+    { name: '法国', value: 'fr' },
+    { name: '德国', value: 'gmy' },
+    { name: '韩国', value: 'koa' },
+    { name: '日本', value: 'jp' },
+]
+
 const rules = {
-    name: [{
-        type: "string", required: true, message: '请输入名字'
-    }, {
+    name: [ RULE.required, {
         min: 3, max: 12, message: '名字长度3至12字'
     }],
-    agree: {
-        type: 'pattern', required: true, pattern: /1/, message: '请同意'
+    human: {
+        type: 'pattern', required: true, pattern: /1/, message: '是不是人？'
     },
-    chinese: {
-        type: 'pattern', required: true, pattern: /1/, message: '是不是中国人?'
-    },
+    contry: [ RULE.required, {
+        type: 'enum', enum: ['cn', 'us', 'uk', 'fr', 'gmy', 'jp'], message: '确定韩国？'
+    }],
+    nickname: [ RULE.chinese, {
+        min: 3, max: 12, message: '名字长度3至12字'
+    }],
+    password: [ RULE.required ],
+    password_confirm: [ RULE.required ],
+    phone: RULE.phone,
+    url: RULE.url,
+    email: RULE.email,
     gender: {
         type: 'string', required: true, message: '请选择性别'
     }
@@ -42,7 +59,6 @@ export class TempPage extends Component {
         }
     }
     handleFieldChange(field, value){
-        console.log(field, value)
         let {store} = this.state
         store[field] = value
         this.setState({ store });
@@ -61,67 +77,123 @@ export class TempPage extends Component {
     render() {
         const {store} = this.state
         return (
-            <Form rules={rules} store={this.state.store} onSubmit={this.handleSubmit} onError={this.handleError} >
-                <Group label="name:">
+            <Form rules={rules} store={store} onSubmit={this.handleSubmit} onError={this.handleError} >
+                <Group label="名称:">
                     <Field validate="name">
                         <Validator name="name" on="onBlur">
                             <input type="text" onChange={e => this.handleFieldChange('name', e.target.value)}/>
                         </Validator>
                     </Field>
                 </Group>
-                <Group label="fields-4:">
+                <Group label="人类:">
                     <Fields size={4}>
-                        <Field validate="name">
+                        <Field validate="human">
                             <label className={CN('checkbox')}>
-                                <input type="checkbox" className="original"/>
-                                <span>checkbox</span>
+                                <Validator name="human" on="onChange">
+                                    <input type="checkbox" className="original" checked={store.human}
+                                        onChange={e => this.handleFieldChange('human', e.target.checked ? 1 : 0 )}/>
+                                </Validator>
+                                <span>是不是人？</span>
                             </label>
                         </Field>
-                        <Field>
+                        <Field validate="human">
                             <label className={CN('radio')}>
-                                <input type="radio" className="original"/>
-                                <span>radio</span>
+                                <Validator name="human" on="onChange">
+                                    <input name="human_radio" type="radio" checked={store.human} className="original" 
+                                        onChange={e => this.handleFieldChange('human', e.target.checked ? 1 : 0 )} />
+                                </Validator>
+                                <span>人</span>
                             </label>
                         </Field>
-                        <Field>
-                            <CheckBox name="name">checkbox</CheckBox>
+                        <Field validate="human">
+                            <label className={CN('radio')}>
+                                <Validator name="human" on="onChange">
+                                    <input name="human_radio" type="radio" checked={!store.human} className="original" 
+                                        onChange={e => this.handleFieldChange('human', e.target.checked ? 0 : 1 )} />
+                                </Validator>
+                                <span>非人</span>
+                            </label>
                         </Field>
-                        <Field>
-                            <Radio value={true}>radio</Radio>
+                        <Field validate="human">
+                            <Validator name="human" on="onChange">
+                                <CheckBox name="name" checked={!store.human} 
+                                    onChange={e => this.handleFieldChange('human', e.target.checked ? 0 : 1 )}>
+                                    不是人
+                                </CheckBox>
+                            </Validator>
                         </Field>
                     </Fields>
                 </Group>
-                <Group label="inline field:">
-                    <Field type="inline">
-                        <label className={CN('checkbox')}>
-                            <input type="checkbox" className="original"/>
-                            <span>checkbox</span>
-                        </label>
-                        <label className={CN('radio')}>
-                            <input type="radio" className="original"/>
-                            <span>radio</span>
-                        </label>
-                        <CheckBox name="name">checkbox</CheckBox>
-                        <Radio value={true}>radio</Radio>
-                        <div className="dot icon input">
-                            <input type="text"/>
-                            <i className="icon">email</i>
-                        </div>
+                <Group label="国家:">
+                    <Field validate="contry">
+                        <Validator name="contry" on="onChange">
+                            <RadioGroup value={store.contry} options={COUNTRIES} 
+                                onChange={val => this.handleFieldChange('contry', val)}>
+                            </RadioGroup>
+                        </Validator>
                     </Field>
                 </Group>
-                <Group label="fields-2:">
+                
+                <Group>
                     <Fields size={2}>
-                        <Field label="nickname:">
-                            <input type="text"/>
+                        <Field label="昵称:" validate="nickname">
+                            <Validator name="nickname" on="onBlur">
+                                <input type="text" value={store.nickname} 
+                                    onChange={e => this.handleFieldChange('nickname', e.target.value)}/>
+                            </Validator>
                         </Field>
-                        <Field label="password:">
+                    </Fields>
+                </Group>
+                <Group>
+                    <Fields size={2}>
+                        <Field label="密码:" validate="password">
                             <div className="dot fluid icon input">
-                                <input type="password"/>
+                                <Validator name="password" on="onBlur">
+                                    <input type="password" 
+                                        onChange={e => this.handleFieldChange('password', e.target.value) } />
+                                </Validator>
+                                <i className="icon">lock</i>
+                            </div>
+                        </Field>
+                        <Field label="重复密码:" validate="password_confirm">
+                            <div className="dot fluid icon input">
+                                <Validator name="password_confirm" on="onBlur">
+                                    <input type="password" 
+                                        onChange={e => this.handleFieldChange('password_confirm', e.target.value) } />
+                                </Validator>
                                 <i className="icon">lock</i>
                             </div>
                         </Field>
                     </Fields>
                 </Group>
+                
+                <Group>
+                    <Fields size={2}>
+                        <Field validate="url">
+                            <div className="dot fluid input">
+                                <Validator name="url" on="onBlur">
+                                    <input type="text" value={store.url} 
+                                        onChange={e => this.handleFieldChange('url', e.target.value)}/>
+                                </Validator>
+                                <div className="action">
+                                    <button type="button">url</button>
+                                </div>
+                            </div>
+                        </Field>
+                        <Field validate="email">
+                            <div className="dot round fluid input">
+                                <Validator name="email" on="onBlur">
+                                    <input type="email" 
+                                        onChange={e => this.handleFieldChange('email', e.target.value)} />
+                                </Validator>
+                                <div className="action">
+                                    <button type="button">email</button>
+                                </div>
+                            </div>
+                        </Field>
+                    </Fields>
+                </Group>
+
                 <Group label="fields-3:">
                     <Fields size={3}>
                         <Field>
@@ -218,26 +290,7 @@ export class TempPage extends Component {
                         <TimeInput onChange={val => console.log(val)}/>
                     </Field>
                 </Group>
-                <Group label="search:">
-                    <Fields size={2}>
-                        <Field>
-                            <div className="dot fluid input">
-                                <input type="text"/>
-                                <div className="action">
-                                    <button>Go</button>
-                                </div>
-                            </div>
-                        </Field>
-                        <Field>
-                            <div className="dot round fluid input">
-                                <input type="email"/>
-                                <div className="action">
-                                    <button>email</button>
-                                </div>
-                            </div>
-                        </Field>
-                    </Fields>
-                </Group>
+                
                 <Group type="action">
                     <button className={'button'}>submit</button>
                 </Group>

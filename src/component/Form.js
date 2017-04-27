@@ -2,6 +2,7 @@ const React = require('react')
 const Component = React.Component
 const PropTypes = require('prop-types')
 const NS = require('./base/constant').NS
+const FORM_RULE = require('./base/constant').FORM_RULE
 const klassName = require('./base/util').klassName
 const Schema = require('async-validator');
 let vBuilder = null
@@ -11,7 +12,9 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
-        vBuilder = new Schema(this.props.rules)
+        if (props.rules) {
+            vBuilder = new Schema(props.rules)
+        }
         this.state = {
             errorFieldsObj: null,
         }
@@ -30,6 +33,10 @@ class Form extends Component {
     }
     validate({ name, success, fail } = { name: '', success: '', fail: '' } ){
         const {store, rules} = this.props
+        // field name is given, but rules not found
+        if (name && !rules[name]) {
+            return false
+        }
         let descriptor = name ? { [name]: rules[name] } : rules
         let value = name ? { [name]: store[name] } : store
 
@@ -258,4 +265,5 @@ module.exports = {
     Field,
     Group,
     Validator,
+    RULE: FORM_RULE,
 }
