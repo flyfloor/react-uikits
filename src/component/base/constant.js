@@ -2,7 +2,7 @@ const NS = 'dot';
 
 const FORM_RULE = {
     required: {
-        type: "string", required: true, message: '不能为空',
+        required: true, message: '不能为空',
     },
     email: {
         type: 'pattern', pattern: /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i, message: '非法邮箱格式',
@@ -22,7 +22,10 @@ const FORM_RULE = {
     },
 }
 
+const DEFAULT_INVALID_MSG = '校验失败'
+
 module.exports = {
     NS,
     FORM_RULE,
+    DEFAULT_INVALID_MSG,
 }

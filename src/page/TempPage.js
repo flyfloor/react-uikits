@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Form, Group, Field, Fields, Validator, RULE}  from '../component/Form';
 import {DropDown} from '../component/DropDown';
 import {CheckBox} from '../component/CheckBox';
+import {CheckBoxGroup} from '../component/CheckBoxGroup';
 import {Radio} from '../component/Radio';
 import {RadioGroup} from '../component/RadioGroup';
 import {DatePicker} from '../component/DatePicker';
@@ -20,7 +21,9 @@ const COUNTRIES = [
     { name: '法国', value: 'fr' },
     { name: '德国', value: 'gmy' },
     { name: '韩国', value: 'koa' },
+    { name: '澳大利亚', value: 'aus', disabled: true },
     { name: '日本', value: 'jp' },
+    { name: '朝鲜', value: 'dprk' },
 ]
 
 const rules = {
@@ -30,7 +33,7 @@ const rules = {
     human: {
         type: 'pattern', required: true, pattern: /1/, message: '是不是人？'
     },
-    contry: [ RULE.required, {
+    country: [ RULE.required, {
         type: 'enum', enum: ['cn', 'us', 'uk', 'fr', 'gmy', 'jp'], message: '确定韩国？'
     }],
     nickname: [ RULE.chinese, {
@@ -41,9 +44,28 @@ const rules = {
     phone: RULE.phone,
     url: RULE.url,
     email: RULE.email,
-    gender: {
-        type: 'string', required: true, message: '请选择性别'
-    }
+    gender: [ RULE.required, {
+        type: 'enum', enum: ['m', 'f'], message: '性别究竟是？'
+    }],
+    province: [RULE.required, {
+        type: 'enum', enum: ['110000'], message: '只能选择北京!'
+    }],
+    city: [ RULE.required ],
+    create_at: RULE.required,
+    update_at: [RULE.required],
+    address: [RULE.required, {
+        min: 20, max: 200, message: '20-200个字',
+    }],
+    begin_date: [RULE.required],
+    end_date: [RULE.required],
+    begin_at: [RULE.required],
+    begin_time: [RULE.required],
+    end_time: [RULE.required],
+    countries: [RULE.required, {
+        type: 'array', min: 3, message: '至少选三个',
+    }, {
+        type: 'array', max: 6, message: '最多选六个',
+    }],
 }
 
 export class TempPage extends Component {
@@ -74,13 +96,69 @@ export class TempPage extends Component {
     handleError(errors){
         console.log(errors, 'errors')
     }
+    
+    afterValid(){
+        if (!this.validatePasswordConfirm().valid) {
+            return this.validatePasswordConfirm()
+        }
+        if (!this.validateEndAt().valid) {
+            return this.validateEndAt()
+        }
+        if (!this.validateCountries().valid) {
+            return this.validateCountries()
+        }
+    }
+
+    validatePasswordConfirm(){
+        const {password, password_confirm} = this.state.store
+        return {
+            name: 'password_confirm',
+            message: '两次输入不一致',
+            valid: password_confirm ? password === password_confirm : true,
+        }
+    }
+    
+    validateEndAt(){
+        const {begin_date, end_date} = this.state.store
+        return {
+            name: 'end_date',
+            message: '开始日期不能大于结束日期',
+            valid: begin_date && end_date ? new Date(begin_date) < new Date(end_date) : true,
+        }
+    }
+
+    validateCountries(){
+        const {countries} = this.state.store
+        if (countries) {
+            if (countries.indexOf('koa') !== -1) {
+                return {
+                    name: 'countries',
+                    message: '确定韩国？',
+                    valid: false
+                }
+            }
+            if (countries.indexOf('dprk') !== -1) {
+                return {
+                    name: 'countries',
+                    message: '确定朝鲜？',
+                    valid: false,
+                }
+            }
+        }
+        return {
+            valid: true,
+            name: 'countries'
+        }
+    }
+
     render() {
         const {store} = this.state
         return (
-            <Form rules={rules} store={store} onSubmit={this.handleSubmit} onError={this.handleError} >
+            <Form rules={rules} store={store} after={this.afterValid.bind(this)} 
+                onSubmit={this.handleSubmit} onError={this.handleError} >
                 <Group label="名称:">
                     <Field validate="name">
-                        <Validator name="name" on="onBlur">
+                        <Validator name="name" trigger="onBlur">
                             <input type="text" onChange={e => this.handleFieldChange('name', e.target.value)}/>
                         </Validator>
                     </Field>
@@ -89,7 +167,7 @@ export class TempPage extends Component {
                     <Fields size={4}>
                         <Field validate="human">
                             <label className={CN('checkbox')}>
-                                <Validator name="human" on="onChange">
+                                <Validator name="human" trigger="onChange">
                                     <input type="checkbox" className="original" checked={store.human}
                                         onChange={e => this.handleFieldChange('human', e.target.checked ? 1 : 0 )}/>
                                 </Validator>
@@ -98,7 +176,7 @@ export class TempPage extends Component {
                         </Field>
                         <Field validate="human">
                             <label className={CN('radio')}>
-                                <Validator name="human" on="onChange">
+                                <Validator name="human" trigger="onChange">
                                     <input name="human_radio" type="radio" checked={store.human} className="original" 
                                         onChange={e => this.handleFieldChange('human', e.target.checked ? 1 : 0 )} />
                                 </Validator>
@@ -107,7 +185,7 @@ export class TempPage extends Component {
                         </Field>
                         <Field validate="human">
                             <label className={CN('radio')}>
-                                <Validator name="human" on="onChange">
+                                <Validator name="human" trigger="onChange">
                                     <input name="human_radio" type="radio" checked={!store.human} className="original" 
                                         onChange={e => this.handleFieldChange('human', e.target.checked ? 0 : 1 )} />
                                 </Validator>
@@ -115,7 +193,7 @@ export class TempPage extends Component {
                             </label>
                         </Field>
                         <Field validate="human">
-                            <Validator name="human" on="onChange">
+                            <Validator name="human" trigger="onChange">
                                 <CheckBox name="name" checked={!store.human} 
                                     onChange={e => this.handleFieldChange('human', e.target.checked ? 0 : 1 )}>
                                     不是人
@@ -125,19 +203,20 @@ export class TempPage extends Component {
                     </Fields>
                 </Group>
                 <Group label="国家:">
-                    <Field validate="contry">
-                        <Validator name="contry" on="onChange">
-                            <RadioGroup value={store.contry} options={COUNTRIES} 
-                                onChange={val => this.handleFieldChange('contry', val)}>
+                    <Field validate="country">
+                        <Validator name="country" trigger="onChange">
+                            <RadioGroup
+                                value={store.country} options={COUNTRIES} 
+                                onChange={val => this.handleFieldChange('country', val)}>
                             </RadioGroup>
                         </Validator>
                     </Field>
                 </Group>
-                
+
                 <Group>
                     <Fields size={2}>
                         <Field label="昵称:" validate="nickname">
-                            <Validator name="nickname" on="onBlur">
+                            <Validator name="nickname" trigger="onBlur">
                                 <input type="text" value={store.nickname} 
                                     onChange={e => this.handleFieldChange('nickname', e.target.value)}/>
                             </Validator>
@@ -148,7 +227,7 @@ export class TempPage extends Component {
                     <Fields size={2}>
                         <Field label="密码:" validate="password">
                             <div className="dot fluid icon input">
-                                <Validator name="password" on="onBlur">
+                                <Validator name="password" trigger="onBlur" after={this.validatePasswordConfirm.bind(this)}>
                                     <input type="password" 
                                         onChange={e => this.handleFieldChange('password', e.target.value) } />
                                 </Validator>
@@ -157,7 +236,7 @@ export class TempPage extends Component {
                         </Field>
                         <Field label="重复密码:" validate="password_confirm">
                             <div className="dot fluid icon input">
-                                <Validator name="password_confirm" on="onBlur">
+                                <Validator name="password_confirm" trigger="onBlur" after={this.validatePasswordConfirm.bind(this)}>
                                     <input type="password" 
                                         onChange={e => this.handleFieldChange('password_confirm', e.target.value) } />
                                 </Validator>
@@ -171,7 +250,7 @@ export class TempPage extends Component {
                     <Fields size={2}>
                         <Field validate="url">
                             <div className="dot fluid input">
-                                <Validator name="url" on="onBlur">
+                                <Validator name="url" trigger="onBlur">
                                     <input type="text" value={store.url} 
                                         onChange={e => this.handleFieldChange('url', e.target.value)}/>
                                 </Validator>
@@ -182,7 +261,7 @@ export class TempPage extends Component {
                         </Field>
                         <Field validate="email">
                             <div className="dot round fluid input">
-                                <Validator name="email" on="onBlur">
+                                <Validator name="email" trigger="onBlur">
                                     <input type="email" 
                                         onChange={e => this.handleFieldChange('email', e.target.value)} />
                                 </Validator>
@@ -196,99 +275,117 @@ export class TempPage extends Component {
 
                 <Group label="fields-3:">
                     <Fields size={3}>
-                        <Field>
-                            <DropDown name="sex" onChange={val => console.log(val)}>
-                                <Item name="male" value="m"></Item>
-                                <Item name="famale" value="f"></Item>
-                            </DropDown>
+                        <Field validate="gender">
+                            <Validator name="gender" trigger="onChange">
+                                <DropDown name="gender" value={store.gender} 
+                                    onChange={val => this.handleFieldChange('gender', val)}>
+                                    <Item name="male" value="m"></Item>
+                                    <Item name="famale" value="f"></Item>
+                                </DropDown>
+                            </Validator>
                         </Field>
-                        <Field>
-                            <DropDown searchable={true} name="provinceId" defaultSelected={true}
-                                placeHolder="搜索省份或编号" options={PROVINCES}
-                                labelName="name" valueName="id" onChange={this.handleProvinceChange}>
-                            </DropDown>
+                        <Field validate="province">
+                            <Validator name="province" trigger="onChange">
+                                <DropDown searchable={true} name="provinceId" defaultSelected={true}
+                                    placeHolder="搜索省份或编号" options={PROVINCES}
+                                    labelName="name" valueName="id" onChange={val => {
+                                        this.handleFieldChange('province', val)
+                                        this.handleProvinceChange(val)
+                                    }}>
+                                </DropDown>
+                            </Validator>
                         </Field>
-                        <Field>
-                            <DropDown options={this.state.cities}
-                                onChange={val => console.log(val)} valueName="id" name="cityId">
-                            </DropDown>
+                        <Field validate="city">
+                            <Validator name="city" trigger="onChange">
+                                <DropDown options={this.state.cities}
+                                    onChange={val => this.handleFieldChange('city', val)} 
+                                    valueName="id" name="cityId">
+                                </DropDown>
+                            </Validator>
                         </Field>
                     </Fields>
                 </Group>
                 <Group label="fields:">
                     <Fields>
-                        <Field size={3} label="f-3">
-                            <DropDown name="国家" onChange={val => console.log(val)}>
-                                <Item name="中国" value="china"></Item>
-                                <Item name="美国" value="america"></Item>
-                                <Item name="英国" value="england"></Item>
-                                <Item name="法国" value="france"></Item>
-                                <Item name="德国" value="germany"></Item>
-                                <Item name="日本" value="japan"></Item>
-                            </DropDown>
+                        <Field validate="country" size={3} label="f-3">
+                            <Validator name="country" trigger="onChange">
+                                <DropDown options={COUNTRIES}
+                                    value={store.country}
+                                    onChange={val => this.handleFieldChange('country', val)}>
+                                </DropDown>
+                            </Validator>
                         </Field>
-                        <Field size={6} label="f-6:">
-                            <input type="date"/>
+                        <Field size={6} label="f-6:" validate="create_at">
+                            <Validator name="create_at" trigger="onBlur">
+                                <input type="date" 
+                                    onChange={e => this.handleFieldChange('create_at', e.target.value)}/>
+                            </Validator>
                         </Field>
                         <Field size={1} className="text-center" label="f-1:">
                             to
                         </Field>
-                        <Field size={6} label="f-6:">
-                            <DatePicker onChange={val => console.log(val)}/>
+                        <Field size={6} label="f-6:" validate="update_at">
+                            <Validator name="update_at" trigger="onChange">
+                                <DatePicker onChange={val => this.handleFieldChange('update_at', val)}/>
+                            </Validator>
                         </Field>
                     </Fields>
-                    <Field type="inline" label="inline:">
-                        <select name="" id="">
-                            <option value="a">ember</option>
-                            <option value="b">react</option>
-                            <option value="c">angular</option>
-                        </select>
-                        <input type="url"/>
+                    <Field type="inline" label="range:" validate="end_date">
+                        <Validator name="begin_date" trigger="onChange">
+                            <DatePicker onChange={val => this.handleFieldChange('begin_date', val)}/>
+                        </Validator>
                         <span>to</span>
-                        <div className="dot icon input">
-                            <input type="url"/>
-                            <i className="icon">security</i>
-                        </div>
+                        <Validator name="end_date" trigger="onChange" after={this.validateEndAt.bind(this)}>
+                            <DatePicker onChange={val => this.handleFieldChange('end_date', val)}/>
+                        </Validator>
                     </Field>
                 </Group>
                 <Group label="address:">
-                    <div className="field">
-                        <textarea></textarea>
-                    </div>
-                </Group>
-                <Group label="contry:">
-                    <Field>
-                        <DropDown multi={true} name="国家" onChange={val => console.log(val)}>
-                            <Item name="中国" value="china"></Item>
-                            <Item name="美国" value="america"></Item>
-                            <Item name="英国" value="england"></Item>
-                            <Item name="法国" value="france"></Item>
-                            <Item name="德国" value="germany"></Item>
-                            <Item name="澳大利亚" value="australia"></Item>
-                            <Item name="日本" value="japan"></Item>
-                            <Item name="韩国" value="korea"></Item>
-                        </DropDown>
+                    <Field validate="address">
+                        <Validator name="address" trigger={['onChange', 'onBlur']}>
+                            <textarea onChange={e => this.handleFieldChange('address', e.target.value)}>
+                            </textarea>
+                        </Validator>
                     </Field>
                 </Group>
+                <Group label="countries:">
+                    <Field validate="countries">
+                        <Validator name="countries" trigger="onChange" after={this.validateCountries.bind(this)}>
+                            <DropDown multi={true} value={store.countries} options={COUNTRIES}
+                                onChange={val => this.handleFieldChange('countries', val)}>
+                            </DropDown>
+                        </Validator>
+                    </Field>
+                </Group>
+                
+                <Group label="countries">
+                    <Field validate="countries">
+                        <Validator name="countries" trigger="onChange" after={this.validateCountries.bind(this)}>
+                            <CheckBoxGroup value={store.countries} options={COUNTRIES}
+                                onChange={val => this.handleFieldChange('countries', val)}/>
+                        </Validator>
+                    </Field>
+                </Group>
+
                 <Group label="fields-3 time:">
                     <Fields size={3}>
-                        <Field>
-                            <DateTimePicker onChange={val => console.log(val)}/>
+                        <Field validate="begin_at">
+                            <Validator name="begin_at" trigger="onChange">
+                                <DateTimePicker value={store.begin_at}
+                                    onChange={val => this.handleFieldChange('begin_at', val)}/>
+                            </Validator>
                         </Field>
-                        <Field>
-                            <TimePicker onChange={val => console.log(val)}/>
+                        <Field validate="begin_time">
+                            <Validator name="begin_time" trigger="onChange">
+                                <TimePicker onChange={val => this.handleFieldChange('begin_time', val)}/>
+                            </Validator>
                         </Field>
-                        <Field>
-                            <TimeInput onChange={val => console.log(val)}/>
+                        <Field validate="end_time">
+                            <Validator name="end_time" trigger="onChange">
+                                <TimeInput onChange={val => this.handleFieldChange('end_time', val)}/>
+                            </Validator>
                         </Field>
                     </Fields>
-                </Group>
-                <Group label="inline time:">
-                    <Field type="inline">
-                        <DateTimePicker onChange={val => console.log(val)}/>
-                        <TimePicker onChange={val => console.log(val)}/>
-                        <TimeInput onChange={val => console.log(val)}/>
-                    </Field>
                 </Group>
                 
                 <Group type="action">

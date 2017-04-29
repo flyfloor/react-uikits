@@ -1,8 +1,8 @@
 const React = require('react')
 const Component = React.Component
 const PropTypes = require('prop-types')
-const NS = require('./base/constant').NS
-const FORM_RULE = require('./base/constant').FORM_RULE
+const constant = require('./base/constant')
+const {FORM_RULE, DEFAULT_INVALID_MSG, NS} = constant
 const klassName = require('./base/util').klassName
 const Schema = require('async-validator');
 let vBuilder = null
@@ -25,24 +25,68 @@ class Form extends Component {
             validateField: this.validateField.bind(this),
         }
     }
-    validateField(name){
+    validateField(name, afterCallback){
         if (!name) {
             throw new Error('validate method need field name')
         }
-        this.validate({ name })
+        this.validate({ name, afterCallback })
     }
-    validate({ name, success, fail } = { name: '', success: '', fail: '' } ){
-        const {store, rules} = this.props
-        // field name is given, but rules not found
-        if (name && !rules[name]) {
-            return false
+    // after validate callback, return callback with errors
+    afterValidateError(callback){
+        if (!callback instanceof Function) {
+            return
         }
+        let callbackRtn = callback.call(this)
+        if (!callbackRtn) {
+            return success => success.call(this, null)
+        }
+        let { valid, name, message=DEFAULT_INVALID_MSG } = callbackRtn
+        if (!name) {
+            throw new Error(`after validate function need return specify validate field name, check: ${callback.name}`)
+        }
+
+        let {errorFieldsObj} = this.state
+        if (!valid) {
+            let _errField = [{ field: [name], message }]
+            if (errorFieldsObj) {
+                errorFieldsObj[name] = _errField
+            } else {
+                errorFieldsObj = { [name]: _errField }
+            }
+            this.setState({
+                errorFieldsObj
+            });
+            return fail => fail && fail.call(this, _errField)
+        } else {
+            if (errorFieldsObj) {
+                delete errorFieldsObj[name]
+            }
+            this.setState({
+                errorFieldsObj
+            });
+        }
+        return success => success.call(this, null)
+    }
+
+    validate({ name, success, fail, afterCallback } = { name: '' } ){
+        const {store, rules, after} = this.props
+        // after callback or after from props
+        afterCallback = afterCallback || after
+        let submitData = name ? store[name] : store
+        // field name is given, but rules not found, check if has after validate
+        if (name && !rules[name]) {
+            return this.afterValidateError(afterCallback)(errors => {
+                return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
+            })
+        }
+        // validator descriptor
         let descriptor = name ? { [name]: rules[name] } : rules
-        let value = name ? { [name]: store[name] } : store
+        let storeData = name ? { [name]: store[name] } : store
 
         vBuilder = new Schema(descriptor)
-        vBuilder.validate(value, (errors, errObj) => {
+        vBuilder.validate(storeData, (errors, errObj) => {
             let {errorFieldsObj} = this.state
+            // valid special field
             if (name && errorFieldsObj) {
                 errorFieldsObj[name] = errObj ? errObj[name] : null
                 this.setState({
@@ -56,9 +100,14 @@ class Form extends Component {
 
             if (errors) {
                 fail && fail.call(this, errors)
-            } else {
-                success && success.call(this, name ? this.props.store[name] : this.props.store)
+                return
             }
+            if (afterCallback) {
+                return this.afterValidateError(afterCallback)(errors => {
+                    return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
+                })
+            }
+            return success && success.call(this, submitData)
         })
     }
     handleSubmit(e){
@@ -82,6 +131,7 @@ class Form extends Component {
         delete _props.className 
         delete _props.rules 
         delete _props.store 
+        delete _props.after 
 
         if (type) {
             className = `${type} ${className}`
@@ -223,19 +273,27 @@ class Validator extends Component {
     constructor(props) {
         super(props);
     }
-    render() {
-        let {on, children, name} = this.props
-        let _props = Object.assign({}, children.props)
-        if (_props[on]) {
-            let oldChange = _props[on]
-            _props[on] = val => {
-                oldChange(val)
-                this.context.validateField(name)
+    conbineEvent(props, event){
+        let {name, after} = this.props
+        if (props[event]) {
+            let oldEvent = props[event]
+            props[event] = val => {
+                oldEvent(val)
+                this.context.validateField(name, after)
             }
         } else {
-            _props[on] = () => {
-                this.context.validateField(name)
+            props[event] = () => {
+                this.context.validateField(name, after)
             }
+        }
+    }
+    render() {
+        let {trigger, children} = this.props
+        let _props = Object.assign({}, children.props)
+        if (trigger instanceof Array) {
+            trigger.forEach(e => this.conbineEvent(_props, e))
+        } else {
+            this.conbineEvent(_props, trigger)
         }
 
         return (
@@ -246,7 +304,7 @@ class Validator extends Component {
 
 Validator.propTypes = {
     children: PropTypes.element.isRequired,
-    on: PropTypes.string.isRequired,
+    trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
     name: PropTypes.string.isRequired,
 }
 
@@ -255,7 +313,7 @@ Validator.contextTypes = {
 }
 
 Validator.defaultProps = {
-    on: 'onChange',
+    trigger: 'onChange',
 }
 
 
