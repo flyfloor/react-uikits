@@ -41,6 +41,7 @@ import {TempPage} from './TempPage'
 import {StartPage} from './StartPage'
 import {InstallPage} from './InstallPage'
 import {ListPage} from './ListPage'
+import {ValidatorPage} from './ValidatorPage'
 
 export  {
     BasicPage,
@@ -86,4 +87,5 @@ export  {
     StartPage,
     InstallPage,
     ListPage,
+    ValidatorPage,
 }

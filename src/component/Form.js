@@ -33,10 +33,13 @@ class Form extends Component {
     }
 
     validateGlobalAfter(){
-        let {after} = this.props
+        let {afterFilters} = this.props
         let isValid = true
         let {errorFieldsObj} = this.state
-        after.forEach(action => {
+        if (!afterFilters) {
+            return success => success && success.call(this)
+        }
+        afterFilters.forEach(action => {
             let result = action()
             if (result && result.valid === false) {
                 isValid = false
@@ -177,7 +180,7 @@ class Form extends Component {
         delete _props.className 
         delete _props.rules 
         delete _props.store 
-        delete _props.after 
+        delete _props.afterFilters 
 
         if (type) {
             className = `${type} ${className}`
@@ -202,6 +205,7 @@ Form.propTypes = {
     type: PropTypes.oneOf(['inline', 'trim', '']),
     onSubmit: PropTypes.func.isRequired,
     onError: PropTypes.func,
+    afterFilters: PropTypes.array,
 }
 
 // field
