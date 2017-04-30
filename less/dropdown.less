@@ -2,7 +2,7 @@
 @import url('color');
 @import url('transition');
 
-@{NS}.dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
     min-width: @min_input_width;
@@ -55,6 +55,15 @@
         .__input();
         cursor: pointer;
         position: relative;
+        &>input._transparent {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            opacity: 0;
+        }
         &:after {
             content: 'arrow_drop_down';
             .__dropIcon();

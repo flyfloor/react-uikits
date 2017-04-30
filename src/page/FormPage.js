@@ -27,8 +27,7 @@ class FormDemo extends Component {
             cities: CITIES[pid]
         })
     }
-    handleSubmit(e){
-        e.preventDefault()
+    handleSubmit(){
         alert('submit form')
     }
     render() {
@@ -107,7 +106,7 @@ class FormDemo extends Component {
                             </DropDown>
                         </Field>
                         <Field>
-                            <DropDown options={this.state.cities}
+                            <DropDown options={this.state.cities} defaultSelected={true}
                                 onChange={val => console.log(val)} valueName="id" name="cityId">
                             </DropDown>
                         </Field>
