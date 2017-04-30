@@ -7,7 +7,7 @@ export class TimePickerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '01:23:01'
+            value: 4981
         }
     }
     handleTimeChange(value){
@@ -27,19 +27,19 @@ export class TimePickerPage extends Component {
                 <br/>
                 
                 <h4>带默认值的时间选择</h4>
-                <CodeView component={<TimePicker value="03:23:37" onChange={value => {}} />}>
-                    {`<TimePicker value="03:23:37" onChange={onChangeFunction} />`}
+                <CodeView component={<TimePicker value={12217} onChange={value => {}} />}>
+                    {`<TimePicker value={12217} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
                 
                 <h4>onChange 事件</h4>
                 <CodeView component={
                     <div>
-                        <p>选择的时间是 {this.state.value}</p>
+                        <p>选择的时间秒数为 {this.state.value}</p>
                         <TimePicker value={this.state.value} onChange={this.handleTimeChange.bind(this)} />
                     </div>
                 }>
-                    {`<TimePicker value="03:23:37" onChange={onChangeFunction} />`}
+                    {`<TimePicker value={4981} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
                 
@@ -63,9 +63,9 @@ export class TimePickerPage extends Component {
                     <tbody>
                         <tr>
                             <td>value</td>
-                            <td>默认值</td>
-                            <td>字符串(例如：11:22:32)</td>
-                            <td>00:00:00</td>
+                            <td>值(秒数 0 ~ 86399)</td>
+                            <td>整形(例如：4981 代表 '03:23:37')</td>
+                            <td>0</td>
                             <td>否</td>
                         </tr>
                         <tr>

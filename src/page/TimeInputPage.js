@@ -7,7 +7,7 @@ export class TimeInputPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: 0
         }
     }
     handleTimeChange(value){
@@ -27,15 +27,15 @@ export class TimeInputPage extends Component {
                 <br/>
 
                 <h4>带默认值的时间输入</h4>
-                <CodeView component={<TimeInput value={'12:32:21'} onChange={value => {}} />}>
-                    {`<TimeInput value={'12:32:23'} onChange={onChangeFunction} />`}
+                <CodeView component={<TimeInput value={45141} onChange={value => {}} />}>
+                    {`<TimeInput value={45141} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
                 <h4>onChange 事件</h4>
                 <CodeView component={
                     <div>
-                        <p>输入的时间是 {this.state.value}</p>
+                        <p>输入的时间秒数为 {this.state.value} 秒</p>
                         <br/>
                         <TimeInput onChange={this.handleTimeChange.bind(this)} />
                     </div>
@@ -64,9 +64,9 @@ export class TimeInputPage extends Component {
                     <tbody>
                         <tr>
                             <td>value</td>
-                            <td>默认值</td>
-                            <td>字符串(例如：11:22:32)</td>
-                            <td>00:00:00</td>
+                            <td>值(从0点至 23:59:59 的秒数 0 ~ 86399)</td>
+                            <td>整形(例如：45141 代表 '12:32:21')</td>
+                            <td>0</td>
                             <td>否</td>
                         </tr>
                         <tr>
