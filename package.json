@@ -28,7 +28,7 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-highlight": "^0.9.0",
-    "react-ui-component": "^1.2.0"
+    "react-ui-component": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

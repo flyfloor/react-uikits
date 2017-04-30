@@ -25,29 +25,73 @@ class Form extends Component {
             validateField: this.validateField.bind(this),
         }
     }
-    validateField(name, afterCallback){
-        if (!name) {
+    validateField(field, afterCallback){
+        if (!field) {
             throw new Error('validate method need field name')
         }
-        this.validate({ name, afterCallback })
+        this.validate({ name: field, afterCallback })
     }
+
+    validateGlobalAfter(){
+        let {after} = this.props
+        let isValid = true
+        let {errorFieldsObj} = this.state
+        after.forEach(action => {
+            let result = action()
+            if (result && result.valid === false) {
+                isValid = false
+                if (!result.name) throw new Error(`after validate function need return specify validate field name`)
+                let _errField = [{ name: result.name, message: result.message }]
+                if (errorFieldsObj) {
+                    errorFieldsObj[result.name] = _errField
+                } else {
+                    errorFieldsObj = { [result.name]: _errField }
+                }
+            } else {
+                // remove errors
+                if (errorFieldsObj) delete errorFieldsObj[result.name]
+            }
+        })
+        this.setState({ errorFieldsObj })
+        let errors = []
+        Object.keys(errorFieldsObj).forEach(key => {
+            if (errorFieldsObj[key]) {
+                let item = errorFieldsObj[key][0]
+                errors.push({ message: item.message, field: item.name })
+            }
+        })
+
+        return isValid ? success => success && success.call(this) : fail => fail && fail.call(this, errors)
+    }
+
     // after validate callback, return callback with errors
-    afterValidateError(callback){
-        if (!callback instanceof Function) {
-            return
+    afterValidateError({ field, afterCallback}){
+        if (!field) {
+            return this.validateGlobalAfter()
         }
-        let callbackRtn = callback.call(this)
+        
+        // no after callback handler, then success
+        if (!afterCallback) {
+            return success => success.call(this, null)
+        }
+        
+        let callbackRtn = afterCallback.call(this)
+        // if after callback return nothing, then pass.
         if (!callbackRtn) {
             return success => success.call(this, null)
         }
+
         let { valid, name, message=DEFAULT_INVALID_MSG } = callbackRtn
+
+        // need to specify the valid field to show error
         if (!name) {
-            throw new Error(`after validate function need return specify validate field name, check: ${callback.name}`)
+            throw new Error(`after validate function need return specify validate field name, check: ${afterCallback.name}`)
         }
 
         let {errorFieldsObj} = this.state
+        // if unvalid, push errors
         if (!valid) {
-            let _errField = [{ field: [name], message }]
+            let _errField = [{ name: field, message }]
             if (errorFieldsObj) {
                 errorFieldsObj[name] = _errField
             } else {
@@ -56,8 +100,10 @@ class Form extends Component {
             this.setState({
                 errorFieldsObj
             });
+            // return invoke error handler
             return fail => fail && fail.call(this, _errField)
         } else {
+            // remove errors
             if (errorFieldsObj) {
                 delete errorFieldsObj[name]
             }
@@ -66,16 +112,16 @@ class Form extends Component {
             });
         }
         return success => success.call(this, null)
+        
     }
 
     validate({ name, success, fail, afterCallback } = { name: '' } ){
-        const {store, rules, after} = this.props
+        const {store, rules} = this.props
         // after callback or after from props
-        afterCallback = afterCallback || after
         let submitData = name ? store[name] : store
         // field name is given, but rules not found, check if has after validate
         if (name && !rules[name]) {
-            return this.afterValidateError(afterCallback)(errors => {
+            return this.afterValidateError({ field: name, afterCallback })(errors => {
                 return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
             })
         }
@@ -99,15 +145,11 @@ class Form extends Component {
             }
 
             if (errors) {
-                fail && fail.call(this, errors)
-                return
+                return fail && fail.call(this, errors)
             }
-            if (afterCallback) {
-                return this.afterValidateError(afterCallback)(errors => {
-                    return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
-                })
-            }
-            return success && success.call(this, submitData)
+            return this.afterValidateError({ field: name, afterCallback })(errors => {
+                return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
+            })
         })
     }
     handleSubmit(e){

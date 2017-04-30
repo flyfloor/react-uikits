@@ -56,9 +56,9 @@ const rules = {
     address: [RULE.required, {
         min: 20, max: 200, message: '20-200个字',
     }],
+    begin_at: [RULE.required],
     begin_date: [RULE.required],
     end_date: [RULE.required],
-    begin_at: [RULE.required],
     begin_time: [RULE.required, {
         type: 'integer'
     }],
@@ -101,27 +101,27 @@ export class TempPage extends Component {
         console.log(errors, 'errors')
     }
     
-    afterValid(){
-        if (!this.validatePasswordConfirm().valid) {
-            return this.validatePasswordConfirm()
-        }
-        if (!this.validateEndAt().valid) {
-            return this.validateEndAt()
-        }
-        if (!this.validateCountries().valid) {
-            return this.validateCountries()
-        }
-        if (!this.validateBeginNdEndTime().valid) {
-            return this.validateBeginNdEndTime()
-        }
-    }
+    // afterValid(){
+    //     if (!this.validatePasswordConfirm().valid) {
+    //         return this.validatePasswordConfirm()
+    //     }
+    //     if (!this.validateEndAt().valid) {
+    //         return this.validateEndAt()
+    //     }
+    //     if (!this.validateCountries().valid) {
+    //         return this.validateCountries()
+    //     }
+    //     if (!this.validateBeginNdEndTime().valid) {
+    //         return this.validateBeginNdEndTime()
+    //     }
+    // }
 
     validatePasswordConfirm(){
         const {password, password_confirm} = this.state.store
         return {
             name: 'password_confirm',
             message: '两次输入不一致',
-            valid: password_confirm ? password === password_confirm : true,
+            valid: password === password_confirm,
         }
     }
     
@@ -130,13 +130,13 @@ export class TempPage extends Component {
         return {
             name: 'end_date',
             message: '开始日期必须小于结束日期',
-            valid: begin_date && end_date ? new Date(begin_date) < new Date(end_date) : true,
+            valid: new Date(begin_date) < new Date(end_date),
         }
     }
 
     validateCountries(){
         const {countries} = this.state.store
-        if (countries) {
+        if (countries && countries.length > 1) {
             if (countries.indexOf('koa') !== -1) {
                 return {
                     name: 'countries',
@@ -160,13 +160,6 @@ export class TempPage extends Component {
 
     validateBeginNdEndTime(){
         const {begin_time, end_time} = this.state.store
-        console.log(begin_time, end_time)
-        if (begin_time === undefined || end_time === undefined) {
-            return {
-                valid: true,
-                name: 'begin_time'
-            }
-        }
         return {
             valid: begin_time < end_time,
             name: 'begin_time',
@@ -177,7 +170,9 @@ export class TempPage extends Component {
     render() {
         const {store} = this.state
         return (
-            <Form rules={rules} store={store} after={this.afterValid.bind(this)} 
+            <Form rules={rules} store={store} 
+                after={[this.validateEndAt.bind(this), this.validateBeginNdEndTime.bind(this), 
+                    this.validateCountries.bind(this), this.validatePasswordConfirm.bind(this)]} 
                 onSubmit={this.handleSubmit} onError={this.handleError} >
                 <Group label="名称:">
                     <Field validate="name">
