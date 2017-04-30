@@ -59,8 +59,12 @@ const rules = {
     begin_date: [RULE.required],
     end_date: [RULE.required],
     begin_at: [RULE.required],
-    begin_time: [RULE.required],
-    end_time: [RULE.required],
+    begin_time: [RULE.required, {
+        type: 'integer'
+    }],
+    end_time: [RULE.required, {
+        type: 'integer'
+    }],
     countries: [RULE.required, {
         type: 'array', min: 3, message: '至少选三个',
     }, {
@@ -107,6 +111,9 @@ export class TempPage extends Component {
         if (!this.validateCountries().valid) {
             return this.validateCountries()
         }
+        if (!this.validateBeginNdEndTime().valid) {
+            return this.validateBeginNdEndTime()
+        }
     }
 
     validatePasswordConfirm(){
@@ -122,7 +129,7 @@ export class TempPage extends Component {
         const {begin_date, end_date} = this.state.store
         return {
             name: 'end_date',
-            message: '开始日期不能大于结束日期',
+            message: '开始日期必须小于结束日期',
             valid: begin_date && end_date ? new Date(begin_date) < new Date(end_date) : true,
         }
     }
@@ -148,6 +155,22 @@ export class TempPage extends Component {
         return {
             valid: true,
             name: 'countries'
+        }
+    }
+
+    validateBeginNdEndTime(){
+        const {begin_time, end_time} = this.state.store
+        console.log(begin_time, end_time)
+        if (begin_time === undefined || end_time === undefined) {
+            return {
+                valid: true,
+                name: 'begin_time'
+            }
+        }
+        return {
+            valid: begin_time < end_time,
+            name: 'begin_time',
+            message: '开始时间必须小于结束时间',
         }
     }
 
@@ -276,7 +299,7 @@ export class TempPage extends Component {
                 <Group label="fields-3:">
                     <Fields size={3}>
                         <Field validate="gender">
-                            <Validator name="gender" trigger="onChange">
+                            <Validator name="gender" trigger={['onBlur', 'onChange']}>
                                 <DropDown name="gender" value={store.gender} 
                                     onChange={val => this.handleFieldChange('gender', val)}>
                                     <Item name="male" value="m"></Item>
@@ -285,7 +308,7 @@ export class TempPage extends Component {
                             </Validator>
                         </Field>
                         <Field validate="province">
-                            <Validator name="province" trigger="onChange">
+                            <Validator name="province" trigger={['onBlur', 'onChange']}>
                                 <DropDown searchable={true} name="provinceId" defaultSelected={true}
                                     placeHolder="搜索省份或编号" options={PROVINCES}
                                     labelName="name" valueName="id" onChange={val => {
@@ -296,8 +319,8 @@ export class TempPage extends Component {
                             </Validator>
                         </Field>
                         <Field validate="city">
-                            <Validator name="city" trigger="onChange">
-                                <DropDown options={this.state.cities}
+                            <Validator name="city" trigger={['onBlur', 'onChange']}>
+                                <DropDown options={this.state.cities} defaultSelected
                                     onChange={val => this.handleFieldChange('city', val)} 
                                     valueName="id" name="cityId">
                                 </DropDown>
@@ -376,13 +399,15 @@ export class TempPage extends Component {
                             </Validator>
                         </Field>
                         <Field validate="begin_time">
-                            <Validator name="begin_time" trigger="onChange">
-                                <TimePicker onChange={val => this.handleFieldChange('begin_time', val)}/>
+                            <Validator name="begin_time" trigger="onChange" after={this.validateBeginNdEndTime.bind(this)}>
+                                <TimePicker value={store.begin_time} 
+                                onChange={val => this.handleFieldChange('begin_time', val)}/>
                             </Validator>
                         </Field>
                         <Field validate="end_time">
-                            <Validator name="end_time" trigger="onChange">
-                                <TimeInput onChange={val => this.handleFieldChange('end_time', val)}/>
+                            <Validator name="end_time" trigger="onChange" after={this.validateBeginNdEndTime.bind(this)}>
+                                <TimeInput value={store.end_time} 
+                                onChange={val => this.handleFieldChange('end_time', val)}/>
                             </Validator>
                         </Field>
                     </Fields>

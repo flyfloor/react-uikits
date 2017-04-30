@@ -112,13 +112,17 @@ class Form extends Component {
     }
     handleSubmit(e){
         e.preventDefault()
+        const {store, rules, onSubmit, onError} = this.props
+        if (!rules) {
+            return onSubmit(store, this.props)
+        }
         this.validate({
             success(){
-                this.props.onSubmit(this.props.store, this.props)
+                onSubmit(store, this.props)
             },
             fail(errors){
-                if (this.props.onError) {
-                    this.props.onError(errors)
+                if (onError) {
+                    onError(errors)
                 }
             }
         })
