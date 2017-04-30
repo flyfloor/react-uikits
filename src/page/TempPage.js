@@ -79,6 +79,10 @@ export class TempPage extends Component {
         this.handleFieldChange = this.handleFieldChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleError = this.handleError.bind(this)
+        this.validatePasswordConfirm = this.validatePasswordConfirm.bind(this)
+        this.validateEndAt = this.validateEndAt.bind(this)
+        this.validateCountries = this.validateCountries.bind(this)
+        this.validateBeginNdEndTime = this.validateBeginNdEndTime.bind(this)
         this.state = {
             store: {},
             cities: [],
@@ -101,21 +105,6 @@ export class TempPage extends Component {
         console.log(errors, 'errors')
     }
     
-    // afterValid(){
-    //     if (!this.validatePasswordConfirm().valid) {
-    //         return this.validatePasswordConfirm()
-    //     }
-    //     if (!this.validateEndAt().valid) {
-    //         return this.validateEndAt()
-    //     }
-    //     if (!this.validateCountries().valid) {
-    //         return this.validateCountries()
-    //     }
-    //     if (!this.validateBeginNdEndTime().valid) {
-    //         return this.validateBeginNdEndTime()
-    //     }
-    // }
-
     validatePasswordConfirm(){
         const {password, password_confirm} = this.state.store
         return {
@@ -171,8 +160,8 @@ export class TempPage extends Component {
         const {store} = this.state
         return (
             <Form rules={rules} store={store} 
-                after={[this.validateEndAt.bind(this), this.validateBeginNdEndTime.bind(this), 
-                    this.validateCountries.bind(this), this.validatePasswordConfirm.bind(this)]} 
+                after={[this.validateEndAt, this.validateBeginNdEndTime, 
+                    this.validateCountries, this.validatePasswordConfirm]} 
                 onSubmit={this.handleSubmit} onError={this.handleError} >
                 <Group label="名称:">
                     <Field validate="name">
@@ -245,7 +234,7 @@ export class TempPage extends Component {
                     <Fields size={2}>
                         <Field label="密码:" validate="password">
                             <div className="dot fluid icon input">
-                                <Validator name="password" trigger="onBlur" after={this.validatePasswordConfirm.bind(this)}>
+                                <Validator name="password" trigger="onBlur" after={this.validatePasswordConfirm}>
                                     <input type="password" 
                                         onChange={e => this.handleFieldChange('password', e.target.value) } />
                                 </Validator>
@@ -254,7 +243,7 @@ export class TempPage extends Component {
                         </Field>
                         <Field label="重复密码:" validate="password_confirm">
                             <div className="dot fluid icon input">
-                                <Validator name="password_confirm" trigger="onBlur" after={this.validatePasswordConfirm.bind(this)}>
+                                <Validator name="password_confirm" trigger="onBlur" after={this.validatePasswordConfirm}>
                                     <input type="password" 
                                         onChange={e => this.handleFieldChange('password_confirm', e.target.value) } />
                                 </Validator>
@@ -353,7 +342,7 @@ export class TempPage extends Component {
                             <DatePicker onChange={val => this.handleFieldChange('begin_date', val)}/>
                         </Validator>
                         <span>to</span>
-                        <Validator name="end_date" trigger="onChange" after={this.validateEndAt.bind(this)}>
+                        <Validator name="end_date" trigger="onChange" after={this.validateEndAt}>
                             <DatePicker onChange={val => this.handleFieldChange('end_date', val)}/>
                         </Validator>
                     </Field>
@@ -368,7 +357,7 @@ export class TempPage extends Component {
                 </Group>
                 <Group label="countries:">
                     <Field validate="countries">
-                        <Validator name="countries" trigger="onChange" after={this.validateCountries.bind(this)}>
+                        <Validator name="countries" trigger="onChange" after={this.validateCountries}>
                             <DropDown multi={true} value={store.countries} options={COUNTRIES}
                                 onChange={val => this.handleFieldChange('countries', val)}>
                             </DropDown>
@@ -378,7 +367,7 @@ export class TempPage extends Component {
                 
                 <Group label="countries">
                     <Field validate="countries">
-                        <Validator name="countries" trigger="onChange" after={this.validateCountries.bind(this)}>
+                        <Validator name="countries" trigger="onChange" after={this.validateCountries}>
                             <CheckBoxGroup value={store.countries} options={COUNTRIES}
                                 onChange={val => this.handleFieldChange('countries', val)}/>
                         </Validator>
@@ -394,13 +383,13 @@ export class TempPage extends Component {
                             </Validator>
                         </Field>
                         <Field validate="begin_time">
-                            <Validator name="begin_time" trigger="onChange" after={this.validateBeginNdEndTime.bind(this)}>
+                            <Validator name="begin_time" trigger="onChange" after={this.validateBeginNdEndTime}>
                                 <TimePicker value={store.begin_time} 
                                 onChange={val => this.handleFieldChange('begin_time', val)}/>
                             </Validator>
                         </Field>
                         <Field validate="end_time">
-                            <Validator name="end_time" trigger="onChange" after={this.validateBeginNdEndTime.bind(this)}>
+                            <Validator name="end_time" trigger="onChange" after={this.validateBeginNdEndTime}>
                                 <TimeInput value={store.end_time} 
                                 onChange={val => this.handleFieldChange('end_time', val)}/>
                             </Validator>

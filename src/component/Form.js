@@ -65,7 +65,7 @@ class Form extends Component {
     }
 
     // after validate callback, return callback with errors
-    afterValidateError({ field, afterCallback}){
+    validateAfterAction({ field, afterCallback}){
         if (!field) {
             return this.validateGlobalAfter()
         }
@@ -121,7 +121,7 @@ class Form extends Component {
         let submitData = name ? store[name] : store
         // field name is given, but rules not found, check if has after validate
         if (name && !rules[name]) {
-            return this.afterValidateError({ field: name, afterCallback })(errors => {
+            return this.validateAfterAction({ field: name, afterCallback })(errors => {
                 return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
             })
         }
@@ -147,7 +147,7 @@ class Form extends Component {
             if (errors) {
                 return fail && fail.call(this, errors)
             }
-            return this.afterValidateError({ field: name, afterCallback })(errors => {
+            return this.validateAfterAction({ field: name, afterCallback })(errors => {
                 return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
             })
         })
