@@ -19,7 +19,8 @@ import {
     PaginationPage, PinPage, PanelPage, ProgressPage,
     RadioPage, RadioGroupPage,
     SlideMenuPage, StartPage,
-    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage,
+    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage, TempPage,
+    ValidatorPage,
 } from './src/page';
 
 const NAV_MAP_KEYS = Object.keys(NAV_MAP)
@@ -106,6 +107,7 @@ const ContentPage = props => {
                 <Route path="/component/datetimepicker" component={DateTimePickerPage}></Route>
                 <Route path="/component/dropdown" component={DropDownPage}></Route>
                 <Route path="/component/form" component={FormPage}></Route>
+                <Route path="/component/validator" component={ValidatorPage}></Route>
                 <Route path="/component/grid" component={GridPage}></Route>
                 <Route path="/component/menu" component={MenuPage}></Route>
                 <Route path="/component/toast" component={ToastPage}></Route>
@@ -134,6 +136,7 @@ const ContentPage = props => {
                 <Route path="/component/table" component={TablePage}></Route>
                 <Route path="/component/text" component={TextPage}></Route>
                 <Route path="/component/list" component={ListPage}></Route>
+                <Route path="/temp" component={TempPage}></Route>
              </artical>
         </div>
     )
@@ -162,6 +165,7 @@ ReactDOM.render(<Router>
                         <Route path="/component" component={ContentPage}></Route>
                         <Route path="/start" component={ContentPage}></Route>
                         <Route path="/install" component={ContentPage}></Route>
+                        <Route path="/temp" component={ContentPage}></Route>
                         <Footer/>
                     </page>
                 </Router>, document.getElementById('root'))

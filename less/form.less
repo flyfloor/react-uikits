@@ -32,6 +32,7 @@
     }
     .fields {
         >.field-@{i} {
+            position: relative;
             >label:not(@{NS}) {
                 .__displayLabel();
             }
@@ -44,6 +45,13 @@
             .dropdown, .datepicker, .datetime-picker, .timepicker, .timeinput {
                 min-width: initial;
                 width: 100%;
+            }
+            /*error hint*/
+            &.error {
+                .__errorHint();
+                input, select, textarea {
+                    border-color: @red;
+                }
             }
         }
     }
@@ -82,6 +90,16 @@
     .__mobileFields(@n, (@i + 1));
 }
 
+.__errorHint() {
+    .error-hint {
+        position: absolute;
+        left: 0;
+        bottom: @__margin_bottom * -1.2;
+        padding: inherit;
+        margin: 0;
+    }
+}
+
 @{NS}.form {
     @__margin_bottom: @padding * 2;
     padding: @padding * 2;
@@ -106,6 +124,7 @@
         .__makeFields(16);
         /*列*/
         .field {
+            position: relative;
             margin-bottom: @__margin_bottom;
             line-height: @padding * 3 + 4px;
             >label:not(@{NS}) {
@@ -163,7 +182,12 @@
                     margin-right: 0;
                 }
             }
-
+            &.error {
+                .__errorHint();
+                input, select, textarea {
+                    border-color: @red;
+                }
+            }
         }
         .fields {
             .clearfix;

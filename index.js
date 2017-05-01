@@ -13,6 +13,8 @@ var Form = _fm.Form;
 var Group = _fm.Group;
 var Fields = _fm.Fields;
 var Field = _fm.Field;
+var Validator = _fm.Validator;
+var RULE = _fm.RULE;
 var Item = require('./lib/Item').Item;
 var Menu = require('./lib/Menu').Menu;
 var Modal = require('./lib/Modal').Modal;
@@ -61,4 +63,6 @@ module.exports = {
     TimePicker: TimePicker,
     Toast: Toast,
     Tooltip: Tooltip,
+    Validator: Validator,
+    RULE: RULE,
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
@@ -23,11 +23,12 @@
   "license": "MIT",
   "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
+    "async-validator": "^1.6.8",
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-highlight": "^0.9.0",
-    "react-ui-component": "^1.2.0"
+    "react-ui-component": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

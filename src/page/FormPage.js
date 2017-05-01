@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {CN, TitleBlock, formatDate} from '../util/tools';
+const Hightlight = require("react-highlight")
+import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Form, Fields, Field, Group} from '../component/Form';
 import {DropDown} from '../component/DropDown';
@@ -238,10 +239,31 @@ export class FormPage extends Component {
 
                 <div className={CN('info message')}>
                     <p>1. 一共有三个维度：Group, Fields, Field</p>
-                    <p>2. Group 为表格行</p>
-                    <p>3. Fields 与 Field 为列</p>
-                    <p>4. Fields size 来控制平分等宽列(最多分为16份), 搭配 Field 使用，例如：Fields-5 > Field</p>
-                    <p>5. Fields 搭配 Field size (最多分为16份) 自定义不同宽度列，例如：Fields > Field-3 + Field-6 + Field-10 + Field-3</p>
+                    <p>2. Group 为表单行, Group下必须为 Fields 或者 Field</p>
+                    <p>3. Fields 与 Field 为表单列</p>
+                    <p>4. Fields size 来控制平分等宽列(最多分为16份), 搭配 Field 使用，例如：</p>
+<Hightlight>
+{`<Fields size={5}>
+    <Field>
+        <input type="text" />
+    </Field>
+    <Field></Field>
+    <Field></Field>
+    <Field></Field>
+    <Field></Field>
+</Fields>`}
+</Hightlight>
+                    <p>5. Fields 搭配 Field size (总共合起来为16份) 自定义不同宽度列，例如：</p>
+<Hightlight>
+{`<Fields>
+    <Field size={3}>
+        <input type="text" />
+    </Field>
+    <Field size={4}></Field>
+    <Field size={4}></Field>
+    <Field size={3}></Field>
+</Fields>`}
+</Hightlight>                    
                 </div>
 
                 <ul>
@@ -488,9 +510,73 @@ export class FormPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
+                            <td>store</td>
+                            <td>提交数据</td>
+                            <td>Object, 可以指定为表单的 this.state.store</td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>rule</td>
+                            <td>校验规则</td>
+                            <td>
+                                Object, 使用规则见 
+                                <a href="https://github.com/yiminghe/async-validator" target="_blank" className="color-red">
+                                    async-validator
+                                </a>
+<Hightlight>
+{`<Form store={this.state.store} rules={rules} 
+    onSubmit={this.handleSubmit} 
+    onError={this.handleError}>
+    ...
+</Form>`}
+</Hightlight>                                
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
                             <td>onSubmit</td>
-                            <td>表单提交事件</td>
-                            <td>函数</td>
+                            <td>表单提交事件，校验成功后触发</td>
+                            <td>
+                                <p>函数</p>
+<Hightlight>
+{`function(store, this.props){
+    // store 为提交参数，this.props 为组件本身属性
+}`}
+</Hightlight>                                
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onError</td>
+                            <td>表单校验失败事件</td>
+                            <td>
+                                <p>函数</p>
+<Hightlight>
+{`function(errors){
+    // errors 数组 [{ message, field }, ...]
+}`}
+</Hightlight>
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td className="color-red">afterFilters</td>
+                            <td>自定义校验集合，在 Form 的 rules 校验通过时触发</td>
+                            <td>
+                                <p>数组，自定义校验函数的集合</p>
+                                <p>例如：[this.validateNickname, this.validatePassword, ...]</p>
+<Hightlight>
+{`<Form afterFilters={[ this.validateNickname, ...]}>
+</Form>
+
+//需注意.bind(this)
+`}
+</Hightlight>                          
+                            </td>
                             <td>无</td>
                             <td>否</td>
                         </tr>
@@ -574,6 +660,116 @@ export class FormPage extends Component {
                             <td>label</td>
                             <td>列标签</td>
                             <td>字符串</td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>validate</td>
+                            <td>校验指定字段</td>
+                            <td>
+                                <p>字符串，对应 store 中相关字段</p>
+                                <p>例如 "nickname", 则校验 store.nickname 的值</p>
+<Hightlight>
+{`<Group>
+    <Field validate="nickname">
+        <input type="text" />
+    </Field>
+</Group>`}
+</Hightlight>                                
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+
+                <h4>Validator 属性</h4>
+<Hightlight>
+{`<Group>
+    <Field validate="nickname">
+        <Validator name="nickname" trigger="onBlur">
+            <input type="text" value={this.state.store.nickname} 
+            onChange={e => this.updateField('nickname', e.target.value)} />
+        </Validator>
+    </Field>
+</Group>`}
+</Hightlight>                      
+                <table className="dot table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>name</td>
+                            <td>校验指定字段</td>
+                            <td>
+                                <p>字符串，对应 store 中相关字段</p>
+                                <p>例如 "nickname", 则校验 store.nickname 的值</p>
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>trigger</td>
+                            <td>触发方式</td>
+                            <td>
+                                <p>例如 "onBlur", Validator 组件本身不影响 DOM 结构</p>
+                                <p>所以用来包裹需要事件触发的待校验组件，例如 input</p>
+                                <p>onBlur, 会在 input 自定义的 onblur 事件之后对该字段，使用 Form 组件的 rules 响应字段的规则进行校验</p>
+                            </td>
+                            <td>无</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td className="color-red">after</td>
+                            <td>
+                                <p>自定义校验函数，其他校验通过后触发，或由包裹函数事件触发</p>
+                                <h4 className="color-red">注意：如果使用自定义组件，一定记住需要在 Form 组件的 afterFilters 属性注册校验函数</h4>
+                            </td>
+                            <td>
+<Hightlight>
+{`<Group>
+    <Field validate="nickname">
+        <Validator name="nickname" 
+            trigger="onBlur" 
+            after={this.validateNickname}>
+            <input type="text" 
+            value={this.state.store.nickname} 
+            onChange={e => this.setState({ 
+                nickname: e.target.value 
+            })} />
+        </Validator>
+    </Field>
+</Group>
+
+// 注意事件需要.bind(this)
+
+/*
+校验函数返回值为对象
+return { 
+    valid, // 是否校验通过
+    name, // 校验错误后回显字段
+    message, // 错误信息, valid 为 true时不显示，可不填
+} 
+*/
+validateNickname(){
+    let {nickname} = this.state.store
+    return {
+        valid: !!nickname,
+        message: '昵称不能为空',
+        name: 'nickname',
+    }
+}
+`}
+</Hightlight>                                 
+                            </td>
                             <td>无</td>
                             <td>否</td>
                         </tr>

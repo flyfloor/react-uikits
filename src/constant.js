@@ -75,6 +75,7 @@ export const NAV_MAP = {
         {route: "/component/timeinput", name: "TimeInput 时间输入"},
         {route: "/component/timepicker", name: "TimePicker 时间选择"},
         {route: "/component/form", name: "Form 表单"},
+        {route: "/component/validator", name: "Validator 表单校验"},
     ],
     Navigation: [
         {route: "/component/crumb", name: "Crumb 面包屑"},
