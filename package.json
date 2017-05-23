@@ -27,7 +27,6 @@
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-highlight": "^0.9.0",
     "react-ui-component": "^1.2.1"
   },
   "devDependencies": {
@@ -52,7 +51,7 @@
     "less-loader": "^2.2.0",
     "postcss-loader": "^0.8.2",
     "pre-commit": "^1.1.3",
-    "react-highlight": "^0.9.0",
+    "react-highlight": "^0.10.0",
     "react-router-dom": "^4.1.1",
     "react-transform-hmr": "^1.0.0",
     "style-loader": "^0.12.3",
