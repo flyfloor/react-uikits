@@ -63,6 +63,12 @@ export class PaginationPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>靠右分页</h4>
+                <CodeView component={<Pagination className="right"/>}>
+                    {`<Pagination className="right"/>`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
