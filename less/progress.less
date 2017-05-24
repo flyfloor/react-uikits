@@ -4,7 +4,7 @@
 @{NS}.progress {
     position: relative;
     display: block;
-    @_h: @line_height * 5/15;
+    @_h: @line_height * 4/15;
     height: @_h;
     font-size: @_h;
     background-color: @tiny_gray;
@@ -41,7 +41,7 @@
     }
     .__progressSize(@size){
         & {
-            @_h: @size * @line_height/15;
+            @_h: @size * 1px;
             height: @_h;
             font-size: @_h;
             >.bar, >._progress {
@@ -53,10 +53,10 @@
         background-color: @orange;
     }
     &._small, &.small {
-       .__progressSize(2);
+       .__progressSize(1);
     }
     &._large, &.large {
-       .__progressSize(10);
+       .__progressSize(8);
     }
     &.active:before {
         content: '';
