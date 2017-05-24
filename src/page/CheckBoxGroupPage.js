@@ -20,7 +20,7 @@ export class CheckBoxGroupPage extends Component {
 
                 <h4>默认复选框组</h4>
                 <CodeView component={<CheckBoxGroup options={options} labelName='name' 
-                            valueName='value' />}>
+                            valueName='value' onChange={value => console.log(value)} />}>
 {`<CheckBoxGroup options={[
         {'name': 'apple', 'value': 'a'},
         {'name': 'banana', 'value': 'b', disabled: true},
@@ -32,7 +32,7 @@ export class CheckBoxGroupPage extends Component {
                 <br/>
 
                 <h4>默认值</h4>
-                <CodeView component={<CheckBoxGroup value={['c', 'd']} options={options} />}>
+                <CodeView component={<CheckBoxGroup value={['c', 'd']} options={options} onChange={value => console.log(value)} />}>
 {`<CheckBoxGroup value={['c', 'd']} options={[
         {'name': 'apple', 'value': 'a'},
         {'name': 'banana', 'value': 'b', disabled: true},
@@ -55,7 +55,7 @@ export class CheckBoxGroupPage extends Component {
                 <br/>
 
                 <h4>Yield Children</h4>
-                <CodeView component={<CheckBoxGroup value={['banana']}>
+                <CodeView component={<CheckBoxGroup value={['banana']} onChange={value => console.log(value)}>
                             <CheckBox value="apple">apple</CheckBox>
                             <CheckBox value="banana">banana</CheckBox>
                             <CheckBox value="cat" disabled={true}>cat</CheckBox>

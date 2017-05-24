@@ -23,7 +23,7 @@ export class RadioGroupPage extends Component {
                 {TitleBlock('单选框组')}
 
                 <h4>默认单选框组</h4>
-                <CodeView component={<RadioGroup options={options}>
+                <CodeView component={<RadioGroup options={options} onChange={value => console.log(value)}>
                                     </RadioGroup>}>
 {`<RadioGroup options={[
         {name: 'apple', value: 'apple'},
@@ -42,7 +42,8 @@ export class RadioGroupPage extends Component {
 
                 <h4>默认选中值</h4>
                 <br/>
-                <CodeView component={<RadioGroup options={options} value={'dog'}></RadioGroup>}>
+                <CodeView component={<RadioGroup options={options} value={'dog'} onChange={value => console.log(value)}>
+                    </RadioGroup>}>
                         {`<RadioGroup options={options} value={'dog'}></RadioGroup>`}
                 </CodeView>
                 <br/>
@@ -56,7 +57,7 @@ export class RadioGroupPage extends Component {
 
                 <h4>Yield children</h4>
                 <br/>
-                <CodeView component={<RadioGroup value="b">
+                <CodeView component={<RadioGroup value="b" onChange={value => console.log(value)}>
                                         <Radio value="a">apple</Radio>
                                         <Radio value="b">banana</Radio>
                                         <Radio value="c">cat</Radio>
