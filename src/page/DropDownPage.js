@@ -46,8 +46,8 @@ export class DropDownPage extends Component {
                 <br/>
 
                 <h4>搜索框</h4>
-                <CodeView component={<DropDown options={options} 
-                        searchable={true} onChange={(value) => console.log(value)}/>}>
+                <CodeView component={<DropDown options={options}
+                    searchable={true} onChange={(value) => console.log(value)}/>}>
                     {`<DropDown options={options} searchable={true} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
