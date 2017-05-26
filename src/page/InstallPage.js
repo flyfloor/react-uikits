@@ -7,7 +7,7 @@ export class InstallPage extends Component {
     render() {
         return (
             <section>
-                {TitleBlock('安装', '如何安装 React UIKit')}
+                {TitleBlock('安装', '如何安装 React UIKits')}
 
                 <h4>使用 npm 安装</h4>
                 <Hightlight>
@@ -15,7 +15,7 @@ export class InstallPage extends Component {
                 </Hightlight>
                 <p>安装开发版</p>
                 <Hightlight>
-                    {`npm install https://github.com/jerryshew/react-component --save`}
+                    {`npm install https://github.com/jerryshew/react-uikits --save`}
                 </Hightlight>
 
                 <h4>目录结构</h4>
