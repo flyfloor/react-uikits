@@ -17,7 +17,7 @@
     }
 }
 
-@{NS}.loader, @{NS}.loader-wrap>.loader {
+.loader {
     /*shape size*/
     .__loaderSize(@padding * 2.4);
     &.small {.__loaderSize(@padding * 1.2) }
@@ -51,7 +51,7 @@
 }
 
 
-@{NS}.bounce.loader, @{NS}.loader-wrap>.bounce.loader {
+.bounce.loader {
     width: auto;
     height: auto;
     border: 0;
@@ -120,7 +120,7 @@
     }
 }
 
-@{NS}.google.spinner, @{NS}.loader-wrap>.google.spinner {
+.google.spinner {
     .__spinnerSize(@padding * 2.4);
     position: relative;
     background-color: @white;
@@ -152,7 +152,7 @@
     }
 }
 
-@{NS}.loader-wrap {
+.loader-wrap {
     position: relative;
     min-height: @min_input_width;
     &.full {
