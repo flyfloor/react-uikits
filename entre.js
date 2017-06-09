@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import {CN} from './src/util/tools';
 import {NAV_MAP} from './src/constant';
 import dot from './src/page/demo.less'
@@ -161,11 +161,14 @@ const RootPage = props => {
 ReactDOM.render(<Router>
                     <page>
                         <Header/>
-                        <Route exact path="/" component={RootPage}></Route>
-                        <Route path="/component" component={ContentPage}></Route>
-                        <Route path="/start" component={ContentPage}></Route>
-                        <Route path="/install" component={ContentPage}></Route>
-                        <Route path="/temp" component={ContentPage}></Route>
+                        <Switch>
+                            <Route exact path="/" component={RootPage}></Route>
+                            <Route path="/component" component={ContentPage}></Route>
+                            <Route path="/start" component={ContentPage}></Route>
+                            <Route path="/install" component={ContentPage}></Route>
+                            <Route path="/temp" component={ContentPage}></Route>
+                            <Route component={RootPage}></Route>
+                        </Switch>
                         <Footer/>
                     </page>
                 </Router>, document.getElementById('root'))
