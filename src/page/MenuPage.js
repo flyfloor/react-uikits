@@ -7,7 +7,10 @@ import {CodeView} from '../component/CodeView';
 const formatChild = (props) => {
     return (
         <Menu {...props}>
-            <SubMenu title={<div>子菜单一</div>} active={props && props.mode === undefined}>
+            <SubMenu title={<div>
+                    <i className={CN('icon')}>settings</i>
+                    <span>子菜单一</span>
+                </div>} active={props && props.mode === undefined}>
                 <MenuGroup title={<div>组一</div>}>
                     <MenuItem index="item1.1">选项一</MenuItem>
                     <MenuItem index="item1.2">选项二</MenuItem>
@@ -16,12 +19,18 @@ const formatChild = (props) => {
                     <MenuItem index="item2.1">选项三</MenuItem>
                     <MenuItem index="item2.2" disabled>选项四</MenuItem>
                 </MenuGroup>
-                <SubMenu title="二级子菜单一">
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>security</i>
+                    二级子菜单一
+                </div>}>
                     <MenuItem index="item1.1.1">选项五</MenuItem>
                     <MenuItem index="item1.1.2">选项六</MenuItem>
                     <MenuItem index="item1.1.3" disabled>选项七</MenuItem>
                 </SubMenu>
-                <SubMenu title="二级子菜单二">
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>send</i>
+                    二级子菜单二
+                </div>}>
                     <MenuItem index="item1.2.1">选项十七</MenuItem>
                     <MenuItem index="item1.2.2">选项十八</MenuItem>
                     <MenuItem index="item1.2.3">选项十九</MenuItem>
@@ -30,14 +39,20 @@ const formatChild = (props) => {
             </SubMenu>
             <MenuItem index="item3-disabled" disabled>选项九</MenuItem>
             <MenuItem index="item3">选项十</MenuItem>
-            <SubMenu title="子菜单二">
+            <SubMenu title={<div>
+                <i className={CN('icon')}>shop</i>
+                子菜单二
+            </div>}>
                 <MenuItem index="item4">选项十一</MenuItem>
                 <MenuItem index="item5">选项十二</MenuItem>
                 <MenuGroup title="组三">
                     <MenuItem index="item8">选项十三</MenuItem>
                     <MenuItem index="item9">选项十四</MenuItem>
                 </MenuGroup>
-                <SubMenu title="二级子菜单二" active={props && props.mode === undefined}>
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>star</i>
+                    二级子菜单三
+                </div>} active={props && props.mode === undefined}>
                     <MenuItem index="item6">选项十五</MenuItem>
                     <MenuGroup title="组四">
                         <MenuItem index="item7">选项十六</MenuItem>
@@ -72,20 +87,9 @@ export class MenuPage extends Component {
                 </CodeView>
                 <br/>
                 <h4>菜单默认值</h4>
-                <CodeView component={ formatChild({ current: '4' }) }>
-{`<Menu current={'1'}>
+                <CodeView component={ formatChild({ current: 'item1.1' }) }>
+{`<Menu current={'item1.1'}>
     <Item index="1">
-        ...
-    </Item>
-    ...
-</Menu>`}                    
-                </CodeView>
-                <br/>
-
-                <h4>展开某一项菜单</h4>
-                <CodeView component={ formatChild() }>
-{`<Menu>
-    <Item active={true}>
         ...
     </Item>
     ...
