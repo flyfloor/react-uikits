@@ -2,141 +2,63 @@
 @import url('glue.less');
 
 @{NS}.menu {
-    .bordered;
     .css_transition;
     position: relative;
-    border: 1px solid @light_gray;
+    background: @white;
+    position: relative;
+    border: 1px solid @tiny_gray;
     background: @white;
     width: @min_input_width;
 
-    ._item {
-        padding: 3px 16px;
-        cursor: pointer;
-        &:not(.sub-menu):not(.menu):hover {
-            background: @mini_gray;
-        }
+    &.fluid {
+        width: 100%;
     }
 
-    ._child {
+    ._item, ._title {
+        padding: 0 @normal_font_size;
+        line-height: @normal_font_size * 2.5;
+        overflow: hidden;
+        cursor: pointer;
+        list-style-type: none;
+        color: @deep_gray;
+        >a {
+            display: block;
+        }
+    }
+    ._item {
         &._active {
-            color: @most_gray;
             background: @tiny_gray;
         }
     }
 
-    .menu {
-        .css_transition;
-        border: none;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
+    ._group {
+        list-style-type: none;
+        ._title {
+            cursor: default;
+            color: @dull_gray;
+        }
     }
 
-    .sub-menu {
-        padding: 0;
-        &._active {
+    ._submenu {
+        list-style-type: none;
+        position: relative;
+        >._content {
+            .css_transition;
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        &._open {
             >._title {
-                color: @most_gray;
+                color: @black;
             }
-            >.menu {
+            >._content {
+                .css_transition;
+                visibility: visible;
                 opacity: 1;
-                max-height: 500px;
-                overflow: hidden;
-            }
-        }
-    }
-
-    &._default {
-        ._menu-2 {
-            @__width: 20px;
-            ._child {
-                padding-left: @__width;
-            }
-            >.sub-menu>._title {
-                padding-left: @__width;
-            }
-        }
-        ._menu-3 {
-            @__width: 40px;
-            ._child {
-                padding-left: @__width;
-            }
-            >.sub-menu>._title {
-                padding-left: @__width;
-            }
-        }
-    }
-
-
-    &._popped {
-        .sub-menu {
-            position: relative;
-            .menu {
-                .bordered;
-                height: 0;
-                visibility: hidden;
-                background: @white;
-                top: -1px;
-                width: 0;
-                left: 100%;
-                position: absolute;
-            }
-            &._active {
-                >.menu {
-                    z-index: 100;
-                    width: 100%;
-                    height: auto;
-                    visibility: visible;
-                    overflow: initial;
-                    border-color: @light_gray;
-                }
-            }
-        }
-    }
-
-    &._horizontal {
-        .fluid;
-        .sub-menu {
-            position: relative;
-            .menu {
-                .bordered;
-                visibility: hidden;
-                overflow: hidden;
-                background: @white;
-                width: 0;
-                top: 0;
-                left: 100%;
-                position: absolute;
-                border: 1px solid transparent;
-            }
-            &._active {
-                >.menu {
-                    z-index: 100;
-                    min-width: 150px;
-                    height: auto;
-                    visibility: visible;
-                    overflow: initial;
-                    border-color: @light_gray;
-                }
-            }
-        }
-        &._menu-1 {
-            height: 34px;
-            line-height: 30px;
-            >._item {
-                height: 100%;
-                line-height: 30px;
-                float: left;
-            }
-            >.sub-menu {
-                >.menu {
-                    left: -1px;
-                    top: 32px;
-                }
-                >._title {
-                    padding: 3px 20px;
-                    line-height: 40px;
-                }
+                overflow: initial;
+                max-height: 800px;
             }
         }
     }
