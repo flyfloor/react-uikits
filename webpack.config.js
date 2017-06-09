@@ -33,7 +33,7 @@ if (NODE_ENV !== 'dev') {
 
 module.exports = {
     entry: {
-        app: "./entre.js",
+        app: ["./entre.js", "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"],
         vendors: ['react', 'react-dom', 'react-router', 'react-ui-component'],
     },
     output: {

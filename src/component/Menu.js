@@ -10,4 +10,8 @@ module.exports = {
     SubMenu,
 }
 
+Menu.defaultProps = {
+    paddingLeft: 20,
+}
+
 

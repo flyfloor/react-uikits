@@ -5,10 +5,86 @@
     .css_transition;
     position: relative;
     background: @white;
+    padding: @padding 0;
     position: relative;
-    border: 1px solid @tiny_gray;
+    border-right: 1px solid @tiny_gray;
     background: @white;
     width: @min_input_width;
+    font-size: 14px;
+
+    .__popuped() {
+        ._submenu {
+            >._content {
+                position: absolute;
+                z-index: 100;
+                border: 1px solid @light_gray;
+                width: 200px;
+                left: 100%;
+                background: @white;
+                top: 0;
+                transform-origin: top left;
+                -webkit-transform: scale(0.2);
+                -ms-transform: scale(0.2);
+                -o-transform: scale(0.2);
+                transform: scale(0.2);
+            }
+            &._active>._title {
+                background: @tiny_gray;
+            }
+            &._open {
+                >._content {
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    -o-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    .__verticalSubMenuTitle(){
+        ._submenu {
+            >._title {
+                &:after {
+                    .icon_font;
+                    font-size: 18px;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    content: 'expand_more';
+                }
+            }
+            &._open {
+                >._title {
+                    &:after {
+                        content: 'expand_less';
+                    }
+                }
+            }
+        }
+    }
+
+    .__horizontalSubMenuTitle(){
+        ._submenu {
+            >._title {
+                &:after {
+                    .icon_font;
+                    content: 'chevron_right';
+                    font-size: 18px;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                }
+            }
+            &._open {
+                >._title {
+                    &:after {
+                        content: 'chevron_left';
+                    }
+                }
+            }
+        }
+    }
 
     &.fluid {
         width: 100%;
@@ -49,6 +125,9 @@
             max-height: 0;
             overflow: hidden;
         }
+        >._title {
+            position: relative;
+        }
         &._open {
             >._title {
                 color: @black;
@@ -62,4 +141,56 @@
             }
         }
     }
+
+    &._default, &._accordion {
+        .__verticalSubMenuTitle();
+    }
+
+    &._horizontal {
+        .clearfix;
+        .__popuped();
+        width: 100%;
+        padding: 0 10px;
+        border: 0;
+        line-height: @normal_font_size * 2.5;
+        border-bottom: 1px solid @tiny_gray;
+        /*first level item and submenu*/
+        >._item, >._submenu {
+            float: left;
+        }
+        >._item {
+            border-bottom: 2px solid transparent;
+            .css_transition;
+            &._active {
+                background: initial;
+                border-color: @blue;
+            }
+        }
+        
+        /*fist level submenu title active and content no effect*/
+        >._submenu {
+            >._title {
+                .css_transition;
+                border-bottom: 2px solid transparent;
+            }
+            &._active>._title {
+                border-color: @blue;
+                background: none;
+            }
+            >._content {
+                left: 0;
+                -webkit-transform: none;
+                -ms-transform: none;
+                -o-transform: none;
+                transform: none;
+                top: initial;
+            }
+        }
+    }
+
+    &._popup {
+        .__popuped();
+        .__horizontalSubMenuTitle();
+    }
+
 }

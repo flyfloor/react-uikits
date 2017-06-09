@@ -37,7 +37,7 @@ const formatChild = (props) => {
                     <MenuItem index="item8">选项十三</MenuItem>
                     <MenuItem index="item9">选项十四</MenuItem>
                 </MenuGroup>
-                <SubMenu title="二级子菜单二" active>
+                <SubMenu title="二级子菜单二" active={props && props.mode === undefined}>
                     <MenuItem index="item6">选项十五</MenuItem>
                     <MenuGroup title="组四">
                         <MenuItem index="item7">选项十六</MenuItem>
