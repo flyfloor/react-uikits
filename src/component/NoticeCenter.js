@@ -12,6 +12,9 @@ const NoticeCenter = props => {
 NoticeCenter.init = function(props= {}){
     props.className = klassName(props.className, NS, 'notice-center')
     props.prefix = 'notice'
+    if (!props.close) {
+        props.close = <i className={`${NS} icon`}>close</i>
+    }
     return _NoticeCenter.init(props)
 }
 

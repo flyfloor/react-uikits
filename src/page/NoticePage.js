@@ -25,6 +25,9 @@ export class NoticePage extends Component {
         if (type === 'onClick') {
             notice.onClick = handleNoticeClick
         }
+        if (type === 'onClose') {
+            notice.onClose = () => alert('通知关闭')
+        }
         if (type === 'manually') {
             notice.delay = 0;
         }
@@ -81,6 +84,18 @@ let nc = NoticeCenter.init()`}
                 </CodeView>
                 <br/>
 
+                <h4>onClose 事件</h4>
+                <CodeView component={<button className={`${NS} button`} onClick={() => this.showNotice('onClose')}>点击</button>}>
+{`nc.addNotice({
+    content: <p>content</p>,
+    link: 'http://braavos.me',
+    onClose: function(notice){
+        alert('close')
+    },
+})`}
+                </CodeView>
+                <br/>
+
                 <h4>notice 对象属性</h4>
                 <table className="dot table">
                     <thead>
@@ -126,6 +141,13 @@ let nc = NoticeCenter.init()`}
                             <td>关闭按钮</td>
                             <td>jsx</td>
                             <td>{`<i className="${NS}">close</i>`}</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onClose</td>
+                            <td>点击事件</td>
+                            <td>函数(notice对象)</td>
+                            <td>无</td>
                             <td>否</td>
                         </tr>
                     </tbody>

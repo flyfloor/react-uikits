@@ -5,9 +5,8 @@ const DEFAULT_CLASSNAME = `${NS} flash-message`
 const DEFAULT_PREFIX = 'flash-message'
 const DEFAULT_CONTENT = 'this is a flash message'
 const DEFAULT_DELAY = 5000
-const POSITIONS = ['top', 'center', 'bottom']
 const BADGE_ICONS = {
-    success: 'mood',
+    success: 'check',
     info: 'info',
     warning: 'warning',
     error: 'error',
@@ -15,8 +14,7 @@ const BADGE_ICONS = {
 
 let instance = null
 
-const generateNotice = function({ content, position, delay, onClick }){
-    position = POSITIONS.indexOf(position) !== -1 ? position : POSITIONS[0]
+const generateNotice = function({ content, delay, showClose, onClick, onClose }){
     content = content || DEFAULT_CONTENT
     delay = delay || DEFAULT_DELAY
     instance = instance || _NoticeCenter.init({
@@ -26,9 +24,9 @@ const generateNotice = function({ content, position, delay, onClick }){
     return instance.addNotice({
         content,
         delay,
-        close: null,
-        className: position,
+        close: onClose || showClose ? <i className={`${NS} icon`}>close</i> : null,
         onClick,
+        onClose,
     })
 }
 
@@ -36,9 +34,11 @@ const assembleContent = (type, msg, opt={}) => {
     if (!msg) {
         throw new Error('message is required')
     }
+    opt = opt || {}
+
     let content = <div className='_wrap'>
                     <i className={`${NS} icon ${type}`}>{BADGE_ICONS[type]}</i>
-                    <p className="_message">{msg}</p>
+                    <span className="_message">{msg}</span>
                 </div>
     opt.content = content
     generateNotice(opt)
