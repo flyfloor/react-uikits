@@ -78,7 +78,7 @@ class Form extends Component {
             return success => success.call(this, null)
         }
         
-        let callbackRtn = afterCallback.call(this)
+        let callbackRtn = afterCallback.call(this);
         // if after callback return nothing, then pass.
         if (!callbackRtn) {
             return success => success.call(this, null)

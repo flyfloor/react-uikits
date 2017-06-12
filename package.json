@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "babel --presets es2015,react --watch src/component/ --out-dir lib/ & cross-env NODE_ENV=dev node server.js",
-    "build": "NODE_ENV=production webpack -p",
-    "build-dev": "NODE_ENV=dev webpack",
+    "build": "NODE_ENV=prod webpack --config=webpack.prod.js -p",
+    "build-dev": "NODE_ENV=dev webpack --config=webpack.dev.js",
     "lint": "eslint lib/"
   },
   "pre-commit": [

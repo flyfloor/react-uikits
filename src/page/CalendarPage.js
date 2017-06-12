@@ -3,21 +3,22 @@ import {Calendar} from '../component/Calendar';
 import {CN, TitleBlock} from '../util/tools';
 import {CodeView} from '../component/CodeView';
 
+const onChangeFunction = value => value
+
 export class CalendarPage extends Component {
     render() {
         return (
             <section>
                 {TitleBlock('日历')}
-                
                 <h4>默认日历</h4>
-                <CodeView component={<Calendar />}>
-                    {`<Calendar/>`}
+                <CodeView component={<Calendar onChange={onChangeFunction}/>}>
+                    {`<Calendar onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
                 
                 <h4>日历初始值</h4>
-                <CodeView component={<Calendar value={new Date("2016-08-12")}/>}>
-                    {`<Calendar value={new Date("2016-08-12")} />`}
+                <CodeView component={<Calendar value={new Date("2016-08-12")} onChange={onChangeFunction}/>}>
+                    {`<Calendar value={new Date("2016-08-12")} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
@@ -28,39 +29,40 @@ export class CalendarPage extends Component {
                 <br/>
                 
                 <h4>日历日期范围</h4>
-                <CodeView component={<Calendar begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>}>
-                    {`<Calendar begin={new Date("2016-10-12")} end={new Date("2016-11-20")}/>`}
+                <CodeView component={<Calendar begin={new Date("2016-10-12")} 
+                    end={new Date("2016-11-20")} onChange={onChangeFunction} />}>
+                    {`<Calendar begin={new Date("2016-10-12")} end={new Date("2016-11-20")} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
 
                 <h4>不显示预览</h4>
-                <CodeView component={<Calendar showPreview={false} />}>
-                    {`<Calendar showPreview={false} />`}
+                <CodeView component={<Calendar showPreview={false} onChange={onChangeFunction}/>}>
+                    {`<Calendar showPreview={false} onChange={onChangeFunction}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>日历类型</h4>
                 <CodeView component={<div>
-                    <h5>日:</h5>
-                    <Calendar type="day" />
-                </div>}>
-                    {`<Calendar type="day" />`}
+                        <h5>日:</h5>
+                        <Calendar type="day" onChange={onChangeFunction} />
+                    </div>}>
+                    {`<Calendar type="day" onChange={onChangeFunction} />`}
                 </CodeView>
 
                 <CodeView component={<div>
                     <h5>月:</h5>    
-                    <Calendar type="month" />
+                    <Calendar type="month" onChange={onChangeFunction}/>
                 </div>
                 }>
-                    {`<Calendar type="month" />`}
+                    {`<Calendar type="month" onChange={onChangeFunction}/>`}
                 </CodeView>
                 
                 <CodeView component={<div>
                     <h5>年:</h5>
-                    <Calendar type="year" />
+                    <Calendar type="year" onChange={onChangeFunction}/>
                 </div>
                 }>
-                    {`<Calendar type="year" />`}
+                    {`<Calendar type="year" onChange={onChangeFunction}/>`}
                 </CodeView>
                 <br/>
 

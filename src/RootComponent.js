@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
-import {CN} from './src/util/tools';
-import {NAV_MAP} from './src/constant';
-import dot from './src/page/demo.less'
 
 import {
     BasicPage, ButtonPage,
@@ -21,9 +17,12 @@ import {
     SlideMenuPage, StartPage,
     ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage, TempPage,
     ValidatorPage,
-} from './src/page';
+} from './page';
 
+import {CN} from './util/tools';
+import {NAV_MAP} from './constant';
 const NAV_MAP_KEYS = Object.keys(NAV_MAP)
+
 
 const asideLinks = () => {
     return NAV_MAP_KEYS.map(key => {
@@ -85,6 +84,21 @@ const Footer = props => {
     );
 }
 
+const RootPage = props => {
+    return (
+        <div className={CN('root-page fluid table absolute-center')}>
+            <div className="row">
+                <div className="cell">
+                    <h1 className={CN('field')}>
+                        React UIkits
+                    </h1>
+                    <p className={CN('field')}>基于 React.js 快速搭建企业平台的组件化方案</p>
+                    <NavLink to="/component" className={CN('red button')}>更多...</NavLink>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 const ContentPage = props => {
     return (
@@ -142,33 +156,25 @@ const ContentPage = props => {
     )
 }
 
-const RootPage = props => {
+
+const BaseComponent = () => {
     return (
-        <div className={CN('root-page fluid table absolute-center')}>
-            <div className="row">
-                <div className="cell">
-                    <h1 className={CN('field')}>
-                        React UIkits
-                    </h1>
-                    <p className={CN('field')}>基于 React.js 快速搭建企业平台的组件化方案</p>
-                    <NavLink to="/component" className={CN('red button')}>更多...</NavLink>
-                </div>
-            </div>
-        </div>
-    );
+        <Router>
+            <page>
+                <Header/>
+                <Switch>
+                    <Route exact path="/" component={RootPage}></Route>
+                    <Route path="/component" component={ContentPage}></Route>
+                    <Route path="/start" component={ContentPage}></Route>
+                    <Route path="/install" component={ContentPage}></Route>
+                    <Route path="/temp" component={ContentPage}></Route>
+                    <Route component={RootPage}></Route>
+                </Switch>
+                <Footer/>
+            </page>
+        </Router>
+    )
 }
 
-ReactDOM.render(<Router>
-                    <page>
-                        <Header/>
-                        <Switch>
-                            <Route exact path="/" component={RootPage}></Route>
-                            <Route path="/component" component={ContentPage}></Route>
-                            <Route path="/start" component={ContentPage}></Route>
-                            <Route path="/install" component={ContentPage}></Route>
-                            <Route path="/temp" component={ContentPage}></Route>
-                            <Route component={RootPage}></Route>
-                        </Switch>
-                        <Footer/>
-                    </page>
-                </Router>, document.getElementById('root'))
+
+export default BaseComponent
