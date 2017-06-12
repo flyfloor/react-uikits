@@ -22,6 +22,10 @@ export class NoticePage extends Component {
         if (type === 'delay') {
             notice.delay = 1000
         }
+
+        if (type === 'icon') {
+            notice.icon = <i className={`${NS} icon`}>mail</i>
+        }
         if (type === 'onClick') {
             notice.onClick = handleNoticeClick
         }
@@ -79,6 +83,15 @@ export class NoticePage extends Component {
                     onClick={() => this.showNotice('manually')}>点击</button>}>
 {`NoticeCenter.show({
     delay: 0,
+})`}
+                </CodeView>
+                <br/>
+                
+                <h4>自定义 icon</h4>
+                <CodeView component={<button className={`${NS} button`} 
+                    onClick={() => this.showNotice('icon')}>点击</button>}>
+{`NoticeCenter.show({
+    icon: <i className="${NS} icon">mail</i>,
 })`}
                 </CodeView>
                 <br/>
@@ -189,7 +202,7 @@ NoticeCenter.error('this is message', {
                             <td>close</td>
                             <td>关闭按钮</td>
                             <td>jsx</td>
-                            <td>{`<i className="${NS}">close</i>`}</td>
+                            <td>{`<i className="${NS} icon">close</i>`}</td>
                             <td>否</td>
                         </tr>
                         <tr>
