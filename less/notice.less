@@ -8,54 +8,79 @@
         position:fixed;
         width: @__width;
         overflow: hidden;
-        top: 10px;
-        right: 10px;
+        top: @padding;
+        right: @padding * 2;
         z-index: 1000;
         >.notice {
             .bordered;
+            .box_shadow;
             position: relative;
             display: block;
             width: @__width;
-            background: @tiny_gray;
+            background: @white;
             border: 1px solid @light_gray;
-            padding: 5px 10px;
+            padding: @padding @padding * 2;
             margin-bottom: 10px;
+            ._wrap {
+                >@{NS}.icon {
+                    opacity: .8;
+                    line-height: 22px;
+                    font-size: 18px;
+                    float: left;
+                    margin-right: @padding * .5;
+                    &.success {
+                        color: @green;
+                    }
+                    &.info {
+                        color: @blue;
+                    }
+                    &.warning {
+                        color: @orange;
+                    }
+                    &.error {
+                        color: @red;
+                    }
+                }
+            }
+            ._content {
+                overflow: hidden;
+            }
             ._title {
                 font-weight: bold;
                 margin-bottom: 10px;
             }
             ._close {
                 position: absolute;
-                right: 5px;
-                top: 5px;
+                right: @padding;
+                top: @padding;
                 cursor: pointer;
                 i {
                     font-style: normal;
                     font-size: @normal_font_size;
                 }
             }
-    }
-    }
+        }
 
-    &-enter {
-        transform: translate3d(@__width,0,0);
-        opacity: 0.01;
-    }
+        &-enter {
+            transform: translate3d(@__width,0,0);
+            opacity: 0.01;
+        }
 
-    &-enter&-enter-active {
-        opacity: 1;
-        transform: translate3d(0,0,0);
-        transition: all .3s;
-    }
+        &-enter&-enter-active {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+            transition: all .3s;
+        }
 
-    &-leave {
-        opacity: 1;
-        transform: translate3d(0,0,0);
-    }
+        &-leave {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
 
-    &-leave&-leave-active {
-        opacity: 0.01;
-        transform: translate3d(@__width,0,0);
-        transition: all .3s;
+        &-leave&-leave-active {
+            opacity: 0.01;
+            transform: translate3d(@__width,0,0);
+            transition: all .3s;
+        }
     }
 }

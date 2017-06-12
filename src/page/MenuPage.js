@@ -1,65 +1,67 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {Menu} from '../component/Menu';
-import {Item} from '../component/Item';
+import {Menu, SubMenu, MenuGroup, MenuItem} from '../component/Menu';
+
 import {CodeView} from '../component/CodeView';
 
-const formatChild = ({current=null, accordion=false, onChange=null, style, popped=false, mode='click', horizontal=false, activeFirst=false}) => {
+const formatChild = (props) => {
     return (
-        <Menu current={current} accordion={accordion} onChange={onChange} horizontal={horizontal} popped={popped} mode={mode}>
-            <Item index='sub0' sub={true} active={activeFirst} title={<p>二级菜单</p>}>
-                <Menu className="second-menu">
-                    <Item index="0">
-                        <p>二级节点</p>
-                    </Item>
-                    <Item index="1">
-                        <p>二级节点</p>
-                    </Item>
-                    <Item index="2" disabled={true}>
-                        <p>二级节点</p>
-                    </Item>
-                    <Item sub={true} index="sub0_1" title={<p>三级菜单</p>}>
-                        <Menu className="third-menu">
-                            <Item index="10">
-                                <p>三级节点</p>
-                            </Item>
-                            <Item index="11">
-                                <p>三级节点</p>
-                            </Item>
-                        </Menu>
-                    </Item>
-                </Menu>
-            </Item>
-            <Item index="sub1" sub={true} title={<p>二级菜单</p>}>
-                <Menu className="second-menu">
-                    <Item index="sub1_0" sub={true} title={<p>三级菜单</p>}>
-                        <Menu className="third-menu">
-                            <Item index="6" disabled={true}>
-                                <p>三级节点</p>
-                            </Item>
-                            <Item index="7">
-                                <p>三级节点</p>
-                            </Item>
-                        </Menu>
-                    </Item>
-                    <Item index="sub1_1" sub={true} title={<p>三级菜单</p>}>
-                        <Menu className="third-menu">
-                            <Item index="8">
-                                <p>三级节点</p>
-                            </Item>
-                            <Item index="9">
-                                <p>三级节点</p>
-                            </Item>
-                        </Menu>
-                    </Item>
-                    <Item index="5">
-                        <p>二级节点</p>
-                    </Item>
-                </Menu>
-            </Item>
-            <Item index="4">
-                <p>一级节点 <a target="_blank" href="http://braavos.me" style={{'color': '#f00'}}>链接</a></p>
-            </Item>
+        <Menu {...props}>
+            <SubMenu title={<div>
+                    <i className={CN('icon')}>settings</i>
+                    <span>子菜单一</span>
+                </div>} active={props && props.mode === undefined}>
+                <MenuGroup title={<div>组一</div>}>
+                    <MenuItem index="item1.1">选项一</MenuItem>
+                    <MenuItem index="item1.2">选项二</MenuItem>
+                </MenuGroup>
+                <MenuGroup title={<div>组二</div>}>
+                    <MenuItem index="item2.1">选项三</MenuItem>
+                    <MenuItem index="item2.2" disabled>选项四</MenuItem>
+                </MenuGroup>
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>security</i>
+                    二级子菜单一
+                </div>}>
+                    <MenuItem index="item1.1.1">选项五</MenuItem>
+                    <MenuItem index="item1.1.2">选项六</MenuItem>
+                    <MenuItem index="item1.1.3" disabled>选项七</MenuItem>
+                </SubMenu>
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>send</i>
+                    二级子菜单二
+                </div>}>
+                    <MenuItem index="item1.2.1">选项十七</MenuItem>
+                    <MenuItem index="item1.2.2">选项十八</MenuItem>
+                    <MenuItem index="item1.2.3">选项十九</MenuItem>
+                </SubMenu>
+                <MenuItem index="item1.3.1">选项八</MenuItem>
+            </SubMenu>
+            <MenuItem index="item3-disabled" disabled>选项九</MenuItem>
+            <MenuItem index="item3">选项十</MenuItem>
+            <SubMenu title={<div>
+                <i className={CN('icon')}>shop</i>
+                子菜单二
+            </div>}>
+                <MenuItem index="item4">选项十一</MenuItem>
+                <MenuItem index="item5">选项十二</MenuItem>
+                <MenuGroup title="组三">
+                    <MenuItem index="item8">选项十三</MenuItem>
+                    <MenuItem index="item9">选项十四</MenuItem>
+                </MenuGroup>
+                <SubMenu title={<div>
+                    <i className={CN('icon')}>star</i>
+                    二级子菜单三
+                </div>} active={props && props.mode === undefined}>
+                    <MenuItem index="item6">选项十五</MenuItem>
+                    <MenuGroup title="组四">
+                        <MenuItem index="item7">选项十六</MenuItem>
+                    </MenuGroup>
+                </SubMenu>
+            </SubMenu>
+            <MenuItem index="item10">
+                <a href="//braavos.me" target="_blank">外链</a>
+            </MenuItem>
         </Menu>
     )
 }
@@ -71,76 +73,22 @@ export class MenuPage extends Component {
                 {TitleBlock('菜单')}
 
                 <h4>默认菜单</h4>
-                <CodeView component={ formatChild({}) }>
-{`<Menu>
-    <Item index='sub0' sub={true} active={activeFirst} title={<p>二级菜单</p>}>
-        <Menu className="second-menu">
-            <Item index="0">
-                <p>二级节点</p>
-            </Item>
-            <Item index="1">
-                <p>二级节点</p>
-            </Item>
-            <Item index="2" disabled={true}>
-                <p>二级节点</p>
-            </Item>
-            <Item sub={true} index="sub0_1" title={<p>三级菜单</p>}>
-                <Menu className="third-menu">
-                    <Item index="10">
-                        <p>三级节点</p>
-                    </Item>
-                    <Item index="11">
-                        <p>三级节点</p>
-                    </Item>
-                </Menu>
-            </Item>
-        </Menu>
-    </Item>
-    <Item index="sub1" sub={true} title={<p>二级菜单</p>}>
-        <Menu className="second-menu">
-            <Item index="sub1_0" sub={true} title={<p>三级菜单</p>}>
-                <Menu className="third-menu">
-                    <Item index="6" disabled={true}>
-                        <p>三级节点</p>
-                    </Item>
-                    <Item index="7">
-                        <p>三级节点</p>
-                    </Item>
-                </Menu>
-            </Item>
-            <Item index="sub1_1" sub={true} title={<p>三级菜单</p>}>
-                <Menu className="third-menu">
-                    <Item index="8">
-                        <p>三级节点</p>
-                    </Item>
-                    <Item index="9">
-                        <p>三级节点</p>
-                    </Item>
-                </Menu>
-            </Item>
-            <Item index="5">
-                <p>二级节点</p>
-            </Item>
-        </Menu>
-    </Item>
-    <Item index="4">
-        <p>Item <a target="_blank" href="http://braavos.me" style={{'color': '#f00'}}>blog</a></p>
-    </Item>
-</Menu>
+                <CodeView component={ formatChild() }>
+{`
 `}
                 </CodeView>
                 <br/>
 
                 <h4>手风琴</h4>
-                <CodeView component={ formatChild({ accordion: true }) }>
+                <CodeView component={ formatChild({ mode: 'accordion' }) }>
 {`<Menu accordion={true}>
     ...
 </Menu>`}                    
                 </CodeView>
                 <br/>
                 <h4>菜单默认值</h4>
-                <CodeView component={ formatChild({ current: '4' }) }>
-{`<Menu current={'1'}>
+                <CodeView component={ formatChild({ current: 'item1.1' }) }>
+{`<Menu current={'item1.1'}>
     <Item index="1">
         ...
     </Item>
@@ -149,19 +97,8 @@ export class MenuPage extends Component {
                 </CodeView>
                 <br/>
 
-                <h4>展开某一项菜单</h4>
-                <CodeView component={ formatChild({ activeFirst: true }) }>
-{`<Menu>
-    <Item active={true}>
-        ...
-    </Item>
-    ...
-</Menu>`}                    
-                </CodeView>
-                <br/>
-
                 <h4>弹出式菜单</h4>
-                <CodeView component={ formatChild({ popped: true }) }>
+                <CodeView component={ formatChild({ mode: 'popup' }) }>
 {`<Menu popped={true}>
     <Item>
         ...
@@ -171,19 +108,8 @@ export class MenuPage extends Component {
                 </CodeView>
                 <br/>
 
-                <h4>Hover 模式菜单</h4>
-                <CodeView component={ formatChild({ mode: 'hover' }) }>
-{`<Menu mode={'hover'}>
-    <Item>
-        ...
-    </Item>
-    ...
-</Menu>`}                    
-                </CodeView>
-                <br/>
-
-                <h4>水平菜单(暂不稳定)</h4>
-                <CodeView component={ formatChild({ horizontal: true }) }>
+                <h4>水平菜单</h4>
+                <CodeView component={ formatChild({ mode: 'horizontal' }) }>
 {`<Menu horizontal={true}>
     ...
 </Menu>`}                    

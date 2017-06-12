@@ -2,142 +2,202 @@
 @import url('glue.less');
 
 @{NS}.menu {
-    .bordered;
     .css_transition;
     position: relative;
-    border: 1px solid @light_gray;
+    background: @white;
+    padding: @padding 0;
+    position: relative;
+    border-right: 1px solid @tiny_gray;
     background: @white;
     width: @min_input_width;
+    font-size: 14px;
 
-    ._item {
-        padding: 3px 16px;
-        cursor: pointer;
-        &:not(.sub-menu):not(.menu):hover {
-            background: @mini_gray;
+    .__popuped() {
+        ._submenu {
+            >._content {
+                position: absolute;
+                z-index: 100;
+                border: 1px solid @light_gray;
+                width: 200px;
+                left: 100%;
+                background: @white;
+                top: 0;
+                transform-origin: top left;
+                -webkit-transform: scale(0.2);
+                -ms-transform: scale(0.2);
+                -o-transform: scale(0.2);
+                transform: scale(0.2);
+            }
+            &._active>._title {
+                background: @tiny_gray;
+            }
+            &._open {
+                >._content {
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    -o-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
         }
     }
 
-    ._child {
+    .__verticalSubMenuTitle(){
+        ._submenu {
+            >._title {
+                &:after {
+                    .icon_font;
+                    font-size: 18px;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    content: 'expand_more';
+                }
+            }
+            &._open {
+                >._title {
+                    &:after {
+                        content: 'expand_less';
+                    }
+                }
+            }
+        }
+    }
+
+    .__horizontalSubMenuTitle(){
+        ._submenu {
+            >._title {
+                &:after {
+                    .icon_font;
+                    content: 'chevron_right';
+                    font-size: 18px;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                }
+            }
+            &._open {
+                >._title {
+                    &:after {
+                        content: 'chevron_left';
+                    }
+                }
+            }
+        }
+    }
+
+    &.fluid {
+        width: 100%;
+    }
+
+    ._item, ._title {
+        padding: 0 @normal_font_size;
+        line-height: @normal_font_size * 2.5;
+        overflow: hidden;
+        cursor: pointer;
+        list-style-type: none;
+        color: @deep_gray;
+        >a {
+            display: block;
+        }
+    }
+    ._item {
         &._active {
-            color: @most_gray;
             background: @tiny_gray;
         }
     }
 
-    .menu {
-        .css_transition;
-        border: none;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    .sub-menu {
-        padding: 0;
-        &._active {
-            >._title {
-                color: @most_gray;
-            }
-            >.menu {
-                opacity: 1;
-                max-height: 500px;
-                overflow: hidden;
-            }
+    ._group {
+        list-style-type: none;
+        ._title {
+            cursor: default;
+            color: @dull_gray;
         }
     }
 
-    &._default {
-        ._menu-2 {
-            @__width: 20px;
-            ._child {
-                padding-left: @__width;
-            }
-            >.sub-menu>._title {
-                padding-left: @__width;
-            }
+    ._submenu {
+        list-style-type: none;
+        position: relative;
+        >._content {
+            .css_transition;
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
         }
-        ._menu-3 {
-            @__width: 40px;
-            ._child {
-                padding-left: @__width;
-            }
-            >.sub-menu>._title {
-                padding-left: @__width;
-            }
-        }
-    }
-
-
-    &._popped {
-        .sub-menu {
+        >._title {
             position: relative;
-            .menu {
-                .bordered;
-                height: 0;
-                visibility: hidden;
-                background: @white;
-                top: -1px;
-                width: 0;
-                left: 100%;
-                position: absolute;
-            }
-            &._active {
-                >.menu {
-                    z-index: 100;
-                    width: 100%;
-                    height: auto;
-                    visibility: visible;
-                    overflow: initial;
-                    border-color: @light_gray;
-                }
+            i.icon {
+                font-size: @normal_font_size;
+                vertical-align: middle;
+                opacity: .8;
+                margin-top: -2px;
+                margin-right: @padding;
             }
         }
+        &._open {
+            >._title {
+                color: @black;
+            }
+            >._content {
+                .css_transition;
+                visibility: visible;
+                opacity: 1;
+                overflow: initial;
+                max-height: 800px;
+            }
+        }
+    }
+
+    &._default, &._accordion {
+        .__verticalSubMenuTitle();
     }
 
     &._horizontal {
-        .fluid;
-        .sub-menu {
-            position: relative;
-            .menu {
-                .bordered;
-                visibility: hidden;
-                overflow: hidden;
-                background: @white;
-                width: 0;
-                top: 0;
-                left: 100%;
-                position: absolute;
-                border: 1px solid transparent;
-            }
+        .clearfix;
+        .__popuped();
+        width: 100%;
+        padding: 0 10px;
+        border: 0;
+        line-height: @normal_font_size * 2.5;
+        border-bottom: 1px solid @tiny_gray;
+        /*first level item and submenu*/
+        >._item, >._submenu {
+            float: left;
+        }
+        >._item {
+            border-bottom: 2px solid transparent;
+            .css_transition;
             &._active {
-                >.menu {
-                    z-index: 100;
-                    min-width: 150px;
-                    height: auto;
-                    visibility: visible;
-                    overflow: initial;
-                    border-color: @light_gray;
-                }
+                background: initial;
+                border-color: @blue;
             }
         }
-        &._menu-1 {
-            height: 34px;
-            line-height: 30px;
-            >._item {
-                height: 100%;
-                line-height: 30px;
-                float: left;
+        
+        /*fist level submenu title active and content no effect*/
+        >._submenu {
+            >._title {
+                .css_transition;
+                border-bottom: 2px solid transparent;
             }
-            >.sub-menu {
-                >.menu {
-                    left: -1px;
-                    top: 32px;
-                }
-                >._title {
-                    padding: 3px 20px;
-                    line-height: 40px;
-                }
+            &._active>._title {
+                border-color: @blue;
+                background: none;
+            }
+            >._content {
+                left: 0;
+                -webkit-transform: none;
+                -ms-transform: none;
+                -o-transform: none;
+                transform: none;
+                top: initial;
             }
         }
     }
+
+    &._popup {
+        .__popuped();
+        .__horizontalSubMenuTitle();
+    }
+
 }

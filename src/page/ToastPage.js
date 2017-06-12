@@ -5,17 +5,23 @@ import {Toast} from '../component/Toast';
 import {CodeView} from '../component/CodeView';
 
 const onClick = () => {
-    alert('消息点击')
-    window.open('http://braavos.me')
+    Toast.success('消息点击')
 }
+
+const onClose = () => {
+    Toast.success('消息关闭')
+}
+
 export class ToastPage extends Component {
     handleToast(props){
-        props.content = <p>this is the message</p>
+        props.content = 'this is the message'
         Toast.show(props)
     }
+
     handleToast1(type, opt){
         Toast[type]('this is the message', opt)
     }
+
     render() {
         return (
             <section>
@@ -32,34 +38,24 @@ export class ToastPage extends Component {
                 <h4>默认消息</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, {})}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, {})}>点击</button>
                     </div>}>
 {`Toast.show({
-    content: <p>content</p>,
+    content: 'message',
 })`}
                 </CodeView>
                 <br/>
 
-                <h4>消息位置</h4>
+                <h4>可关闭消息</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'top' })}>上</button>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'center' })}>中</button>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { position: 'bottom' })}>下</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { showClose: true })}>点击</button>
                     </div>}>
 {`Toast.show({
-    content: <p>content</p>,
-    position: 'top',
-})
-
-Toast.show({
-    content: <p>content</p>,
-    position: 'center',
-})
-
-Toast.show({
-    content: <p>content</p>,
-    position: 'bottom',
+    content: 'message',
+    showClose: true,
 })
 `}
                 </CodeView>
@@ -68,10 +64,11 @@ Toast.show({
                 <h4>持续时间</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { delay: 1000 })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { delay: 1000 })}>点击</button>
                     </div>}>
 {`Toast.show({
-    content: <p>content</p>,
+    content: 'message',
     delay: 1000,
 })
 `}
@@ -81,11 +78,26 @@ Toast.show({
                 <h4>onClick 事件</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { onClick })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { onClick })}>点击</button>
                     </div>}>
 {`Toast.show({
-    content: <p>content</p>,
+    content: 'message',
     onClick: clickFunction,
+})
+`}
+                </CodeView>
+                <br/>
+
+                <h4>onClose 事件</h4>
+                <CodeView component={
+                    <div>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { onClose })}>点击</button>
+                    </div>}>
+{`Toast.show({
+    content: 'message',
+    onClose: closeFunction,
 })
 `}
                 </CodeView>
@@ -94,16 +106,33 @@ Toast.show({
                 <h4>不同级别 Toast</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'success', {})}>success</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'info', {})}>info</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'warning', {})}>warning</button>
-                        <button className={`${NS} button`} onClick={this.handleToast1.bind(this, 'error', { delay: 1000, onClick: () => alert('click') })}>error</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast1.bind(this, 'success', null)}>
+                            success
+                        </button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast1.bind(this, 'info', null)}>
+                            info
+                        </button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast1.bind(this, 'warning', null)}>
+                            warning
+                        </button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast1.bind(this, 'error', { 
+                                // delay: 1000, 
+                                showClose: true,
+                                onClick: () => alert('click') 
+                            })}>
+                            error
+                        </button>
                     </div>}>
-{`Toast.success('this is message', options)
-Toast.info('this is message', options)
-Toast.warning('this is message', options)
+{`Toast.success('this is message')
+Toast.info('this is message')
+Toast.warning('this is message')
 Toast.error('this is message', {
     delay: 1000,
+    showClose: true,
     onClick: () => alert('click')
 })
 `}
@@ -123,18 +152,20 @@ Toast.error('this is message', {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>position</td>
-                            <td>位置</td>
-                            <td>['top', 'center', 'bottom']</td>
-                            <td>'top'</td>
-                            <td>否</td>
-                        </tr>
-                        <tr>
                             <td>onClick</td>
                             <td>消息体点击事件</td>
                             <td>函数</td>
                             <td>
                             {`onClick(){}`}
+                            </td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onClose</td>
+                            <td>消息体关闭事件(手动、自动皆会触发)</td>
+                            <td>函数</td>
+                            <td>
+                            {`onClose(){}`}
                             </td>
                             <td>否</td>
                         </tr>
