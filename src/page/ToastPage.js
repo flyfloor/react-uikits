@@ -5,21 +5,23 @@ import {Toast} from '../component/Toast';
 import {CodeView} from '../component/CodeView';
 
 const onClick = () => {
-    alert('消息点击')
-    window.open('http://braavos.me')
+    Toast.success('消息点击')
 }
 
 const onClose = () => {
-    Toast.show({ content: '消息关闭' })
+    Toast.success('消息关闭')
 }
+
 export class ToastPage extends Component {
     handleToast(props){
         props.content = 'this is the message'
         Toast.show(props)
     }
+
     handleToast1(type, opt){
         Toast[type]('this is the message', opt)
     }
+
     render() {
         return (
             <section>
@@ -36,7 +38,8 @@ export class ToastPage extends Component {
                 <h4>默认消息</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, {})}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, {})}>点击</button>
                     </div>}>
 {`Toast.show({
     content: 'message',
@@ -47,7 +50,8 @@ export class ToastPage extends Component {
                 <h4>可关闭消息</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { showClose: true })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { showClose: true })}>点击</button>
                     </div>}>
 {`Toast.show({
     content: 'message',
@@ -60,7 +64,8 @@ export class ToastPage extends Component {
                 <h4>持续时间</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { delay: 1000 })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { delay: 1000 })}>点击</button>
                     </div>}>
 {`Toast.show({
     content: 'message',
@@ -73,7 +78,8 @@ export class ToastPage extends Component {
                 <h4>onClick 事件</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { onClick })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { onClick })}>点击</button>
                     </div>}>
 {`Toast.show({
     content: 'message',
@@ -86,7 +92,8 @@ export class ToastPage extends Component {
                 <h4>onClose 事件</h4>
                 <CodeView component={
                     <div>
-                        <button className={`${NS} button`} onClick={this.handleToast.bind(this, { onClose })}>点击</button>
+                        <button className={`${NS} button`} 
+                            onClick={this.handleToast.bind(this, { onClose })}>点击</button>
                     </div>}>
 {`Toast.show({
     content: 'message',
@@ -113,7 +120,7 @@ export class ToastPage extends Component {
                         </button>
                         <button className={`${NS} button`} 
                             onClick={this.handleToast1.bind(this, 'error', { 
-                                delay: 1000, 
+                                // delay: 1000, 
                                 showClose: true,
                                 onClick: () => alert('click') 
                             })}>

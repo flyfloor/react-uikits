@@ -18,7 +18,6 @@ var RULE = _fm.RULE;
 var Item = require('./lib/Item').Item;
 var Menu = require('./lib/Menu').Menu;
 var Modal = require('./lib/Modal').Modal;
-var Notice = require('./lib/Notice').Notice;
 var NoticeCenter = require('./lib/NoticeCenter').NoticeCenter;
 var Pagination = require('./lib/Pagination').Pagination;
 var Panel = require('./lib/Panel').Panel;
@@ -49,7 +48,6 @@ module.exports = {
     Item: Item,
     Menu: Menu,
     Modal: Modal,
-    Notice: Notice,
     NoticeCenter: NoticeCenter,
     Pagination: Pagination,
     Panel: Panel,

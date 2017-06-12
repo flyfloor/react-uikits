@@ -2,7 +2,7 @@
 @import url('color');
 @import url('glue');
 
-.flash-message {
+.toast {
     @_width: @min_input_width * 1.25;
     position: fixed;
     width: 100%;
@@ -13,41 +13,43 @@
         margin: @padding auto;
         text-align: center;
         display: block;
-        >._content {
+        ._wrap {
             .bordered;
             .box_shadow;
+            text-align: left;
             position: relative;
             display: inline-block;
+            padding: @padding * 0.4 @padding * 1.6;
             max-width: @_width;
             background: @white;
-            padding: @padding * 0.4 @padding * 1.6;
             &._showClose {
                 padding-right: @padding * 3;
             }
-            ._wrap {
-                >@{NS}.icon {
-                    line-height: 22px;
-                    font-size: 18px;
-                    float: left;
-                    margin-right: @padding * .5;
-                    &.success {
-                        color: @green;
-                    }
-                    &.info {
-                        color: @blue;
-                    }
-                    &.warning {
-                        color: @orange;
-                    }
-                    &.error {
-                        color: @red;
-                    }
+            >._content {
+                display: inline-block;
+            }
+            >@{NS}.icon {
+                line-height: 22px;
+                font-size: 18px;
+                float: left;
+                margin-right: @padding * .5;
+                &.success {
+                    color: @green;
                 }
-                >._message {
-                    overflow: hidden;
+                &.info {
+                    color: @blue;
+                }
+                &.warning {
+                    color: @orange;
+                }
+                &.error {
+                    color: @red;
                 }
             }
-            >._close {
+            ._message {
+                overflow: hidden;
+            }
+            ._close {
                 font-size: 12px;
                 cursor: pointer;
                 position: absolute;
