@@ -1,10 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = require('./webpack.base');
-
-config.PORT = 8080;
 
 config.entry = {
     app: "./src/entre.js",
@@ -18,13 +17,14 @@ config.output = {
 };
 
 config.plugins.push(
+    new ProgressBarPlugin(),
     new webpack.DefinePlugin({
         "process.env": {
             NODE_ENV: JSON.stringify('production')
         }
     }),
     new ExtractTextPlugin("app.css"),
-    new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendors", /* filename= */ "vendor.js"),
+    new webpack.optimize.CommonsChunkPlugin({ name: "vendors", filename: "vendor.js"}),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false
@@ -35,14 +35,51 @@ config.plugins.push(
     })
 )
 
-config.module.loaders.unshift({
+config.module.rules.unshift({
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+    use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            {
+                loader: 'css-loader',
+                options: {
+                    importLoaders: 1
+                }
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: loaders => [
+                        require('autoprefixer')()
+                    ]
+                }
+            }
+        ]
+    })
 })
 
-config.module.loaders.unshift({
+config.module.rules.unshift({
     test: /\.less$/,
-    loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+    use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            {
+                loader: 'css-loader',
+                options: {
+                    importLoaders: 1
+                }
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: loaders => [
+                        require('autoprefixer')()
+                    ]
+                }
+            },
+            'less-loader',
+        ]
+    })
 })
 
 module.exports = config

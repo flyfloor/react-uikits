@@ -8,7 +8,7 @@ var config = require('./webpack.' + NODE_ENV);
 var indexPath = __dirname + '/dist/' + NODE_ENV + '.html'
 
 var app = new (express)();
-var port = process.env.PORT || (process.argv[2] || config.PORT);
+var port = process.env.PORT || (process.argv[2] || 3000);
 
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
