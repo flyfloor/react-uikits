@@ -7,7 +7,10 @@ const klassName = require('./base/util').klassName
 const Schema = require('async-validator');
 let vBuilder = null
 
-// form
+/*
+Form
+*/
+
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -208,7 +211,10 @@ Form.propTypes = {
     afterFilters: PropTypes.array,
 }
 
-// field
+/*
+Field
+*/
+
 class Field extends Component {
     constructor(props) {
         super(props);
@@ -272,7 +278,10 @@ Field.propTypes = {
     size: PropTypes.number,
 }
 
-// fields
+/*
+Fields
+*/
+
 class Fields extends Component {
     render() {
         let _props = Object.assign({}, this.props)
@@ -294,7 +303,10 @@ Fields.propTypes = {
     size: PropTypes.number,
 }
 
-// group
+/*
+Group
+*/
+
 class Group extends Component {
     render() {
         let _props = Object.assign({}, this.props)
@@ -318,6 +330,10 @@ class Group extends Component {
         )
     }
 }
+
+/*
+Validator
+*/
 
 class Validator extends Component {
     constructor(props) {
@@ -365,7 +381,6 @@ Validator.contextTypes = {
 Validator.defaultProps = {
     trigger: 'onChange',
 }
-
 
 module.exports = {
     Form,
