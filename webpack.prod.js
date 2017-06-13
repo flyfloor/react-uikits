@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = require('./webpack.base');
@@ -17,7 +16,6 @@ config.output = {
 };
 
 config.plugins.push(
-    new ProgressBarPlugin(),
     new webpack.DefinePlugin({
         "process.env": {
             NODE_ENV: JSON.stringify('production')

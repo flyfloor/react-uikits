@@ -1,9 +1,12 @@
 var webpack = require('webpack');
 var path = require('path');
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
-    plugins: [],
+    plugins: [
+        new ProgressBarPlugin(),
+    ],
     module: {
         rules: [{
             test: /\.(png|jpg)$/,
