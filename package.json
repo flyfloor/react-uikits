@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "babel --presets es2015,react --watch src/component/ --out-dir lib/ & cross-env NODE_ENV=dev node server.js",
-    "build": "NODE_ENV=production webpack -p",
-    "build-dev": "NODE_ENV=dev webpack",
+    "build": "NODE_ENV=prod webpack --config=webpack.prod.js -p",
+    "build-dev": "NODE_ENV=dev webpack --config=webpack.dev.js",
     "lint": "eslint lib/"
   },
   "pre-commit": [
@@ -17,7 +17,14 @@
     "url": "https://github.com"
   },
   "keywords": [
+    "react",
+    "css framework",
+    "component",
     "uikit"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
   ],
   "author": "jerryshew",
   "license": "MIT",
@@ -30,7 +37,7 @@
     "react-ui-component": "^1.2.5"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.5",
+    "autoprefixer": "^7.1.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.0.0",
@@ -43,7 +50,7 @@
     "css-loader": "^0.17.0",
     "eslint": "^2.13.1",
     "express": "^4.13.3",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.8.5",
     "force-case-sensitivity-webpack-plugin": "^0.1.1",
     "html-webpack-plugin": "^1.6.1",
@@ -51,13 +58,14 @@
     "less-loader": "^2.2.0",
     "postcss-loader": "^0.8.2",
     "pre-commit": "^1.1.3",
+    "progress-bar-webpack-plugin": "^1.9.3",
     "react-highlight": "^0.10.0",
     "react-router-dom": "^4.1.1",
     "react-transform-hmr": "^1.0.0",
     "style-loader": "^0.12.3",
     "uglify-loader": "^1.2.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.11",
+    "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.5.0"
   }
