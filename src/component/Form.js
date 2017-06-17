@@ -209,7 +209,7 @@ Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onError: PropTypes.func,
     afterFilters: PropTypes.array,
-}
+};
 
 /*
 Field
@@ -276,7 +276,7 @@ Field.contextTypes = {
 Field.propTypes = {
     type: PropTypes.oneOf(['inline', '']),
     size: PropTypes.number,
-}
+};
 
 /*
 Fields
@@ -301,7 +301,7 @@ class Fields extends Component {
 
 Fields.propTypes = {
     size: PropTypes.number,
-}
+};
 
 /*
 Group
