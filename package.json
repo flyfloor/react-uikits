@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-ui-component": "^1.2.5"
+    "react-ui-component": "^1.2.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
