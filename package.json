@@ -30,7 +30,7 @@
   "license": "MIT",
   "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
-    "async-validator": "^1.6.8",
+    "async-validator": "^1.7.1",
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
