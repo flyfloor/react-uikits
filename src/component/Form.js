@@ -4,7 +4,7 @@ const PropTypes = require('prop-types')
 const constant = require('./base/constant')
 const {FORM_RULE, DEFAULT_INVALID_MSG, NS} = constant
 const klassName = require('./base/util').klassName
-const Schema = require('async-validator');
+const Schema = require('async-validator/lib');
 let vBuilder = null
 
 /*
@@ -209,7 +209,7 @@ Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onError: PropTypes.func,
     afterFilters: PropTypes.array,
-}
+};
 
 /*
 Field
@@ -276,7 +276,7 @@ Field.contextTypes = {
 Field.propTypes = {
     type: PropTypes.oneOf(['inline', '']),
     size: PropTypes.number,
-}
+};
 
 /*
 Fields
@@ -301,7 +301,7 @@ class Fields extends Component {
 
 Fields.propTypes = {
     size: PropTypes.number,
-}
+};
 
 /*
 Group
