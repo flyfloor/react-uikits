@@ -26,7 +26,7 @@ const COUNTRIES = [
 ]
 
 const rules = {
-    name: [ RULE.required, {
+    name: [ RULE.textRequired, {
         min: 3, max: 12, message: '名字长度3至12字'
     }],
     human: {
@@ -38,12 +38,12 @@ const rules = {
     nickname: [ RULE.chinese, {
         min: 3, max: 12, message: '名字长度3至12字'
     }],
-    password: [ RULE.required ],
-    password_confirm: [ RULE.required ],
+    password: [ RULE.textRequired ],
+    password_confirm: [ RULE.textRequired ],
     phone: RULE.phone,
     url: RULE.url,
     email: RULE.email,
-    gender: [ RULE.required, {
+    gender: [ RULE.textRequired, {
         type: 'enum', enum: ['m', 'f'], message: '性别究竟是？'
     }],
     province: [RULE.required, {
@@ -52,7 +52,7 @@ const rules = {
     city: [ RULE.required ],
     create_at: RULE.required,
     update_at: [RULE.required],
-    address: [RULE.required, {
+    address: [RULE.textRequired, {
         min: 20, max: 200, message: '20-200个字',
     }],
     begin_at: [RULE.required],

@@ -28,11 +28,12 @@ export class ValidatorPage extends Component {
 <Hightlight>
 {`import {RULE} from 'react-uikits';
 
-// RULE 为常用规则常量对象，key 包含 required, email, chinese, phone, word, url, int, passtiveInt, passtiveNumber
+// RULE 为常用规则常量对象，key 包含 required, textRequired, email, chinese, phone, word, url, int, passtiveInt, passtiveNumber
 
 /*
 {
-    required, // 必填格式，默认不允许输入空白
+    required, // 必填格式，允许输入空格
+    textRequired, // 必填格式，输入文字时使用，不允许输入空格
     email, // 邮箱格式
     chinese, // 中文
     phone, // 手机号
