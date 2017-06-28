@@ -227,7 +227,7 @@ openModal = function(){
                                             <br/>
                                             <br/>
                                             <br/>
-                                            <button className={`${NS} red button`} onClick={() => this.refs.modal5.close()}>点击关闭当前弹窗</button>
+                                            <button className={`${NS} red button`} onClick={() => this.refs.modal6.close()}>点击关闭当前弹窗</button>
                                         </Modal>
                                     </div>}>
 {`<div>
