@@ -15,6 +15,7 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
         if (props.rules) {
             vBuilder = new Schema(props.rules)
         }
@@ -121,6 +122,13 @@ class Form extends Component {
         
     }
 
+    handleKeyDown(e){
+        if (e.keyCode === 13) {
+            e.preventDefault()
+            return false
+        }
+    }
+
     validate({ name, success, fail, afterCallback } = { name: '' } ){
         const {store, rules} = this.props
         // after callback or after from props
@@ -193,7 +201,8 @@ class Form extends Component {
             delete _props.type
         }
         return (
-            <form {..._props} className={className} onSubmit={this.handleSubmit}>
+            <form {..._props} className={className} onSubmit={this.handleSubmit}
+                 onKeyDown={this.handleKeyDown}>
             </form>
         )
     }

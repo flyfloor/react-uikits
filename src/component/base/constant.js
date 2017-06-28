@@ -2,6 +2,9 @@ const NS = 'dot';
 
 const FORM_RULE = {
     required: {
+        required: true, message: '不能为空',
+    },
+    textRequired: {
         required: true, message: '不能为空', whitespace: true,
     },
     email: {
