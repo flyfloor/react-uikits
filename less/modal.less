@@ -4,13 +4,13 @@
 
 @{NS}.modal {
     ._body {
-        -webkit-transform: translateX(-50%) translateY(-70%);
-        -ms-transform: translateX(-50%) translateY(-70%);
-        -o-transform: translateX(-50%) translateY(-70%);
-        transform: translateX(-50%) translateY(-70%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
         z-index: 1000;
-        min-width: @min_input_width * 2;
-        max-width: @min_input_width * 3;
+        min-width: @min_input_width * 3;
+        max-width: @min_input_width * 4;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -18,6 +18,8 @@
         >._wrap {
             .css_transition;
             .bordered;
+            max-height: 800px;
+            overflow: auto;
             background-color: @white;
             opacity: 0;
             -webkit-transform: scale(1.05);
