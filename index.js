@@ -16,6 +16,7 @@ var Field = _fm.Field;
 var Validator = _fm.Validator;
 var RULE = _fm.RULE;
 var Item = require('./lib/Item').Item;
+var Icon = require('./lib/Icon').Icon;
 var Menu = require('./lib/Menu').Menu;
 var Modal = require('./lib/Modal').Modal;
 var NoticeCenter = require('./lib/NoticeCenter').NoticeCenter;
@@ -46,6 +47,7 @@ module.exports = {
     Field: Field,
     Group: Group,
     Item: Item,
+    Icon: Icon,
     Menu: Menu,
     Modal: Modal,
     NoticeCenter: NoticeCenter,

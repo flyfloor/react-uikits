@@ -82,6 +82,31 @@ export class DatePickerPage extends Component {
                     {`<DatePicker type="year" onChange={onChangeFunction}/>`}
                 </CodeView>
                 <br/>
+                
+                <h4>日期选择位置</h4>
+                <CodeView component={<div>
+                    <DatePicker position="top" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker position="top" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <DatePicker position="left" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker position="left" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <DatePicker position="right" onChange={value => {}}/>
+                </div>}>
+                    {`<DatePicker position="right" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                
+
 
                 <h4>属性</h4>
                 <table className="dot table">
@@ -122,6 +147,13 @@ export class DatePickerPage extends Component {
                             <td>函数(日期对象)</td>
                             <td>{`onChange(date){}`}</td>
                             <td>是</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>展开位置</td>
+                            <td>'left', 'right', 'top', 'bottom' 中的一个</td>
+                            <td>bottom</td>
+                            <td>否</td>
                         </tr>
                         <tr>
                             <td>begin</td>

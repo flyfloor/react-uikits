@@ -61,6 +61,28 @@ export class DateTimePickerPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>日期选择位置</h4>
+                <CodeView component={<div>
+                    <DateTimePicker position="top" onChange={value => {}}/>
+                </div>}>
+                    {`<DateTimePicker position="top" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <DateTimePicker position="left" onChange={value => {}}/>
+                </div>}>
+                    {`<DateTimePicker position="left" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
+                <CodeView component={<div>
+                    <DateTimePicker position="right" onChange={value => {}}/>
+                </div>}>
+                    {`<DateTimePicker position="right" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
+
                 <h4>属性</h4>
                 <table className="dot table">
                     <thead>
@@ -85,6 +107,13 @@ export class DateTimePickerPage extends Component {
                             <td>日期格式化</td>
                             <td>字符串, 例如: yyyy年MM月dd日</td>
                             <td>yyyy-MM-dd</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>展开位置</td>
+                            <td>'left', 'right', 'top', 'bottom' 中的一个</td>
+                            <td>bottom</td>
                             <td>否</td>
                         </tr>
                         <tr>

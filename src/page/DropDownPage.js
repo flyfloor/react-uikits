@@ -52,6 +52,13 @@ export class DropDownPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>下拉框方向</h4>
+                <CodeView component={<DropDown options={options}
+                    position='top' onChange={(value) => console.log(value)}/>}>
+                    {`<DropDown options={options} position='top' onChange={(value) => console.log(value)}/>`}
+                </CodeView>
+                <br/>
+
                 <h4>默认多选下拉</h4>
                 <CodeView component={<DropDown options={options} multi={true} 
                     onChange={(value) => console.log(value)}/>}>
@@ -198,6 +205,13 @@ export class DropDownPage extends Component {
                             <td>是否含有搜索框</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>展开位置</td>
+                            <td>'top', 'bottom' 中的一个</td>
+                            <td>bottom</td>
                             <td>否</td>
                         </tr>
                         <tr>

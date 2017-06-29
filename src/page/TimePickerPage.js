@@ -48,6 +48,14 @@ export class TimePickerPage extends Component {
                     {`<TimePicker simple={true} onChange={onChangeFunction} />`}
                 </CodeView>
                 <br/>
+                
+                <h4>时间选择位置</h4>
+                <CodeView component={<div>
+                    <TimePicker position="top" onChange={value => {}}/>
+                </div>}>
+                    {`<TimePicker position="top" onChange={onChangeFunction}/>`}
+                </CodeView>
+                <br/>
 
                 <h4>属性</h4>
                 <table className="dot table">
@@ -73,6 +81,13 @@ export class TimePickerPage extends Component {
                             <td>简洁版</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>position</td>
+                            <td>展开位置</td>
+                            <td>'top', 'bottom' 中的一个</td>
+                            <td>bottom</td>
                             <td>否</td>
                         </tr>
                         <tr>
