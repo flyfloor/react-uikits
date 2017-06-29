@@ -6,10 +6,13 @@
     position: relative;
     display: inline-block;
     min-width: @min_input_width;
+    &._top ._list {
+        bottom: @line_height * 2 + 2;
+    }
     ._list {
         .bordered;
         max-height: @min_input_width;
-        overflow-y: scroll;
+        overflow-y: auto;
         margin-top: -1px;
         position: absolute;
         width: 100%;

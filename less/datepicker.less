@@ -14,6 +14,62 @@
             .input_icon;
         }
     }
+    /* position */
+    &._top {
+        >._picker {
+            top: initial;
+            bottom: @padding * 4.2;
+            .calendar {
+                &:before, &:after {
+                    top: initial;
+                    bottom: -14px;
+                    border-color: @light_gray transparent transparent transparent;
+                }
+                &:after {
+                    bottom: -12px;
+                    border-color: @mini_gray transparent transparent transparent;
+                }
+                >._label:before {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &._right {
+        >._picker {
+            top: 0;
+            left: @min_input_width + 8px;
+            .calendar {
+                &:before, &:after {
+                    content: none;
+                }
+                >._label:before {
+                    left: -15px;
+                    top: 10px;
+                    border-color: transparent @blue transparent transparent;
+                }
+            }
+        }
+    }
+
+    &._left {
+        >._picker {
+            top: 0;
+            left: @min_input_width * -1.25 - 8px;
+            .calendar {
+                &:before, &:after {
+                    content: none;
+                }
+                >._label:before {
+                    left: @min_input_width * 1.25 - 3px;
+                    top: 10px;
+                    border-color: transparent transparent transparent @blue;
+                }
+            }
+        }
+    }
+
     >._picker {
         position: absolute;
         z-index: 1000;
