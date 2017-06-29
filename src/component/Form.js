@@ -20,7 +20,7 @@ class Form extends Component {
             vBuilder = new Schema(props.rules)
         }
         this.state = {
-            errorFieldsObj: null,
+            errorFieldsObj: {},
         }
     }
     getChildContext(){
