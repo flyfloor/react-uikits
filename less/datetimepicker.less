@@ -17,11 +17,72 @@
         }
     }
     ._timepicker {
-        width: @min_input_width + 1px;
+        width: @min_input_width * 1.25;
+        >._section {
+            &:before, &:after {
+                content: none;
+            }
+        }
         ._list {
-            width: @min_input_width / 3;
+            width: @min_input_width * 1.25 / 3;
         }
     }
+    
+    /* position */
+    &._top {
+        >._wrap {
+            top: initial;
+            bottom: @padding * 4.2;
+            ._timepicker, ._datepicker {
+                &:before, &:after {
+                    top: initial;
+                    bottom: -14px;
+                    border-color: @light_gray transparent transparent transparent;
+                }
+                &:after {
+                    bottom: -12px;
+                    border-color: @mini_gray transparent transparent transparent;
+                }
+            }
+        }
+    }
+
+    &._right {
+        >._wrap {
+            top: 0;
+            left: @min_input_width + 8px;
+            ._timepicker, ._datepicker {
+                &:before, &:after {
+                    top: 10px;
+                    left: -14px;
+                    border-color: transparent @light_gray transparent transparent;
+                }
+                &:after {
+                    left: -12px;
+                    border-color: transparent @mini_gray transparent transparent;
+                }
+            }
+        }
+    }
+
+    &._left {
+        >._wrap {
+            top: 0;
+            left: @min_input_width * -1.25 - 8px;
+            ._timepicker, ._datepicker {
+                &:before, &:after {
+                    top: 10px;
+                    left: @min_input_width * 1.25;
+                    border-color: transparent transparent transparent @light_gray;
+                }
+                &:after {
+                    left: @min_input_width * 1.25 - 2px;
+                    border-color: transparent transparent transparent @mini_gray;
+                }
+            }
+        }
+    }
+
     >._wrap {
         .bordered;
         border-top-left-radius: 0;
