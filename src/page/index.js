@@ -42,6 +42,7 @@ import {StartPage} from './StartPage'
 import {InstallPage} from './InstallPage'
 import {ListPage} from './ListPage'
 import {ValidatorPage} from './ValidatorPage'
+import {InputNumberPage} from './InputNumberPage'
 
 export  {
     BasicPage,
@@ -88,4 +89,5 @@ export  {
     InstallPage,
     ListPage,
     ValidatorPage,
+    InputNumberPage,
 }

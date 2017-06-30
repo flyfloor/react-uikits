@@ -70,6 +70,7 @@ export const NAV_MAP = {
         {route: '/component/datepicker', name: 'DatePicker 日期选择'},
         {route: '/component/datetimepicker', name: 'DateTimePicker 日期时间选择'},
         {route: "/component/input", name: "Input 输入框"},
+        {route: "/component/input-number", name: "Input Number 输入框"},
         {route: "/component/radio", name: "Radio 单选框"},
         {route: "/component/radiogroup", name: "RadioGroup 单选框组"},
         {route: "/component/timeinput", name: "TimeInput 时间输入"},
