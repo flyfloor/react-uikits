@@ -1,0 +1,29 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.input-number {
+    position: relative;
+    display: inline-block;
+    >._counter {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        padding: 0 @padding * .5;
+        border: 1px solid @light_gray;
+        line-height: @normal_font_size - 2px;
+        background: @white;
+        cursor: pointer;
+        border-radius: @radius;
+        &:hover {
+            color: @blue;
+            background: @tiny_gray;
+        }
+        >i {
+            font-size: @normal_font_size;
+        }
+        &:last-child {
+            top: initial;
+            bottom: 1px;
+        }
+    } 
+}
