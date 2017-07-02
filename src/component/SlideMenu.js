@@ -6,16 +6,16 @@ const klassName = require('./base/util').klassName
 
 class SlideMenu extends Component {
     open(){
-        this.refs.slide.open()
+        this.slide.open()
     }
     close(){
-        this.refs.slide.close()
+        this.slide.close()
     }
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <_SlideMenu {...props} ref="slide" className={className} />
+            <_SlideMenu {...props} ref={slide => { this.slide = slide }} className={className} />
         )
     }
 }
