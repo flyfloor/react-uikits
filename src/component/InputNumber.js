@@ -4,6 +4,8 @@ const Component = React.Component
 const NS = require('./base/constant').NS
 const Icon = require('./Icon').Icon
 
+let _timer = null
+
 class InputNumber extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,9 @@ class InputNumber extends Component {
         this.handleBlur = this.handleBlur.bind(this)
         this.handleMinus = this.handleMinus.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
-        const value = this.trimValue()
+        this.handleHold = this.handleHold.bind(this)
+        this.handleLoose = this.handleLoose.bind(this)
+        const value = this.trimValue(this.props.value)
         this.state = {
             displayValue: value,
         }
@@ -24,12 +28,13 @@ class InputNumber extends Component {
         }, () => this.props.onChange(value));
     }
 
-    trimValue(value = this.props.value){
+    trimValue(value){
         let {int, min, max} = this.props
         value = Number(value)
         if (isNaN(value)) {
-            value = min || 0
+            return this.props.value || 0
         }
+
         if (value < min) {
             value = min
         }
@@ -41,6 +46,16 @@ class InputNumber extends Component {
             value = parseInt(value)
         }
         return value
+    }
+
+    handleHold(fn){
+        _timer = setInterval(() => {
+            fn.call(this)
+        }, 100)
+    }
+
+    handleLoose(){
+        clearInterval(_timer)
     }
 
     handleAdd(){
@@ -86,10 +101,14 @@ class InputNumber extends Component {
                     value={displayValue}
                     onChange={this.handleInput}/>
                 <span className="_counter" 
+                    onMouseUp={this.handleLoose}
+                    onMouseDown={() => this.handleHold(this.handleAdd)}
                     onClick={this.handleAdd}>
                     <Icon>expand_less</Icon>
                 </span>
                 <span className="_counter" 
+                    onMouseUp={this.handleLoose}
+                    onMouseDown={() => this.handleHold(this.handleMinus)}
                     onClick={this.handleMinus}>
                     <Icon>expand_more</Icon>
                 </span>

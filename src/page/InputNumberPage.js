@@ -7,7 +7,7 @@ export class InputNumberPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 2,
+            value: 2.3,
         }
     }
     handleValueChange(field, value){
@@ -31,7 +31,8 @@ export class InputNumberPage extends Component {
                     <li>
                         <h3>带默认值数字输入</h3>
                         <CodeView component={
-                            <InputNumber value={this.state.value} onChange={value => this.handleValueChange('value', value)} />
+                            <InputNumber value={this.state.value} 
+                            onChange={value => this.handleValueChange('value', value)} />
                         }>
                             {`<InputNumber onChange={value => console.log(value)} />`}
                         </CodeView>
@@ -48,7 +49,7 @@ export class InputNumberPage extends Component {
                     <li>
                         <h3>最大最小值</h3>
                         <CodeView component={
-                            <InputNumber min={1} step={3} max={10}
+                            <InputNumber min={1} max={10}
                                 onChange={value => console.log('value', value)} />
                         }>
                             {`<InputNumber min={1} max={10} onChange={value => console.log(value)} />`}
