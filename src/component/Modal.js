@@ -6,16 +6,16 @@ const klassName = require('./base/util').klassName
 
 class Modal extends Component {
     open(){
-        this.refs.modal.open()
+        this.modal.open()
     }
     close(){
-        this.refs.modal.close()
+        this.modal.close()
     }
     render() {
         const {props} = this
         let className = klassName(props.className, NS)
         return (
-            <_Modal {...props} ref="modal" className={className} />
+            <_Modal {...props} ref={ modal => { this.modal = modal } } className={className} />
         )
     }
 }
