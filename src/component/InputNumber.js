@@ -21,6 +21,16 @@ class InputNumber extends Component {
         }
     }
 
+
+    componentWillReceiveProps(nextProps) {
+        let value = this.trimValue(nextProps.value)
+        if (value !== this.trimValue(this.props.value)) {
+            this.setState({
+                displayValue: value
+            }, () => this.props.onChange(value));
+        }
+    }
+
     handleBlur(e) {
         let value = this.trimValue(e.target.value)
         this.setState({
@@ -67,9 +77,10 @@ class InputNumber extends Component {
             });
             return false
         }
+        let value = Number((displayValue + step).toFixed(2))
         this.setState({
-            displayValue: Number((displayValue + step).toFixed(2))
-        });
+            displayValue: value
+        }, () => this.props.onChange(value));
     }
 
     handleMinus(){
@@ -81,9 +92,10 @@ class InputNumber extends Component {
             });
             return false
         }
+        let value = Number((displayValue - step).toFixed(2))
         this.setState({
-            displayValue: Number((displayValue - step).toFixed(2))
-        });
+            displayValue: value
+        }, () => {this.props.onChange(value)});
     }
 
     handleInput(e) {
@@ -102,12 +114,14 @@ class InputNumber extends Component {
                     onChange={this.handleInput}/>
                 <span className="_counter" 
                     onMouseUp={this.handleLoose}
+                    onMouseLeave={this.handleLoose}
                     onMouseDown={() => this.handleHold(this.handleAdd)}
                     onClick={this.handleAdd}>
                     <Icon>expand_less</Icon>
                 </span>
                 <span className="_counter" 
                     onMouseUp={this.handleLoose}
+                    onMouseLeave={this.handleLoose}
                     onMouseDown={() => this.handleHold(this.handleMinus)}
                     onClick={this.handleMinus}>
                     <Icon>expand_more</Icon>

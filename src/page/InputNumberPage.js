@@ -25,16 +25,16 @@ export class InputNumberPage extends Component {
                         <CodeView component={
                             <InputNumber onChange={value => console.log(value)} />
                         }>
-                            {`<InputNumber onChange={value => console.log(value)} />`}
+                            {`<InputNumber onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
                     <li>
                         <h3>带默认值数字输入</h3>
                         <CodeView component={
                             <InputNumber value={this.state.value} 
-                            onChange={value => this.handleValueChange('value', value)} />
+                                onChange={value => this.handleValueChange('value', value)} />
                         }>
-                            {`<InputNumber onChange={value => console.log(value)} />`}
+                            {`<InputNumber onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
                     <li>
@@ -43,16 +43,17 @@ export class InputNumberPage extends Component {
                             <InputNumber int 
                                 onChange={value => console.log('value', value)} />
                         }>
-                            {`<InputNumber onChange={value => console.log(value)} />`}
+                            {`<InputNumber onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
                     <li>
                         <h3>最大最小值</h3>
                         <CodeView component={
                             <InputNumber min={1} max={10}
-                                onChange={value => console.log('value', value)} />
+                                value={this.state.value1}
+                                onChange={value => this.handleValueChange('value1', value)} />
                         }>
-                            {`<InputNumber min={1} max={10} onChange={value => console.log(value)} />`}
+                            {`<InputNumber min={1} max={10} onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
                     <li>
@@ -61,7 +62,7 @@ export class InputNumberPage extends Component {
                             <InputNumber step={0.2} 
                                 onChange={value => console.log('value', value)} />
                         }>
-                            {`<InputNumber step={0.2} onChange={value => console.log(value)} />`}
+                            {`<InputNumber step={0.2} onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
                 </ul>
