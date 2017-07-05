@@ -6,9 +6,12 @@ import {CodeView} from '../component/CodeView';
 
 const makeContent = (options={}) => {
     options = options || {}
-    let {current=null, bottom=false, section=false, vertical=false} = options
+    let {current=null, bottom=false, section=false, vertical=false, onChange=null} = options
     return (
-        <Tab current={current} bottom={bottom} section={section} vertical={vertical}>
+        <Tab current={current} 
+            bottom={bottom} 
+            section={section} vertical={vertical}
+            onChange={onChange}>
             <Item index="0" title={<p>第一</p>}>
                 <h4>内容一</h4>
                 <p>详情asdfhjkl</p>
@@ -118,6 +121,16 @@ export class TabPage extends Component {
 </Tab>`}                    
                 </CodeView>
                 <br/>
+
+                <h4>onChange 事件</h4>
+                <CodeView component={makeContent({
+                                        onChange: index => alert(`当前选中${index}`)
+                                    })}>
+{`<Tab vertical={true} bottom={true}>
+    ...
+</Tab>`}                    
+                </CodeView>
+                <br/>
                 
                 <h4>嵌套选项卡</h4>
                 <CodeView component={<Tab vertical={true} bottom={true}>
@@ -213,6 +226,13 @@ export class TabPage extends Component {
                             <td>垂直选项卡</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onChange</td>
+                            <td>tab 切换事件, 拿到当前选中 Item 的 index 值</td>
+                            <td>function(index){}</td>
+                            <td>null</td>
                             <td>否</td>
                         </tr>
                     </tbody>
