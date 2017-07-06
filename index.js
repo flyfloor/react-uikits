@@ -18,6 +18,9 @@ var RULE = _fm.RULE;
 var Item = require('./lib/Item').Item;
 var Icon = require('./lib/Icon').Icon;
 var Menu = require('./lib/Menu').Menu;
+var MenuGroup = require('./lib/Menu').MenuGroup;
+var SubMenu = require('./lib/Menu').SubMenu;
+var MenuItem = require('./lib/Menu').MenuItem;
 var Modal = require('./lib/Modal').Modal;
 var NoticeCenter = require('./lib/NoticeCenter').NoticeCenter;
 var Pagination = require('./lib/Pagination').Pagination;
@@ -49,6 +52,9 @@ module.exports = {
     Item: Item,
     Icon: Icon,
     Menu: Menu,
+    SubMenu: SubMenu,
+    MenuGroup: MenuGroup,
+    MenuItem: MenuItem,
     Modal: Modal,
     NoticeCenter: NoticeCenter,
     Pagination: Pagination,
