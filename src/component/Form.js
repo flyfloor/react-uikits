@@ -162,7 +162,7 @@ class Form extends Component {
                 }, newStore)
                 newStore[key] = value
             }
-            return newStore
+            return undefined
         })
         return newStore
     }
