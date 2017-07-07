@@ -17,6 +17,7 @@ var Validator = _fm.Validator;
 var RULE = _fm.RULE;
 var Item = require('./lib/Item').Item;
 var Icon = require('./lib/Icon').Icon;
+var InputNumber = require('./lib/InputNumber').InputNumber;
 var Menu = require('./lib/Menu').Menu;
 var MenuGroup = require('./lib/Menu').MenuGroup;
 var SubMenu = require('./lib/Menu').SubMenu;

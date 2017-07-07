@@ -23,7 +23,7 @@ export class ModalPage extends Component {
         super(props);
     }
     openModal(ref){
-        const dom = this.refs[ref]
+        const dom = this[ref]
         dom.open()
     }
     handleConfirm(){
@@ -43,20 +43,20 @@ export class ModalPage extends Component {
                 <h4>默认弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal0')}>显示</button>
-                                        <Modal ref="modal0">
+                                        <Modal ref={modal => this.modal0 = modal}>
                                             {content}
                                         </Modal>
                                     </div>}>
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal">
+    <Modal ref={modal => this.modal = modal}>
         {content}
     </Modal>
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -65,20 +65,20 @@ openModal = function(){
                 <h4>带标题的弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal1')}>显示</button>
-                                        <Modal ref="modal1" title={<h2>标题</h2>}>
+                                        <Modal ref={modal => this.modal1 = modal} title={<h2>标题</h2>}>
                                             {content}
                                         </Modal>
                                     </div>}>
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal" title={<h2>标题</h2>}>
+    <Modal ref={modal => this.modal = modal} title={<h2>标题</h2>}>
         {content}
     </Modal>
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -91,7 +91,7 @@ openModal = function(){
                 <h4>带确认弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal2')}>显示</button>
-                                        <Modal ref="modal2"
+                                        <Modal  ref={modal => this.modal2 = modal}
                                             onConfirm={() => {
                                                 alert('confirm')
                                                 // 返回值 true 或 false 决定是否关闭
@@ -103,7 +103,7 @@ openModal = function(){
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal"
+    <Modal ref={modal => this.modal = modal}
         onConfirm={() => {
             alert('confirm')
             // 返回值 true 或 false 决定是否关闭
@@ -114,7 +114,7 @@ openModal = function(){
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -123,7 +123,7 @@ openModal = function(){
                 <h4>带取消弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal3')}>显示</button>
-                                        <Modal ref="modal3"
+                                        <Modal  ref={modal => this.modal3 = modal}
                                             onCancel={() => {
                                                 alert('cancel')
                                                 return true
@@ -134,7 +134,7 @@ openModal = function(){
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal"
+    <Modal ref={modal => this.modal = modal}
         onCancel={() => {
             alert('cancel')
             // 返回值 true 或 false 决定是否关闭
@@ -145,7 +145,7 @@ openModal = function(){
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -155,7 +155,7 @@ openModal = function(){
                 <h4>确认及取消弹出层</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal4')}>显示</button>
-                                        <Modal ref="modal4"
+                                        <Modal  ref={modal => this.modal4 = modal}
                                             onCancel={() => {
                                                 alert('cancel')
                                                 return true
@@ -170,7 +170,7 @@ openModal = function(){
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal"
+    <Modal ref={modal => this.modal = modal}
         onConfirm={() => {
             return confirm('confirm')
         }}
@@ -183,7 +183,7 @@ openModal = function(){
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -192,7 +192,7 @@ openModal = function(){
                 <h4>自定义关闭事件</h4>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal5')}>显示</button>
-                                        <Modal ref="modal5"
+                                        <Modal ref={modal => this.modal5 = modal}
                                             onClose={() => {
                                                 return confirm('close')
                                             }}>
@@ -202,7 +202,7 @@ openModal = function(){
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal"
+    <Modal ref={modal => this.modal = modal}
         onClose={() => {
             // 根据返回值判断是否关闭
             return confirm('confirm')
@@ -212,7 +212,7 @@ openModal = function(){
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -222,28 +222,28 @@ openModal = function(){
                 <p className={`${NS} info message`}>自定义dom内容，手动触发关闭弹窗事件</p>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal6')}>显示</button>
-                                        <Modal ref="modal6">
+                                        <Modal ref={modal => this.modal6 = modal}>
                                             {content}
                                             <br/>
                                             <br/>
                                             <br/>
-                                            <button className={`${NS} red button`} onClick={() => this.refs.modal6.close()}>点击关闭当前弹窗</button>
+                                            <button className={`${NS} red button`} onClick={() => this.modal6.close()}>点击关闭当前弹窗</button>
                                         </Modal>
                                     </div>}>
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal">
+    <Modal ref={modal => this.modal = modal}>
         ...
         <br/>
         <br/>
         <br/>
-        <button className="${NS} red button" onClick={() => this.refs.modal.close()}>点击关闭当前弹窗</button>
+        <button className="${NS} red button" onClick={() => this.modal.close()}>点击关闭当前弹窗</button>
     </Modal>
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
@@ -253,20 +253,20 @@ openModal = function(){
                 <p className={`${NS} info message`}>点击遮罩将无法关闭弹出层，应用于强制限制用户操作，要求提供 onConfirm 事件或者提供手动触发关闭方式</p>
                 <CodeView component={<div>
                                         <button className={`${NS} button`} onClick={this.openModal.bind(this, 'modal7')}>显示</button>
-                                        <Modal ref="modal7" force={true} onConfirm={() => true }>
+                                        <Modal  ref={modal => this.modal7 = modal} force={true} onConfirm={() => true }>
                                             {content}
                                         </Modal>
                                     </div>}>
 {`<div>
     <button className="${NS} button" onClick={this.openModal}>显示</button>
     ...
-    <Modal ref="modal" force={true} onConfirm={handleConfirm}>
+    <Modal ref={modal => this.modal = modal} force={true} onConfirm={handleConfirm}>
         {content}
     </Modal>
 </div>
 
 openModal = function(){
-    this.refs.modal.open()
+    this.modal.open()
 }
 `}
                 </CodeView>
