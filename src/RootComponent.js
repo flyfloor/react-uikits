@@ -7,7 +7,7 @@ import {
     DatePickerPage, DateTimePickerPage, DropDownPage,
     FormPage,
     GridPage,
-    IconPage, ImagePage, InputPage, ItemPage, InstallPage,
+    IconPage, ImagePage, InputPage, ItemPage, InstallPage, InputNumberPage,
     LabelPage, LoaderPage, ListPage,
     MenuPage, ModalPage,
     NoticePage,
@@ -150,6 +150,7 @@ const ContentPage = props => {
                 <Route path="/component/table" component={TablePage}></Route>
                 <Route path="/component/text" component={TextPage}></Route>
                 <Route path="/component/list" component={ListPage}></Route>
+                <Route path="/component/input-number" component={InputNumberPage}></Route>
                 <Route path="/temp" component={TempPage}></Route>
              </artical>
         </div>

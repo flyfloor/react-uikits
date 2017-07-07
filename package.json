@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
     "async-validator": "^1.7.1",
+    "immutability-helper": "^2.2.3",
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",

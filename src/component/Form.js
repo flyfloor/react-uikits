@@ -1,6 +1,7 @@
 const React = require('react')
 const Component = React.Component
 const PropTypes = require('prop-types')
+
 const constant = require('./base/constant')
 const {FORM_RULE, DEFAULT_INVALID_MSG, NS} = constant
 const klassName = require('./base/util').klassName
@@ -129,10 +130,47 @@ class Form extends Component {
         }
     }
 
+    // check if name is "a.b.c.d"
+    getValidateDataByName(store, name){
+        if (!name) {
+            return store
+        }
+        if (name.indexOf('.') !== -1) {
+            let data = {}
+            name = name.split('.')
+            try {
+                data = name.reduce((prev, next) => {
+                    return prev[next]
+                }, store)
+            } catch (e) { 
+                throw Error(e)
+            }
+            return data
+        }
+        return store[name]
+    }
+    
+    // check if rule's key is "a.b.c.d", generate fake store with rule {a: {b: {c: { d: value }}}} => {"a.b.c.d": value}
+    convertFakeStore(){
+        let {store, rules} = this.props
+        let newStore = Object.assign({}, store)
+        Object.keys(rules).map(key => {
+            if (rules.hasOwnProperty(key) && key.indexOf('.') !== -1) {
+                let names = key.split('.')
+                let value = names.reduce((prev, next) => {
+                    return prev[next]
+                }, newStore)
+                newStore[key] = value
+            }
+            return undefined
+        })
+        return newStore
+    }
+
     validate({ name, success, fail, afterCallback } = { name: '' } ){
         const {store, rules} = this.props
-        // after callback or after from props
-        let submitData = name ? store[name] : store
+        let fakeStore = this.convertFakeStore()
+        let submitData = this.getValidateDataByName(store, name)
         // field name is given, but rules not found, check if has after validate
         if (name && !rules[name]) {
             return this.validateAfterAction({ field: name, afterCallback })(errors => {
@@ -141,10 +179,10 @@ class Form extends Component {
         }
         // validator descriptor
         let descriptor = name ? { [name]: rules[name] } : rules
-        let storeData = name ? { [name]: store[name] } : store
+        let validateData = name ? { [name]: submitData } : fakeStore
 
         vBuilder = new Schema(descriptor)
-        vBuilder.validate(storeData, (errors, errObj) => {
+        vBuilder.validate(validateData, (errors, errObj) => {
             let {errorFieldsObj} = this.state
             // valid special field
             if (name && errorFieldsObj) {

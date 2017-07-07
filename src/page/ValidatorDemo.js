@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
+
 import {CN} from '../util/tools';
 import {Form, Group, Field, Fields, Validator, RULE}  from '../component/Form';
 import {DropDown} from '../component/DropDown';
@@ -11,6 +13,7 @@ import {TimePicker} from '../component/TimePicker';
 import {TimeInput} from '../component/TimeInput';
 import {DateTimePicker} from '../component/DateTimePicker';
 import {Item} from '../component/Item';
+import {InputNumber} from '../component/InputNumber';
 import {PROVINCES, CITIES} from '../constant';
 
 const COUNTRIES = [
@@ -55,7 +58,6 @@ const rules = {
     address: [RULE.textRequired, {
         min: 20, max: 200, message: '20-200个字',
     }],
-    begin_at: [RULE.required],
     begin_date: [RULE.required],
     end_date: [RULE.required],
     begin_time: [RULE.required, {
@@ -64,6 +66,18 @@ const rules = {
     end_time: [RULE.required, {
         type: 'integer'
     }],
+    "users.0.name": [ RULE.textRequired, {
+        min: 3, max: 12, message: '名字长度3至12字'
+    }],
+    "users.0.age": {
+        type: 'number', min: 3, max: 12, message: '3-12 岁'
+    },
+    "users.1.name": [ RULE.textRequired, {
+        min: 5, max: 12, message: '名字长度5至12字'
+    }],
+    "users.1.age": {
+        type: 'number', min: 3, max: 23, message: '3-12 岁'
+    },
     countries: [RULE.required, {
         type: 'array', min: 3, message: '至少选三个',
     }, {
@@ -84,15 +98,40 @@ export default class ValidatorDemo extends Component {
         this.validateEndAt = this.validateEndAt.bind(this)
         this.validateCountries = this.validateCountries.bind(this)
         this.validateBeginNdEndTime = this.validateBeginNdEndTime.bind(this)
+        this.handleUsersFieldChange = this.handleUsersFieldChange.bind(this)
         this.state = {
-            store: {},
+            store: {
+                users: [{
+                    name: 'jerry',
+                    age: 12,
+                }, {
+                    name: 'lily',
+                    age: 26,
+                }, {
+
+                }],
+            },
             cities: [],
         }
     }
+    
+    handleUsersFieldChange(field, index, value) {
+        let {store} = this.state
+        this.setState({
+            store: update(store, {
+                users: {
+                    [index]: {
+                        [field]: { $set: value }
+                    }
+                }
+            })
+        });
+    }
+
     handleFieldChange(field, value){
         let {store} = this.state
         store[field] = value
-        this.setState({ store });
+        this.setState({store});
     }
     handleProvinceChange(pid){
         this.setState({
@@ -396,6 +435,34 @@ export default class ValidatorDemo extends Component {
                             </Validator>
                         </Field>
                     </Fields>
+                </Group>
+
+                <Group label="用户">
+                    {store.users.map((user, index) => {
+                        return (
+                            <Fields size={2} key={index}>
+                                <Field validate={`users.${index}.name`} label={`昵称`}>
+                                    <Validator name={`users.${index}.name`} trigger="onBlur">
+                                        <input type="text" 
+                                            value={store.users[index].name}
+                                            onChange={e => 
+                                                this.handleUsersFieldChange("name", index, e.target.value)
+                                            }/>
+                                    </Validator>
+                                </Field>
+                                <Field validate={`users.${index}.age`} label={`年龄`}>
+                                    <Validator name={`users.${index}.age`} trigger="onChange">
+                                        <InputNumber type="number" 
+                                            value={store.users[index].age}
+                                            onChange={value => {
+                                                this.handleUsersFieldChange("age", index, value)
+                                                console.log(value)
+                                            }}/>
+                                    </Validator>
+                                </Field>
+                            </Fields>
+                        )
+                    })}
                 </Group>
                 
                 <Group type="action">

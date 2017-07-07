@@ -1,0 +1,46 @@
+@import url('meta');
+@import url('color');
+
+@{NS}.input-number {
+    position: relative;
+    display: inline-block;
+    width: @min_component_width;
+    &.mini {
+        width: @mini_size;
+    }
+    &.small {
+        width: @small_size;
+    }
+    &.large {
+        width: @large_size;
+    }
+    &.fluid {
+        width: 100%;
+    }
+    >input[type=text] {
+        width: 100%;
+    }
+    ._counter {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        padding: 0 @padding * .5;
+        border: 1px solid @light_gray;
+        line-height: @normal_font_size - 2px;
+        background: @white;
+        cursor: pointer;
+        border-radius: @radius;
+        width: @normal_font_size + @padding + 2;
+        &:hover {
+            color: @blue;
+            background: @tiny_gray;
+        }
+        >i {
+            font-size: @normal_font_size;
+        }
+        &:last-child {
+            top: initial;
+            bottom: 1px;
+        }
+    } 
+}
