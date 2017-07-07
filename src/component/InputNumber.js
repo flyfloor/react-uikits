@@ -3,7 +3,7 @@ const PropTypes = require('prop-types')
 const Component = React.Component
 const NS = require('./base/constant').NS
 const Icon = require('./Icon').Icon
-const klassName = require('../util/className')
+const klassName = require('./base/util').klassName
 
 let _timer = null
 
