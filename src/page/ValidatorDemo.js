@@ -13,6 +13,7 @@ import {TimePicker} from '../component/TimePicker';
 import {TimeInput} from '../component/TimeInput';
 import {DateTimePicker} from '../component/DateTimePicker';
 import {Item} from '../component/Item';
+import {InputNumber} from '../component/InputNumber';
 import {PROVINCES, CITIES} from '../constant';
 
 const COUNTRIES = [
@@ -72,7 +73,7 @@ const rules = {
         type: 'number', min: 3, max: 12, message: '3-12 岁'
     },
     "users.1.name": [ RULE.textRequired, {
-        min: 3, max: 12, message: '名字长度3至12字'
+        min: 5, max: 12, message: '名字长度5至12字'
     }],
     "users.1.age": {
         type: 'number', min: 3, max: 23, message: '3-12 岁'
@@ -450,12 +451,13 @@ export default class ValidatorDemo extends Component {
                                     </Validator>
                                 </Field>
                                 <Field validate={`users.${index}.age`} label={`年龄`}>
-                                    <Validator name={`users.${index}.age`} trigger="onBlur">
-                                        <input type="number" 
+                                    <Validator name={`users.${index}.age`} trigger="onChange">
+                                        <InputNumber type="number" 
                                             value={store.users[index].age}
-                                            onChange={e => 
-                                                this.handleUsersFieldChange("age", index, Number(e.target.value))
-                                            }/>
+                                            onChange={value => {
+                                                this.handleUsersFieldChange("age", index, value)
+                                                console.log(value)
+                                            }}/>
                                     </Validator>
                                 </Field>
                             </Fields>

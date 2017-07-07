@@ -70,6 +70,18 @@ const rules = {
     }, {
         type: 'array', max: 6, message: '最多选六个',
     }],
+    "users.0.name": [ RULE.textRequired, {
+        min: 3, max: 12, message: '名字长度3至12字'
+    }],
+    "users.0.age": {
+        type: 'number', min: 3, max: 12, message: '3-12 岁'
+    },
+    "users.1.name": [ RULE.textRequired, {
+        min: 5, max: 12, message: '名字长度5至12字'
+    }],
+    "users.1.age": {
+        type: 'number', min: 3, max: 23, message: '3-12 岁'
+    },
 }
 `}
 </Hightlight>

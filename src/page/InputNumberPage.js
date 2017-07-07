@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputNumber from '../component/InputNumber'
+import {InputNumber} from '../component/InputNumber'
 import {CodeView} from '../component/CodeView'
 import {CN, TitleBlock} from '../util/tools';
 
@@ -65,7 +65,92 @@ export class InputNumberPage extends Component {
                             {`<InputNumber step={0.2} onChange={value => onChangeFunc(value)} />`}
                         </CodeView>
                     </li>
+                    <li>
+                        <h3>size</h3>
+                        <CodeView component={
+                            <span>
+                                <div>
+                                    <h4>mini</h4>
+                                    <InputNumber size="mini" 
+                                        onChange={value => console.log('value', value)} />
+                                </div>
+                                <br/>
+                                <div>
+                                    <h4>small</h4>
+                                    <InputNumber size="small" 
+                                        onChange={value => console.log('value', value)} />
+                                </div>
+                                <br/>
+                                <div>
+                                    <h4>large</h4>
+                                    <InputNumber size="large" 
+                                        onChange={value => console.log('value', value)} />
+                                </div>
+                                <br/>
+                                <div>
+                                    <h4>fluid, 响应式</h4>
+                                    <InputNumber size="fluid" 
+                                        onChange={value => console.log('value', value)} />
+                                </div>
+                            </span>
+                        }>
+{`<InputNumber size="mini" onChange={value => onChangeFunc(value)} />
+<InputNumber size="small" onChange={value => onChangeFunc(value)} />
+<InputNumber size="large" onChange={value => onChangeFunc(value)} />
+<InputNumber size="fluid" onChange={value => onChangeFunc(value)} />`}
+                        </CodeView>
+                    </li>
                 </ul>
+
+                <h4>属性</h4>
+                <table className="dot table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>min</td>
+                            <td>最小值</td>
+                            <td>Number</td>
+                            <td>null</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>max</td>
+                            <td>最大值</td>
+                            <td>Number</td>
+                            <td>null</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>step</td>
+                            <td>步进</td>
+                            <td>Number</td>
+                            <td>1</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>size</td>
+                            <td>输入尺寸，mini, small, large, fluid, 不填</td>
+                            <td>enum</td>
+                            <td>null</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>onChange</td>
+                            <td>值更新触发</td>
+                            <td>function(value){}</td>
+                            <td>null</td>
+                            <td>是</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         );
     }

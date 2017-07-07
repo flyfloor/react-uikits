@@ -73,6 +73,19 @@ export class DropDownPage extends Component {
                 </CodeView>
                 <br/>
 
+                <h4>small</h4>
+                <CodeView component={<DropDown options={options}
+                    className='small' onChange={(value) => console.log(value)}/>}>
+                    {`<DropDown options={options} className='small' onChange={(value) => console.log(value)}/>`}
+                </CodeView>
+                <br/>
+                <h4>mini</h4>
+                <CodeView component={<DropDown options={options}
+                    className='mini' onChange={(value) => console.log(value)}/>}>
+                    {`<DropDown options={options} className='mini' onChange={(value) => console.log(value)}/>`}
+                </CodeView>
+                <br/>
+
                 <h4>Yield Children</h4>
                 <CodeView component={<DropDown value={2} onChange={value => console.log(value)}>
                                         <Item value={1} name="apple">

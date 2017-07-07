@@ -3,6 +3,7 @@ const PropTypes = require('prop-types')
 const Component = React.Component
 const NS = require('./base/constant').NS
 const Icon = require('./Icon').Icon
+const klassName = require('../util/className')
 
 let _timer = null
 
@@ -35,7 +36,9 @@ class InputNumber extends Component {
         let value = this.trimValue(e.target.value)
         this.setState({
             displayValue: value,
-        }, () => this.props.onChange(value));
+        }, () => {
+            this.props.onChange(value)
+        });
     }
 
     trimValue(value){
@@ -106,26 +109,33 @@ class InputNumber extends Component {
 
     render() {
         const {displayValue} = this.state
+        const {style, className, showArrow, size} = this.props
         return (
-            <span className={`${NS} input-number`}>
+            <span style={style} className={klassName(NS, size, className, 'input-number')}>
                 <input type="text" className={`${NS} input`} 
                     onBlur={this.handleBlur}
                     value={displayValue}
                     onChange={this.handleInput}/>
-                <span className="_counter" 
-                    onMouseUp={this.handleLoose}
-                    onMouseLeave={this.handleLoose}
-                    onMouseDown={() => this.handleHold(this.handleAdd)}
-                    onClick={this.handleAdd}>
-                    <Icon>expand_less</Icon>
-                </span>
-                <span className="_counter" 
-                    onMouseUp={this.handleLoose}
-                    onMouseLeave={this.handleLoose}
-                    onMouseDown={() => this.handleHold(this.handleMinus)}
-                    onClick={this.handleMinus}>
-                    <Icon>expand_more</Icon>
-                </span>
+                {
+                    showArrow ? 
+                    <span>
+                        <span className="_counter" 
+                            onMouseUp={this.handleLoose}
+                            onMouseLeave={this.handleLoose}
+                            onMouseDown={() => this.handleHold(this.handleAdd)}
+                            onClick={this.handleAdd}>
+                            <Icon>expand_less</Icon>
+                        </span>
+                        <span className="_counter" 
+                            onMouseUp={this.handleLoose}
+                            onMouseLeave={this.handleLoose}
+                            onMouseDown={() => this.handleHold(this.handleMinus)}
+                            onClick={this.handleMinus}>
+                            <Icon>expand_more</Icon>
+                        </span>
+                    </span>
+                    : null
+                }
             </span>
         );
     }
@@ -138,6 +148,8 @@ InputNumber.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
     step: PropTypes.number,
+    size: PropTypes.oneOf(['small', 'large', 'mini', '', 'fluid']),
+    showArror: PropTypes.bool,
 }
 
 InputNumber.defaultProps = {
@@ -146,5 +158,9 @@ InputNumber.defaultProps = {
     max: Infinity,
     min: -Infinity,
     step: 1,
+    size: '',
+    showArrow: true,
 }
-module.exports = InputNumber
+module.exports = {
+    InputNumber
+}

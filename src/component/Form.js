@@ -168,8 +168,8 @@ class Form extends Component {
     }
 
     validate({ name, success, fail, afterCallback } = { name: '' } ){
-        let fakeStore = this.convertFakeStore()
         const {store, rules} = this.props
+        let fakeStore = this.convertFakeStore()
         let submitData = this.getValidateDataByName(store, name)
         // field name is given, but rules not found, check if has after validate
         if (name && !rules[name]) {

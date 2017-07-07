@@ -4,7 +4,23 @@
 @{NS}.input-number {
     position: relative;
     display: inline-block;
-    >._counter {
+    width: @min_component_width;
+    &.mini {
+        width: @mini_size;
+    }
+    &.small {
+        width: @small_size;
+    }
+    &.large {
+        width: @large_size;
+    }
+    &.fluid {
+        width: 100%;
+    }
+    >input[type=text] {
+        width: 100%;
+    }
+    ._counter {
         position: absolute;
         top: 1px;
         right: 1px;

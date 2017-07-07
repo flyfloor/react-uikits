@@ -52,6 +52,7 @@ module.exports = {
     Group: Group,
     Item: Item,
     Icon: Icon,
+    InputNumber: InputNumber,
     Menu: Menu,
     SubMenu: SubMenu,
     MenuGroup: MenuGroup,

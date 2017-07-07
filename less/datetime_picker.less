@@ -3,8 +3,9 @@
 @import url('button');
 
 @{NS}.datetime-picker {
+    @__timepickerWidth: @min_component_width;
     display: inline-block;
-    width: @min_input_width;
+    width: @__timepickerWidth;
     position: relative;
     >._input {
         position: relative;
@@ -17,14 +18,14 @@
         }
     }
     ._timepicker {
-        width: @min_input_width * 1.25;
+        width: @__timepickerWidth * 1.25;
         >._section {
             &:before, &:after {
                 content: none;
             }
         }
         ._list {
-            width: @min_input_width * 1.25 / 3;
+            width: @__timepickerWidth * 1.25 / 3;
         }
     }
     
@@ -50,7 +51,7 @@
     &._right {
         >._wrap {
             top: 0;
-            left: @min_input_width + 8px;
+            left: @__timepickerWidth + 8px;
             ._timepicker, ._datepicker {
                 &:before, &:after {
                     top: 10px;
@@ -68,15 +69,15 @@
     &._left {
         >._wrap {
             top: 0;
-            left: @min_input_width * -1.25 - 8px;
+            left: @__timepickerWidth * -1.25 - 8px;
             ._timepicker, ._datepicker {
                 &:before, &:after {
                     top: 10px;
-                    left: @min_input_width * 1.25;
+                    left: @__timepickerWidth * 1.25;
                     border-color: transparent transparent transparent @light_gray;
                 }
                 &:after {
-                    left: @min_input_width * 1.25 - 2px;
+                    left: @__timepickerWidth * 1.25 - 2px;
                     border-color: transparent transparent transparent @mini_gray;
                 }
             }
