@@ -132,27 +132,27 @@
     }
     &-light_@{color} {
         @_color: 'light_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
     &-dark_@{color} {
         @_color: 'dark_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
     &-deep_@{color}{
         @_color: 'deep_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
     &-tiny_@{color} {
         @_color: 'tiny_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
     &-mini_@{color}{
         @_color: 'mini_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
     &-most_@{color}{
         @_color: 'most_@{color}';
-        @{attr}: @@_color;
+        @{attr}: @@_color !important;
     }
 }
 
@@ -203,8 +203,8 @@
     .__setAttrColor(gray, background-color);
     .__setAttrColor(bluegray, background-color);
     .__setAttrColor(yellow, background-color);
-    &-dull_gray { background-color: @dull_gray }
-    &-soft_gray { background-color: @soft_gray }
-    &-black { background-color: @black }
-    &-white { background-color: @white }
+    &-dull_gray { background-color: @dull_gray !important }
+    &-soft_gray { background-color: @soft_gray !important }
+    &-black { background-color: @black !important }
+    &-white { background-color: @white !important }
 }

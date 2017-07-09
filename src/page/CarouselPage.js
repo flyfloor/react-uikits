@@ -35,9 +35,9 @@ export class CarouselPage extends Component {
                 </CodeView>
 
                 <h4>自动播放跑马灯</h4>
-                <CodeView component={<Carousel autoPlay={true} delay={3000} >{imgNodes}</Carousel>}>
+                <CodeView component={<Carousel autoPlay={true} delay={2000} >{imgNodes}</Carousel>}>
 {
-`<Carousel autoPlay={true} delay={3000}>
+`<Carousel autoPlay={true} delay={2000}>
     <img src="../img0.png" key="0" />
     <img src="../img1.png" key="1" />
     <img src="../img2.png" key="2" />
@@ -94,6 +94,13 @@ export class CarouselPage extends Component {
                             <td>是否自动播放</td>
                             <td>Boolean</td>
                             <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>delay</td>
+                            <td>自动播放延迟(毫秒)</td>
+                            <td>Number</td>
+                            <td>5000</td>
                             <td>否</td>
                         </tr>
                         <tr>
