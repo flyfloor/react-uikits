@@ -171,8 +171,8 @@ class Form extends Component {
         const {store, rules} = this.props
         let fakeStore = this.convertFakeStore()
         let submitData = this.getValidateDataByName(store, name)
-        // field name is given, but rules not found, check if has after validate
         if (name && !rules[name]) {
+            // field name is given, but rules not found, check if has after validate
             return this.validateAfterAction({ field: name, afterCallback })(errors => {
                 return errors ? fail && fail.call(this, errors) : success && success.call(this, submitData)
             })
