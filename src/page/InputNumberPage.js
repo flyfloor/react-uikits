@@ -92,12 +92,35 @@ export class InputNumberPage extends Component {
                                     <InputNumber size="fluid" 
                                         onChange={value => console.log('value', value)} />
                                 </div>
+                                <br/>
                             </span>
                         }>
 {`<InputNumber size="mini" onChange={value => onChangeFunc(value)} />
 <InputNumber size="small" onChange={value => onChangeFunc(value)} />
 <InputNumber size="large" onChange={value => onChangeFunc(value)} />
 <InputNumber size="fluid" onChange={value => onChangeFunc(value)} />`}
+                        </CodeView>
+                        <br/>
+                    </li>
+                    <li>
+                        <h4>disabled</h4>
+                        <CodeView component={
+                            <InputNumber 
+                                disabled
+                                onChange={value => console.log('value', value)} />
+                        }>
+                            {`<InputNumber disabled onChange={onChangeFunc} />`}
+                        </CodeView>
+                        <br/>
+                    </li>
+                    <li>
+                        <h4>不显示箭头</h4>
+                        <CodeView component={
+                            <InputNumber 
+                                showArrow={false}
+                                onChange={value => console.log('value', value)} />
+                        }>
+                            {`<InputNumber showArrow={false} onChange={onChangeFunc} />`}
                         </CodeView>
                     </li>
                 </ul>
