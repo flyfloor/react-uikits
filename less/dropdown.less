@@ -7,7 +7,7 @@
     display: inline-block;
     min-width: @min_input_width;
     &._top ._list {
-        bottom: @line_height * 2 + 2;
+        bottom: @line_height * 2 + 4px;
     }
     &.small {
         min-width: @small_size;
@@ -71,12 +71,13 @@
         margin: 0;
         box-shadow: none;
         -webkit-appearance: none;
-        padding: @padding * 8/10 @padding;
+        padding: 0 @normal_font_size / 2;
         border: 1px solid rgba(50,50,50,0.16);
         -webkit-transition: all .2s;
         -o-transition: all .2s;
         transition: all .2s;
-        line-height: @line_height;
+        line-height: @line_height * 2 + 4px;
+        height: @line_height * 2 + 6px;
         font-size: @line_height;
         border-radius: @radius;
         color: @most_gray;
@@ -91,7 +92,7 @@
         right: 5px;
         top: 0;
         font-size: 22px;
-        line-height: @line_height * 2;
+        line-height: @line_height * 2 + 4px;
     }
 
     ._label {
@@ -144,7 +145,7 @@
         }
         ._input {
             background: none;
-            padding: 0 @gap/2;
+            padding: 0 @normal_font_size / 2;
             position: absolute;
             left: 0;
             top: 0;
@@ -159,7 +160,7 @@
 
     ._multi {
         .__input();
-        padding: 0 @gap/2;
+        padding: 0 @normal_font_size / 2;
         &:after {
             content: 'arrow_drop_down';
             .__dropIcon();

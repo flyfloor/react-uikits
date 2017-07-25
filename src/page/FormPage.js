@@ -44,13 +44,13 @@ class FormDemo extends Component {
                         <Field>
                             <label className={CN('checkbox')}>
                                 <input type="checkbox" className="original"/>
-                                <span>checkbox</span>
+                                <span>原生checkbox</span>
                             </label>
                         </Field>
                         <Field>
                             <label className={CN('radio')}>
                                 <input type="radio" className="original"/>
-                                <span>radio</span>
+                                <span>原生radio</span>
                             </label>
                         </Field>
                         <Field>
@@ -65,11 +65,11 @@ class FormDemo extends Component {
                     <Field type="inline">
                         <label className={CN('checkbox')}>
                             <input type="checkbox" className="original"/>
-                            <span>checkbox</span>
+                            <span>原生checkbox</span>
                         </label>
                         <label className={CN('radio')}>
                             <input type="radio" className="original"/>
-                            <span>radio</span>
+                            <span>原生radio</span>
                         </label>
                         <CheckBox name="name">checkbox</CheckBox>
                         <Radio value={true}>radio</Radio>
@@ -183,6 +183,16 @@ class FormDemo extends Component {
                 </Group>
                 <Group label="inline time:">
                     <Field type="inline">
+                        <DropDown multi={true} name="国家" onChange={val => console.log(val)}>
+                            <Item name="中国" value="china"></Item>
+                            <Item name="美国" value="america"></Item>
+                            <Item name="英国" value="england"></Item>
+                            <Item name="法国" value="france"></Item>
+                            <Item name="德国" value="germany"></Item>
+                            <Item name="澳大利亚" value="australia"></Item>
+                            <Item name="日本" value="japan"></Item>
+                            <Item name="韩国" value="korea"></Item>
+                        </DropDown>
                         <DateTimePicker onChange={val => console.log(val)}/>
                         <TimePicker onChange={val => console.log(val)}/>
                         <TimeInput onChange={val => console.log(val)}/>
@@ -283,13 +293,13 @@ export class FormPage extends Component {
             <Field>
                 <label className="${CN('checkbox')}">
                     <input type="checkbox" className="original"/>
-                    <span>checkbox</span>
+                    <span>原生checkbox</span>
                 </label>
             </Field>
             <Field>
                 <label className="${CN('radio')}">
                     <input type="radio" className="original"/>
-                    <span>radio</span>
+                    <span>原生radio</span>
                 </label>
             </Field>
             <Field>
@@ -304,11 +314,11 @@ export class FormPage extends Component {
         <Field type="inline">
             <label className="${CN('checkbox')}">
                 <input type="checkbox" className="original"/>
-                <span>checkbox</span>
+                <span>原生checkbox</span>
             </label>
             <label className="${CN('radio')}">
                 <input type="radio" className="original"/>
-                <span>radio</span>
+                <span>原生radio</span>
             </label>
             <CheckBox name="name">checkbox</CheckBox>
             <Radio value={true}>radio</Radio>

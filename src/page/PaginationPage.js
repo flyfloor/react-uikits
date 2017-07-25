@@ -128,6 +128,20 @@ export class PaginationPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
+                            <td>prev</td>
+                            <td>向前分页按钮内容</td>
+                            <td>jsx</td>
+                            <td>{`<span>上一页</span>`}</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
+                            <td>next</td>
+                            <td>向后分页按钮内容</td>
+                            <td>jsx</td>
+                            <td>{`<span>下一页</span>`}</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
                             <td>showJump</td>
                             <td>显示调页</td>
                             <td>Boolean</td>

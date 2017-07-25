@@ -62,9 +62,12 @@ class InputNumber extends Component {
     }
 
     handleHold(fn){
-        _timer = setInterval(() => {
-            fn.call(this)
-        }, 100)
+        // 200 毫秒延迟
+        setTimeout(() => {
+            _timer = setInterval(() => {
+                fn.call(this)
+            }, 100)
+        }, 200)
     }
 
     handleLoose(){
@@ -72,7 +75,10 @@ class InputNumber extends Component {
     }
 
     handleAdd(){
-        let {step, max} = this.props
+        let {step, max, disabled} = this.props
+        if (disabled) {
+            return false
+        }
         const {displayValue} = this.state
         if (step + displayValue > max) {
             this.setState({
@@ -87,7 +93,10 @@ class InputNumber extends Component {
     }
 
     handleMinus(){
-        let {step, min} = this.props
+        let {step, min, disabled} = this.props
+        if (disabled) {
+            return false
+        }
         const {displayValue} = this.state
         if (displayValue - step < min) {
             this.setState({
@@ -109,12 +118,22 @@ class InputNumber extends Component {
 
     render() {
         const {displayValue} = this.state
-        const {style, className, showArrow, size} = this.props
+        const {style, className, showArrow, size, disabled} = this.props
         return (
-            <span style={style} className={klassName(NS, size, className, 'input-number')}>
+            <span style={style} 
+                className={
+                    klassName(
+                        NS, 
+                        size, 
+                        disabled ? 'disabled' : '', 
+                        className, 
+                        'input-number'
+                    )
+                }>
                 <input type="text" className={`${NS} input`} 
                     onBlur={this.handleBlur}
                     value={displayValue}
+                    disabled={disabled}
                     onChange={this.handleInput}/>
                 {
                     showArrow ? 
