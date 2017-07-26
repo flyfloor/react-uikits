@@ -29,21 +29,29 @@ export class TooltipPage extends Component {
 
                 <h4>提示框位置</h4>
                 <CodeView component={<div>
-                                        <Tooltip position="left" content={<p>内容</p>}>
-                                            <button className={`${NS} button`}>左</button>
-                                        </Tooltip>
+                                        <div>
+                                            <Tooltip position="left" content={<p>内容</p>}>
+                                                <button className={`${NS} button`}>左</button>
+                                            </Tooltip>
+                                        </div>
                                         <br/>
-                                        <Tooltip position="right" content={<p>内容</p>}>
-                                            <button className={`${NS} button`}>右</button>
-                                        </Tooltip>
+                                        <div>
+                                            <Tooltip position="right" content={<p>内容</p>}>
+                                                <button className={`${NS} button`}>右</button>
+                                            </Tooltip>
+                                        </div>
                                         <br/>
-                                        <Tooltip position="top" content={<p>内容</p>}>
-                                            <button className={`${NS} button`}>上</button>
-                                        </Tooltip>
+                                        <div>
+                                            <Tooltip position="top" content={<p>内容</p>}>
+                                                <button className={`${NS} button`}>上</button>
+                                            </Tooltip>
+                                        </div>
                                         <br/>
-                                        <Tooltip position="bottom" content={<p>内容</p>}>
-                                            <button className={`${NS} button`}>下</button>
-                                        </Tooltip>
+                                        <div>
+                                            <Tooltip position="bottom" content={<p>内容</p>}>
+                                                <button className={`${NS} button`}>下</button>
+                                            </Tooltip>
+                                        </div>
                                     </div>}>
 {`<Tooltip content={<p>内容详情</p>} position="left">
     <button className="${NS} button">提示框</button>
