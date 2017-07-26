@@ -6,6 +6,7 @@ const Icon = require('./Icon').Icon
 const klassName = require('./base/util').klassName
 
 let _timer = null
+let _timer1 = null
 
 class InputNumber extends Component {
     constructor(props) {
@@ -63,7 +64,7 @@ class InputNumber extends Component {
 
     handleHold(fn){
         // 200 毫秒延迟
-        setTimeout(() => {
+        _timer1 = setTimeout(() => {
             _timer = setInterval(() => {
                 fn.call(this)
             }, 100)
@@ -72,6 +73,7 @@ class InputNumber extends Component {
 
     handleLoose(){
         clearInterval(_timer)
+        clearTimeout(_timer1)
     }
 
     handleAdd(){
@@ -137,17 +139,17 @@ class InputNumber extends Component {
                     onChange={this.handleInput}/>
                 {
                     showArrow ? 
-                    <span>
+                    <span 
+                        onMouseUp={this.handleLoose}
+                        onMouseOut={this.handleLoose}
+                        onMouseMove={this.handleLoose}
+                        onMouseLeave={this.handleLoose}>
                         <span className="_counter" 
-                            onMouseUp={this.handleLoose}
-                            onMouseLeave={this.handleLoose}
                             onMouseDown={() => this.handleHold(this.handleAdd)}
                             onClick={this.handleAdd}>
                             <Icon>expand_less</Icon>
                         </span>
                         <span className="_counter" 
-                            onMouseUp={this.handleLoose}
-                            onMouseLeave={this.handleLoose}
                             onMouseDown={() => this.handleHold(this.handleMinus)}
                             onClick={this.handleMinus}>
                             <Icon>expand_more</Icon>
