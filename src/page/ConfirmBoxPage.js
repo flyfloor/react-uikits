@@ -39,21 +39,29 @@ export class ConfirmBoxPage extends Component {
                 <h4>自定义弹出位置</h4>
                 <CodeView component={
                     <section>
-                        <ConfirmBox content={<p>确认删除用户?</p>} position="left">
-                            <button className={`${NS} small button`}>左</button>
-                        </ConfirmBox>
+                        <div>
+                            <ConfirmBox content={<p>确认删除用户?</p>} position="left">
+                                <button className={`${NS} small button`}>左</button>
+                            </ConfirmBox>
+                        </div>
                         <br/>
-                        <ConfirmBox content={<p>确认删除用户?</p>} position="right">
-                            <button className={`${NS} small button`}>右</button>
-                        </ConfirmBox>
+                        <div>
+                            <ConfirmBox content={<p>确认删除用户?</p>} position="right">
+                                <button className={`${NS} small button`}>右</button>
+                            </ConfirmBox>
+                        </div>
                         <br/>
-                        <ConfirmBox content={<p>确认删除用户?</p>} position="top">
-                            <button className={`${NS} small button`}>上</button>
-                        </ConfirmBox>
+                        <div>
+                            <ConfirmBox content={<p>确认删除用户?</p>} position="top">
+                                <button className={`${NS} small button`}>上</button>
+                            </ConfirmBox>
+                        </div>
                         <br/>
-                        <ConfirmBox content={<p>确认删除用户?</p>} position="bottom">
-                            <button className={`${NS} small button`}>下</button>
-                        </ConfirmBox>
+                        <div>
+                            <ConfirmBox content={<p>确认删除用户?</p>} position="bottom">
+                                <button className={`${NS} small button`}>下</button>
+                            </ConfirmBox>
+                        </div>
                     </section>
                 }>
 {`<ConfirmBox content={<p>确认删除用户?</p>} position="left">
