@@ -21,7 +21,10 @@ export class DateTimePickerPage extends Component {
             <section>
                 {TitleBlock('日期时间选择', <span>
                                             <span>本章关于日期时间选择，</span>
-                                            <span className={`${NS} color-red`}>注意：safari下 new Date() 的使用</span>
+                                            <span className={`${NS} color-red`}>
+                                                注意：safari下 new Date('2016-10-02T12:00:08') 中间的 T 不能省略，否则会得到 Invalid Date
+                                            </span>
+                                            <span></span>
                                         </span>)}
                 
                 <h4>默认日期时间选择</h4>
@@ -98,7 +101,12 @@ export class DateTimePickerPage extends Component {
                         <tr>
                             <td>value</td>
                             <td>日历默认值</td>
-                            <td>Date 类型(例如：new Date('2016-10-02 12:00:08'))</td>
+                            <td>
+                                <p>Date 类型(例如：new Date('2016-10-02T12:00:08'))</p>
+                                <p className="color-red">
+                                    注意：safari下 new Date('2016-10-02T12:00:08') 中间的 T 不能省略，否则会得到 Invalid Date
+                                </p>
+                            </td>
                             <td>今天日期</td>
                             <td>否</td>
                         </tr>
