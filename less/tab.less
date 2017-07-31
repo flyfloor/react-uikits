@@ -13,7 +13,6 @@
         border: 1px solid transparent;
         padding: @padding / 2 @padding * 2;
         display: inline-block;
-        /*line-height: @line_height * 4;*/
         border-top-left-radius: @radius;
         border-top-right-radius: @radius;
     }
@@ -24,6 +23,7 @@
     }
     .__content() {
         .bordered;
+        .box_shadow;
         min-height: @min_input_width;
         padding: @gap;
         border-radius: 0 0 @radius @radius;
