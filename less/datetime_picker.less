@@ -20,6 +20,7 @@
     ._timepicker {
         width: @__timepickerWidth * 1.25;
         >._section {
+            box-shadow: none;
             &:before, &:after {
                 content: none;
             }
@@ -86,6 +87,7 @@
 
     >._wrap {
         .bordered;
+        .box_shadow;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         background-color: @white;
@@ -108,8 +110,8 @@
             padding: 0 @padding @padding;
             font-size: @padding * 1.2;
             ._selector {
-                .blue_link;
-                line-height: @padding * 3;
+                .__btn;
+                ._FONT_PADDING(14, 7);
             }
             ._button {
                 .__btn;
