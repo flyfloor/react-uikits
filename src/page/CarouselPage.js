@@ -6,11 +6,11 @@ import {CodeView} from '../component/CodeView';
 const src = ['ambition-morty', 'awkward-morty', 'despise', 'pride-morty', 'surprise-morty'];
 const prefix = 'https://raw.githubusercontent.com/jerryshew/design/master/png';
 const getImgs = function(){
-    let rtn = [];
-    for (let i of src){
-        rtn.push(<img key={i} src={`${prefix}/${i}.png`} style={{'width': '100%'}}/>);
-    }
-    return rtn;
+    return src.map(i => {
+        return (
+            <img key={i} src={`${prefix}/${i}.png`} style={{'width': '100%'}}/>
+        )
+    })
 };
 
 const imgNodes = getImgs();
