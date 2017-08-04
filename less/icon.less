@@ -5,27 +5,19 @@
   font-family: @icon_family;
   font-style: normal;
   font-weight: 400;
-  src: local(@icon_family), local('MaterialIcons-Regular'), url(font/material-icons.woff) format('woff');
+  src: local(@icon_family), 
+      local('MaterialIcons-Regular'), 
+      url('font/material-icons.eot'),
+      url(font/material-icons.woff) format('woff');
 }
 
 i@{NS}.icon, @{NS} i.icon {
   ._NO_USER_SELECT();
-  font-style: normal;
+  .icon_font;
   font-family: @icon_family;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
   text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
   opacity: .95;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  vertical-align: middle;
+  display: inline-block;
   &:hover {
     opacity: 1;
   }
