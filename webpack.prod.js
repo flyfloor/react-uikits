@@ -6,7 +6,7 @@ var config = require('./webpack.base');
 
 config.entry = {
     app: "./src/entre.js",
-    vendors: ['react', 'react-dom', 'react-router', 'react-ui-component'],
+    vendors: ['react', 'react-dom', 'react-router-dom', 'react-ui-component'],
 };
 
 config.output = {
