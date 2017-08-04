@@ -33,9 +33,9 @@
     "async-validator": "^1.7.1",
     "immutability-helper": "^2.2.3",
     "prop-types": "^15.5.8",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "react-ui-component": "^1.2.12"
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
+    "react-ui-component": "^1.2.14"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

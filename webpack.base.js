@@ -7,6 +7,11 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin(),
     ],
+    resolve: {
+        alias: {
+            react: path.resolve('./node_modules/react'),
+        },
+    },
     module: {
         rules: [{
             test: /\.(png|jpg)$/,
