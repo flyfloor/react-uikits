@@ -22,9 +22,7 @@ config.module.rules.unshift({
         {
             loader: 'postcss-loader',
             options: {
-                plugins: loaders => [
-                    require('autoprefixer')()
-                ]
+                plugins: [require('autoprefixer')]
             }
         }
     ],
