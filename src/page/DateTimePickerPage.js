@@ -8,7 +8,7 @@ export class DateTimePickerPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: new Date('2016-11-08T12:02:45')
+            value: new Date('2016/11/08 12:02:45')
         }
     }
     handleTimeChange(value){
@@ -22,7 +22,7 @@ export class DateTimePickerPage extends Component {
                 {TitleBlock('日期时间选择', <span>
                                             <span>本章关于日期时间选择，</span>
                                             <span className={`${NS} color-red`}>
-                                                注意：safari下 new Date('2016-10-02T12:00:08') 中间的 T 不能省略，否则会得到 Invalid Date
+                                                注意：建议使用"/"做日期分隔 new Date('2016/10/02 12:00:08')
                                             </span>
                                             <span></span>
                                         </span>)}
@@ -34,15 +34,15 @@ export class DateTimePickerPage extends Component {
                 <br/>
 
                 <h4>带默认值的默认日期时间选择</h4>
-                <CodeView component={<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={value => {}}/>}>
-                    {`<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
+                <CodeView component={<DateTimePicker value={new Date('2016/11/08 12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker value={new Date('2016/11/08 12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
                 <h4>自定义格式化日期时间选择</h4>
                 <CodeView component={<DateTimePicker format="yyyy/MM/dd" 
-                    value={new Date('2016-11-08T12:02:45')} onChange={value => {}}/>}>
-                    {`<DateTimePicker format="yyyy/MM/dd" value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
+                    value={new Date('2016/11/08 12:02:45')} onChange={value => {}}/>}>
+                    {`<DateTimePicker format="yyyy/MM/dd" value={new Date('2016/11/08 12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
@@ -53,7 +53,7 @@ export class DateTimePickerPage extends Component {
                         <DateTimePicker value={this.state.value} onChange={this.handleTimeChange.bind(this)}/>
                     </div>
                 }>
-                    {`<DateTimePicker value={new Date('2016-11-08T12:02:45')} onChange={onChangeFunction}/>`}  
+                    {`<DateTimePicker value={new Date('2016/11/08 12:02:45')} onChange={onChangeFunction}/>`}  
                 </CodeView>
                 <br/>
 
@@ -102,9 +102,9 @@ export class DateTimePickerPage extends Component {
                             <td>value</td>
                             <td>日历默认值</td>
                             <td>
-                                <p>Date 类型(例如：new Date('2016-10-02T12:00:08'))</p>
+                                <p>Date 类型(例如：new Date('2016/10/02 12:00:08'))</p>
                                 <p className="color-red">
-                                    注意：safari下 new Date('2016-10-02T12:00:08') 中间的 T 不能省略，否则会得到 Invalid Date
+                                    注意：建议使用"/"做日期分隔 new Date('2016/10/02 12:00:08')
                                 </p>
                             </td>
                             <td>今天日期</td>
