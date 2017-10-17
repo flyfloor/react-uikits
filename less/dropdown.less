@@ -2,6 +2,13 @@
 @import url('color');
 @import url('transition');
 
+.__dropdown_label_text {
+    .truncate;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 96%;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -11,9 +18,11 @@
     }
     &.small {
         min-width: @small_size;
+        width: @small_size;
     }
     &.mini {
         min-width: @mini_size;
+        width: @mini_size;
     }
     ._list {
         .bordered;
@@ -23,6 +32,7 @@
         margin-top: -1px;
         position: absolute;
         width: 100%;
+        min-width: @min_input_width * 2/3;
         z-index: 100;
         background: @white;
         border: 1px solid @light_gray;
@@ -55,6 +65,7 @@
         }
         
         >._item {
+            .break-word;
             cursor: pointer;
             padding: 3px 16px;
             border-top: 1px solid transparent;
@@ -92,9 +103,11 @@
         .icon_font;
         position: absolute;
         right: 5px;
-        top: 0;
+        top: 1px;
+        bottom: 1px;
         font-size: 22px;
         line-height: @line_height * 2 + 4px;
+        z-index: 3;
     }
 
     ._label {
@@ -115,6 +128,9 @@
             &:before {
                 content: 'arrow_drop_down';
             }
+        }
+        >._text {
+            .__dropdown_label_text;
         }
     }
     
@@ -139,11 +155,12 @@
         .__input();
         position: relative;
         ._text {
+            .__dropdown_label_text;
+            z-index: 2;
             cursor: text;
             position: relative;
             background: none;
             display: inline-block;
-            z-index: 2;
         }
         > i {
             .__dropIcon();
@@ -169,6 +186,7 @@
     ._multi {
         .__input();
         padding: 0 @normal_font_size / 2;
+        white-space: pre;
         > i {
             &:before {
                 content: 'arrow_drop_down';

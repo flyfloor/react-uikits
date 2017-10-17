@@ -8,6 +8,8 @@
 
 ## 主页: [http://braavos.me/react-uikits](http://braavos.me/react-uikits)
 
+## Release Note: [relase note](./release.md)
+
 ## 组件
  
 * CheckBox
