@@ -368,6 +368,13 @@ export class DropDownPage extends Component {
                             <td>否</td>
                         </tr>
                         <tr>
+                            <td>disabled</td>
+                            <td>是否禁用</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                            <td>否</td>
+                        </tr>
+                        <tr>
                             <td>children</td>
                             <td>yield children 方式</td>
                             <td>jsx, 多个Item组件</td>
