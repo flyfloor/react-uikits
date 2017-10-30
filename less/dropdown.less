@@ -202,6 +202,9 @@
             -o-transition: none;
             transition: none;
             height: 31px;
+            &[disabled] {
+                background: transparent;
+            }
         }
         ._placeHolder {
             margin-left: -6px;
@@ -226,6 +229,12 @@
                     font-size: 12px;
                     content: 'close';
                 }
+            }
+        }
+        &._disabled {
+            ._delete {
+                color: @gray;
+                cursor: not-allowed;
             }
         }
     }

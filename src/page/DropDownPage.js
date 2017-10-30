@@ -25,123 +25,256 @@ export class DropDownPage extends Component {
                 {TitleBlock('下拉框')}
 
                 <h4>默认下拉框</h4>
-                <CodeView component={<DropDown options={options} 
-                        onChange={(value) => console.log(value)}/>}>
+                <CodeView 
+                    component={
+                        <DropDown 
+                            options={options} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
                     {`<DropDown options={options} onChange={(value) => console.log(value)}/>`}
+                </CodeView>
+                <br/>
+                <h4>Disabled 下拉框</h4>
+                <CodeView 
+                    component={
+                        <DropDown 
+                            disabled
+                            options={options} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
+                    {`<DropDown disabled options={options} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认选中</h4>
-                <CodeView component={<DropDown options={options} 
-                            defaultSelected={true} onChange={(value) => console.log(value)}/>}>
-                    {`<DropDown options={options} defaultSelected={true} onChange={(value) => console.log(value)}/>`}
+                <CodeView 
+                    component={
+                        <DropDown 
+                            defaultSelected
+                            options={options} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
+                    {`<DropDown options={options} defaultSelected onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认值</h4>
-                <CodeView component={<DropDown options={options} 
-                        value={'banana'} onChange={(value) => console.log(value)}/>}>
+                <CodeView 
+                    component={
+                        <DropDown
+                            options={options} 
+                            value={'banana'} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
                     {`<DropDown options={options} value={'banana'} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>搜索框</h4>
-                <CodeView component={<DropDown options={options}
-                    searchable={true} onChange={(value) => console.log(value)}/>}>
-                    {`<DropDown options={options} searchable={true} onChange={(value) => console.log(value)}/>`}
+                <CodeView 
+                    component={
+                        <DropDown
+                            options={options}
+                            searchable
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
+                    {`<DropDown options={options} searchable onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>下拉框方向</h4>
-                <CodeView component={<DropDown options={options}
-                    position='top' onChange={(value) => console.log(value)}/>}>
+                <CodeView 
+                    component={
+                        <DropDown
+                            options={options}
+                            position='top' 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
                     {`<DropDown options={options} position='top' onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>默认多选下拉</h4>
-                <CodeView component={<DropDown options={options} multi={true} 
-                    onChange={(value) => console.log(value)}/>}>
-                    {`<DropDown options={options} multi={true} onChange={(value) => console.log(value)}/>`}
+                <CodeView 
+                    component={
+                        <DropDown
+                            multi
+                            options={options} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
+                    {`<DropDown options={options} multi onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>带默认值的多选下拉</h4>
-                <CodeView component={<DropDown options={options} 
-                        value={['banana', 'egg']} multi={true} onChange={(value) => console.log(value)}/>}>
-                    {`<DropDown options={options} multi={true} value={['banana', 'egg']} onChange={(value) => console.log(value)}/>`}
+                <CodeView 
+                    component={
+                        <DropDown 
+                            multi
+                            options={options} 
+                            value={['banana', 'egg']} 
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
+                    {`<DropDown options={options} multi value={['banana', 'egg']} onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>small</h4>
-                <CodeView component={<DropDown options={options}
-                    className='small' onChange={(value) => console.log(value)}/>}>
+                <CodeView 
+                    component={
+                        <DropDown 
+                            options={options}
+                            className='small'
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
                     {`<DropDown options={options} className='small' onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
                 <h4>mini</h4>
-                <CodeView component={<DropDown options={options}
-                    className='mini' onChange={(value) => console.log(value)}/>}>
+                <CodeView 
+                    component={
+                        <DropDown
+                            options={options}
+                            className='mini'
+                            onChange={(value) => console.log(value)}
+                        />
+                    }>
                     {`<DropDown options={options} className='mini' onChange={(value) => console.log(value)}/>`}
                 </CodeView>
                 <br/>
 
                 <h4>Yield Children</h4>
-                <CodeView component={<DropDown value={2} onChange={value => console.log(value)}>
-                                        <Item value={1} name="apple">
-                                            <p>hate the show, love the animal</p>
-                                            <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
-                                        </Item>
-                                        <Item value={2} name="banana">
-                                            <h2>this is banana</h2>
-                                        </Item>
-                                        <Item value={3} name="cat">
-                                            <h4>this is cat</h4>
-                                        </Item>
-                                        <Item value={4} name="dog" disabled={true}>
-                                            blog site: <a href="http://braavos.me" target="_blank">lacuna</a>
-                                        </Item>
-                                        <Item value={5} name="egg">
-                                            <i style={{'fontStyle': 'italic'}}>egg's gooood</i>
-                                        </Item>
-                                    </DropDown>}>
-{`<DropDown value={2} onChange={displayChange}>
-    <Item value={1} name="apple">
+                <CodeView 
+                    component={
+                        <DropDown 
+                            value={2}
+                            onChange={value => console.log(value)}>
+                            <Item 
+                                value={1}
+                                name="apple">
+                                <p>hate the show, love the animal</p>
+                                <img style={{ "width": "100px"}} 
+                                    src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" 
+                                    alt=""
+                                />
+                            </Item>
+                            <Item
+                                value={2}
+                                name="banana">
+                                <h2>this is banana</h2>
+                            </Item>
+                            <Item
+                                value={3}
+                                name="cat">
+                                <h4>this is cat</h4>
+                            </Item>
+                            <Item
+                                value={4}
+                                name="dog"
+                                disabled>
+                                blog site: 
+                                <a href="http://braavos.me"
+                                    target="_blank">
+                                    lacuna
+                                </a>
+                            </Item>
+                            <Item
+                                value={5}
+                                name="egg">
+                                <i style={{'fontStyle': 'italic'}}>
+                                    egg's gooood
+                                </i>
+                            </Item>
+                        </DropDown>
+                    }>
+{`<DropDown 
+    value={2} 
+    onChange={displayChange}>
+    <Item 
+        value={1} 
+        name="apple">
         <p>hate the show, love the animal</p>
-        <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
+        <img 
+            style={{ "width": "100px"}} 
+            src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png"
+            alt=""
+        />
     </Item>
     ...
-</DropDown>  `}
+</DropDown>`}
                 </CodeView>
                 <br/>
 
                 <h4>Yield Children(multi)</h4>
-                <CodeView component={<DropDown multi={true} value={[2, 3]} onChange={value => console.log(value)}>
-                                        <Item value={1} name="apple">
-                                            <p>hate the show, love the animal</p>
-                                            <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
-                                        </Item>
-                                        <Item value={2} name="banana">
-                                            <h2>this is banana</h2>
-                                        </Item>
-                                        <Item value={3} name="cat">
-                                            <h4>this is cat</h4>
-                                        </Item>
-                                        <Item value={4} name="dog" disabled={true}>
-                                            blog site: <a href="http://braavos.me" target="_blank">lacuna</a>
-                                        </Item>
-                                        <Item value={5} name="egg">
-                                            <i style={{'fontStyle': 'italic'}}>egg's gooood</i>
-                                        </Item>
-                                    </DropDown>}>
-{`<DropDown multi={true}
-    value={[2, 3]} onChange={displayChange}>
-    <Item value={1} name="apple">
+                <CodeView 
+                    component={
+                        <DropDown 
+                            multi 
+                            value={[2, 3]} 
+                            onChange={value => console.log(value)}>
+                            <Item 
+                                value={1} 
+                                name="apple">
+                                <p>hate the show, love the animal</p>
+                                <img 
+                                    style={{ "width": "100px"}} 
+                                    src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" 
+                                    alt=""
+                                />
+                            </Item>
+                            <Item 
+                                value={2} 
+                                name="banana">
+                                <h2>this is banana</h2>
+                            </Item>
+                            <Item 
+                                value={3} 
+                                name="cat">
+                                <h4>this is cat</h4>
+                            </Item>
+                            <Item 
+                                value={4} 
+                                name="dog" 
+                                disabled>
+                                blog site: 
+                                <a href="http://braavos.me" 
+                                    target="_blank">
+                                    lacuna
+                                </a>
+                            </Item>
+                            <Item 
+                                value={5} 
+                                name="egg">
+                                <i style={{'fontStyle': 'italic'}}>
+                                    egg's gooood
+                                </i>
+                            </Item>
+                        </DropDown>}>
+{`<DropDown 
+    multi
+    value={[2, 3]} 
+    onChange={displayChange}>
+    <Item 
+        value={1} 
+        name="apple">
         <p>hate the show, love the animal</p>
-        <img style={{ "width": "100px"}} src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" alt=""/>
+        <img 
+            style={{ "width": "100px"}} 
+            src="https://raw.githubusercontent.com/jerryshew/design/master/png/sad-morty.png" 
+            alt=""
+        />
     </Item>
     ...
-</DropDown>  `}
+</DropDown>`}
                 </CodeView>
                 <br/>
 
