@@ -106,7 +106,7 @@ const ContentPage = props => {
              <aside className={CN('column-3 main-aside')}>
                  {asideLinks()}
              </aside>
-             <artical className="column column-13 main-content">
+             <article className="column column-13 main-content">
                 <Route exact path="/component" component={BasicPage}></Route>
                 <Route path="/start" component={StartPage}></Route>
                 <Route path="/install" component={InstallPage}></Route>
@@ -152,7 +152,7 @@ const ContentPage = props => {
                 <Route path="/component/list" component={ListPage}></Route>
                 <Route path="/component/input-number" component={InputNumberPage}></Route>
                 <Route path="/temp" component={TempPage}></Route>
-             </artical>
+             </article>
         </div>
     )
 }
@@ -161,7 +161,7 @@ const ContentPage = props => {
 const BaseComponent = () => {
     return (
         <Router>
-            <page>
+            <article>
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={RootPage}></Route>
@@ -172,7 +172,7 @@ const BaseComponent = () => {
                     <Route component={RootPage}></Route>
                 </Switch>
                 <Footer/>
-            </page>
+            </article>
         </Router>
     )
 }
