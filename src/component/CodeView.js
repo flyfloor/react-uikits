@@ -1,7 +1,7 @@
 const React = require('react')
 const Component = React.Component
-const Hightlight = require("react-highlight")
 const NS = require('./base/constant').NS
+import Hightlight from 'react-highlight';
 
 class CodeView extends Component {
     constructor(props) {

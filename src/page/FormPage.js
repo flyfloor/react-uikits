@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const Hightlight = require("react-highlight")
+import Hightlight from "react-highlight";
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import {Form, Fields, Field, Group} from '../component/Form';

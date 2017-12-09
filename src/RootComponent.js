@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { version } from '../package.json';
 
 import {
     BasicPage, ButtonPage,
@@ -70,7 +71,7 @@ const Footer = props => {
                 <div className={CN('basic table')}>
                     <div className="row">
                         <div className="cell">
-                            <h4>React UIKits@beta</h4>
+                            <h4>{`React UIKits@${version}`}</h4>
                         </div>
                         <div className="text-right cell">
                             <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
@@ -106,7 +107,7 @@ const ContentPage = props => {
              <aside className={CN('column-3 main-aside')}>
                  {asideLinks()}
              </aside>
-             <artical className="column column-13 main-content">
+             <article className="column column-13 main-content">
                 <Route exact path="/component" component={BasicPage}></Route>
                 <Route path="/start" component={StartPage}></Route>
                 <Route path="/install" component={InstallPage}></Route>
@@ -152,7 +153,7 @@ const ContentPage = props => {
                 <Route path="/component/list" component={ListPage}></Route>
                 <Route path="/component/input-number" component={InputNumberPage}></Route>
                 <Route path="/temp" component={TempPage}></Route>
-             </artical>
+             </article>
         </div>
     )
 }
@@ -161,7 +162,7 @@ const ContentPage = props => {
 const BaseComponent = () => {
     return (
         <Router>
-            <page>
+            <article>
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={RootPage}></Route>
@@ -172,7 +173,7 @@ const BaseComponent = () => {
                     <Route component={RootPage}></Route>
                 </Switch>
                 <Footer/>
-            </page>
+            </article>
         </Router>
     )
 }

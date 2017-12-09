@@ -66,9 +66,9 @@ export class BasicPage extends Component {
                     </li>
                     <li>
                         <h3>Blockquote</h3>
-                        <blockqoute className={`${NS} blockqoute`}>
+                        <blockquote className={`${NS} blockquote`}>
                             内容详情
-                        </blockqoute>
+                        </blockquote>
                     </li>
                     <li>
                         <h3>Colors</h3>

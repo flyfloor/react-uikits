@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "0.3.36",
+  "version": "0.4.0",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
@@ -30,12 +30,12 @@
   "license": "MIT",
   "homepage": "https://github.com/jerryshew/react-uikits",
   "dependencies": {
-    "async-validator": "^1.7.1",
-    "immutability-helper": "^2.2.3",
-    "prop-types": "^15.5.8",
-    "react": "^15.6.0",
-    "react-dom": "^15.6.0",
-    "react-ui-component": "^1.2.23"
+    "async-validator": "^1.8.1",
+    "immutability-helper": "^2.6.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-ui-component": "^1.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -60,8 +60,9 @@
     "postcss-loader": "^2.0.6",
     "pre-commit": "^1.1.3",
     "progress-bar-webpack-plugin": "^1.9.3",
-    "react-highlight": "^0.10.0",
-    "react-router-dom": "^4.1.1",
+    "react-highlight": "github:jerryshew/react-highlight#react-v16-compiled",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-transform-hmr": "^1.0.0",
     "style-loader": "^0.12.3",
     "uglify-loader": "^1.2.0",
