@@ -1,5 +1,9 @@
 # Releases
 
+## 0.4.0
+
++ upgrade to React 16
+
 ## 0.3.33 
 
 + fixes [https://github.com/jerryshew/react-uikits/issues/42](https://github.com/jerryshew/react-uikits/issues/42)
