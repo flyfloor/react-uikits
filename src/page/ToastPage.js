@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Toast} from '../component/Toast';
-import {CodeView} from '../component/CodeView';
+import {Toast} from '../component';
+import CodeView from './CodeView';
 
 const onClick = () => {
     Toast.success('消息点击')

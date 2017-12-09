@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {Menu, SubMenu, MenuGroup, MenuItem} from '../component/Menu';
+import {Menu, SubMenu, MenuGroup, MenuItem} from '../component';
 
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const formatChild = (props) => {
     return (

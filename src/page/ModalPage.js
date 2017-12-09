@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Hightlight from "react-highlight";
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Modal} from '../component/Modal';
-import {CodeView} from '../component/CodeView';
+import {Modal} from '../component';
+import CodeView from './CodeView';
 
 const content = <div>
                     <h4>this is content</h4>

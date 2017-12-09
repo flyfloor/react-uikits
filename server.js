@@ -3,9 +3,9 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var express = require('express');
 
-var NODE_ENV = process.env.NODE_ENV || 'dev'
+var NODE_ENV = process.env.NODE_ENV || 'development'
 var config = require('./webpack.' + NODE_ENV);
-var indexPath = __dirname + '/dist/' + NODE_ENV + '.html'
+var indexPath = __dirname + '/dist/development.html'
 
 var app = new (express)();
 var port = process.env.PORT || (process.argv[2] || 3000);

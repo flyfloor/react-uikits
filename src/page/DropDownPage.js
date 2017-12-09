@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
 import Highlight from 'react-highlight';
-import {DropDown} from '../component/DropDown';
-import {Item} from '../component/Item';
-import {CodeView} from '../component/CodeView';
+import {DropDown} from '../component';
+import {Item} from '../component';
+import CodeView from './CodeView';
 
 const options = [
     {name: 'apple', value: 'apple'},

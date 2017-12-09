@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Hightlight from "react-highlight";
 import {CN, TitleBlock} from '../util/tools';
 import {NS, COLORS} from '../constant';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const makeImage = (cn) => {
     return  <div>

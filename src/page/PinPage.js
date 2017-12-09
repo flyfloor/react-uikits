@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Pin} from '../component/Pin';
-import {CodeView} from '../component/CodeView';
+import {Pin} from '../component';
+import CodeView from './CodeView';
 
 const cardDOM = (name) => {
     return (

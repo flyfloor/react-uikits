@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {InputNumber} from '../component/InputNumber'
-import {CodeView} from '../component/CodeView'
+import {InputNumber} from '../component'
+import CodeView from './CodeView'
 import {CN, TitleBlock} from '../util/tools';
 
 export class InputNumberPage extends Component {

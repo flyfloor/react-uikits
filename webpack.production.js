@@ -1,28 +1,34 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var htmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = require('./webpack.base');
 
 config.entry = {
     app: "./src/entre.js",
-    vendors: ['react', 'react-dom', 'react-router-dom', 'react-ui-component'],
-};
-
-config.output = {
-    path: path.join(__dirname, 'dist'),
-    filename: 'app.js',
-    publicPath: '',
-};
+    vendors: [
+        'react', 
+        'react-dom', 
+        'react-router', 
+        'react-router-dom', 
+        'react-highlight',
+        'react-ui-component', 
+        'async-validator', 
+        'immutability-helper', 
+        'prop-types'
+    ],
+},
 
 config.plugins.push(
-    new webpack.DefinePlugin({
-        "process.env": {
-            NODE_ENV: JSON.stringify('production')
-        }
-    }),
     new ExtractTextPlugin("app.css"),
-    new webpack.optimize.CommonsChunkPlugin({ name: "vendors", filename: "vendor.js"}),
+    new htmlWebpackPlugin({
+        title: 'react-uikits 企业平台的组件化方案',
+        template: './dist/template.html',
+        inject: true,
+        filename: '../index.html',
+    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: "vendors", filename: "vendors.js"}),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false

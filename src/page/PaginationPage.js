@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Pagination} from '../component/Pagination';
-import {CodeView} from '../component/CodeView';
+import {Pagination} from '../component';
+import CodeView from './CodeView';
 
 export class PaginationPage extends Component {
     render() {

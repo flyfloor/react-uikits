@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {SlideMenu} from '../component/SlideMenu';
+import {SlideMenu} from '../component';
 import {NS} from '../constant';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 let content = <div className="slide-content">
                 <h3>标题</h3> 

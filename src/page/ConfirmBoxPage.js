@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {ConfirmBox} from '../component/ConfirmBox';
-import {CodeView} from '../component/CodeView';
+import {ConfirmBox} from '../component';
+import CodeView from './CodeView';
 
 export class ConfirmBoxPage extends Component {
     render() {

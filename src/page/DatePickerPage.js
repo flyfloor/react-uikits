@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock, formatDate} from '../util/tools';
 import {NS} from '../constant';
-import {DatePicker} from '../component/DatePicker';
-import {CodeView} from '../component/CodeView';
+import {DatePicker} from '../component';
+import CodeView from './CodeView';
 
 export class DatePickerPage extends Component {
     constructor(props) {

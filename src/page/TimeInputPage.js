@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {TimeInput} from '../component/TimeInput';
-import {CodeView} from '../component/CodeView';
+import {TimeInput} from '../component';
+import CodeView from './CodeView';
 
 export class TimeInputPage extends Component {
     constructor(props) {

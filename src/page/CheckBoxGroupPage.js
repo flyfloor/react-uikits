@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Hightlight from 'react-highlight';
 import {CN, TitleBlock} from '../util/tools';
-import {CheckBoxGroup} from '../component/CheckBoxGroup';
-import {CheckBox} from '../component/CheckBox';
-import {CodeView} from '../component/CodeView';
+import {CheckBoxGroup} from '../component';
+import {CheckBox} from '../component';
+import CodeView from './CodeView';
 
 const options = [
     {'name': 'apple', 'value': 'a'},

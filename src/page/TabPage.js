@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {Tab} from '../component/Tab';
-import {Item} from '../component/Item';
-import {CodeView} from '../component/CodeView';
+import {Tab} from '../component';
+import {Item} from '../component';
+import CodeView from './CodeView';
 
 const makeContent = (options={}) => {
     options = options || {}
