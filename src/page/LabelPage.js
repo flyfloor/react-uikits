@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS, COLORS} from '../constant';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const makeSizeLabels = (cn='') => {
     return <div className={CN(`${cn} icon label`)}>

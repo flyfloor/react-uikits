@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {RadioGroup} from '../component/RadioGroup';
-import {Radio} from '../component/Radio';
-import {CodeView} from '../component/CodeView';
+import {RadioGroup} from '../component';
+import {Radio} from '../component';
+import CodeView from './CodeView';
 
 const options = [
     {name: 'apple', value: 'apple'},

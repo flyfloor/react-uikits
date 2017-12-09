@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Calendar} from '../component/Calendar';
+import {Calendar} from '../component';
 import {CN, TitleBlock} from '../util/tools';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const onChangeFunction = value => value
 

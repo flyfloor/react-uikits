@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS, COLORS, SHAPE_SIZE} from '../constant';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const makeInput = (cn='') => {
     return <div className="field">

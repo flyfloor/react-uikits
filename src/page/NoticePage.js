@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {NoticeCenter} from '../component/NoticeCenter';
-import {Toast} from '../component/Toast';
-import {CodeView} from '../component/CodeView';
+import {NoticeCenter} from '../component';
+import {Toast} from '../component';
+import CodeView from './CodeView';
 
 const handleNoticeClick = (props) => {
     if (props.link) {

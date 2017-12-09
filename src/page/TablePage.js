@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS, COLORS} from '../constant';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 const makeTable = (cn='') => {
     return (

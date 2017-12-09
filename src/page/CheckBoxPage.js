@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {CheckBox} from '../component/CheckBox';
-import {CodeView} from '../component/CodeView';
+import {CheckBox} from '../component';
+import CodeView from './CodeView';
 
 export class CheckBoxPage extends Component {
     render() {

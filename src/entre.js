@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 import RootComponent from './RootComponent';
 import dot from './page/demo.less'
 
+console.log(process.env.NODE_ENV)
+
 if (module.hot) {
     module.hot.accept()
 }

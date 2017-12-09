@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {Radio} from '../component/Radio';
-import {CodeView} from '../component/CodeView';
+import {Radio} from '../component';
+import CodeView from './CodeView';
 
 export class RadioPage extends Component {
     render() {

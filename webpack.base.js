@@ -6,7 +6,17 @@ var NODE_ENV = process.env.NODE_ENV
 module.exports = {
     plugins: [
         new ProgressBarPlugin(),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify(NODE_ENV)
+            }
+        }),
     ],
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        publicPath: '/dist/',
+    },
     resolve: {
         alias: {
             "react": path.resolve('./node_modules/react'),

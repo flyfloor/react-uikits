@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Progress} from '../component/Progress';
-import {CodeView} from '../component/CodeView';
+import {Progress} from '../component';
+import CodeView from './CodeView';
 
 export class ProgressPage extends Component {
     constructor(props) {

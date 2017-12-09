@@ -1,9 +1,9 @@
 const React = require('react')
 const Component = React.Component
-const NS = require('./base/constant').NS
+const NS = require('../component/base/constant').NS
 import Hightlight from 'react-highlight';
 
-class CodeView extends Component {
+export default class CodeView extends Component {
     constructor(props) {
         super(props);
         this.handleDisplay = this.handleDisplay.bind(this)
@@ -43,8 +43,4 @@ class CodeView extends Component {
             </section>
         )
     }
-}
-
-module.exports = {
-    CodeView
 }

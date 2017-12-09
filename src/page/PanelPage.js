@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Panel} from '../component/Panel';
+import {Panel} from '../component';
 import {CN, TitleBlock} from '../util/tools';
-import {CodeView} from '../component/CodeView';
+import CodeView from './CodeView';
 
 export class PanelPage extends Component {
     render() {

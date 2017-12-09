@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
-import {Carousel} from '../component/Carousel';
-import {CodeView} from '../component/CodeView';
+import {Carousel} from '../component';
+import CodeView from './CodeView';
 
 const src = ['ambition-morty', 'awkward-morty', 'despise', 'pride-morty', 'surprise-morty'];
 const prefix = 'https://raw.githubusercontent.com/jerryshew/design/master/png';

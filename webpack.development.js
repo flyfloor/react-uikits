@@ -5,13 +5,7 @@ var ForceCaseSensitivityPlugin = require('force-case-sensitivity-webpack-plugin'
 var config = require('./webpack.base');
 
 config.entry = {
-    app: ["./src/entre.js", "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&overlay=false"],
-};
-
-config.output = {
-    path: path.join(__dirname, 'dist'),
-    filename: 'app.js',
-    publicPath: '/dist/',
+    app: [ "./src/entre.js", "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&overlay=false" ],
 }
 
 config.module.rules.unshift({

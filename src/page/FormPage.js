@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import Hightlight from "react-highlight";
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Form, Fields, Field, Group} from '../component/Form';
-import {DropDown} from '../component/DropDown';
-import {CheckBox} from '../component/CheckBox';
-import {Radio} from '../component/Radio';
-import {DatePicker} from '../component/DatePicker';
-import {TimePicker} from '../component/TimePicker';
-import {TimeInput} from '../component/TimeInput';
-import {DateTimePicker} from '../component/DateTimePicker';
-import {Item} from '../component/Item';
-import {CodeView} from '../component/CodeView';
+import {Form, Fields, Field, Group} from '../component';
+import {DropDown} from '../component';
+import {CheckBox} from '../component';
+import {Radio} from '../component';
+import {DatePicker} from '../component';
+import {TimePicker} from '../component';
+import {TimeInput} from '../component';
+import {DateTimePicker} from '../component';
+import {Item} from '../component';
+import CodeView from './CodeView';
 import {PROVINCES, CITIES} from '../constant';
 
 class FormDemo extends Component {

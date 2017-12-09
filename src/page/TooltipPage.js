@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS} from '../constant';
-import {Tooltip} from '../component/Tooltip';
-import {CodeView} from '../component/CodeView';
+import {Tooltip} from '../component';
+import CodeView from './CodeView';
 
 export class TooltipPage extends Component {
     render() {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {CN, TitleBlock} from '../util/tools';
 import {NS, ICONS} from '../constant';
-import {Icon} from '../component/Icon';
-import {CodeView} from '../component/CodeView';
+import {Icon} from '../component';
+import CodeView from './CodeView';
 
 export class IconPage extends Component {
     constructor(props){
