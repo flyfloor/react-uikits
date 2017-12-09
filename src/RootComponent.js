@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { version } from '../package.json';
 
 import {
     BasicPage, ButtonPage,
@@ -70,7 +71,7 @@ const Footer = props => {
                 <div className={CN('basic table')}>
                     <div className="row">
                         <div className="cell">
-                            <h4>React UIKits@beta</h4>
+                            <h4>{`React UIKits@${version}`}</h4>
                         </div>
                         <div className="text-right cell">
                             <a href="https://github.com/jerryshew/react-uikits" target="_blank">Github</a>
