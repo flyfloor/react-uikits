@@ -131,13 +131,15 @@ export default class ValidatorDemo extends Component {
     handleFieldChange(field, value){
         let {store} = this.state
         store[field] = value
-        this.setState({store});
+        this.setState({ store });
     }
+
     handleProvinceChange(pid){
         this.setState({
             cities: CITIES[pid]
         })
     }
+
     handleSubmit(store){
         console.log('submit ======>', store)
     }
@@ -333,21 +335,30 @@ export default class ValidatorDemo extends Component {
                         </Field>
                         <Field validate="province">
                             <Validator name="province" trigger={['onBlur', 'onChange']}>
-                                <DropDown searchable={true} name="provinceId" defaultSelected={true}
-                                    placeHolder="搜索省份或编号" options={PROVINCES}
-                                    labelName="name" valueName="id" onChange={val => {
+                                <DropDown 
+                                    searchable
+                                    defaultSelected
+                                    value={store.province}
+                                    placeHolder="搜索省份或编号"
+                                    options={PROVINCES}
+                                    labelName="name"
+                                    valueName="id"
+                                    onChange={val => {
                                         this.handleFieldChange('province', val)
                                         this.handleProvinceChange(val)
-                                    }}>
-                                </DropDown>
+                                    }}
+                                />
                             </Validator>
                         </Field>
                         <Field validate="city">
                             <Validator name="city" trigger={['onBlur', 'onChange']}>
-                                <DropDown options={this.state.cities} defaultSelected
-                                    onChange={val => this.handleFieldChange('city', val)} 
-                                    valueName="id" name="cityId">
-                                </DropDown>
+                                <DropDown 
+                                    options={this.state.cities}
+                                    defaultSelected
+                                    value={store.city}
+                                    onChange={val => this.handleFieldChange('city', val)}
+                                    valueName="id"
+                                />
                             </Validator>
                         </Field>
                     </Fields>
@@ -456,7 +467,6 @@ export default class ValidatorDemo extends Component {
                                             value={store.users[index].age}
                                             onChange={value => {
                                                 this.handleUsersFieldChange("age", index, value)
-                                                console.log(value)
                                             }}/>
                                     </Validator>
                                 </Field>
