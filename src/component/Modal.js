@@ -21,7 +21,7 @@ class Modal extends Component {
 }
 
 Modal.defaultProps = {
-    confirm: <button className={`${NS} blue button`}>确认</button>,
+    confirm: <button className={`${NS} primary button`}>确认</button>,
     cancel: <button className={`${NS} button`}>取消</button>,
     close: <i className={`${NS} icon`}>close</i>
 }

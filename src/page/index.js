@@ -25,6 +25,7 @@ import {TabPage} from './TabPage'
 import {TimeInputPage} from './TimeInputPage'
 import {TimePickerPage} from './TimePickerPage'
 import {TooltipPage} from './TooltipPage'
+import {ThemePage} from './ThemePage'
 import {InputPage} from './InputPage'
 import {CardPage} from './CardPage'
 import {CrumbPage} from './CrumbPage'
@@ -73,6 +74,7 @@ export  {
     TimePickerPage,
     TempPage,
     TooltipPage,
+    ThemePage,
     InputPage,
     CardPage,
     CrumbPage,

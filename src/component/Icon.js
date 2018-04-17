@@ -6,19 +6,24 @@ const PropTypes = require('prop-types')
 
 class Icon extends Component {
     render() {
-        let {size} = this.props
+        let { size, color } = this.props
+        if (color) {
+          color = `color-${color}`
+        }
         return (
-            <i className={klassName(NS, size, 'icon')} {...this.props}></i>
+            <i className={klassName(NS, size, color, 'icon')} {...this.props}></i>
         );
     }
 }
 
 Icon.propTypes = {
-    size: PropTypes.oneOf(['small', '', 'large', 'huge'])
+    size: PropTypes.oneOf(['small', '', 'large', 'huge']),
+    color: PropTypes.string
 }
 
 Icon.defaultProps = {
     size: '',
+    color: '',
 }
 
 module.exports = {

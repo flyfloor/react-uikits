@@ -79,11 +79,13 @@
         &:checked + *{
             &:before {
                 content: 'check_box';
+                color: @primaryColor;
             }
         }
         & + * {
             &:before {
                 content: 'check_box_outline_blank';
+                color: @primaryColor;
             }
         }
     }
@@ -94,11 +96,13 @@
         &:checked + *{
             &:before {
                 content: 'radio_button_checked';
+                color: @primaryColor;
             }
         }
         & + * {
             &:before {
                 content: 'radio_button_unchecked';
+                color: @primaryColor;
             }
         }
     }

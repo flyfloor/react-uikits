@@ -10,7 +10,7 @@
     ._label {
         border-radius: @radius @radius 0 0;
         padding: @gap;
-        background-color: @blue;
+        background-color: @primaryColor;
         color: @light_gray;
         a {
             .revert_link;
@@ -33,11 +33,11 @@
         ._link {
             ._year-link, ._month-link {
                 .link;
-                color: @blue;
+                color: @primaryColor;
             }
         }
         a {
-            .blue_link;
+            .primary_link;
         }
         ._nav {
             width: 20px;
@@ -77,11 +77,11 @@
                 line-height: @_h;
                 &._today {
                     border-radius: @_h;
-                    color: @blue;
-                    border: 1px solid @blue;
+                    color: @primaryColor;
+                    border: 1px solid @primaryColor;
                 }
                 &._active {
-                    background-color: @blue;
+                    background-color: @primaryColor;
                     border-radius: @_h;
                     color: @white;
                 }
@@ -102,7 +102,7 @@
                 text-align: center;
                 line-height: 46px;
                 ._active {
-                    .blue_link;
+                    .primary_link;
                 }
             }
         }

@@ -12,6 +12,7 @@
         i:after {
             content: 'date_range';
             .input_icon;
+            color: @primaryColor;
         }
     }
     /* position */
@@ -47,7 +48,7 @@
                 >._label:before {
                     left: -15px;
                     top: 10px;
-                    border-color: transparent @blue transparent transparent;
+                    border-color: transparent @primaryColor transparent transparent;
                 }
             }
         }
@@ -64,7 +65,7 @@
                 >._label:before {
                     left: @min_input_width * 1.25 - 3px;
                     top: 10px;
-                    border-color: transparent transparent transparent @blue;
+                    border-color: transparent transparent transparent @primaryColor;
                 }
             }
         }
@@ -88,7 +89,7 @@
                 left: 15px;
                 border: 8px solid;
                 z-index: 10;
-                border-color: transparent transparent @blue transparent;
+                border-color: transparent transparent @primaryColor transparent;
             }
             ._label {
                 border-radius: 0;

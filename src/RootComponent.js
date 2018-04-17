@@ -16,7 +16,7 @@ import {
     PaginationPage, PinPage, PanelPage, ProgressPage,
     RadioPage, RadioGroupPage,
     SlideMenuPage, StartPage,
-    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage, TempPage,
+    ToastPage, TabPage, TimeInputPage, TimePickerPage, TooltipPage, TablePage, TextPage, TempPage, ThemePage,
     ValidatorPage,
 } from './page';
 
@@ -110,6 +110,7 @@ const ContentPage = props => {
              <article className="column column-13 main-content">
                 <Route exact path="/component" component={BasicPage}></Route>
                 <Route path="/start" component={StartPage}></Route>
+                <Route path="/theme" component={ThemePage}></Route>
                 <Route path="/install" component={InstallPage}></Route>
                 <Route path="/component/button" component={ButtonPage}></Route>
                 <Route path="/component/calendar" component={CalendarPage}></Route>
@@ -168,6 +169,7 @@ const BaseComponent = () => {
                     <Route exact path="/" component={RootPage}></Route>
                     <Route path="/component" component={ContentPage}></Route>
                     <Route path="/start" component={ContentPage}></Route>
+                    <Route path="/theme" component={ContentPage}></Route>
                     <Route path="/install" component={ContentPage}></Route>
                     <Route path="/temp" component={ContentPage}></Route>
                     <Route component={RootPage}></Route>

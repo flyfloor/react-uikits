@@ -6,7 +6,7 @@ const Cmp = require('react-ui-component').ConfirmBox
 let ConfirmBox = wrapComponent(Cmp)
 
 ConfirmBox.defaultProps = {
-    confirm: <button className={`${NS} tiny blue button`}>确认</button>,
+    confirm: <button className={`${NS} tiny primary button`}>确认</button>,
     cancel: <button className={`${NS} tiny button`}>取消</button>,
 }
 

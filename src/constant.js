@@ -53,6 +53,7 @@ export const PROVINCES = [
 export const NAV_MAP = {
     'Usage': [
         {route: '/start', name: '快速上手'},
+        {route: '/theme', name: '主题'},
         {route: '/install', name: '安装'},
     ],
     'Component': [
