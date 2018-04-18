@@ -12,26 +12,26 @@ export class TextPage extends Component {
                     <li>
                         <h4>省略的文字</h4>
                         <CodeView component={
-                            <div style={{'width': '200px'}} className="truncate">
+                            <p style={{'width': '200px'}} className="truncate">
                                 hello, this will not show the fully text.
-                            </div>
+                            </p>
                         }>
-                            {`<div class="truncate">content</div>`}
+                            {`<p class="truncate">content</p>`}
                         </CodeView>
                         <br/>
                     </li>
                     <li>
                         <h4>换行显示</h4>
                         <CodeView component={
-                            <div style={{'width': '200px'}} className="break-word">
+                            <p style={{'width': '200px'}} className="break-word">
                                 <a href="https://www.google.com/design/spec/style/color.html" target="_blank">
                                     https://www.google.com/design/spec/style/color.html
                                 </a>
-                            </div>
+                            </p>
                         }>
-{`<div class="break-word">
+{`<p class="break-word">
     <a href="#">href</a>
-</div>`}
+</p>`}
                         </CodeView>
                         <br/>
                     </li>

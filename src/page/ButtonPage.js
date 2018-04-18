@@ -47,6 +47,11 @@ export class ButtonPage extends Component {
                             {`<button className="${NS} button">按钮</button>`}
                         </CodeView>
                         <br/>
+                        <h4>主色调按钮</h4>
+                        <CodeView component={<button className={CN('primary button')}>按钮</button>}>
+                            {`<button className="${NS} primary button">按钮</button>`}
+                        </CodeView>
+                        <br/>
                         <h4>直角按钮</h4>
                         <CodeView component={<button className={CN('angled button')}>按钮</button>}>
                             {`<button className="${NS} angled button">按钮</button>`}

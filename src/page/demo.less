@@ -4,7 +4,8 @@
 .__column(@n, @i: 1) when (@i =< @n) {
     .column-@{i} {
       position: relative;
-      background: @tiny_gray;
+      background: @primaryColor;
+      color: @mildColor;
       border: 1px solid @light_gray;  
     }
  .__column(@n, (@i + 1));
@@ -32,7 +33,7 @@ body, page, #root {
         padding: 24px;
         border-bottom: 2px solid transparent;
         &.active {
-            border-color: @blue;
+            border-color: @primaryColor;
         }
     }
 }
@@ -52,7 +53,7 @@ body, page, #root {
         padding: 5px;
         font-size: 13px;
         &.active {
-            .blue_link;
+            .primary_link;
         }
     }
 }
@@ -80,7 +81,7 @@ body, page, #root {
 
 .main-footer {
     height: @gap * 4;
-    background-color: @blue;
+    background-color: @primaryColor;
     color: @white;
     margin-top: @gap * 5;
     .container {
@@ -137,12 +138,14 @@ body, page, #root {
 .grid-example {
     .__column(16);
     .column {
-        background: @tiny_gray;
+        background: @primaryColor;
+        color: @mildColor;
         border: 1px solid @light_gray;
     }
     .basic .column {
         background: initial;
         border: initial;
+        color: initial;
     }
 }
 
