@@ -125,7 +125,6 @@
 @black: #000000;
 @white: #ffffff;
 
-/*@primaryColor: #13D1BE;*/
 @primaryColor: @blue;
 @mildColor: @light_gray;
 
@@ -189,6 +188,12 @@
     &-white { 
         color: @white;
     }
+    &-primary {
+        color: @primaryColor;
+    }
+    &-mild {
+        color: @mildColor;
+    }
 }
 
 .bg {
@@ -211,4 +216,6 @@
     &-soft_gray { background-color: @soft_gray !important }
     &-black { background-color: @black !important }
     &-white { background-color: @white !important }
+    &-primary { background-color: @primaryColor !important }
+    &-mild { background-color: @mildColor !important }
 }
