@@ -76,7 +76,7 @@ const rules = {
         min: 5, max: 12, message: '名字长度5至12字'
     }],
     "users.1.age": {
-        type: 'number', min: 3, max: 23, message: '3-12 岁'
+        type: 'number', min: 3, max: 23, message: '3-23 岁'
     },
     countries: [RULE.required, {
         type: 'array', min: 3, message: '至少选三个',
