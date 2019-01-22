@@ -1,6 +1,6 @@
 {
   "name": "react-uikits",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "react uikit collection",
   "main": "app.js",
   "scripts": {
