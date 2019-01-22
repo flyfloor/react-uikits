@@ -1,3 +1,4 @@
+/* eslint no-useless-escape: 0 */
 const NS = 'dot';
 
 const FORM_RULE = {
