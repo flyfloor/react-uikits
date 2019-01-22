@@ -4,6 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = require('./webpack.base');
+config.mode = 'production'
 
 config.entry = {
     app: "./src/entre.js",

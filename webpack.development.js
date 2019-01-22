@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ForceCaseSensitivityPlugin = require('force-case-sensitivity-webpack-plugin');
 
 var config = require('./webpack.base');
+config.mode = 'development'
 
 config.entry = {
     app: [ "./src/entre.js", "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&overlay=false" ],
