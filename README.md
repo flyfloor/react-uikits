@@ -6,7 +6,7 @@
 
 基于 React.js 的企业平台组件解决方案
 
-## 主页: [http://braavos.me/react-uikits](http://braavos.me/react-uikits)
+## 主页: [http://flyfloor.github.io/react-uikits](http://flyfloor.github.io/react-uikits)
 
 ## Release Note: [relase note](./release.md)
 
